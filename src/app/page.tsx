@@ -7,7 +7,7 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      <main className="container mx-auto max-w-5xl px-4 py-8">
+      <main className="container mx-auto px-4 py-8">
         <ProjectGrid />
       </main>
     </div>

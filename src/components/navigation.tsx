@@ -9,7 +9,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/navigation-menu"
-import { ModeToggle } from "@/components/mode-toggle"
+import { ModeToggle } from "./mode-toggle"
 
 export function Navigation() {
   return (
