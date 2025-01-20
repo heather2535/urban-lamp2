@@ -44,7 +44,7 @@ const projects = [
   {
     slug: "hariri-institute",
     title: "Hariri Institute Website Redesign",
-    description: "Complete redesign and development of the institute's web presence.",
+    description: "Complete redesign and development of the institute\'s web presence.",
     date: "September 22, 2024",
     video: "/video2.mov",
     content: `
@@ -60,7 +60,7 @@ const projects = [
         <p>Incorporating the BU Research theme will provide a solid foundation for the redesign, while customized elements will reflect the Hariri Institute’s identity. The website will also be fully optimized for mobile and tablet users, ensuring a seamless experience across all devices. Another major update is streamlining the content management system, which will simplify the process for staff to update and manage site content. These updates are essential to making the website both functional and user-friendly, allowing staff to efficiently manage resources and communicate updates.</p>
         <br></br>
         <p class="text-2xl font-bold mb-4">Improvements to About Us</p>
-        <p>The About Us section of the website will see major improvements. Currently, the 'Our Impact' page features the Impact Report, but the format is not ideal for mobile users. By integrating interactive features like animated percentage statistics and enhancing the graphic’s design with hover optimization and branding colors, we will make the page more engaging and easier to navigate. Similarly, the Centers & Initiatives section will be restructured to address issues with the long dropdown menu. The 11 centers and initiatives will be categorized into broader topics, which can be expanded for further exploration. This will simplify the navigation process and make it less overwhelming for users to explore all available options.</p>
+        <p>The About Us section of the website will see major improvements. Currently, the \'Our Impact\' page features the Impact Report, but the format is not ideal for mobile users. By integrating interactive features like animated percentage statistics and enhancing the graphic’s design with hover optimization and branding colors, we will make the page more engaging and easier to navigate. Similarly, the Centers & Initiatives section will be restructured to address issues with the long dropdown menu. The 11 centers and initiatives will be categorized into broader topics, which can be expanded for further exploration. This will simplify the navigation process and make it less overwhelming for users to explore all available options.</p>
         <br></br>
         <p class="text-2xl font-bold mb-4">Revamping the Research Section</p>
         <p>The Research section of the website will undergo significant updates as well. The Focused Research Programs page, which currently features a long list of programs, will be reorganized to display programs in a more manageable format. We plan to implement expandable dropdowns for each program, and create horizontal and vertical menus to allow users to navigate research by year or topic. A filtering system and search bar will be added to further streamline the process, enabling users to easily find research by year or specific keywords. By organizing research in this way, we can reduce information overload and improve the overall user experience.</p>
@@ -89,7 +89,7 @@ const projects = [
     <p>HealthSync is a comprehensive healthcare application designed to serve both users and hospitals. Users can access personalized dashboards to manage their health information, book appointments, and stay connected with healthcare providers. Hospitals, on the other hand, benefit from a dedicated dashboard that streamlines patient management, appointment scheduling, and overall health. </p>
      <br></br>
     <p class="text-2xl font-bold mb-4">How it is Built</p>
-    <p>HealthSync was built using a stack of modern technologies. The front end is powered by React and Next.js, providing a robust user interface. To manage state and data, we adopted Redux and Redux Toolkit, which was a significant learning experience as it was the first time we used them for a large-scale project. On the backend, we developed a Node.js server that utilizes Express to handle API requests. The core of the application's data management is handled by a combination of Axios for HTTP requests and Redux Toolkit Query for efficient data fetching and management. During the development process, we encountered a few challenges, including initial setup hurdles with RTK Query and Next.js. However, we persevered, learned valuable lessons, and overcame these obstacles.</p>
+    <p>HealthSync was built using a stack of modern technologies. The front end is powered by React and Next.js, providing a robust user interface. To manage state and data, we adopted Redux and Redux Toolkit, which was a significant learning experience as it was the first time we used them for a large-scale project. On the backend, we developed a Node.js server that utilizes Express to handle API requests. The core of the application\'s data management is handled by a combination of Axios for HTTP requests and Redux Toolkit Query for efficient data fetching and management. During the development process, we encountered a few challenges, including initial setup hurdles with RTK Query and Next.js. However, we persevered, learned valuable lessons, and overcame these obstacles.</p>
     <br></br>
     <p class="text-2xl font-bold mb-4">Challenges Ran into</p>
     <p>We faced some initial challenges, particularly in configuring and integrating Redux Toolkit Query (RTK Query) with Next.js. The learning curve for this powerful tool was steep, but through perseverance and dedicated problem-solving, we successfully implemented RTK Query into our project. Additionally, handling real-time data and state management in a healthcare context presented unique challenges, which we tackled by enhancing our understanding of Redux and RTK Query.</p>
@@ -133,7 +133,6 @@ const projects = [
     description: "Combines Hume AI and Pipe Cat Frameworks with React, Next.js, and Figma to deliver an advanced mock interview platform. Built with React and Next.js to power a fast, dynamic interfaces for a superior experience.",
     date: "February 3, 2024",
     video: "/video5.mp4",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ai-task-manager-2Tz9RvF9oDtf3sCJJLLJC6Xj7Xveuu.jpg",
     content: `
     <p class="text-2xl font-bold mb-4">Project Overview</p>
     <p>Every company knows that talent is their most important asset; however, most businesses have a terrible first-round talent acquisition process.  We believe the first-round screening is perfect for AI automation. We’re targeting medium sized businesses without the resources for HR teams. Innovative willing to adopt new tech Lower budget can’t afford traditional recruiting agencies, as well as Small team Between 10-50 employees without established HR.</p>
@@ -146,13 +145,11 @@ const projects = [
     <br></br>
     <p class="text-2xl font-bold mb-4">Tech Stack</p>
     <p>The codebase for this product is split into three different repositories. 
-The first is the web app, which handles the front-end, and is made using Next.js and React. 
-The second is the analysis repository, which scores the applicants and provides an overall summary. This was built using Hume AI, which is a semantic analysis API. 
-The third and final is called the bot repository, and this handles the real-time generative AI voice bots. This was built using Pipecat, which is an open source framework for speech-to-text and text-to-speech LLMs and provides a succinct speech to speech experience. </p>
-<br></br>
-
-    
-`,   
+        The first is the web app, which handles the front-end, and is made using Next.js and React. 
+        The second is the analysis repository, which scores the applicants and provides an overall summary. This was built using Hume AI, which is a semantic analysis API. 
+        The third and final is called the bot repository, and this handles the real-time generative AI voice bots. This was built using Pipecat, which is an open source framework for speech-to-text and text-to-speech LLMs and provides a succinct speech to speech experience. </p>
+        <br></br>       
+        `,   
     tags: ["Web Development", "AI Integration"]
   },
   {
@@ -164,44 +161,58 @@ The third and final is called the bot repository, and this handles the real-time
     content: '"The Virtual Art Gallery is a web-based 3D environment where artists can showcase their work in immersive, customizable virtual spaces. Users can navigate through the gallery using intuitive controls, view artworks from different angles, and even attend virtual exhibition openings. The project required expertise in 3D web technologies, optimizing for performance across various devices, and creating an intuitive interface for both artists uploading their work and visitors exploring the gallery."',
     tags: ["Web Development", "3D Design"]
   }
+
+
 ]
-
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = projects.find(p => p.slug === params.slug)
-
-  if (!project) {
-    notFound()
+// Generate static paths for all projects
+export async function generateStaticParams() {
+    return projects.map((project) => ({
+      slug: project.slug,
+    }));
   }
-
-  return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <main className="container  max-w-4xl mx-auto px-20 py-8">
-        <article className="prose lg:prose-xl dark:prose-invert mx-auto">
-          <p className="text-muted-foreground mb-8">{project.date2}</p>
-          <h1 className= "font-bold text-[3rem] mb-8 leading-tight">{project.title}</h1>
-          <p className="text-muted-foreground mb-8">{project.date}</p>
-          <div className="mb-8">
-            {project.tags.map(tag => (
-              <Badge key={tag} variant="secondary" className="mr-2">{tag}</Badge>
-            ))}
-          </div>
-          <div className="relative aspect-video mb-6">
-            <video
-                src={project.video}
-                className="object-cover rounded-lg"
-                controls
-                autoPlay
-                muted
-            />
+  
+  export default function ProjectPage({ params }: { params: { slug: string } }) {
+    const project = projects.find((p) => p.slug === params.slug);
+  
+    if (!project) {
+      notFound(); // Trigger 404 page
+    }
+  
+    return (
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <main className="container max-w-4xl mx-auto px-4 py-8">
+          <article className="prose lg:prose-xl dark:prose-invert mx-auto">
+            <p className="text-muted-foreground mb-8">{project.date}</p>
+            <h1 className="font-bold text-[3rem] mb-8 leading-tight">
+              {project.title}
+            </h1>
+            <div className="mb-8">
+              {project.tags.map((tag) => (
+                <Badge key={tag} variant="secondary" className="mr-2">
+                  {tag}
+                </Badge>
+              ))}
             </div>
-
-          <p className="lead text-muted-foreground mb-6">{project.description}</p>
-          <div dangerouslySetInnerHTML={{ __html: project.content }} />
-        </article>
-      </main>
-    </div>
-  )
-}
-
-;
+            {project.video && (
+              <div className="relative aspect-video mb-6">
+                <video
+                  src={project.video}
+                  className="object-cover rounded-lg"
+                  controls
+                  autoPlay
+                  muted
+                  loop // Optional: Add loop if you want the video to replay
+                />
+              </div>
+            )}
+            <p className="lead text-muted-foreground mb-6">{project.description}</p>
+            <div
+              className="prose lg:prose-xl dark:prose-invert"
+              dangerouslySetInnerHTML={{ __html: project.content }}
+            />
+          </article>
+        </main>
+      </div>
+    );
+  }
