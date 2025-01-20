@@ -1,6 +1,6 @@
-import { Navigation } from "@/components/ui/navigation"
-import { Hero } from "@/components/ui/hero"
-import { ProjectGrid } from "@/components/ui/project-grid"
+import { Navigation } from "@/components/navigation"
+import { Hero } from "@/components/hero"
+import { ProjectGrid } from "@/components/project-grid"
 
 export default function Home() {
   return (

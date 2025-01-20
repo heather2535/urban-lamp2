@@ -8,8 +8,8 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from "@/components/ui/navigation-menu"
-import { ModeToggle } from "@/components/ui/mode-toggle"
+} from "@/components/navigation-menu"
+import { ModeToggle } from "@/components/mode-toggle"
 
 export function Navigation() {
   return (

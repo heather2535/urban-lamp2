@@ -1,7 +1,7 @@
-import { ModeToggle } from "@/components/ui/mode-toggle"
-import { Navigation } from "@/components/ui/navigation"
-import { ProjectGrid } from "@/components/ui/project-grid"
-import { Hero } from "@/components/ui/hero"
+import { ModeToggle } from "@/components/mode-toggle"
+import { Navigation } from "@/components/navigation"
+import { ProjectGrid } from "@/components/project-grid"
+import { Hero } from "@/components/hero"
 
 export default function Page() {
   return (

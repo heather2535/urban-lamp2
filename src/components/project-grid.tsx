@@ -5,9 +5,9 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { MoreVertical, Copy, Share, Twitter, Linkedin } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/dropdown-menu"
+import { Button } from "@/components/button"
+import { Badge } from "@/components/badge"
 import { toast } from "@/components/ui/use-toast"
 
 type Project = {
