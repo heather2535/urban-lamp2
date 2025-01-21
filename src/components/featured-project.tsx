@@ -1,8 +1,8 @@
 import { JSX, useState } from "react"
 import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
-import { Folder, BarChart, Layers, Palette, Tag } from "lucide-react"
-
+import { Folder, BarChart, Layers, Palette, Tag, ScrollIcon } from "lucide-react"
+import { ScrollingLogos } from "./scrolling-logos"
 interface FeaturedProjectProps {
   projects: {
     title: string
@@ -79,52 +79,69 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
       </div>
 
       {/* Full-Width Section Cutting Off Video */}
-      <div className="relative -mt-20 z-20 border-t border-b">
+      <div className="relative z-20 border-t border-b">
         <div
-          className="w-full h-32 bg-background flex items-center justify-center"
+          className="w-full h-82 bg-background flex items-center justify-center"
           style={{
             boxShadow: "0 -80px 100px 20px rgba(128, 0, 128, 0.5)", // Adjust as needed
           }}
         >
-          {/* Tags Section inside Full-Width Section */}
-          <div className="max-w-5xl w-full border-2 px-5 py-3 rounded-full mt-6 flex flex-wrap items-center justify-center">
-            <div
-              className="flex transition-all ease-in-out duration-500 gap-3"
-              style={{
-                transform: activeTag ? "translateX(-10px)" : "translateX(0)", // Shift when tag is clicked
-              }}
+{/* Tags Section inside Full-Width Section */}
+{/* Full-Width Section Cutting Off Video */}
+
+<div className="bg-background w-full relative -mt-20 z-20 border-t border-b">
+  <div className="w-full h-62 bg-background flex flex-col items-center justify-center"> {/* Use flex-col to stack elements */}
+    {/* Tags Section inside Full-Width Section */}
+    <div className="max-w-5xl border-2 px-5 py-3 rounded-full mt-6 flex flex-wrap items-center justify-center">
+      <div
+        className="flex transition-all ease-in-out duration-500 gap-3"
+        style={{
+          transform: activeTag ? "translateX(-10px)" : "translateX(0)", // Shift when tag is clicked
+        }}
+      >
+        {displayedTags.map((tag) => (
+          <motion.button
+            key={tag}
+            onClick={() => handleTagClick(tag)}
+            className={cn(
+              "group flex items-center gap-2 whitespace-nowrap rounded-full border px-6 py-3 transition-all",
+              activeTag === tag
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-border bg-background hover:border-primary hover:bg-primary/10"
+            )}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <span
+              className={cn(
+                "flex h-8 w-8 items-center justify-center rounded-full transition-colors",
+                activeTag === tag
+                  ? "bg-primary-foreground text-primary"
+                  : "bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary"
+              )}
             >
-              {displayedTags.map((tag) => (
-                <motion.button
-                  key={tag}
-                  onClick={() => handleTagClick(tag)}
-                  className={cn(
-                    "group flex items-center gap-2 whitespace-nowrap rounded-full border px-6 py-3 transition-all",
-                    activeTag === tag
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border bg-background hover:border-primary hover:bg-primary/10"
-                  )}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span
-                    className={cn(
-                      "flex h-8 w-8 items-center justify-center rounded-full transition-colors",
-                      activeTag === tag
-                        ? "bg-primary-foreground text-primary"
-                        : "bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary"
-                    )}
-                  >
-                    {/* Correct icon rendering based on tag */}
-                    {tagIcons[tag.toLowerCase()] || <Tag className="h-5 w-5" />}
-                  </span>
-                  <span className="text-sm font-medium">{tag}</span>
-                </motion.button>
-              ))}
-            </div>
-          </div>
-        </div>
+              {/* Correct icon rendering based on tag */}
+              {tagIcons[tag.toLowerCase()] || <Tag className="h-5 w-5" />}
+            </span>
+            <span className="text-sm font-medium">{tag}</span>
+          </motion.button>
+        ))}
       </div>
+    </div>
+
+    {/* Streamlining Text */}
+    <div className="w-full flex justify-center items-center text-center text-white/70 mt-6 mb-20 text-lg">
+      <div className="text-sm font-regular max-w-6xl px-6"> {/* Set maximum width for the text container */}
+      Streamlining deployments, automating workflows, optimizing performance, and ensuring the long-term stability of your websites and applications.
+      </div>
+    </div>
+    <ScrollingLogos></ScrollingLogos>
+
+  </div>
+</div>
+</div>
+</div>
+
     </div>
   )
 }

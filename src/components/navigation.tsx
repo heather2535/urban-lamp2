@@ -9,7 +9,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/navigation-menu"
-import { Code2 } from "lucide-react"
+import { Code2 } from 'lucide-react'
 
 import { ModeToggle } from "./mode-toggle"
 
@@ -34,16 +34,11 @@ export function Navigation() {
   }, [])
 
   return (
-    <div
-      className={cn(
-        "fixed top-0 left-0 w-full transition-all duration-500 ease-in-out z-50",
-        scrolled ? "bg-background/60 border-input border-input backdrop-blur-md opacity-100" : "bg-transparent bg-opacity-0"
-      )}
-    >
+    <div className="fixed top-0 left-0 w-full border-b bg-background/60 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center space-x-2">
-            <Code2 className="h-8 w-8 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
+            <Code2 className="h-8 w-8 text-pink-500  text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
             <span className="text-gradient text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x">
               Heather Davies
             </span>
@@ -74,6 +69,6 @@ export function Navigation() {
 
 const navigationMenuTriggerStyle = () => {
   return cn(
-    "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-transparent hover:text-accent-foreground focus:bg-transparent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent",
+    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
   )
 }

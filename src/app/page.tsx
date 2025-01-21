@@ -9,6 +9,7 @@ import { Button } from "@/components/button"
 import { SkillsSection } from "@/components/skills-section"
 import { ProjectFilter } from "@/components/project-filter"
 import { FeaturedProject } from "@/components/featured-project"
+import Link from "next/link"
 
 export default function ProjectsPage() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
@@ -48,14 +49,20 @@ export default function ProjectsPage() {
               <p className="px-20 mx-20 mt-6 text-lg leading-8 text-white font-light">
                 Crafting digital experiences that combine functionality with powerful design. 
               </p>
-              <div className="mt-10 flex items-center justify-center gap-x-4">
-                <Button size="lg" variant="outline" onClick={scrollToProjects} className="py-6">
+
+            <div className="mt-10 flex items-center justify-center gap-x-4">
+              <Link href="/projects" passHref>
+                <Button size="lg" variant="outline" className="py-6">
                   View Projects
                 </Button>
+              </Link>
+              <Link href="/about" passHref>
                 <Button size="lg" variant="outline" className="py-6">
-                  Contact Me
+                  About Me
                 </Button>
-              </div>
+              </Link>
+            </div>
+
             </div>
           </div>
         </div>
@@ -63,30 +70,15 @@ export default function ProjectsPage() {
 
       {/* Featured Project Section */}
       <FeaturedProject projects={filteredProjects} />
+      
 
       {/* Projects Section */}
       
 
-      {/* LandingFilter */}
-      <div
-        className="bg-black mx-auto flex flex-col justify-center items-center relative px-10 -mt-8 pb-40 pt-4 border-t border-b border-input" 
-        style={{
-          boxShadow: "inset 0px 50px 100px -20px rgba(61, 229, 244, 0.2)", // Pink-500 RGB shadow
-        }}
-      >
-        <ProjectFilter
-          tags={allTags}
-          selectedTag={selectedTag}
-          onTagSelect={setSelectedTag}
-          onSearch={setSearchQuery}
-        />
-        <div className="flex justify-center text-center text-white/70 -mt-8 mb-20 text-lg bg-black">
-          Streamlining deployments, automating workflows, and maintaining the stability of your websites and applications.
-        </div>
-      </div>
+
 
       {/* Skills Section */}
-      <div className="px-10 -mt-8 pt-8 border border-input bg-background" >
+      <div className="px-10 -mt-8 pt-8  bg-background" >
         <SkillsSection />
       </div>
     </div>
