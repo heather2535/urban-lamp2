@@ -33,7 +33,7 @@ export default function ProjectsPage() {
   }
 
   return (
-    <div className="group min-h-screen bg-background" style={{ background: "linear-gradient(to right, #000000, #1a2a3a, #004d28, #6a4e92)" }}>
+    <div className="group min-h-screen bg-background fade-in" style={{ background: "linear-gradient(to right, #000000, #1a2a3a, #004d28, #6a4e92)" }}>
       <AuraCursor />
 
       {/* Hero Section */}
@@ -52,13 +52,13 @@ export default function ProjectsPage() {
 
             <div className="mt-10 flex items-center justify-center gap-x-4">
               <Link href="/projects" passHref>
-                <Button size="lg" variant="outline" className="py-6">
-                  View Projects
+                <Button size="lg" variant="default"className="py-6 px-6">
+                  Get started
                 </Button>
               </Link>
               <Link href="/about" passHref>
-                <Button size="lg" variant="outline" className="py-6">
-                  About Me
+                <Button size="lg" variant="outline" className="py-6 px-12">
+                  About
                 </Button>
               </Link>
             </div>

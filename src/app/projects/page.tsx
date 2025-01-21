@@ -55,7 +55,7 @@ export default function ProjectsPage() {
 
       {/* Projects Section */}
 {/* Projects Section */}
-<section ref={projectsRef} className="flex items-center justify-center flex mx-auto max-w-full min-h-screen bg-gradient-to-b from-background to-accent/20 px-12 py-22">
+<section ref={projectsRef} className="flex mx-auto max-w-full min-h-screen bg-gradient-to-b from-background to-accent/20 px-12 py-22">
   <div className="container -mb-2">
     <div className="flex items-center space-x-2">
       <h2 className="text-white text-4xl font-bold tracking-tight text-transparent mb-6 sm:text-3xl lg:text-3xl">

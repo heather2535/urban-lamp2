@@ -64,6 +64,7 @@
   }
 }
 
+
 @keyframes gradient-x {
   0%,
   100% {
@@ -107,3 +108,19 @@
   -ms-overflow-style: none; /* for Internet Explorer 10+ */
   scrollbar-width: none; /* for Firefox */
 }
+
+@keyframes fadeInFromBlack {
+  0% {
+    opacity: 0;
+    background-color: #000000;
+  }
+  100% {
+    opacity: 1;
+    background-color: #1a2a3a; /* Your background color */
+  }
+}
+
+.fade-in {
+  animation: fadeInFromBlack 1.5s ease-in-out forwards;
+}
+
