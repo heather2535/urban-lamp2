@@ -62,7 +62,10 @@ export default {
         'h2': '2.5rem', // h2 will have 2.5rem font size
         'h3': '2rem', // h3 will have 2rem font size
         'h4': '1.5rem' // h4 will have 1.5rem font size
-      }
+      },
+	  fontFamily: {
+        marcellus: ['Marcellus', 'serif'], // Make sure this matches the font you imported
+      },
     }
   },
   plugins: [require("tailwindcss-animate")], // Add any tailwind plugins here

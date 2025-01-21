@@ -1,9 +1,17 @@
+"use client"
 import { Navigation } from "@/components/navigation"
 import Image from "next/image"
+import { AuraCursor } from "@/components/aura-cursor"
+import { useState, useMemo, useRef, useEffect } from "react"
+
 
 export default function About() {
+      const [showAura, setShowAura] = useState(true)
+    
   return (
-    <div className="min-h-screen bg-background">
+    <div className={`group min-h-screen bg-background ${showAura ? "" : "pointer-events-none"}`}>
+              {showAura && <AuraCursor />}
+
       <Navigation />
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-2xl mx-auto">

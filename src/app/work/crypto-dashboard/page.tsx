@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react"
-import { Navigation } from "@/components/navigation"
 import { Badge } from "@/components/badge"
 import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
 import Link from "next/link"  // Ensure to import Link for routing
@@ -138,7 +137,6 @@ export default function CryptoDashboardPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
       <main className="container max-w-2xl mx-auto px-4 py-8">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
           <p className="text-[14px] text-muted-foreground mt-8 mb-4">{project.description2}</p>

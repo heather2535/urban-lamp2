@@ -1,15 +1,9 @@
-import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/components/ui/toaster"
+import { ThemeProvider } from "@/providers"
+import { Navigation } from "@/components/navigation"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
-
-export const metadata: Metadata = {
-  title: "Heather Davies Portfolio",
-  description: "Web developer and designer portfolio",
-}
 
 export default function RootLayout({
   children,
@@ -19,12 +13,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <div>
+            <Navigation />
+          </div>
           {children}
-          <Toaster />
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
