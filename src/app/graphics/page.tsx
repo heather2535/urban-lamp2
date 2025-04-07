@@ -13,6 +13,12 @@ const galleryImages = [
   { src: "/gallery/image6.jpg", alt: "Project 6", title: "Project 6" },
   { src: "/gallery/image7.png", alt: "Project 7", title: "Project 7" },
   { src: "/gallery/image8.png", alt: "Project 8", title: "Project 8" },
+  { src: "/gallery/image9.png", alt: "Project 9", title: "Project 9" },
+  { src: "/gallery/image10.png", alt: "Project 10", title: "Project 10" },
+  { src: "/gallery/image11.jpg", alt: "Project 11", title: "Project 11" },
+  { src: "/gallery/image12.jpg", alt: "Project 12", title: "Project 12" },
+
+
 ]
 
 export default function GraphicsPage() {
