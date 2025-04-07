@@ -9,7 +9,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/navigation-menu"
-import { Code2, Menu } from 'lucide-react'
+import { Menu, Palette } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 import { ModeToggle } from "./mode-toggle"
@@ -46,7 +46,7 @@ export function Navigation() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center space-x-2">
-            <Code2 className="h-8 w-8 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
+            <Palette className="h-8 w-8 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
             <span className="text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x">
               Heather Davies
             </span>

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Card } from "@/components/ui/card"
-import { Code2, ChevronRight } from "lucide-react"
+import { Code2, ChevronRight, Palette } from "lucide-react"
 
 import {
   SiReact,
@@ -30,7 +30,7 @@ export function AutomationSection() {
     return (
       <section className="mx-auto max-w-6xl mt-12 py-20">
         <div className="flex justify-center items-center h-full mb-12">
-          <Code2 className="h-12 w-12 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
+          <Palette className="h-12 w-12 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
         </div>
   
         <h2 className="text-5xl lg:text-6xl font-bold mb-8 text-center text-black dark:text-white">Design & Development</h2>
