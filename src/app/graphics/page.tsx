@@ -44,13 +44,13 @@ export default function GraphicsPage() {
           {galleryImages.map((image, index) => (
             <div 
               key={index} 
-              className="relative aspect-square overflow-hidden rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
+              className="relative overflow-hidden rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
               onClick={() => setSelectedImage(image)}
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className="object-cover w-full h-full"
+                className="w-full h-auto"
               />
             </div>
           ))}
