@@ -46,37 +46,37 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center space-x-2">
             <Code2 className="h-8 w-8 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
-            <span className="text-gradient text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x">
+            <span className="text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x">
               Heather Davies
             </span>
           </Link>
 
-          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4">
             <NavigationMenu>
               <NavigationMenuList>
-                <NavigationMenuItem>
-                  <Link href="/projects" legacyBehavior passHref>
-                    <NavigationMenuLink 
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        pathname === "/projects" && "text-white" // Active link style
-                      )}
-                    >
-                      Projects
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/about" legacyBehavior passHref>
-                    <NavigationMenuLink 
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        pathname === "/about" && "text-white" // Active link style
-                      )}
-                    >
-                      About
-                    </NavigationMenuLink>
-                  </Link>
+              <NavigationMenuItem>
+                <Link href="/projects" legacyBehavior passHref>
+                <NavigationMenuLink 
+                  className={cn(
+                  navigationMenuTriggerStyle(),
+                  pathname === "/projects" && "hover:text-pink-500 text-pink-500" // Active link style
+                  )}
+                >
+                  Projects
+                </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="/about" legacyBehavior passHref>
+                <NavigationMenuLink 
+                  className={cn(
+                  navigationMenuTriggerStyle(),
+                  pathname === "/about" && "text-pink-500" // Active link style
+                  )}
+                >
+                  About
+                </NavigationMenuLink>
+                </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>

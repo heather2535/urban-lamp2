@@ -33,8 +33,8 @@ export function SkillsSection() {
           <Code2 className="h-12 w-12 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
         </div>
   
-        <h2 className="text-6xl font-bold mb-8 text-center text-white">Skills & Technologies</h2>
-        <div className="mx-auto mb-12 mt-12 max-w-2xl text-center text-white text-lg">
+        <h2 className="text-6xl font-bold mb-8 text-center text-black dark:text-white">Skills & Technologies</h2>
+        <div className="mx-auto mb-12 mt-12 max-w-2xl text-center text-gray-700 dark:text-white text-lg">
           <p>
             Proficient in UI/UX Design, 3D Design, AI Integration, Branding, and Data Visualization. 
             Experienced with design tools such as Figma and Adobe Creative Cloud, 
@@ -73,41 +73,7 @@ export function SkillsSection() {
   {/* Top Horizontal Line */}
   <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/20"></div>
 
-  <div className="grid grid-cols-[2fr_1fr] mx-auto max-w-6xl">
-    {/* First Column */}
-    <div className="p-10 border-b border-white/20">
-      <h3 className="text-lg font-semibold text-white">UI/UX Design</h3>
-      <p className="text-white/70 mt-2">
-        Proficient in creating user-centered designs that enhance user experience.
-      </p>
-      <a href="/projects/ui-ux-design" className="mt-4 inline-block text-blue-400 hover:text-blue-500">
-        Explore Projects
-      </a>
-    </div>
-
-    {/* Second Column Subdivided into Two Rows */}
-    <div className="border-l border-b border-white/20">
-      <div className="p-10 border-b border-white/20">
-        <h3 className="text-lg font-semibold text-white">3D Design & Branding</h3>
-        <p className="text-white/70 mt-2">
-          Skilled in creating visually appealing 3D designs and branding concepts.
-        </p>
-        <a href="/work/ai-task-manager" className="mt-4 inline-block text-blue-400 hover:text-blue-500">
-          View Case Study
-        </a>
-      </div>
-      <div className="p-10">
-        <h3 className="text-lg font-semibold text-white">Data Visualization</h3>
-        <p className="text-white/70 mt-2">
-          Expertise in presenting complex data in an easily digestible and visually appealing format.
-        </p>
-        <a href="/work/hariri-institute" className="mt-4 inline-block text-blue-400 hover:text-blue-500">
-          Explore Work
-        </a>
-      </div>
-    </div>
-  </div>
-
+ 
 </div>
 
       </section>

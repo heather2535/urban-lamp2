@@ -135,7 +135,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
       Streamlining deployments, automating workflows, optimizing performance, and ensuring the long-term stability of your websites and applications.
       </div>
     </div>
-    <ScrollingLogos></ScrollingLogos>
+
 
   </div>
 </div>

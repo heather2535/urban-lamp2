@@ -7,6 +7,8 @@ import { Navigation } from "@/components/navigation"
 import { projects, allTags } from "@/data/projects"
 import { Button } from "@/components/button"
 import { SkillsSection } from "@/components/skills-section"
+import { AutomationSection } from "@/components/featured-project2"
+
 import { ProjectFilter } from "@/components/project-filter"
 import { FeaturedProject } from "@/components/featured-project"
 import Link from "next/link"
@@ -33,29 +35,33 @@ export default function ProjectsPage() {
   }
 
   return (
-    <div className="group min-h-screen bg-background fade-in" style={{ background: "linear-gradient(to right, #000000, #1a2a3a, #004d28, #6a4e92)" }}>
+    <div className="group min-h-screen bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a2a3a] dark:to-[#6a4e92]">
       <AuraCursor />
+      <Navigation  />
 
       {/* Hero Section */}
       <section className="flex items-center justify-center px-4">
-        <div className="flex items-center justify-center relative w-full py-32 sm:py-48">
+        <div className="flex items-center justify-center relative w-full py-64 sm:py-80">
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" /> {/* Grainy texture */}
           
           <div className="container relative z-20">
             <div className="mx-auto max-w-5xl text-center">
-              <h1 className="text-white text-2xl font-semibold tracking-tight text-transparent sm:text-6xl lg:text-7xl">
+              <h1 className="text-black dark:text-white text-2xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">
                 Hi I'm Heather, Creative Engineer, AI Enthusiast
               </h1>
-              <p className="px-20 mx-20 mt-6 text-lg leading-8 text-white font-light">
+              <p className="px-20 mx-20 mt-6 text-lg leading-8 text-black dark:text-white font-light">
                 Crafting digital experiences that combine functionality with powerful design. 
               </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-4">
-              <Link href="/projects" passHref>
-                <Button size="lg" variant="default"className="py-6 px-6">
-                  Get started
-                </Button>
-              </Link>
+              <Button 
+                size="lg" 
+                variant="secondary" 
+                className="py-6 px-6 bg-black text-white dark:bg-white dark:text-black"
+                onClick={scrollToProjects}
+              >
+                Get started
+              </Button>
               <Link href="/about" passHref>
                 <Button size="lg" variant="outline" className="py-6 px-12">
                   About
@@ -69,16 +75,26 @@ export default function ProjectsPage() {
       </section>
 
       {/* Featured Project Section */}
-      <FeaturedProject projects={filteredProjects} />
+      <div ref={projectsRef}>
+        <FeaturedProject projects={filteredProjects} />
+      </div>
       
 
       {/* Projects Section */}
       
-
+   {/* Featured Project 2 Section */}
+   <div className="px-10 -mt-8 pt-8 bg-background">
+        <AutomationSection />
+      </div>
 
 
       {/* Skills Section */}
       <div className="px-10 -mt-8 pt-8  bg-background" >
+       
+      </div>
+
+          {/* Skills Section */}
+          <div className="px-10 -mt-8 pt-8  bg-background" >
         <SkillsSection />
       </div>
     </div>

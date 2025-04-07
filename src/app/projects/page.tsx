@@ -38,16 +38,17 @@ export default function ProjectsPage() {
         <div className="flex items-center justify-center relative w-full py-32 sm:py-48">
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" /> {/* Grainy texture */}
           
-          <div className="container relative z-20">
+            <div className="container relative z-20">
             <div className="mx-auto max-w-5xl text-center">
-              <p className="px-20 mx-20 mt-6 text-lg leading-8 text-white font-light mb-6">
+              <p className="px-20 mx-20 mt-6 text-lg leading-8 text-black dark:text-white font-light mb-6">
                 Crafting digital experiences. 
               </p>
-              <h1 className="text-white text-1xl font-semibold tracking-tight text-transparent sm:text-6xl lg:text-7xl">
-              Projects
-              </h1>
-
-  
+              <div className="relative">
+                <div className="absolute inset-0 blur-3xl -z-10 bg-[radial-gradient(circle,rgba(236,72,153,0.6)_0%,transparent_70%)]" />
+                <h1 className="text-foreground text-1xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">
+                  Projects
+                </h1>
+              </div>
             </div>
           </div>
         </div>
@@ -58,11 +59,11 @@ export default function ProjectsPage() {
 <section ref={projectsRef} className="flex mx-auto max-w-full min-h-screen bg-gradient-to-b from-background to-accent/20 px-12 py-22">
   <div className="container -mb-2">
     <div className="flex items-center space-x-2">
-      <h2 className="text-white text-4xl font-bold tracking-tight text-transparent mb-6 sm:text-3xl lg:text-3xl">
+      <h2 className="text-foreground text-4xl font-bold tracking-tight mb-6 sm:text-3xl lg:text-3xl">
         Tags
       </h2>
       <ChevronRight
-        className="text-white text-4xl mb-4 transform -translate-x-1"
+        className="text-foreground text-4xl mb-4 transform -translate-x-1"
         strokeWidth={4}
       />
     </div>

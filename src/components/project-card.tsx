@@ -25,7 +25,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <Link href={project.href} passHref>
         <div className="p-4">
           <h3
-            className={`text-xl font-semibold transition-colors ${isHovered ? "text-blue-500" : "text-white"}`} // Title turns blue on hover
+            className={`text-xl font-semibold transition-colors ${isHovered ? "text-blue-500" : "text-black dark:text-white"}`} // Title turns blue on hover
           >
             {project.title}
           </h3>
