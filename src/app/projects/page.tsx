@@ -40,14 +40,15 @@ export default function ProjectsPage() {
           
             <div className="container relative z-20">
             <div className="mx-auto max-w-5xl text-center">
-              <p className="px-20 mx-20 mt-6 text-lg leading-8 text-black dark:text-white font-light mb-6">
-                Crafting digital experiences. 
-              </p>
+
               <div className="relative">
                 <div className="absolute inset-0 blur-3xl -z-10 bg-[radial-gradient(circle,rgba(236,72,153,0.6)_0%,transparent_70%)]" />
-                <h1 className="text-foreground text-1xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">
+                <h1 className="text-foreground text-1xl font-semibold tracking-tight text-7xl">
                   Projects
                 </h1>
+                <p className=" mt-6 text-lg leading-8 text-black dark:text-white font-light mb-6">
+                Crafting digital experiences. 
+              </p>
               </div>
             </div>
           </div>
@@ -59,7 +60,7 @@ export default function ProjectsPage() {
 <section ref={projectsRef} className="flex mx-auto max-w-full min-h-screen bg-gradient-to-b from-background to-accent/20 px-12 py-22">
   <div className="container -mb-2">
     <div className="flex items-center space-x-2">
-      <h2 className="text-foreground text-4xl font-bold tracking-tight mb-6 sm:text-3xl lg:text-3xl">
+      <h2 className="text-foreground text-3xl font-bold tracking-tight mb-6 sm:text-3xl lg:text-3xl">
         Tags
       </h2>
       <ChevronRight

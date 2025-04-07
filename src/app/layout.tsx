@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} fade-in`} style={{ background: "linear-gradient(to right, #000000, #1a2a3a, #004d28, #6a4e92)" }}>
+      <body className={`${inter.className} fade-in`} style={{ background: "linear-gradient(to right, #000000, #1a2a3a, #6a4e92)" }}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <div className="flex flex-col min-h-screen">
             <Navigation />

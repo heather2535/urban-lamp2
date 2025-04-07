@@ -89,14 +89,14 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
 {/* Tags Section inside Full-Width Section */}
 {/* Full-Width Section Cutting Off Video */}
 
-<div className="bg-background w-full relative -mt-20 z-20 border-t border-b">
-  <div className="w-full h-62 bg-background flex flex-col items-center justify-center"> {/* Use flex-col to stack elements */}
+<div className="bg-background w-full relative px-4 sm:px-20 mx-0 sm:mx-20 mt-10 sm:mt-20 z-20 border-t border-b">
+  <div className="w-full h-62 bg-background flex flex-col items-center justify-center">
     {/* Tags Section inside Full-Width Section */}
-    <div className="max-w-5xl border-2 px-5 py-3 rounded-full mt-6 flex flex-wrap items-center justify-center">
+    <div className="w-full max-w-5xl  px-2 sm:px-5 py-2 sm:py-3 rounded-full mt-4 sm:mt-6 flex flex-wrap items-center justify-center">
       <div
-        className="flex transition-all ease-in-out duration-500 gap-3"
+        className="flex flex-wrap justify-center transition-all ease-in-out duration-500 gap-2 sm:gap-3"
         style={{
-          transform: activeTag ? "translateX(-10px)" : "translateX(0)", // Shift when tag is clicked
+          transform: activeTag ? "translateX(-10px)" : "translateX(0)",
         }}
       >
         {displayedTags.map((tag) => (
@@ -104,7 +104,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
             key={tag}
             onClick={() => handleTagClick(tag)}
             className={cn(
-              "group flex items-center gap-2 whitespace-nowrap rounded-full border px-6 py-3 transition-all",
+              "group flex items-center gap-1 sm:gap-2 whitespace-nowrap rounded-full border px-3 sm:px-6 py-3 sm:py-4 transition-all",
               activeTag === tag
                 ? "border-primary bg-primary text-primary-foreground"
                 : "border-border bg-background hover:border-primary hover:bg-primary/10"
@@ -114,23 +114,22 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
           >
             <span
               className={cn(
-                "flex h-8 w-8 items-center justify-center rounded-full transition-colors",
+                "flex h-8 sm:h-10 w-8 sm:w-10 items-center justify-center rounded-full transition-colors",
                 activeTag === tag
                   ? "bg-primary-foreground text-primary"
                   : "bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary"
               )}
             >
-              {/* Correct icon rendering based on tag */}
-              {tagIcons[tag.toLowerCase()] || <Tag className="h-5 w-5" />}
+              {tagIcons[tag.toLowerCase()] || <Tag className="h-5 sm:h-6 w-5 sm:w-6" />}
             </span>
-            <span className="text-sm font-medium">{tag}</span>
+            <span className="text-sm sm:text-base font-medium">{tag}</span>
           </motion.button>
         ))}
       </div>
     </div>
 
     {/* Streamlining Text */}
-    <div className="w-full flex justify-center items-center text-center text-white/70 mt-6 mb-20 text-lg">
+    <div className="w-full flex justify-center items-center text-center text-gray-700 dark:text-white/70 mt-6 mb-20 text-lg">
       <div className="text-sm font-regular max-w-6xl px-6"> {/* Set maximum width for the text container */}
       Streamlining deployments, automating workflows, optimizing performance, and ensuring the long-term stability of your websites and applications.
       </div>

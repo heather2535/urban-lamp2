@@ -34,7 +34,7 @@ export function SkillsSection() {
         </div>
   
         <h2 className="text-6xl font-bold mb-8 text-center text-black dark:text-white">Skills & Technologies</h2>
-        <div className="mx-auto mb-12 mt-12 max-w-2xl text-center text-gray-700 dark:text-white text-lg">
+        <div className="mx-auto mb-12 mt-12 max-w-2xl text-center text-gray-700 dark:text-gray-600 text-md">
           <p>
             Proficient in UI/UX Design, 3D Design, AI Integration, Branding, and Data Visualization. 
             Experienced with design tools such as Figma and Adobe Creative Cloud, 
