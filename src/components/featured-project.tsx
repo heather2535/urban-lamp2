@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
 import { Folder, BarChart, Layers, Palette, Tag, ScrollIcon } from "lucide-react"
 import { ScrollingLogos } from "./scrolling-logos"
+
 interface FeaturedProjectProps {
   projects: {
     title: string
@@ -12,34 +13,42 @@ interface FeaturedProjectProps {
   }[]
 }
 
+// Add a mapping of tags to their videos
+const tagVideos: { [key: string]: string } = {
+  "Web Development": "/video1.mov",
+  "Data Visualization": "/video2.mov",
+  "UI/UX Design": "/video3.mov",
+  "Graphic Design": "/video4.mov",
+  "Branding": "/video3.mov",
+}
+
 export function FeaturedProject({ projects }: FeaturedProjectProps) {
-  const [selectedProject, setSelectedProject] = useState(projects[0])
+  const [selectedVideo, setSelectedVideo] = useState("/video1.mov") // Set initial video
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const [activeTag, setActiveTag] = useState<string | null>(null) // Track active tag
+  const [activeTag, setActiveTag] = useState<string | null>(null)
   const allTags = Array.from(new Set(projects.flatMap((project) => project.tags)))
 
-  // Function to handle the video change with a delay to trigger transition
-  const handleProjectChange = (project: typeof selectedProject) => {
-    if (project !== selectedProject) {
-      setIsTransitioning(true)
-      setTimeout(() => {
-        setSelectedProject(project)
-        setIsTransitioning(false)
-      }, 300) // Delay to allow transition to complete
-    }
-  }
-
-  // Function to handle tag click
+  // Update handleTagClick to change video
   const handleTagClick = (tag: string) => {
+    console.log('Tag clicked:', tag)
+    console.log('Available videos:', tagVideos)
+    
     setActiveTag(tag)
-    const project = projects.find((p) => p.tags.includes(tag))
-    if (project) handleProjectChange(project)
+    setIsTransitioning(true)
+    
+    const videoUrl = tagVideos[tag] || "/video1.mov"
+    console.log('Selected video:', videoUrl)
+    
+    setTimeout(() => {
+      setSelectedVideo(videoUrl)
+      setIsTransitioning(false)
+    }, 300)
   }
 
   // Create a mapping for tags to their respective icons
   const tagIcons: { [key: string]: JSX.Element } = {
     "web dev": <Folder className="h-5 w-5" />,
-    "data vis": <BarChart className="h-5 w-5" />,
+    "Data Visualization": <BarChart className="h-5 w-5" />,
     "ui ux": <Layers className="h-5 w-5" />,
     "palette": <Palette className="h-5 w-5" />,
     "branding": <Tag className="h-5 w-5" />,
@@ -61,7 +70,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
           <div className="relative z-10">
             {/* Apply transition for smooth fade/slide */}
             <video
-              key={selectedProject.videoUrl}
+              key={selectedVideo}
               className={cn(
                 "rounded-lg h-full w-full object-cover transition-opacity duration-700 ease-in-out",
                 isTransitioning && "opacity-0" // Make video invisible during transition
@@ -71,7 +80,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
               muted
               playsInline
             >
-              <source src={selectedProject.videoUrl} type="video/mp4" />
+              <source src={selectedVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>

@@ -54,14 +54,15 @@ export default function ProjectsPage() {
               </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-4">
-              <Button 
-                size="lg" 
-                variant="secondary" 
-                className="py-6 px-6 bg-black text-white dark:bg-white dark:text-black"
-                onClick={scrollToProjects}
-              >
-                Get started
-              </Button>
+              <Link href="https://hmdportfolio.cargo.site" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  size="lg" 
+                  variant="secondary" 
+                  className="py-6 px-6 bg-black text-white dark:bg-white dark:text-black"
+                >
+                  Graphics
+                </Button>
+              </Link>
               <Link href="/about" passHref>
                 <Button size="lg" variant="outline" className="py-6 px-12">
                   About

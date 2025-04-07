@@ -9,7 +9,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/navigation-menu"
-import { Code2 } from 'lucide-react'
+import { Code2, Menu } from 'lucide-react'
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 import { ModeToggle } from "./mode-toggle"
 import { usePathname } from "next/navigation"
@@ -51,36 +52,80 @@ export function Navigation() {
             </span>
           </Link>
 
-            <div className="flex items-center gap-4">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-4">
             <NavigationMenu>
               <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link href="/projects" legacyBehavior passHref>
-                <NavigationMenuLink 
-                  className={cn(
-                  navigationMenuTriggerStyle(),
-                  pathname === "/projects" && "hover:text-pink-500 text-pink-500" // Active link style
-                  )}
-                >
-                  Projects
-                </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/about" legacyBehavior passHref>
-                <NavigationMenuLink 
-                  className={cn(
-                  navigationMenuTriggerStyle(),
-                  pathname === "/about" && "text-pink-500" // Active link style
-                  )}
-                >
-                  About
-                </NavigationMenuLink>
-                </Link>
+                <NavigationMenuItem>
+                  <Link href="/projects" legacyBehavior passHref>
+                    <NavigationMenuLink 
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        pathname === "/projects" && "hover:text-pink-500 text-pink-500"
+                      )}
+                    >
+                      Projects
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/graphics" legacyBehavior passHref>
+                    <NavigationMenuLink 
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        pathname === "/graphics" && "text-pink-500"
+                      )}
+                    >
+                      Graphics
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/about" legacyBehavior passHref>
+                    <NavigationMenuLink 
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        pathname === "/about" && "text-pink-500"
+                      )}
+                    >
+                      About
+                    </NavigationMenuLink>
+                  </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
             <ModeToggle />
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="md:hidden flex items-center gap-4">
+            <ModeToggle />
+            <Sheet>
+              <SheetTrigger asChild>
+                <button className="p-2">
+                  <Menu className="h-6 w-6" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[200px] pt-12">
+                <nav className="flex flex-col gap-4">
+                  <Link href="/projects" className={cn("text-sm transition-colors hover:text-pink-500",
+                    pathname === "/projects" && "text-pink-500"
+                  )}>
+                    Projects
+                  </Link>
+                  <Link href="/graphics" className={cn("text-sm transition-colors hover:text-pink-500",
+                    pathname === "/graphics" && "text-pink-500"
+                  )}>
+                    Graphics
+                  </Link>
+                  <Link href="/about" className={cn("text-sm transition-colors hover:text-pink-500",
+                    pathname === "/about" && "text-pink-500"
+                  )}>
+                    About
+                  </Link>
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>

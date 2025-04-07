@@ -6,7 +6,7 @@ export const projects: Project[] = [
     description: "Real-time cryptocurrency tracking dashboard with news integration and price alerts.",
     date: "December 28, 2024",
     image: "/image1.png?height=450&width=800",
-    videoUrl: "/video1.mov?height=450&width=800",
+    videoUrl: "/video2.mov?height=450&width=800",
     href: "/work/crypto-dashboard",
     tagline: "Real-time Crypto Tracking",
     tags: ["All Projects", "Web Development", "Data Visualization"],

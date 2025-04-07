@@ -74,7 +74,7 @@ export function AutomationSection() {
   <div className="grid grid-cols-[2fr_1fr] mx-auto max-w-6xl">
     {/* First Column */}
     <div className="p-10 border-b border-gray dark:border-white/20">
-      <h3 className="-mx-10 text-lg font-semibold text-white">UI/UX Design</h3>
+      <h3 className="-mx-10 text-lg font-semibold text-gray-700 dark:text-white">UI/UX Design</h3>
       <p className="-mx-10 text-gray-700 dark:text-white/70 mt-2">
         Proficient in creating user-centered designs that enhance user experience.
       </p>
