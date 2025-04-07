@@ -45,9 +45,9 @@ export function SkillsSection() {
         {/* Parent Card with radial gradient behind and backdrop blur */}
         <div className="relative">
           <div
-            className="absolute inset-0 bg-gradient-to-br from-purple-600 via-blue-500 to-green-500 opacity-50 rounded-lg blur-xl"
+            className="absolute inset-0 bg-gradient-to-br from-purple-600 via-blue-500 to-green-500 opacity-50 max-h-[800px]  rounded-lg blur-xl"
           />
-          <Card className="relative px-20 pb-80 pt-10 bg-white/5 backdrop-blur-sm border-white/10 transition-colors rounded-b-[0px] z-10">
+          <Card className="relative px-10 pb-80 pt-10 bg-white/5 backdrop-blur-sm border-white/10 transition-colors  max-h-[800px] rounded-b-[0px] z-10">
             {/* Skills Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {skills.map((skill, index) => (

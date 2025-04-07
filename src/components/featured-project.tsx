@@ -104,7 +104,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
             key={tag}
             onClick={() => handleTagClick(tag)}
             className={cn(
-              "group flex items-center gap-1 sm:gap-2 whitespace-nowrap rounded-full border px-3 sm:px-6 py-3 sm:py-4 transition-all",
+              "group flex items-center gap-1 sm:gap-2 whitespace-nowrap rounded-full border px-3 sm:px-6 py-2 sm:py-3 transition-all",
               activeTag === tag
                 ? "border-primary bg-primary text-primary-foreground"
                 : "border-border bg-background hover:border-primary hover:bg-primary/10"
@@ -114,15 +114,15 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
           >
             <span
               className={cn(
-                "flex h-8 sm:h-10 w-8 sm:w-10 items-center justify-center rounded-full transition-colors",
+                "flex h-6 sm:h-8 w-6 sm:w-8 items-center justify-center rounded-full transition-colors",
                 activeTag === tag
                   ? "bg-primary-foreground text-primary"
                   : "bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary"
               )}
             >
-              {tagIcons[tag.toLowerCase()] || <Tag className="h-5 sm:h-6 w-5 sm:w-6" />}
+              {tagIcons[tag.toLowerCase()] || <Tag className="h-4 sm:h-5 w-4 sm:w-5" />}
             </span>
-            <span className="text-sm sm:text-base font-medium">{tag}</span>
+            <span className="text-xs sm:text-sm font-medium">{tag}</span>
           </motion.button>
         ))}
       </div>
