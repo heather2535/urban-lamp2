@@ -54,7 +54,7 @@ export default function ProjectsPage() {
               </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-4">
-              <Link href="https://hmdportfolio.cargo.site" target="_blank" rel="noopener noreferrer">
+              <Link href="/graphics">
                 <Button 
                   size="lg" 
                   variant="secondary" 
