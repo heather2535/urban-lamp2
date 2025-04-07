@@ -33,7 +33,7 @@ export function SkillsSection() {
           <Code2 className="h-12 w-12 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
         </div>
   
-        <h2 className="text-6xl font-bold mb-8 text-center text-black dark:text-white">Skills & Technologies</h2>
+        <h2 className="text-5xl font-bold mb-8 text-center text-black dark:text-white">Skills & Technologies</h2>
         <div className="mx-auto mb-12 mt-12 max-w-2xl text-center text-gray-700 dark:text-gray-600 text-md">
           <p>
             Proficient in UI/UX Design, 3D Design, AI Integration, Branding, and Data Visualization. 
