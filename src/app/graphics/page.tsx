@@ -6,11 +6,13 @@ import { useState } from "react"
 
 const galleryImages = [
   { src: "/gallery/image1.jpg", alt: "Project 1", title: "Project 1" },
-  { src: "/gallery/image2.jpg", alt: "Project 2", title: "Project 2" },
+  { src: "/gallery/image2.gif", alt: "Project 2", title: "Project 2" },
   { src: "/gallery/image3.jpg", alt: "Project 3", title: "Project 3" },
-  { src: "/gallery/image4.jpg", alt: "Project 4", title: "Project 4" },
-  { src: "/gallery/image5.jpg", alt: "Project 5", title: "Project 5" },
+  { src: "/gallery/image4.gif", alt: "Project 4", title: "Project 4" },
+  { src: "/gallery/image5.png", alt: "Project 5", title: "Project 5" },
   { src: "/gallery/image6.jpg", alt: "Project 6", title: "Project 6" },
+  { src: "/gallery/image7.png", alt: "Project 7", title: "Project 7" },
+  { src: "/gallery/image8.png", alt: "Project 8", title: "Project 8" },
 ]
 
 export default function GraphicsPage() {
