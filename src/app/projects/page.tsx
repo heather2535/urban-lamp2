@@ -30,7 +30,7 @@ export default function ProjectsPage() {
   }
 
   return (
-    <div className="group min-h-screen bg-background" >
+    <div className="group min-h-screen bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a2a3a] dark:to-[#6a4e92]">
       <AuraCursor />
 
       {/* Hero Section */}
@@ -56,34 +56,32 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Section */}
-{/* Projects Section */}
-<section ref={projectsRef} className="flex mx-auto max-w-full min-h-screen bg-gradient-to-b from-background to-accent/20 px-12 pt-22">
-  <div className="container -mb-2">
-    <div className="flex items-center space-x-2">
+      <section ref={projectsRef} className="flex mx-auto max-w-full min-h-screen px-12 pt-22">
+        <div className="container -mb-2">
+          <div className="flex items-center space-x-2">
 
        
       
-    </div>
+          </div>
 
-    <ProjectFilter
-      tags={allTags}
-      selectedTag={selectedTag}
-      onTagSelect={setSelectedTag}
-      onSearch={setSearchQuery}
-    />
+          <ProjectFilter
+            tags={allTags}
+            selectedTag={selectedTag}
+            onTagSelect={setSelectedTag}
+            onSearch={setSearchQuery}
+          />
 
-    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {filteredProjects.map((project) => (
-        <ProjectCard key={project.href} project={project} />
-      ))}
-    </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredProjects.map((project) => (
+              <ProjectCard key={project.href} project={project} />
+            ))}
+          </div>
 
-    {filteredProjects.length === 0 && (
-      <div className="mt-12 text-center text-muted-foreground">No projects found matching your criteria</div>
-    )}
-  </div>
-</section>
-
+          {filteredProjects.length === 0 && (
+            <div className="mt-12 text-center text-muted-foreground">No projects found matching your criteria</div>
+          )}
+        </div>
+      </section>
     </div>
   )
 }

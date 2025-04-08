@@ -38,7 +38,7 @@ export default function GraphicsPage() {
   }
 
   return (
-    <div className="group min-h-screen bg-background">
+    <div className="group min-h-screen bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a2a3a] dark:to-[#6a4e92]">
       <AuraCursor />
       <Navigation />
 
@@ -60,7 +60,7 @@ export default function GraphicsPage() {
       </section>
 
       {/* Tags Section */}
-      <section className="flex mx-auto w-full bg-gradient-to-b from-background to-accent/20 px-4 sm:px-12">
+      <section className="flex mx-auto w-full px-4 sm:px-12">
         <div className="container mx-auto">
           <h2 className="text-foreground text-3xl font-bold tracking-tight mb-6">
             Tags
