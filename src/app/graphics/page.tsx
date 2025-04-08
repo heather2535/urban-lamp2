@@ -2,8 +2,9 @@
 import { AuraCursor } from "@/components/aura-cursor"
 import { Navigation } from "@/components/navigation"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useState } from "react"
+import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
 
 const galleryImages = [
   { src: "/gallery/image1.jpg", alt: "12/12 Aventura Rendering", title: "12/12 Aventura Rendering" },
@@ -20,8 +21,11 @@ const galleryImages = [
   { src: "/gallery/image12.jpg", alt: "Project 12", title: "Project 12" },
 ]
 
+const tags = ["All", "3D", "Editorial", "Branding", "UI/UX", "Motion"]
+
 export default function GraphicsPage() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const [selectedTag, setSelectedTag] = useState<string | null>(null)
 
   const showNext = () => {
     if (selectedIndex === null) return
@@ -38,12 +42,47 @@ export default function GraphicsPage() {
       <AuraCursor />
       <Navigation />
 
-      {/* Simple Title Section */}
-      <section className="flex items-center justify-center px-4 pt-32">
-        <div className="container relative z-20">
-          <h1 className="text-foreground text-7xl font-semibold tracking-tight text-center">
-            Graphics
-          </h1>
+      {/* Title Section */}
+      <section className="flex items-center justify-center px-4">
+        <div className="flex items-center justify-center relative w-full py-32 sm:py-48">
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
+          <div className="container relative z-20">
+            <div className="mx-auto max-w-5xl text-center">
+              <div className="relative">
+                <div className="absolute inset-0 blur-3xl -z-10 bg-[radial-gradient(circle,rgba(236,72,153,0.6)_0%,transparent_70%)]" />
+                <h1 className="text-foreground text-7xl font-semibold tracking-tight text-center">
+                  Graphics
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tags Section */}
+      <section className="flex mx-auto w-full bg-gradient-to-b from-background to-accent/20 px-4 sm:px-12">
+        <div className="container mx-auto">
+          <h2 className="text-foreground text-3xl font-bold tracking-tight mb-6">
+            Tags
+          </h2>
+          <div className="flex flex-wrap gap-3 mb-8 max-w-full">
+            {tags.map((tag) => (
+              <motion.button
+                key={tag}
+                onClick={() => setSelectedTag(tag === "All" ? null : tag)}
+                className={cn(
+                  "group flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 transition-all",
+                  selectedTag === tag || (tag === "All" && !selectedTag)
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border bg-background hover:border-primary hover:bg-primary/10"
+                )}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="text-sm font-medium">{tag}</span>
+              </motion.button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -71,25 +110,11 @@ export default function GraphicsPage() {
           <DialogTitle>{selectedIndex !== null ? galleryImages[selectedIndex].title : ""}</DialogTitle>
           <div className="relative">
             {selectedIndex !== null && (
-              <>
-                <img
-                  src={galleryImages[selectedIndex].src}
-                  alt={galleryImages[selectedIndex].alt}
-                  className="w-full h-auto rounded-lg"
-                />
-                <button
-                  onClick={showPrevious}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition-colors"
-                >
-                  <ChevronLeft className="w-6 h-6 text-white" />
-                </button>
-                <button
-                  onClick={showNext}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full hover:bg-black/70 transition-colors"
-                >
-                  <ChevronRight className="w-6 h-6 text-white" />
-                </button>
-              </>
+              <img
+                src={galleryImages[selectedIndex].src}
+                alt={galleryImages[selectedIndex].alt}
+                className="w-full h-auto rounded-lg"
+              />
             )}
           </div>
           {/* Thumbnails */}

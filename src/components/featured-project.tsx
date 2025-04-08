@@ -1,6 +1,6 @@
-import { JSX, useState } from "react"
+import { JSX, useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Folder, BarChart, Layers, Palette, Tag, ScrollIcon } from "lucide-react"
 import { ScrollingLogos } from "./scrolling-logos"
 
@@ -17,38 +17,59 @@ interface FeaturedProjectProps {
 const tagVideos: { [key: string]: string } = {
   "Web Development": "/video1.mov",
   "Data Visualization": "/video2.mov",
-  "UI/UX Design": "/video3.mov",
+  "UI/UX": "/video3.mov",
   "Graphic Design": "/video4.mov",
   "Branding": "/video3.mov",
 }
 
 export function FeaturedProject({ projects }: FeaturedProjectProps) {
-  const [selectedVideo, setSelectedVideo] = useState("/video1.mov") // Set initial video
+  const [currentVideo, setCurrentVideo] = useState("/video1.mov")
+  const [nextVideo, setNextVideo] = useState("/video2.mov")
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const [activeTag, setActiveTag] = useState<string | null>(null)
+  const [activeTag, setActiveTag] = useState("Web Development")
   const allTags = Array.from(new Set(projects.flatMap((project) => project.tags)))
+  const videos = Object.values(tagVideos)
+  const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Update handleTagClick to change video
+  // Get array of tag names in the same order as videos
+  const orderedTags = Object.keys(tagVideos)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % videos.length
+      setNextVideo(videos[nextIndex])
+      setIsTransitioning(true)
+      
+      setTimeout(() => {
+        setCurrentVideo(videos[nextIndex])
+        setCurrentIndex(nextIndex)
+        // Set the active tag to match the current video
+        setActiveTag(orderedTags[nextIndex])
+        setIsTransitioning(false)
+      }, 700)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [currentIndex, videos, orderedTags])
+
+  // Update handleTagClick to also update currentIndex
   const handleTagClick = (tag: string) => {
-    console.log('Tag clicked:', tag)
-    console.log('Available videos:', tagVideos)
-    
-    setActiveTag(tag)
-    setIsTransitioning(true)
-    
-    const videoUrl = tagVideos[tag] || "/video1.mov"
-    console.log('Selected video:', videoUrl)
-    
-    setTimeout(() => {
-      setSelectedVideo(videoUrl)
-      setIsTransitioning(false)
-    }, 300)
+    const tagIndex = orderedTags.indexOf(tag)
+    if (tagIndex !== -1) {
+      setActiveTag(tag)
+      setIsTransitioning(true)
+      setCurrentIndex(tagIndex)
+      setCurrentVideo(videos[tagIndex])
+      setTimeout(() => {
+        setIsTransitioning(false)
+      }, 300)
+    }
   }
 
   // Create a mapping for tags to their respective icons
   const tagIcons: { [key: string]: JSX.Element } = {
     "web dev": <Folder className="h-5 w-5" />,
-    "Data Visualization": <BarChart className="h-5 w-5" />,
+    "Data Vis": <BarChart className="h-5 w-5" />,
     "ui ux": <Layers className="h-5 w-5" />,
     "palette": <Palette className="h-5 w-5" />,
     "branding": <Tag className="h-5 w-5" />,
@@ -59,97 +80,88 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
 
   return (
     <div className="container mx-auto max-w-full border-pink-500">
-      {/* Border with glow effect */}
-      <div className="bg-pink-400/20 border-[1px] border-pink-300/40 max-w-6xl mx-auto rounded-[20px] p-5 relative"
-        style={{
-          boxShadow: "0 -30px 100px 20px rgba(236, 72, 153, 0.2)", // Adjust as needed
-        }}>
-        {/* Container for both the video and the glow */}
-        <div className="relative">
-          {/* Video content placed on top of the glow */}
-          <div className="relative z-10">
-            {/* Apply transition for smooth fade/slide */}
-            <video
-              key={selectedVideo}
-              className={cn(
-                "rounded-lg h-full w-full object-cover transition-opacity duration-700 ease-in-out",
-                isTransitioning && "opacity-0" // Make video invisible during transition
-              )}
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src={selectedVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+      {/* Tags and Text Section */}
+      <div className="relative z-20 mb-8">
+        <div className="w-full">
+          <div className="container mx-auto">
+            <div className="flex flex-col items-center justify-center">
+              {/* Tags */}
+              <div className="w-full max-w-6xl px-2 sm:px-5 py-2 sm:py-3 rounded-full flex items-center justify-center">
+                <div
+                  className="flex flex-wrap lg:flex-nowrap justify-center transition-all ease-in-out duration-500 gap-2 sm:gap-3"
+                  style={{
+                    transform: activeTag ? "translateX(-10px)" : "translateX(0)",
+                  }}
+                >
+                  {displayedTags.map((tag) => (
+                    <motion.button
+                      key={tag}
+                      onClick={() => handleTagClick(tag)}
+                      className={cn(
+                        "group flex items-center gap-1 sm:gap-2 whitespace-nowrap rounded-full border px-2 sm:px-4 py-1.5 sm:py-2 transition-all",
+                        activeTag === tag
+                          ? "border-primary bg-primary text-primary-foreground"
+                          : "border-gray-300 dark:border-border bg-background/20 hover:border-primary hover:bg-primary/10"
+                      )}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <span
+                        className={cn(
+                          "flex h-6 sm:h-8 w-6 sm:w-8 items-center justify-center rounded-full transition-colors",
+                          activeTag === tag
+                            ? "bg-primary-foreground text-primary"
+                            : "bg-gray-200 dark:bg-background/30 text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary"
+                        )}
+                      >
+                        {tagIcons[tag.toLowerCase()] || <Tag className="h-4 sm:h-5 w-4 sm:w-5" />}
+                      </span>
+                      <span className="text-xs sm:text-sm font-medium">{tag}</span>
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Streamlining Text */}
+              <div className="text-center text-gray-700 dark:text-white/70 mt-4 mb-8">
+                <p className="text-sm font-regular max-w-3xl px-6">
+                  Streamlining deployments, automating workflows, optimizing performance, and ensuring the long-term stability of your websites and applications.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Full-Width Section Cutting Off Video */}
-      <div className="relative z-20 border-t border-b">
-        <div
-          className="w-full h-82 bg-background flex items-center justify-center"
-          style={{
-            boxShadow: "0 -80px 100px 20px rgba(128, 0, 128, 0.5)", // Adjust as needed
-          }}
-        >
-{/* Tags Section inside Full-Width Section */}
-{/* Full-Width Section Cutting Off Video */}
-
-<div className="bg-background w-full relative px-4 sm:px-20 mx-0 sm:mx-20 mt-10 sm:mt-20 z-20 border-t border-b">
-  <div className="w-full h-62 bg-background flex flex-col items-center justify-center">
-    {/* Tags Section inside Full-Width Section */}
-    <div className="w-full max-w-5xl  px-2 sm:px-5 py-2 sm:py-3 rounded-full mt-4 sm:mt-6 flex flex-wrap items-center justify-center">
-      <div
-        className="flex flex-wrap justify-center transition-all ease-in-out duration-500 gap-2 sm:gap-3"
+      {/* Video Section */}
+      <div className="bg-pink-400/20 border-[1px] border-pink-300/40 max-w-4xl mx-auto rounded-[20px] p-5 relative"
         style={{
-          transform: activeTag ? "translateX(-10px)" : "translateX(0)",
-        }}
-      >
-        {displayedTags.map((tag) => (
-          <motion.button
-            key={tag}
-            onClick={() => handleTagClick(tag)}
-            className={cn(
-              "group flex items-center gap-1 sm:gap-2 whitespace-nowrap rounded-full border px-3 sm:px-6 py-2 sm:py-3 transition-all",
-              activeTag === tag
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-border bg-background hover:border-primary hover:bg-primary/10"
-            )}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <span
-              className={cn(
-                "flex h-6 sm:h-8 w-6 sm:w-8 items-center justify-center rounded-full transition-colors",
-                activeTag === tag
-                  ? "bg-primary-foreground text-primary"
-                  : "bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary"
-              )}
+          boxShadow: "0 -30px 100px 20px rgba(236, 72, 153, 0.2)",
+        }}>
+        <div className="relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentVideo}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+              className="relative z-10"
             >
-              {tagIcons[tag.toLowerCase()] || <Tag className="h-4 sm:h-5 w-4 sm:w-5" />}
-            </span>
-            <span className="text-xs sm:text-sm font-medium">{tag}</span>
-          </motion.button>
-        ))}
+              <video
+                className="rounded-lg h-full w-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={currentVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
-    </div>
-
-    {/* Streamlining Text */}
-    <div className="w-full flex justify-center items-center text-center text-gray-700 dark:text-white/70 mt-6 mb-20 text-lg">
-      <div className="text-sm font-regular max-w-6xl px-6"> {/* Set maximum width for the text container */}
-      Streamlining deployments, automating workflows, optimizing performance, and ensuring the long-term stability of your websites and applications.
-      </div>
-    </div>
-
-
-  </div>
-</div>
-</div>
-</div>
-
     </div>
   )
 }

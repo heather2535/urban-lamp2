@@ -137,34 +137,14 @@ export default function CryptoDashboardPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <main className="container max-w-2xl mx-auto px-4 py-8">
+      <main className="container max-w-2xl mx-auto px-4 py-16">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
           <p className="text-[14px] text-muted-foreground mt-8 mb-4">{project.description2}</p>
 
           <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
           <p className="text-muted-foreground mb-4">{project.date}</p>
 
-          {/* Tag and Search Filters */}
-          <div className="mb-8 flex flex-wrap items-center gap-4">
-            <div className="flex-grow max-w-md">
-              <SearchBar onSearch={setSearchQuery} />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <Link href="../" onClick={() => setSelectedTag(null)} className="px-4 py-2 border rounded">
-                All
-              </Link>
-              {allTags.map((tag) => (
-                <Link 
-                  key={tag} 
-                  href="../" 
-                  onClick={() => setSelectedTag(tag)} 
-                  className={`px-4 py-2 border rounded ${selectedTag === tag ? "bg-blue-500 text-white" : ""}`}
-                >
-                  {tag}
-                </Link>
-              ))}
-            </div>
-          </div>
+
 
           {/* Video section */}
           <div className="relative mb-6">

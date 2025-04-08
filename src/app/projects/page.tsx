@@ -35,7 +35,7 @@ export default function ProjectsPage() {
 
       {/* Hero Section */}
       <section className="flex items-center justify-center px-4">
-        <div className="flex items-center justify-center relative w-full py-32 sm:py-48">
+        <div className="flex items-center justify-center relative w-full pt-32 sm:pt-48">
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" /> {/* Grainy texture */}
           
             <div className="container relative z-20">
@@ -46,7 +46,7 @@ export default function ProjectsPage() {
                 <h1 className="text-foreground text-1xl font-semibold tracking-tight text-7xl">
                   Projects
                 </h1>
-                <p className=" mt-6 text-lg leading-8 text-black dark:text-white font-light mb-6">
+                <p className=" mt-6 text-md leading-8 text-gray-700 dark:text-gray-200 mb-6">
                 Crafting digital experiences. 
               </p>
               </div>
@@ -57,16 +57,12 @@ export default function ProjectsPage() {
 
       {/* Projects Section */}
 {/* Projects Section */}
-<section ref={projectsRef} className="flex mx-auto max-w-full min-h-screen bg-gradient-to-b from-background to-accent/20 px-12 py-22">
+<section ref={projectsRef} className="flex mx-auto max-w-full min-h-screen bg-gradient-to-b from-background to-accent/20 px-12 pt-22">
   <div className="container -mb-2">
     <div className="flex items-center space-x-2">
-      <h2 className="text-foreground text-3xl font-bold tracking-tight mb-6 sm:text-3xl lg:text-3xl">
-        Tags
-      </h2>
-      <ChevronRight
-        className="text-foreground text-4xl mb-4 transform -translate-x-1"
-        strokeWidth={4}
-      />
+
+       
+      
     </div>
 
     <ProjectFilter

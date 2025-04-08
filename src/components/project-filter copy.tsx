@@ -18,9 +18,9 @@ const tagIcons: Record<string, JSX.Element> = {
   "3D Design": <Grid className="h-5 w-5" />,
   "AI Integration": <Cpu className="h-5 w-5" />,
   Branding: <Tag className="h-5 w-5" />,
-  "Data Visualization": <BarChart className="h-5 w-5" />,
+  "Data Vis": <BarChart className="h-5 w-5" />,
   "Graphic Design": <Palette className="h-5 w-5" />,
-  "UI/UX Design": <Layers className="h-5 w-5" />,
+  "UI/UX": <Layers className="h-5 w-5" />,
   "Web Development": <Code className="h-5 w-5" />,
 }
 

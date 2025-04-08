@@ -9,7 +9,7 @@ export const projects: Project[] = [
     videoUrl: "/video2.mov?height=450&width=800",
     href: "/work/crypto-dashboard",
     tagline: "Real-time Crypto Tracking",
-    tags: ["All Projects", "Web Development", "Data Visualization"],
+    tags: ["All Projects", "Web Development", "Data Vis"],
   },
   {
     title: "Hariri Institute Website Redesign",
@@ -19,7 +19,7 @@ export const projects: Project[] = [
     videoUrl: "/video1.mov?height=450&width=800",
     href: "/work/hariri-institute",
     tagline: "Academic Website Overhaul",
-    tags: ["All Projects", "Web Development", "UI/UX Design"],
+    tags: ["All Projects", "Web Development", "UI/UX"],
   },
   {
     title: "Healthcare Management Platform",
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     videoUrl: "/video1.mov?height=450&width=800",
     href: "/work/healthcare-platform",
     tagline: "Healthcare Management Solution",
-    tags: ["All Projects", "Web Development", "UI/UX Design"],
+    tags: ["All Projects", "Web Development", "UI/UX"],
   },
 
   {
@@ -60,7 +60,27 @@ export const projects: Project[] = [
     videoUrl: "/video1.mov?height=450&width=800",
     href: "/work/virtual-gallery",
     tagline: "3D Art Showcase Platform",
-    tags: ["All Projects", "Web Development", "3D Design"],
+    tags: ["All Projects", "Web Development"],
+  },
+  {
+    title: "Flourescent Light Installation",
+    description: "Interactive virtual space for students to showcase their reads in an environment.",
+    date: "January 10, 2024",
+    image: "/image8.jpeg?height=480&width=800",
+    videoUrl: "/video1.mov?height=450&width=800",
+    href: "/work/flourescent-film",
+    tagline: "3D Art Showcase Platform",
+    tags: ["All Projects", "Graphic Design", "3D Design"],
+  },
+  {
+    title: "Establishing Shot Bridge Simulation",
+    description: "Using Blender, I created this simple simulation of a car driving across a bridge.",
+    date: "June 10, 2023",
+    image: "/image9.png?height=480&width=800",
+    videoUrl: "/video7.mp4?height=450&width=800",
+    href: "/work/establishing-shot",
+    tagline: "3D Art Showcase Platform",
+    tags: ["All Projects", "Graphic Design", "3D Design"],
   },
 
 

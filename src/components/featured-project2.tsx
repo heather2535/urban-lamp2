@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Card } from "@/components/ui/card"
-import { Code2, ChevronRight, Palette } from "lucide-react"
+import { Palette, ChevronRight } from "lucide-react"
 
 import {
   SiReact,
@@ -28,7 +28,7 @@ const skills = [
 
 export function AutomationSection() {
     return (
-      <section className="mx-auto max-w-6xl mt-12 py-20">
+      <section className="mx-auto max-w-6xl mt-12 py-20 relative z-30">
         <div className="flex justify-center items-center h-full mb-12">
           <Palette className="h-12 w-12 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
         </div>
@@ -43,16 +43,16 @@ export function AutomationSection() {
         </div>
   
 {/* Parent Card with radial gradient behind and backdrop blur */}
-<div className="relative">
+<div className="relative z-30">
   {/* Rainbow Gradient Background */}
   <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-blue-500 to-green-500 opacity-50 rounded-lg blur-xl" />
   
   {/* Card with video */}
-  <Card className="relative px-4 pb-40 pt-10 bg-white/5 backdrop-blur-sm border-white/10 transition-colors rounded-b-[0px] z-10 max-h-[600px] overflow-hidden">
+  <Card className="relative px-4 pb-40 pt-10 bg-white/5 backdrop-blur-sm border-white/10 transition-colors rounded-b-[0px] z-30">
     <div className="relative z-10">
       {/* Video content */}
       <video
-        className="rounded-lg w-full object-cover transition-opacity duration-700 ease-in-out max-h-[500px]"
+        className="rounded-lg h-full w-full object-cover transition-opacity duration-700 ease-in-out"
         autoPlay
         loop
         muted
@@ -67,42 +67,42 @@ export function AutomationSection() {
 </div>
 
   {/* Additional Two Columns with Subdivided Rows */}
-<div className="relative mt-0">
+<div className="relative z-30 mt-0">
   {/* Top Horizontal Line */}
   <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/20"></div>
 
-  <div className="grid grid-cols-[2fr_1fr] mx-auto max-w-6xl">
+  <div className="grid grid-cols-1 lg:grid-cols-3 mx-auto max-w-6xl">
     {/* First Column */}
     <div className="p-10 border-b border-gray dark:border-white/20">
-      <h3 className="-mx-10 text-lg font-semibold text-gray-700 dark:text-white">UI/UX Design</h3>
-      <p className="-mx-10 text-gray-700 dark:text-white/70 mt-2">
+      <h3 className="text-lg font-semibold text-gray-700 dark:text-white">UI/UX Design</h3>
+      <p className="text-gray-700 dark:text-white/70 mt-2">
         Proficient in creating user-centered designs that enhance user experience.
       </p>
-      <a href="/projects/ui-ux-design" className=" -mx-10 pr-5  mt-4 inline-block text-blue-400 hover:text-blue-500">
+      <a href="/projects" className="mt-4 inline-block text-blue-400 hover:text-blue-500">
         Explore Projects <ChevronRight className="w-4 h-4 inline-block" />
       </a>
     </div>
 
-    {/* Second Column Subdivided into Two Rows */}
-    <div className="border-l border-b border-gray dark:border-white/20">
-      <div className="p-10 border-b border-gray dark:border-white/20">
-        <h3 className="text-lg font-semibold text-gray-700 dark:text-white">3D Design & Branding</h3>
-        <p className="text-gray-700 dark:text-white/70 mt-2">
-          Skilled in creating visually appealing 3D designs and branding concepts.
-        </p>
-        <a href="/work/ai-task-manager" className="mt-4 inline-block text-blue-400 hover:text-blue-500">
-          View Case Study <ChevronRight className="w-4 h-4 inline-block" />
-        </a>
-      </div>
-      <div className="p-10">
-        <h3 className="text-lg font-semibold text-gray-700 dark:text-white/70">Data Visualization</h3>
-        <p className="text-gray-700 dark:text-white/70 mt-2">
-          Expertise in presenting complex data in an easily digestible and visually appealing format.
-        </p>
-        <a href="/work/hariri-institute" className="mt-4 inline-block text-blue-400 hover:text-blue-500">
-          Explore Work <ChevronRight className="w-4 h-4 inline-block" />
-        </a>
-      </div>
+    {/* Second Column */}
+    <div className="p-10 border-b lg:border-l border-gray dark:border-white/20">
+      <h3 className="text-lg font-semibold text-gray-700 dark:text-white">3D Design & Branding</h3>
+      <p className="text-gray-700 dark:text-white/70 mt-2">
+        Skilled in creating visually appealing 3D designs and branding concepts.
+      </p>
+      <a href="/work/ai-task-manager" className="mt-4 inline-block text-blue-400 hover:text-blue-500">
+        View Case Study <ChevronRight className="w-4 h-4 inline-block" />
+      </a>
+    </div>
+
+    {/* Third Column */}
+    <div className="p-10 border-b lg:border-l border-gray dark:border-white/20">
+      <h3 className="text-lg font-semibold text-gray-700 dark:text-white">Data Visualization</h3>
+      <p className="text-gray-700 dark:text-white/70 mt-2">
+        Expertise in presenting complex data in an easily digestible and visually appealing format.
+      </p>
+      <a href="/work/hariri-institute" className="mt-4 inline-block text-blue-400 hover:text-blue-500">
+        Explore Work <ChevronRight className="w-4 h-4 inline-block" />
+      </a>
     </div>
   </div>
 

@@ -21,7 +21,7 @@ const graphicProjects: GraphicProject[] = [
     image: "/placeholder.svg?height=450&width=800",
     href: "/work/crypto-dashboard",
     tagline: "Data Aesthetics",
-    tags: ["Data Visualization", "UI Design"],
+    tags: ["Data Vis", "UI Design"],
   },
   {
     title: "Hariri Institute Website Redesign",
@@ -37,7 +37,7 @@ const graphicProjects: GraphicProject[] = [
     image: "/placeholder.svg?height=500&width=800",
     href: "/work/healthcare-platform",
     tagline: "Healing UX",
-    tags: ["UI/UX Design", "Healthcare"],
+    tags: ["UI/UX", "Healthcare"],
   },
   {
     title: "Eco-Friendly Product Branding",

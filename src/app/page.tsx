@@ -41,7 +41,7 @@ export default function ProjectsPage() {
 
       {/* Hero Section */}
       <section className="flex items-center justify-center px-4">
-        <div className="flex items-center justify-center relative w-full py-64 sm:py-80">
+        <div className="flex items-center justify-center relative w-full py-60 sm:py-40">
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" /> {/* Grainy texture */}
           
           <div className="container relative z-20">
@@ -53,22 +53,7 @@ export default function ProjectsPage() {
                 Crafting digital experiences that combine functionality with powerful design. 
               </p>
 
-            <div className="mt-10 flex items-center justify-center gap-x-4">
-              <Link href="/graphics">
-                <Button 
-                  size="lg" 
-                  variant="secondary" 
-                  className="py-6 px-6 bg-black text-white dark:bg-white dark:text-black"
-                >
-                  Graphics
-                </Button>
-              </Link>
-              <Link href="/about" passHref>
-                <Button size="lg" variant="outline" className="py-6 px-12">
-                  About
-                </Button>
-              </Link>
-            </div>
+            
 
             </div>
           </div>

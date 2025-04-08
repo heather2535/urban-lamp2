@@ -97,7 +97,7 @@ const project = {
       <br></br>
       
     `,
-    tags: ["Web Development", "Data Visualization", "Crypto", "Finance"],
+    tags: ["Web Development", "Data Vis", "Crypto", "Finance"],
   }
   
 
