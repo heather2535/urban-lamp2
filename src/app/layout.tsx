@@ -3,8 +3,22 @@ import { ThemeProvider } from "@/providers"
 import { Navigation } from "@/components/navigation"
 import Footer from "@/components/footer"  // Import Footer component
 import "./globals.css"
+import type { Metadata } from 'next'
 
 const inter = Inter({ subsets: ["latin"] })
+
+export const metadata: Metadata = {
+  title: 'Heather Davies',
+  description: 'Creative Engineer & AI Enthusiast',
+  icons: {
+    icon: [
+      {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
+      }
+    ]
+  }
+}
 
 export default function RootLayout({
   children,

@@ -1,7 +1,18 @@
 import { JSX, useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
-import { Folder, BarChart, Layers, Palette, Tag, ScrollIcon } from "lucide-react"
+import {
+  Folder,
+  Search,
+  Grid,
+  Cpu,
+  Tag,
+  BarChart,
+  Palette,
+  Layers,
+  Code,
+ 
+} from "lucide-react"
 import { ScrollingLogos } from "./scrolling-logos"
 
 interface FeaturedProjectProps {
@@ -16,7 +27,7 @@ interface FeaturedProjectProps {
 // Add a mapping of tags to their videos
 const tagVideos: { [key: string]: string } = {
   "Web Development": "/video1.mov",
-  "Data Visualization": "/video2.mov",
+  "Data Vis": "/video4.mov",
   "UI/UX": "/video3.mov",
   "Graphic Design": "/video4.mov",
   "Branding": "/video3.mov",
@@ -24,7 +35,7 @@ const tagVideos: { [key: string]: string } = {
 
 export function FeaturedProject({ projects }: FeaturedProjectProps) {
   const [currentVideo, setCurrentVideo] = useState("/video1.mov")
-  const [nextVideo, setNextVideo] = useState("/video2.mov")
+  const [nextVideo, setNextVideo] = useState("/video5.mov")
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [activeTag, setActiveTag] = useState("Web Development")
   const allTags = Array.from(new Set(projects.flatMap((project) => project.tags)))
@@ -68,11 +79,13 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
 
   // Create a mapping for tags to their respective icons
   const tagIcons: { [key: string]: JSX.Element } = {
-    "web dev": <Folder className="h-5 w-5" />,
-    "Data Vis": <BarChart className="h-5 w-5" />,
-    "ui ux": <Layers className="h-5 w-5" />,
-    "palette": <Palette className="h-5 w-5" />,
-    "branding": <Tag className="h-5 w-5" />,
+    "Web Development": <Code className="h-4 w-4 sm:h-5 sm:w-5" />,
+    "Data Vis": <BarChart className="h-4 w-4 sm:h-5 sm:w-5" />,
+    "UI/UX": <Layers className="h-4 w-4 sm:h-5 sm:w-5" />,
+    "Graphic Design": <Palette className="h-4 w-4 sm:h-5 sm:w-5" />,
+    "Branding": <Tag className="h-4 w-4 sm:h-5 sm:w-5" />,
+    "3D Design": <Grid className="h-4 w-4 sm:h-5 sm:w-5" />,
+    "AI Integration": <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />,
   }
 
   // Slice the tags to only show the first 4
@@ -114,7 +127,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
                             : "bg-gray-200 dark:bg-background/30 text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary"
                         )}
                       >
-                        {tagIcons[tag.toLowerCase()] || <Tag className="h-4 sm:h-5 w-4 sm:w-5" />}
+                        {tagIcons[tag] || <Tag className="h-4 sm:h-5 w-4 sm:w-5" />}
                       </span>
                       <span className="text-xs sm:text-sm font-medium">{tag}</span>
                     </motion.button>

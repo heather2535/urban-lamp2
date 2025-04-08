@@ -46,10 +46,10 @@ export default function ProjectsPage() {
           
           <div className="container relative z-20">
             <div className="mx-auto max-w-5xl text-center">
-              <h1 className="text-black dark:text-white text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+              <h1 className="text-zinc-800 dark:text-white text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
                 Hi I'm Heather, Creative Engineer, AI Enthusiast
               </h1>
-              <p className="px-4 sm:px-20 mt-6 text-md sm:text-xl text-gray-700 dark:text-white">
+              <p className="px-4 sm:px-20 mt-6 text-md sm:text-lg text-gray-700 dark:text-gray-200">
                 Crafting digital experiences that combine functionality with powerful design. 
               </p>
 

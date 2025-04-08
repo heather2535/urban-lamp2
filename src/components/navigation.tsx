@@ -61,10 +61,10 @@ export function Navigation() {
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === "/projects" && "hover:text-pink-500 text-pink-500"
+                        pathname === "/projects" && "text-pink-500"
                       )}
                     >
-                      Projects
+                      <h3>Projects</h3>
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
@@ -73,10 +73,10 @@ export function Navigation() {
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === "/graphics" && "text-pink-500"
+                        pathname === "/graphics" && "text-pink-500 hover:text-pink-600"
                       )}
                     >
-                      Graphics
+                      <h3>Graphics</h3>
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
@@ -85,10 +85,10 @@ export function Navigation() {
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === "/about" && "text-pink-500"
+                        pathname === "/about" && "text-pink-500 hover:text-pink-600"
                       )}
                     >
-                      About
+                      <h3>About</h3>
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
