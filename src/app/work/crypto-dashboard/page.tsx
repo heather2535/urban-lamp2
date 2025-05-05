@@ -5,15 +5,13 @@ import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar c
 import Link from "next/link"  // Ensure to import Link for routing
 
 const project = {
-    title: "Cryptography Price Dashboard",
+    title: "Building a Crypto Price Tracker and Sentiment Analysis Web App",
     description: "Real-time cryptocurrency tracking dashboard with news integration and price alerts.",
     date: "December 28, 2024",
     description2: "Heather Davies - Dec 28, 2024",
     video: "/crypto-dashboard-video.mov?height=450&width=800", 
     content: `
       <br></br>
-      <h2 style="font-size: 2em; font-weight: bold;">Building a Crypto Price Tracker and Sentiment Analysis App</h2>
-      <h2 style="font-size: 1.5em; ;">A Full-Stack Journey</h2>
       <br>
 
       <p>Cryptocurrency is one of the most volatile markets today, making it crucial for investors to track not only the live prices but also the sentiment surrounding various coins. In this blog, I will reflect on my journey of building a Crypto Price Tracker and Sentiment Analysis App, a tool that allows users to track live cryptocurrency prices and analyze sentiment through news articles. The app aggregates real-time data and offers insights into the current market trends, using a combination of advanced technologies to deliver a seamless user experience.</p>
@@ -22,13 +20,46 @@ const project = {
       <h2 style="font-size: 2em; font-weight: bold;">Project Overview</h2>
       <br>
       <p>The goal of this web application is to provide users with real-time insights into the cryptocurrency market, allowing them to monitor prices, analyze market sentiment, and stay updated with the latest crypto-related news. The app tracks the live prices of the top 10 cryptocurrencies and uses sentiment analysis to assess the tone of news articles related to each cryptocurrency. The sentiment analysis is powered by Google Cloud's Natural Language Processing (NLP) API, which helps categorize news articles as Positive, Negative, or Neutral. The app aims to provide users with a comprehensive understanding of the cryptocurrency landscape by integrating various data sources and presenting them in an easy-to-understand format.</p>
-      
+     <br>
+      <div className="col-span-1">
+          <img
+            src="/images/image12.png"
+            alt="Design Process and Research"
+            className="rounded-lg shadow-md w-full h-auto object-cover"
+            style={{ maxWidth: "100%", height: "auto" }}
+          />
+        </div>
+      <p>Figure 1:  A full-page screenshot of my crypto app’s dashboard.
       <br></br>
       <h3 style="font-size: 1.5em; font-weight: bold;">Features</h3>
       <br>
       <ul>
         <li><strong>Live Cryptocurrency Prices</strong>: Displays real-time prices for the top 10 cryptocurrencies, including Bitcoin, Ethereum, and others.</li>
+           <div className="col-span-1">
+            <video
+            className="rounded-lg shadow-md w-full h-auto"
+            controls
+            style={{ maxWidth: "100%", height: "auto" }}
+            >
+            <source src="/videos/video1.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p>Figure 2:  A cropped section of my app showing real-time price updates for top cryptocurrencies (e.g., BTC, ETH).
+        </p>
+        <br>
+
         <li><strong>Sentiment Analysis</strong>: Analyzes the sentiment of news articles related to specific cryptocurrencies, categorizing them as Positive, Neutral, or Negative.</li>
+  <div className="col-span-1">
+          <video
+            className="rounded-lg shadow-md w-3/4 h-auto mx-auto"
+            controls
+            style={{ maxWidth: "400px", height: "auto" }}
+          >
+            <source src="/videos/video2.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
         <li><strong>Crypto News Feed</strong>: Provides a curated feed of cryptocurrency-related news articles to keep users informed of market trends.</li>
         <li><strong>Prediction Model (Optional)</strong>: A feature that estimates the future price of a cryptocurrency based on user input regarding investment amount and time frame.</li>
       </ul>

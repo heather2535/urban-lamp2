@@ -4,7 +4,6 @@ export interface Project {
     date: string
     image: string
     href: string
-    tagline: string
     tags: string[]
     videoUrl: string
   }

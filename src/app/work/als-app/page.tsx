@@ -1,113 +1,193 @@
 "use client";
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Navigation } from "@/components/navigation"
 import { Badge } from "@/components/badge"
 import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
 import Link from "next/link"  // Ensure to import Link for routing
+import { createPortal } from 'react-dom'
 
 const project = {
-    title: "ALS: App in Collaboration with Boston Children's Hospital",
-    description: "A web application designed to provide resources and support for individuals with ALS. The platform uses user input to recommend resources based on user input, making it easier for patients and caregivers to find relevant information.",
-    date: "December 3, 2024",
-    description2: "Heather Davies - Dec 3, 2024",
-    video: "/video8.mov?height=450&width=800", 
-    content: `
+  title: "ALS: App in Collaboration with Boston Children's Hospital",
+  description: "A web application designed to provide resources and support for individuals with ALS. The platform uses user input to recommend resources based on user input, making it easier for patients and caregivers to find relevant information.",
+  date: "December 3, 2024",
+  description2: "Heather Davies - Dec 3, 2024",
+  image: "/images/image1.jpg",
+  content: `
+  
+    <br></br>
+    <h2 style="font-size: 2em; font-weight: bold;">Project Overview</h2>
+    <br>
+    <p>People with ALS around the world are not offered a variety of clinical options. There are dozens of opportunities for what could be the most beneficial option to them, but are usually only offered a few. The goal is to take clinical decision making and turn it into a tool that allows ALS patients to look at options and discuss them with their clinician. This tool/guide will allow people with ALS and clinicians/clinics to collaborate in the process of identifying best options throughout the disease process. Tools, resources, and methodologies are continually evolving to help people with ALS to cope with their condition. Because of the rapid nature of development(s), communicating updated resources to both clinicians and patients is difficult.</p>
+    <br>
+    <p>The two primary users of this application (mobile or web app) would be patients with ALS or clinicians who work with ALS patients on occasion (such as primary care physicians etc). The goal would be to provide them with a guided system that is constantly updated with the latest information. Each answer to a question or series of questions would lead the user down a different branch of questions and finally suggestions for the patient's current condition. The end goal would be creating a platform that helps distribute the information to patients and clinicians who might not have access to clinics with ALS experts.</p>
+
+    <br></br>
+    <div id="als-slideshow-1"></div>
+    <br>
+    <h2 style="font-size: 2em; font-weight: bold;">User Flow Chart
+    </h2>
+    <div className="mt-4">
+      <img
+        src="/images/image3.png"
+        alt="User Flow Chart"
+        className="rounded-lg shadow-md"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+    </div>
+    <br>
+    <p> Figure 1: User Flow Chart</p>
+    <br>
+    <p>As the UX Designer and UX Researcher on this project, my role was centered around improving how patients with ALS and non-specialist clinicians navigate and access relevant, up-to-date treatment options. ALS treatment landscapes evolve rapidly, yet many patients are only presented with limited clinical options. I was tasked with designing a tool that facilitates more informed, collaborative decision-making between patients and clinicians by guiding users through personalized question flows that ultimately provide targeted resources and treatment suggestions.
+    </p>
+    <br></br>
+
+    <h2 style="font-size: 2em; font-weight: bold;">Design Challenges & UX Research Insights
+    </h2>
+    <br>
+    <p>Through early user research—including interviews with patients and clinicians—it became clear that:
+    </p>
+    <br>
+    <ul>
+    <li>*   Patients often feel overwhelmed by the lack of clear, accessible information about their treatment options.</li>
+    <li>* Clinicians expressed a need for a tool that simplifies the process of staying updated on the latest ALS treatments and resources.</li>
+    <li>* Both groups emphasized the importance of a user-friendly interface that minimizes cognitive load and facilitates collaboration.</li>
+    <li>* Patients and clinicians highlighted the value of personalized recommendations tailored to the patient's specific condition and stage of the disease.</li>
+    </ul>
+    <br>
+    <p>These insights shaped the guiding UX principles of clarity, accessibility, and progressive disclosure (presenting information only when needed).</p>
+ 
+    <br></br>
+    <h3 style="font-size: 2em; font-weight: bold;">UX Contributions & Solutions</h3>
     
-      <br></br>
-      <h2 style="font-size: 2em; font-weight: bold;">Project Overview</h2>
-      <br>
-      <p>In today’s competitive job market, talent acquisition is more crucial than ever. However, many businesses—especially smaller and medium-sized companies—struggle with the first-round screening process. The hiring process often involves manually sifting through hundreds of resumes, conducting lengthy interviews, and spending valuable time that could otherwise be focused on business growth.</p>
-      <br>
-      <p>Talentora aims to solve this problem by automating the first round of the recruitment process using AI. This platform is designed to serve medium-sized businesses that do not have dedicated HR teams or the resources to outsource recruiting to traditional agencies. These companies are often innovative, willing to adopt new technologies, and working with small teams, typically between 10 to 50 employees.</p>
-
-      <br></br>
-      <h2 style="font-size: 2em; font-weight: bold;">The Problem</h2>
-      <br>
-      <p>For many small to medium-sized businesses, talent acquisition is a costly and time-consuming challenge. Traditional recruiting agencies are expensive, and most businesses cannot afford to hire a dedicated HR team. As a result, these companies often rely on manual and inefficient methods to screen applicants, resulting in wasted time, mis-hired talent, and missed opportunities.</p>
-      <br>
-      <p>At Talentora, we believe that the first-round talent screening process is ripe for automation. By streamlining and automating this initial step using artificial intelligence, we can help businesses save time, improve the accuracy of their hiring process, and focus on what matters most: building their teams with the right people.</p>
-
-      <br></br>
-      <h2 style="font-size: 2em; font-weight: bold;">How It Works</h2>
-      <br>
-      <p>Talentora provides an AI-driven, automated solution to help businesses efficiently screen candidates for the first round of interviews. Here’s a breakdown of how the process works:</p>
-      <br>
-      <h2 style="font-size: 1.2em; font-weight: bold;">1. Job Posting</h2>
-      <p>The process begins when a company posts a job on various job sites. This job posting is then managed using the company’s Applicant Tracking System (ATS), which triggers Talentora’s service.</p>
-      <br>
-      <h2 style="font-size: 1.2em; font-weight: bold;">2. Company & Role Information Upload</h2>
-      <p>Once the job posting is live, the company uploads details about both the company and the job role to Talentora. The platform uses this data to tailor its output and ensure it matches the specific requirements of the role and the company’s culture.</p>
-      <br>
-      <h2 style="font-size: 1.2em; font-weight: bold;">3. Screening Process</h2>
-      <p>Talentora’s AI-driven system, known as Ora Scouts, takes over the next step by calling the applicants of the job posting. Ora Scouts conducts first-round interviews, asking each applicant a series of pre-set and dynamic questions.</p>
-      <br>
-      <h2 style="font-size: 1.2em; font-weight: bold;">4. Interview Analysis</h2>
-      <p>After the interviews are conducted, Talentora’s AI system analyzes the candidate responses. It scores candidates based on their fit for the role, how well they handle questions, and their overall confidence during the interview.</p>
-      <br> 
-      <h2 style="font-size: 1.2em; font-weight: bold;">5. Candidate Output</h2>
-      <p>Finally, Talentora produces a list of qualified candidates. Along with the list, companies receive a summary of each interview, highlighting key insights such as the candidate’s strengths and weaknesses, their potential fit for the company, and other important factors. This makes it easier for businesses to identify the best candidates without needing to go through hours of manual interviews.</p>
-      <br></br>
-
-
-      <h2 style="font-size: 2em; font-weight: bold;">User Research</h2> 
-      <p>To ensure Talentora meets the needs of its target audience, we conducted in-depth user research, focusing on three key customer profiles:</p>
-
+    <br></br>
+    <h3 style="font-size: 1.5em; font-weight: bold;">1. Information Architecture & Flow Design</h3>
+    <p>I designed the question-based interaction model to simulate a "guided conversation" tailored to each user's situation. Each answer dynamically adjusts the direction of the form, helping users avoid information overload.</p>
     
-      <br>
-      <h3 style="font-size: 1.2em; font-weight: bold;">1. Small Tech Founder of a Startup</h3>
-      <p>This persona represents a founder at a growing startup, often wearing many hats and lacking the time and resources to manage a full-scale recruiting process. They need an automated solution that streamlines hiring and delivers high-quality results without the overhead of traditional recruitment methods.</p>
-      
-            
-      <br>
-      <h3 style="font-size: 1.2em; font-weight: bold;">2. Mid-Sized Tech Firm HR Manager</h3>
-      <p>The HR manager at a medium-sized tech firm is responsible for handling multiple aspects of HR, including hiring. With a small team and limited resources, they need a tool that can efficiently manage and streamline the recruitment process, particularly the initial screening phase.</p>
+    <br></br>
+    <h3 style="font-size: 1.5em; font-weight: bold;">2. User Personas & Journey Mapping</h3>
+    <p>I developed distinct personas (ALS patient, generalist clinician, and admin) and created user journey maps to better understand each user's emotional and informational needs throughout the experience.
+    </p>
     
-      <br>
-      <h3 style="font-size: 1.2em; font-weight: bold;">3. Average Job Applicant</h3>
-      <p>We also analyzed the average applicant who may be using Talentora’s platform to go through a more automated and efficient interview process. The platform’s ability to offer a seamless, AI-driven interview experience is a major selling point for candidates who prefer a streamlined and modern approach.</p>
-      <br>
-      <p>To further refine Talentora’s features, we compared our platform with two existing applicant management systems—HireVue and HackerRank—which have similar goals but different approaches:</p>
-      <br>      
-      <p>HireVue uses AI-driven tools to streamline hiring for large companies, but users have reported discomfort with the AI interaction.</p>   
-      <p>HackerRank caters more to startup recruiters and educators, offering pre-recorded interviews for improved evaluation consistency. However, HackerRank faces limitations in terms of team coordination and overall customization.</p>
-      <br>
-      <p>This analysis reveals that Talentora offers a more tailored solution for medium-sized businesses, with a focus on customization, user-friendliness, and real-time engagement, addressing the gaps left by existing platforms.</p>
+    <br></br>
+    <h3 style="font-size: 1.5em; font-weight: bold;">3. Low to High Fidelity Prototypes</h3>
+    <p>I translated the Figma-based clinical logic trees into a usable, testable interface, ensuring that the design could scale as more branches were added. This included prototyping branching logic that mimicked what was built out in Typeform, with future implementation in mind.
+    </p>
+    <br>
+    <div className="mt-4">
+      <img
+        src="/images/image2.png"
+        alt="Low to High Fidelity Prototypes"
+        className="rounded-lg shadow-md"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+    </div>
+    <br></br>
+        <div className="mt-4">
+      <img
+        src="/images/image4.png"
+        alt="Low to High Fidelity Prototypes"
+        className="rounded-lg shadow-md"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+    </div>
+       <br></br>
+        <div className="mt-4">
+      <img
+        src="/images/image5.png"
+        alt="Low to High Fidelity Prototypes"
+        className="rounded-lg shadow-md"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+    </div>
+    <p> Figure 2-4: Researched Design System</p>
+    <br></br>
 
+    <h3 style="font-size: 1.5em; font-weight: bold;">4. Interface & Interaction Design</h3>
+    <p>I collaborated with the dev team to ensure the tool was intuitive to use—incorporating a hamburger menu for simplified navigation, consistent visual styling, and bookmark functionality to return to saved resources later.
+    </p>
 
-      <br></br>
-      <h3 style="font-size: 2em; font-weight: bold;">Tech Stack</h3>
-      <p>Talentora’s platform is powered by a robust tech stack, split across three repositories, each focused on different aspects of the product. Here’s a look at the tools and technologies that power Talentora:</p>
-      
-      <br></br>
-      <h3 style="font-size: 1.5em; font-weight: bold;">1. Front-End Web App</h3>
-      <p>The user interface and experience of Talentora’s platform are built using Next.js and React. These modern JavaScript frameworks allow for fast, responsive, and dynamic web applications, ensuring a smooth user experience for both businesses and applicants.</p>
-      
-      <br></br>
-      <h3 style="font-size: 1.5em; font-weight: bold;">2. Applicant Analysis Repository</h3>
-      <p>Talentora’s core functionality lies in its ability to analyze candidate responses effectively. This is powered by Hume AI, a semantic analysis API that processes and scores interview responses based on factors like relevance, clarity, and emotional intelligence. The analysis repository provides an overall score for each candidate and generates a detailed summary of their interview performance.</p>
-      
-      <br></br>
-      <h3 style="font-size: 1.5em; font-weight: bold;">3. Bot Repository</h3>
-      <p>The real-time interaction with candidates is handled by Pipecat, an open-source framework for speech-to-text and text-to-speech large language models (LLMs). Pipecat ensures a seamless, conversational experience for applicants, enabling real-time interactions with generative AI bots that conduct the interviews. The bot repository powers the voice interactions between Ora Scouts and the applicants, providing an immersive and interactive first-round interview process.</p>
+    <br></br>
+    <h3 style="font-size: 1.5em; font-weight: bold;">5. Designing for Extendability</h3>
+    <p>Knowing that our solution needed to evolve beyond Typeform, I designed with scalability in mind—planning how ReactFlow or a future custom backend might take over, ensuring the interface could accommodate multimedia content and more complex flows without confusion.
+    </p>
   
-      <br></br>
-      <h2 style="font-size: 2em; font-weight: bold;">Conclusion</h2>
+    <br></br>
+    <h3 style="font-size: 1.5em; font-weight: bold;">6. Bookmark & Progress Features:</h3>
+    <p>I advocated for and helped scope out the implementation of localStorage-based saving of progress and resources, so users wouldn't need to create an account to return to where they left off—removing a major barrier to accessibility.
+    </p>
+    <br></br>
+        <div className="mt-4">
+      <img
+        src="/images/image6.png"
+        alt="Low to High Fidelity Prototypes"
+        className="rounded-lg shadow-md"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+    </div>
   
-      <br>
-      <p>Talentora is revolutionizing the way small and medium-sized businesses approach talent acquisition. By automating the first-round screening process with AI, we provide businesses with an affordable, efficient, and effective solution to find the best candidates.</p>
+    <br></br>
+    <h3 style="font-size: 2em; font-weight: bold;">Recommended Next Steps</h3>
+    <br>
+    <h3 style="font-size: 1.2em; font-weight: bold;">1. Custom Logic Builder for Admins</h3>
+    <p>The current admin flow relies on Typeform. Building an intuitive interface for non-technical users (like clinic staff) to update questions and answers will be key for sustainability.
+    </p>
+
+    <br></br>
+    <h3 style="font-size: 1.2em; font-weight: bold;">2. Improved Personalization & Routing</h3>
+    <p>With Next.js dynamic routing ([id].tsx), we can map directly to major question trees—streamlining the experience and offering personalized URLs that can be shared across devices.
+    </p>
   
-      <br>
-      <p>With a tailored solution, a user-friendly interface, and cutting-edge technology, Talentora is setting a new standard for how companies manage their recruitment process—especially those without dedicated HR teams or large budgets.</p>
-  
-      <br>
-      <p>Whether you're a startup founder, an HR manager in a growing company, or a job seeker looking for an innovative interview experience, Talentora offers the tools to simplify the process, save time, and ultimately build stronger, more successful teams.</p>
-  
-      <br></br>
+    <br></br>
+    <h3 style="font-size: 2em; font-weight: bold;">
+      <a 
+        href="https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="inline-block px-6 py-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:border-blue-500 hover:text-blue-600 transition-all duration-200"
+      >
+        Final Website for Client 
+      </a>
+    </h3>
+
    
-    `,
-    tags: ["All Projects", "Web Development", "Product Design", "UI/UX"],
+  `,
+  tags: ["All Projects", "Web Development", "Product Design", "UI/UX"],
   }
   
+
+function Slideshow({ images, id }: { images: string[], id: string }) {
+  const [index, setIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const prev = () => setIndex((i) => (i === 0 ? images.length - 1 : i - 1));
+  const next = () => setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
+
+  if (!mounted) return null;
+
+  const container = document.getElementById(id);
+  if (!container) return null;
+
+  return createPortal(
+    <div className="mt-4 flex flex-col items-center">
+      <img
+        src={images[index]}
+        alt={`ALS Clinical Decision Tool Design ${index + 1}`}
+        className="rounded-lg shadow-md"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+      <div className="mt-2 flex gap-2">
+        <button onClick={prev} className="px-2 py-1 bg-gray-200 rounded">Prev</button>
+        <span>{index + 1} / {images.length}</span>
+        <button onClick={next} className="px-2 py-1 bg-gray-200 rounded">Next</button>
+      </div>
+    </div>,
+    container
+  );
+}
 
 export default function CryptoDashboardPage() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
@@ -146,37 +226,48 @@ export default function CryptoDashboardPage() {
 
           {/* Video section */}
           <div className="relative mt-6 mb-6">
-            <video controls width="100%" height="auto" className="object-cover rounded-lg">
-              <source src={project.video} type="video/mp4" />
-              {/* Fallback text for unsupported browsers */}
-              Your browser does not support the video tag.
-            </video>
+            <img
+              src={project.image}
+              alt="ALS Clinical Decision Tool"
+              className="rounded-lg shadow-md"
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
           </div>
             {/* Three Columns Section */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
             <div className="p-4 rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">Column 1</h3>
+              <h3 className="font-bold text-lg mb-2">Role</h3>
               <p className="text-sm text-muted-foreground">
-              This is the content for the first column. You can add any text or elements here.
+              UI/UX Researcher
+              </p>
+              <p className="text-sm text-muted-foreground">
+              UX Designer
               </p>
             </div>
             <div className="p-4  rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">Column 2</h3>
+              <h3 className="font-bold text-lg mb-2">Team</h3>
               <p className="text-sm text-muted-foreground">
-              This is the content for the second column. Customize it as needed.
+              Heather Davies
+                </p>
+              <p className="text-sm text-muted-foreground">
+              Team of 4
               </p>
             </div>
             <div className="p-4  rounded-lg shadow-sm">
-              <h3 className="font-bold text-lg mb-2">Column 3</h3>
+              <h3 className="font-bold text-lg mb-2">Duration</h3>
               <p className="text-sm text-muted-foreground">
-              This is the content for the third column. Add your desired content here.
+              Sep. 2024 - Dec. 2024
               </p>
+              <p className="text-sm text-muted-foreground">
+              4 mo. total
+              </p>
+              <br></br>
             </div>
             </div>
           <p className="lead">{project.description}</p>
           <div dangerouslySetInnerHTML={{ __html: project.content }} />
-
-
+         
+          
         </article>
       </main>
     </div>

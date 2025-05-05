@@ -2,35 +2,34 @@ import type { Project } from "../types/project"
 
 export const projects: Project[] = [
   {
-    title: "ALS Resource App",
+    title: "ALS: App in Collaboration with Boston Children's Hospital",
     description: "A web application designed to provide resources and support for individuals with ALS.",
     date: "December 28, 2024",
     image: "/images/image1.jpg",
     videoUrl: "/video2.mov",
     href: "/work/als-app",
-    tagline: "ALS Support Resource",
     tags: ["All Projects", "UI/UX Design", "Product Design"],
   },
   {
-    title: "Cryptography Price Dashboard",
+    title: "Website Redesign for Hariri Institute at Duan Family Center for Faculty Computing and Engineering",
+    description: "Complete redesign and development of the institute's web presence.",
+    date: "March 03, 2025",
+    image: "/image10.png",
+    videoUrl: "/video1.mov",
+    href: "/work/hariri-institute",
+    tags: ["All Projects", "Web Development", "UI/UX"],
+  }, 
+
+  {
+    title: "Building a Crypto Price Tracker and Sentiment Analysis App",
     description: "Real-time cryptocurrency tracking dashboard with news integration and price alerts.",
     date: "December 28, 2024",
     image: "/image1.png",
     videoUrl: "/video2.mov",
     href: "/work/crypto-dashboard",
-    tagline: "Real-time Crypto Tracking",
-    tags: ["All Projects", "Web Development", "Data Vis"],
+    tags: ["All Projects", "Web Development", "AI Integration"],
   },
-  {
-    title: "Hariri Institute Website Redesign",
-    description: "Complete redesign and development of the institute's web presence.",
-    date: "September 22, 2024",
-    image: "/image2.png",
-    videoUrl: "/video1.mov",
-    href: "/work/hariri-institute",
-    tagline: "Academic Website Overhaul",
-    tags: ["All Projects", "Web Development", "UI/UX"],
-  },
+ 
   {
     title: "Healthcare Management Platform",
     description: "Comprehensive healthcare management system for patients and providers.",
@@ -38,7 +37,6 @@ export const projects: Project[] = [
     image: "/image3.png",
     videoUrl: "/video1.mov",
     href: "/work/healthcare-platform",
-    tagline: "Healthcare Management Solution",
     tags: ["All Projects", "Web Development", "UI/UX"],
   },
 
@@ -49,7 +47,6 @@ export const projects: Project[] = [
     image: "/image4.png",
     videoUrl: "/video1.mov",
     href: "/work/eco-branding",
-    tagline: "Sustainable Brand Design",
     tags: ["All Projects","Graphic Design", "Branding"],
   },
   {
@@ -59,7 +56,6 @@ export const projects: Project[] = [
     image: "/image5.png",
     videoUrl: "/video1.mov",
     href: "/work/ai-task-manager",
-    tagline: "Smart Productivity Tool",
     tags: ["All Projects", "Web Development", "AI Integration"],
   },
   {
@@ -69,7 +65,6 @@ export const projects: Project[] = [
     image: "/image6.png",
     videoUrl: "/video1.mov",
     href: "/work/virtual-gallery",
-    tagline: "3D Art Showcase Platform",
     tags: ["All Projects", "Web Development"],
   },
   {
@@ -79,7 +74,6 @@ export const projects: Project[] = [
     image: "/image8.jpeg",
     videoUrl: "/video1.mov",
     href: "/work/flourescent-film",
-    tagline: "3D Art Showcase Platform",
     tags: ["All Projects", "Graphic Design", "3D Design"],
   },
   {
@@ -89,7 +83,6 @@ export const projects: Project[] = [
     image: "/image9.png",
     videoUrl: "/video7.mp4",
     href: "/work/establishing-shot",
-    tagline: "3D Art Showcase Platform",
     tags: ["All Projects", "Graphic Design", "3D Design"],
   },
 ]
