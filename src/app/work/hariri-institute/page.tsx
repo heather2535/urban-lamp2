@@ -133,8 +133,23 @@ One key insight was that many internal users relied on the website to locate arc
     <h2 style="font-size: 2em; font-weight: bold;">Design Execution
 </h2>
 
-    <p>Visually, I sought to represent Hariri's interdisciplinary and forward-looking identity. While adapting the BU Office of Research theme as a foundation, I introduced custom components and layout patterns—such as grid-based research highlights, accordion-based FAQs, and expandable bios—to support deeper engagement with complex content. Typography choices prioritized legibility and hierarchy, while color accents were pulled from Hariri's branding to distinguish it from other centers within BU.
-    </p>
+    <p>Visually, I sought to represent Hariri's interdisciplinary and forward-looking identity. While adapting the BU Office of Research theme as a foundation, I introduced custom components and layout patterns—such as grid-based research highlights, accordion-based FAQs, and expandable bios—to support deeper engagement with complex content.</p>
+    <br>
+    <div className="container mx-auto">
+      <div className="grid grid-cols-2 gap-8">
+        <div className="col-span-1">
+          <p className="text-left">Visually, I sought to represent Hariri's interdisciplinary and forward-looking identity. While adapting the BU Office of Research theme as a foundation, I introduced custom components and layout patterns—such as grid-based research highlights, accordion-based FAQs, and expandable bios—to support deeper engagement with complex content.</p>
+        </div>
+        <div className="col-span-1">
+          <img
+            src="/images/image8.png"
+            alt="Hariri Institute Design System"
+            className="rounded-lg shadow-md w-full h-auto object-cover"
+            style={{ maxWidth: "100%", height: "auto" }}
+          />
+        </div>
+      </div>
+    </div>
     <br>
     <p>
     All screens were designed with mobile responsiveness in mind, ensuring seamless access across devices. I created a scalable design system in Figma, which included reusable components, spacing rules, and visual tokens for consistency throughout development. Every component was annotated with intended behavior for developers, such as hover states, collapsible logic, and breakpoint behavior.

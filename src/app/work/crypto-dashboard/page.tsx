@@ -60,14 +60,27 @@ const project = {
             Your browser does not support the video tag.
           </video>
         </div>
+        <p>Figure 3: A cropped section of my app showing real-time sentiment analysis for a specific cryptocurrency.
+        <br></br>
         <li><strong>Crypto News Feed</strong>: Provides a curated feed of cryptocurrency-related news articles to keep users informed of market trends.</li>
-        <li><strong>Prediction Model (Optional)</strong>: A feature that estimates the future price of a cryptocurrency based on user input regarding investment amount and time frame.</li>
-      </ul>
+       <div className="col-span-1">
+          <video
+            className="rounded-lg shadow-md w-3/4 h-auto mx-auto"
+            controls
+            style={{ maxWidth: "400px", height: "auto" }}
+          >
+            <source src="/videos/video3.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+    
+        </ul>
 
-      <br></br>
+      <br><br></br>
       <h2 style="font-size: 2em; font-weight: bold;">Tech Stack</h2>
-      <br>
+      
       <h3 style="font-size: 1.5em; font-weight: bold;">Frontend:</h3>
+      <br>
       <ul>
         <li><strong>React.js</strong>: A JavaScript library for building responsive and dynamic user interfaces. React.js made it easy to create reusable components and manage the state of the app effectively.</li>
         <br>
@@ -92,10 +105,20 @@ const project = {
       </ul>
 
       <br></br>
+              <div className="col-span-1">
+          <img
+            src="/images/image13.png"
+            alt="Hariri Institute Design System"
+            className="rounded-lg shadow-md w-full h-auto object-cover"
+            style={{ maxWidth: "100%", height: "auto" }}
+          />
+        </div>
+        <p>Figure 4:Red highlighted section shows the backend code for the sentiment analysis file organization.
+        <br></br>s
       <h2 style="font-size: 2em; font-weight: bold;">Development Process</h2>
       <br>
       <h3 style="font-size: 1.5em; font-weight: bold;">Frontend Development</h3>
-      <br>
+    
       <p>The first step in the development process was setting up the frontend. I used React.js to create the user interface, building components for displaying live cryptocurrency prices, news articles, and sentiment analysis data. The use of React allowed for a dynamic, component-based structure, where the app could update individual components without requiring a complete page reload. This made the app feel more fluid and responsive.</p>
       
       <br></br>

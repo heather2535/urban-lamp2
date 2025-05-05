@@ -13,7 +13,7 @@ export function ProjectCard({ project }: { project: Project }) {
       onMouseLeave={() => setIsHovered(false)} // Reset hover state
     >
       {/* Image Section */}
-      <div className="border border-input rounded-lg overflow-hidden h-[200px] flex items-center justify-center"> {/* Reduced height */}
+      <div className="border border-input rounded-lg overflow-hidden h-[250px] flex items-center justify-center"> {/* Reduced height */}
         <img
           src={project.image || "/placeholder.svg"}
           alt={project.title}
