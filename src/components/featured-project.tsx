@@ -27,7 +27,7 @@ interface FeaturedProjectProps {
 // Add a mapping of tags to their videos
 const tagVideos: { [key: string]: string } = {
   "Web Development": "/video1.mov",
-  "Data Vis": "/video4.mov",
+  "Product Design": "/video4.mov",
   "UI/UX": "/video3.mov",
   "Graphic Design": "/video4.mov",
   "Branding": "/video3.mov",
@@ -80,10 +80,10 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
   // Create a mapping for tags to their respective icons
   const tagIcons: { [key: string]: JSX.Element } = {
     "Web Development": <Code className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "Data Vis": <BarChart className="h-4 w-4 sm:h-5 sm:w-5" />,
+    "Product Design": <BarChart className="h-4 w-4 sm:h-5 sm:w-5" />,
     "UI/UX": <Layers className="h-4 w-4 sm:h-5 sm:w-5" />,
     "Graphic Design": <Palette className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "Branding": <Tag className="h-4 w-4 sm:h-5 sm:w-5" />,
+    "Brand": <Tag className="h-4 w-4 sm:h-5 sm:w-5" />,
     "3D Design": <Grid className="h-4 w-4 sm:h-5 sm:w-5" />,
     "AI Integration": <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />,
   }
@@ -94,6 +94,10 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
   return (
     <div className="container mx-auto max-w-full border-pink-500">
       {/* Tags and Text Section */}
+      
+        
+     
+
       <div className="relative z-20 mb-8">
         <div className="w-full">
           <div className="container mx-auto">
