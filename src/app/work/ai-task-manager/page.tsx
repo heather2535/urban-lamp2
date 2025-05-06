@@ -6,11 +6,11 @@ import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar c
 import Link from "next/link"  // Ensure to import Link for routing
 
 const project = {
-    title: "Conversational AI-Powered Interview Platform",
-    description: "Combines Hume AI and Pipe Cat Frameworks with React, Next.js, and Figma to deliver an advanced mock interview platform. Built with React and Next.js to power a fast, dynamic interfaces for a superior experience.",
-    date: "February 3, 2024",
+    title: "Talentora: Designing A Conversational AI Interview Platform",
+    description: "A platform that uses AI to conduct interviews and evaluate candidates.",
+    date: "February 3, 2025",
     description2: "Heather Davies - Feb 3, 2024",
-    video: "/video5.mp4?height=450&width=800", 
+    video: "/video1.mov?height=450&width=800", 
     content: `
       <br></br>
       <h2 style="font-size: 2em; font-weight: bold;">Project Overview</h2>
@@ -34,12 +34,45 @@ const project = {
       <h2 style="font-size: 1.2em; font-weight: bold;">1. Job Posting</h2>
       <p>The process begins when a company posts a job on various job sites. This job posting is then managed using the company’s Applicant Tracking System (ATS), which triggers Talentora’s service.</p>
       <br>
+      <div className="col-span-1">
+            <img
+              src="/images/image14.png"
+              alt="Hariri Institute Design Process"
+              className="rounded-lg shadow-md w-3/4 h-auto mx-auto"
+              style={{ maxWidth: "400px", maxHeight: "200px", height: "auto" }}
+            />
+          </div>
+        </div>
+
+        <br>
       <h2 style="font-size: 1.2em; font-weight: bold;">2. Company & Role Information Upload</h2>
       <p>Once the job posting is live, the company uploads details about both the company and the job role to Talentora. The platform uses this data to tailor its output and ensure it matches the specific requirements of the role and the company’s culture.</p>
       <br>
+             <div className="col-span-1">
+          <video
+            className="rounded-lg shadow-md w-3/4 h-auto mx-auto"
+            controls
+            style={{ maxWidth: "400px", maxHeight: "200px", height: "auto" }}
+          >
+            <source src="/videos/video4.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
       <h2 style="font-size: 1.2em; font-weight: bold;">3. Screening Process</h2>
       <p>Talentora’s AI-driven system, known as Ora Scouts, takes over the next step by calling the applicants of the job posting. Ora Scouts conducts first-round interviews, asking each applicant a series of pre-set and dynamic questions.</p>
       <br>
+        <div className="col-span-1">
+          <video
+            className="rounded-lg shadow-md w-3/4 h-auto mx-auto"
+            controls
+            style={{ maxWidth: "400px", maxHeight: "200px", height: "auto" }}
+          >
+            <source src="/videos/video5.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
       <h2 style="font-size: 1.2em; font-weight: bold;">4. Interview Analysis</h2>
       <p>After the interviews are conducted, Talentora’s AI system analyzes the candidate responses. It scores candidates based on their fit for the role, how well they handle questions, and their overall confidence during the interview.</p>
       <br> 
@@ -104,7 +137,9 @@ const project = {
       <br></br>
    
     `,
-    tags: ["Web Development", "Data Vis", "Crypto", "Finance"],
+    tags: ["All Projects", "Web Development", "Branding", "UI/UX Design"],
+
+
   }
   
 
@@ -126,37 +161,24 @@ export default function CryptoDashboardPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container max-w-2xl mx-auto px-4 py-8">
+      <main className="container mt-6 max-w-2xl mx-auto px-4 py-8">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
           <p className="text-[14px] text-muted-foreground mt-8 mb-4">{project.description2}</p>
 
           <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
           <p className="text-muted-foreground mb-4">{project.date}</p>
 
-          {/* Tag and Search Filters */}
-          <div className="mb-8 flex flex-wrap items-center gap-4">
-            <div className="flex-grow max-w-md">
-              <SearchBar onSearch={setSearchQuery} />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <Link href="../" onClick={() => setSelectedTag(null)} className="px-4 py-2 border rounded">
-                All
-              </Link>
-              {allTags.map((tag) => (
-                <Link 
-                  key={tag} 
-                  href="../" 
-                  onClick={() => setSelectedTag(tag)} 
-                  className={`px-4 py-2 border rounded ${selectedTag === tag ? "bg-blue-500 text-white" : ""}`}
-                >
-                  {tag}
-                </Link>
-              ))}
-            </div>
+           {/* Filtered Tags */}
+            <div className="mt-4 flex flex-wrap gap-2">
+            {filteredProjects.map((tag) => (
+              <Badge key={tag} variant="secondary">
+                {tag}
+              </Badge>
+            ))}
           </div>
 
           {/* Video section */}
-          <div className="relative mb-6">
+          <div className="relative mt-6 mb-6">
             <video controls width="100%" height="auto" className="object-cover rounded-lg">
               <source src={project.video} type="video/mp4" />
               {/* Fallback text for unsupported browsers */}
@@ -167,14 +189,7 @@ export default function CryptoDashboardPage() {
           <p className="lead">{project.description}</p>
           <div dangerouslySetInnerHTML={{ __html: project.content }} />
 
-          {/* Filtered Tags */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {filteredProjects.map((tag) => (
-              <Badge key={tag} variant="secondary">
-                {tag}
-              </Badge>
-            ))}
-          </div>
+
         </article>
       </main>
     </div>

@@ -12,13 +12,12 @@ const project = {
     video: "/crypto-dashboard-video.mov?height=450&width=800", 
     content: `
       <br></br>
+      <br>      
       <br>
-
-      <p>Cryptocurrency is one of the most volatile markets today, making it crucial for investors to track not only the live prices but also the sentiment surrounding various coins. In this blog, I will reflect on my journey of building a Crypto Price Tracker and Sentiment Analysis App, a tool that allows users to track live cryptocurrency prices and analyze sentiment through news articles. The app aggregates real-time data and offers insights into the current market trends, using a combination of advanced technologies to deliver a seamless user experience.</p>
-      
-      <br></br>
       <h2 style="font-size: 2em; font-weight: bold;">Project Overview</h2>
       <br>
+            <p>Cryptocurrency is one of the most volatile markets today, making it crucial for investors to track not only the live prices but also the sentiment surrounding various coins. In this blog, I will reflect on my journey of building a Crypto Price Tracker and Sentiment Analysis App, a tool that allows users to track live cryptocurrency prices and analyze sentiment through news articles. The app aggregates real-time data and offers insights into the current market trends, using a combination of advanced technologies to deliver a seamless user experience.</p>
+<br>
       <p>The goal of this web application is to provide users with real-time insights into the cryptocurrency market, allowing them to monitor prices, analyze market sentiment, and stay updated with the latest crypto-related news. The app tracks the live prices of the top 10 cryptocurrencies and uses sentiment analysis to assess the tone of news articles related to each cryptocurrency. The sentiment analysis is powered by Google Cloud's Natural Language Processing (NLP) API, which helps categorize news articles as Positive, Negative, or Neutral. The app aims to provide users with a comprehensive understanding of the cryptocurrency landscape by integrating various data sources and presenting them in an easy-to-understand format.</p>
      <br>
       <div className="col-span-1">
@@ -29,7 +28,7 @@ const project = {
             style={{ maxWidth: "100%", height: "auto" }}
           />
         </div>
-      <p>Figure 1:  A full-page screenshot of my crypto app’s dashboard.
+      <p>Figure 1:  A full-page screenshot of my crypto app's dashboard.
       <br></br>
       <h3 style="font-size: 1.5em; font-weight: bold;">Features</h3>
       <br>
@@ -113,8 +112,8 @@ const project = {
             style={{ maxWidth: "100%", height: "auto" }}
           />
         </div>
-        <p>Figure 4:Red highlighted section shows the backend code for the sentiment analysis file organization.
-        <br></br>s
+        <p>Figure 4 Red highlighted section shows the backend code for the sentiment analysis file organization.
+        <br></br>
       <h2 style="font-size: 2em; font-weight: bold;">Development Process</h2>
       <br>
       <h3 style="font-size: 1.5em; font-weight: bold;">Frontend Development</h3>
@@ -123,13 +122,10 @@ const project = {
       
       <br></br>
       <h3 style="font-size: 1.5em; font-weight: bold;">Backend Development</h3>
-      <br>
-      <p>On the backend, I set up a Node.js server using Express.js to handle API requests. I integrated the CoinMarketCap API to fetch live cryptocurrency price data and used the News API to gather cryptocurrency-related news articles. The sentiment analysis was the most complex part of the backend. I utilized the Google Cloud NLP API to analyze each news article’s sentiment and extract key topics. The results were then categorized into Positive, Negative, or Neutral sentiments, providing users with a quick overview of how the market was feeling about specific coins.</p>
       
-      <br></br>
-      <h3 style="font-size: 1.5em; font-weight: bold;">Sentiment Analysis & Caching</h3>
+      <p>On the backend, I set up a Node.js server using Express.js to handle API requests. I integrated the CoinMarketCap API to fetch live cryptocurrency price data and used the News API to gather cryptocurrency-related news articles. The sentiment analysis was the most complex part of the backend. I utilized the Google Cloud NLP API to analyze each news article's sentiment and extract key topics. The results were then categorized into Positive, Negative, or Neutral sentiments, providing users with a quick overview of how the market was feeling about specific coins.</p>
+      
       <br>
-      <p>The sentiment analysis feature required processing a large amount of text data from various news sources. The Google Cloud NLP API was instrumental in simplifying this task. It allowed me to analyze the tone of each article, identify key entities (e.g., coin names, market trends), and categorize the sentiment as Positive, Negative, or Neutral. The analysis results were then cached for frequently queried coins to reduce the number of API calls and improve performance.</p>
       
       <br></br>
       <h3 style="font-size: 1.5em; font-weight: bold;">Cron Job Scheduling</h3>
@@ -149,16 +145,7 @@ const project = {
       <br>
       <p>One of the most challenging aspects of this project was integrating multiple external data sources (CoinMarketCap, News API, and Google Cloud NLP) in a seamless way. The real-time data from cryptocurrency prices and news articles had to be handled carefully to ensure smooth communication between the frontend and backend. I used Axios to make sure the data was fetched asynchronously and updated regularly.</p>
   
-      <br></br>
-      <h3 style="font-size: 1.5em; font-weight: bold;">Sentiment Analysis Accuracy</h3>
-      <br>
-      <p>The sentiment analysis process required careful handling to ensure accuracy. The Google Cloud NLP API provided strong capabilities for sentiment analysis, but interpreting the results correctly was key to offering actionable insights. I had to continuously refine the way sentiment was categorized to ensure it reflected the tone of the articles accurately.</p>
-  
-      <br></br>
-      <h3 style="font-size: 1.5em; font-weight: bold;">Periodic Data Updates</h3>
-      <br>
-      <p>Keeping the data fresh was another significant challenge. With cryptocurrency prices and news changing rapidly, I needed to ensure that the sentiment data was updated regularly. Implementing cron jobs to fetch new sentiment data every 12 hours was an effective solution that helped keep the app up-to-date without overloading the system with too many API calls.</p>
-  
+     
       <br></br>
       <h2 style="font-size: 2em; font-weight: bold;">Reflection</h2>
       <br>
@@ -197,21 +184,6 @@ export default function CryptoDashboardPage() {
 
           <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
           <p className="text-muted-foreground mb-4">{project.date}</p>
-
-
-
-          {/* Video section */}
-          <div className="relative mb-6">
-            <video controls width="100%" height="auto" className="object-cover rounded-lg">
-              <source src={project.video} type="video/mp4" />
-              {/* Fallback text for unsupported browsers */}
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
-          <p className="lead">{project.description}</p>
-          <div dangerouslySetInnerHTML={{ __html: project.content }} />
-
           {/* Filtered Tags */}
           <div className="mt-4 flex flex-wrap gap-2">
             {filteredProjects.map((tag) => (
@@ -220,6 +192,53 @@ export default function CryptoDashboardPage() {
               </Badge>
             ))}
           </div>
+
+
+          {/* Video section */}
+          <div className="relative mt-6 mb-6">
+            <video controls width="100%" height="auto" className="object-cover rounded-lg">
+              <source src={project.video} type="video/mp4" />
+              {/* Fallback text for unsupported browsers */}
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          {/* Three Columns Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+            <div className="p-4 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg mb-2">Role</h3>
+              <p className="text-sm text-muted-foreground">
+              UI/UX Researcher
+              </p>
+              <p className="text-sm text-muted-foreground">
+              UX Designer
+              </p>
+            </div>
+            <div className="p-4 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg mb-2">Team</h3>
+              <p className="text-sm text-muted-foreground">
+              Heather Davies
+              </p>
+              <p className="text-sm text-muted-foreground">
+              Solo Project
+              </p>
+            </div>
+            <div className="p-4 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg mb-2">Duration</h3>
+              <p className="text-sm text-muted-foreground">
+              Dec. 24 '24 - Dec. 28 '24
+              </p>
+              <p className="text-sm text-muted-foreground">
+              4 days total
+              </p>
+              <br></br>
+            </div>
+          </div>
+
+          <p className="lead">{project.description}</p>
+          <div dangerouslySetInnerHTML={{ __html: project.content }} />
+
+
         </article>
       </main>
     </div>

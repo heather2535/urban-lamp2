@@ -44,7 +44,7 @@ export default function ProjectsPage() {
               <div className="relative">
                 <div className="absolute inset-0 blur-3xl -z-10 bg-[radial-gradient(circle,rgba(236,72,153,0.6)_0%,transparent_70%)]" />
                 <h1 className="text-foreground text-1xl font-semibold tracking-tight text-7xl">
-                  Projects
+                  Featured Projects
                 </h1>
                 <p className=" mt-6 text-md leading-8 text-gray-700 dark:text-gray-200 mb-6">
                 Crafting digital experiences. 

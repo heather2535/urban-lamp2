@@ -26,8 +26,8 @@ const project = {
           <img
             src="/images/image11.png"
             alt="Hariri Institute Website Overview"
-            className="rounded-lg shadow-md w-full h-auto object-cover"
-            style={{ maxWidth: "100%", height: "auto" }}
+            className="rounded-lg shadow-md w-3/4 h-auto mx-auto"
+            style={{ maxWidth: "400px", maxHeight: "200px", height: "auto" }}
           />
         </div>
       </div>
@@ -89,7 +89,7 @@ const project = {
           <video
             className="rounded-lg shadow-md w-3/4 h-auto mx-auto"
             controls
-            style={{ maxWidth: "400px", height: "auto" }}
+            style={{ maxWidth: "400px", maxHeight: "200px", height: "auto" }}
           >
             <source src="/videos/hariri-demo.mp4" type="video/mp4" />
             Your browser does not support the video tag.

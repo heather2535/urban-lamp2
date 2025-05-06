@@ -29,7 +29,35 @@ export const projects: Project[] = [
     href: "/work/crypto-dashboard",
     tags: ["All Projects", "Web Development", "AI Integration"],
   },
+  {
+    title: "Talentora: Designing A Conversational AI Interview Platform",
+    description: "A platform that uses AI to conduct interviews and evaluate candidates.",
+    date: "February 3, 2025",
+    image: "/image5.png",
+    videoUrl: "/video1.mov",
+    href: "/work/ai-task-manager",
+    tags: ["All Projects", "Web Development", "Branding", "UI/UX Design"],
+  },
+
+  {
+    title: "Designing a Web Applications for DEI Consulting",
+    description: "Brand identity design for a line of sustainable, eco-friendly products.",
+    date: "March 15, 2024",
+    image: "/image4.png",
+    videoUrl: "/video1.mov",
+    href: "/work/eco-branding",
+    tags: ["All Projects","Graphic Design", "Branding"],
+  },
  
+  {
+    title: "Library Database E-Learning Platform ",
+    description: "Interactive virtual space for students to showcase their reads in an environment.",
+    date: "January 10, 2024",
+    image: "/image6.png",
+    videoUrl: "/video1.mov",
+    href: "/work/virtual-gallery",
+    tags: ["All Projects", "Web Development"],
+  },
   {
     title: "Healthcare Management Platform",
     description: "Comprehensive healthcare management system for patients and providers.",
@@ -40,33 +68,8 @@ export const projects: Project[] = [
     tags: ["All Projects", "Web Development", "UI/UX"],
   },
 
-  {
-    title: "DEI Consulting Web Application",
-    description: "Brand identity design for a line of sustainable, eco-friendly products.",
-    date: "March 15, 2024",
-    image: "/image4.png",
-    videoUrl: "/video1.mov",
-    href: "/work/eco-branding",
-    tags: ["All Projects","Graphic Design", "Branding"],
-  },
-  {
-    title: "Conversational AI-Powered Interview Platform",
-    description: "Combines Hume AI and Pipe Cat Frameworks with React, Next.js, and Figma to deliver an advanced interview platform. ",
-    date: "February 3, 2024",
-    image: "/image5.png",
-    videoUrl: "/video1.mov",
-    href: "/work/ai-task-manager",
-    tags: ["All Projects", "Web Development", "AI Integration"],
-  },
-  {
-    title: "Library Database E-Learning Platform ",
-    description: "Interactive virtual space for students to showcase their reads in an environment.",
-    date: "January 10, 2024",
-    image: "/image6.png",
-    videoUrl: "/video1.mov",
-    href: "/work/virtual-gallery",
-    tags: ["All Projects", "Web Development"],
-  },
+
+
   {
     title: "Flourescent Light Installation",
     description: "Interactive virtual space for students to showcase their reads in an environment.",

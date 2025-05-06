@@ -20,48 +20,48 @@ interface FeaturedProjectProps {
     title: string
     description: string
     tags: string[]
-    videoUrl?: string
+    imageUrl?: string
   }[]
 }
 
-// Add a mapping of tags to their videos
-const tagVideos: { [key: string]: string } = {
-  "Web Development": "/video1.mov",
-  "Product Design": "/video4.mov",
-  "UI/UX": "/video3.mov",
-  "Graphic Design": "/video4.mov",
-  "Branding": "/video3.mov",
+// Add a mapping of tags to their images
+const tagImages: { [key: string]: string } = {
+  "Web Development": "/image1.png",
+  "Product Design": "/image10.png",
+  "UI/UX Design": "/images/image1.jpg",
+  "Graphic Design": "/image4.jpg",
+  "Branding": "/image5.jpg",
 }
 
 export function FeaturedProject({ projects }: FeaturedProjectProps) {
-  const [currentVideo, setCurrentVideo] = useState("/video1.mov")
-  const [nextVideo, setNextVideo] = useState("/video5.mov")
-  const [isTransitioning, setIsTransitioning] = useState(false)
+  const [currentImage, setCurrentImage] = useState("/image1.jpg")
+  const [nextImage, setNextImage] = useState("/image10.jpg")
+  const [isTransitioning, setIsTransitioning] = useState("image4.jpg")
   const [activeTag, setActiveTag] = useState("Web Development")
   const allTags = Array.from(new Set(projects.flatMap((project) => project.tags)))
-  const videos = Object.values(tagVideos)
+  const images = Object.values(tagImages)
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Get array of tag names in the same order as videos
-  const orderedTags = Object.keys(tagVideos)
+  // Get array of tag names in the same order as images
+  const orderedTags = Object.keys(tagImages)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const nextIndex = (currentIndex + 1) % videos.length
-      setNextVideo(videos[nextIndex])
+      const nextIndex = (currentIndex + 1) % images.length
+      setNextImage(images[nextIndex])
       setIsTransitioning(true)
       
       setTimeout(() => {
-        setCurrentVideo(videos[nextIndex])
+        setCurrentImage(images[nextIndex])
         setCurrentIndex(nextIndex)
-        // Set the active tag to match the current video
+        // Set the active tag to match the current image
         setActiveTag(orderedTags[nextIndex])
         setIsTransitioning(false)
       }, 700)
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [currentIndex, videos, orderedTags])
+  }, [currentIndex, images, orderedTags])
 
   // Update handleTagClick to also update currentIndex
   const handleTagClick = (tag: string) => {
@@ -70,7 +70,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
       setActiveTag(tag)
       setIsTransitioning(true)
       setCurrentIndex(tagIndex)
-      setCurrentVideo(videos[tagIndex])
+      setCurrentImage(images[tagIndex])
       setTimeout(() => {
         setIsTransitioning(false)
       }, 300)
@@ -79,13 +79,11 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
 
   // Create a mapping for tags to their respective icons
   const tagIcons: { [key: string]: JSX.Element } = {
+    "UI/UX Design": <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />,
     "Web Development": <Code className="h-4 w-4 sm:h-5 sm:w-5" />,
     "Product Design": <BarChart className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "UI/UX": <Layers className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "Graphic Design": <Palette className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "Brand": <Tag className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "3D Design": <Grid className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "AI Integration": <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />,
+    "Branding": <Tag className="h-4 w-4 sm:h-5 sm:w-5" />,
+    "Graphic Design": <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />,
   }
 
   // Slice the tags to only show the first 4
@@ -141,16 +139,14 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
 
               {/* Streamlining Text */}
               <div className="text-center text-gray-700 dark:text-white/70 mt-4 mb-8">
-                <p className="text-sm font-regular max-w-3xl px-6">
-                  Streamlining deployments, automating workflows, optimizing performance, and ensuring the long-term stability of your websites and applications.
-                </p>
+           
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Video Section */}
+      {/* Image Section */}
       <div className="bg-pink-400/20 border-[1px] border-pink-300/40 max-w-4xl mx-auto rounded-[20px] p-5 relative"
         style={{
           boxShadow: "0 -30px 100px 20px rgba(236, 72, 153, 0.2)",
@@ -158,23 +154,18 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
         <div className="relative">
           <AnimatePresence mode="wait">
             <motion.div
-              key={currentVideo}
+              key={currentImage}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.7, ease: "easeInOut" }}
               className="relative z-10"
             >
-              <video
+              <img
+                src={currentImage}
+                alt={`Featured project for ${activeTag}`}
                 className="rounded-lg h-full w-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src={currentVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              />
             </motion.div>
           </AnimatePresence>
         </div>
