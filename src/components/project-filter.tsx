@@ -28,7 +28,7 @@ interface ProjectFilterProps {
 const tagIcons: Record<string, JSX.Element> = {
   "All Projects": <Folder className="h-4 w-4 sm:h-5 sm:w-5" />,
   "3D Design": <Grid className="h-4 w-4 sm:h-5 sm:w-5" />,
-  "AI Integration": <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />,
+  "AII Integration": <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />,
   Branding: <Tag className="h-4 w-4 sm:h-5 sm:w-5" />,
   "Data Vis": <BarChart className="h-4 w-4 sm:h-5 sm:w-5" />,
   "Graphic Design": <Palette className="h-4 w-4 sm:h-5 sm:w-5" />,

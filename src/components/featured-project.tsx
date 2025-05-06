@@ -29,14 +29,14 @@ const tagImages: { [key: string]: string } = {
   "Web Development": "/image1.png",
   "Product Design": "/image10.png",
   "UI/UX Design": "/images/image1.jpg",
-  "Graphic Design": "/image4.jpg",
+  "Graphic Design": "/image13.png",
   "Branding": "/image5.jpg",
 }
 
 export function FeaturedProject({ projects }: FeaturedProjectProps) {
   const [currentImage, setCurrentImage] = useState("/image1.jpg")
   const [nextImage, setNextImage] = useState("/image10.jpg")
-  const [isTransitioning, setIsTransitioning] = useState("image4.jpg")
+  const [isTransitioning, setIsTransitioning] = useState(false)
   const [activeTag, setActiveTag] = useState("Web Development")
   const allTags = Array.from(new Set(projects.flatMap((project) => project.tags)))
   const images = Object.values(tagImages)
@@ -82,7 +82,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
     "UI/UX Design": <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />,
     "Web Development": <Code className="h-4 w-4 sm:h-5 sm:w-5" />,
     "Product Design": <BarChart className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "Branding": <Tag className="h-4 w-4 sm:h-5 sm:w-5" />,
+    "Branding": <Palette className="h-4 w-4 sm:h-5 sm:w-5" />,
     "Graphic Design": <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />,
   }
 

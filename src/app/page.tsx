@@ -9,7 +9,7 @@ import { Button } from "@/components/button"
 import { SkillsSection } from "@/components/skills-section"
 import { AutomationSection } from "@/components/featured-project2"
 
-import { ProjectFilter } from "@/components/project-filter"
+import { ProjectFilter } from "@/components/project-filter copy"
 import { FeaturedProject } from "@/components/featured-project"
 import Link from "next/link"
 

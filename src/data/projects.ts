@@ -17,7 +17,7 @@ export const projects: Project[] = [
     image: "/image10.png",
     videoUrl: "/video1.mov",
     href: "/work/hariri-institute",
-    tags: ["All Projects", "Web Development", "UI/UX"],
+    tags: ["All Projects", "Web Development"],
   }, 
 
   {
@@ -27,7 +27,7 @@ export const projects: Project[] = [
     image: "/image1.png",
     videoUrl: "/video2.mov",
     href: "/work/crypto-dashboard",
-    tags: ["All Projects", "Web Development", "AI Integration"],
+    tags: ["All Projects", "Web Development", "Graphic Design", "Branding"],
   },
   {
     title: "Talentora: Designing A Conversational AI Interview Platform",
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     image: "/image3.png",
     videoUrl: "/video1.mov",
     href: "/work/healthcare-platform",
-    tags: ["All Projects", "Web Development", "UI/UX"],
+    tags: ["All Projects", "Web Development"],
   },
 
 
