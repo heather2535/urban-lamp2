@@ -27,10 +27,10 @@ interface FeaturedProjectProps {
 // Add a mapping of tags to their images
 const tagImages: { [key: string]: string } = {
   "UI/UX Design": "/images/image1.jpg",
-  "Web Development": "/image1.png",
   "Product Design": "/image10.png",
+  "Web Development": "/image1.png",
   "Graphic Design": "/image13.png",
-  "Branding": "/image5.jpg",
+  "Branding": "/image5.png",
 }
 
 export function FeaturedProject({ projects }: FeaturedProjectProps) {
@@ -90,13 +90,13 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
   const displayedTags = allTags.slice(1, 6);
 
   return (
-    <div className="container mx-auto max-w-full border-pink-500">
+    <div className="mb-24 -mt-16 container mx-auto max-w-full border-pink-500">
       {/* Tags and Text Section */}
       
         
      
 
-      <div className="relative z-20 mb-8">
+      <div className="relative z-20 mb-4">
         <div className="w-full">
           <div className="container mx-auto">
             <div className="flex flex-col items-center justify-center">

@@ -53,7 +53,7 @@ export const projects: Project[] = [
     title: "Library Database E-Learning Platform ",
     description: "Interactive virtual space for students to showcase their reads in an environment.",
     date: "January 10, 2024",
-    image: "/image6.png",
+    image: "/image14.png",
     videoUrl: "/video1.mov",
     href: "/work/virtual-gallery",
     tags: ["All Projects", "Web Development"],

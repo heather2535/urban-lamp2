@@ -207,7 +207,7 @@ export default function CryptoDashboardPage() {
   return (
     <div className="min-h-screen bg-transparent">
       <Navigation />
-      <main className="mt-6 container max-w-2xl mx-auto px-4 py-8">
+      <main className="mt-6 container max-w-2xl mx-auto px-4 py-8 pb-24">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
           <p className="text-[14px] text-muted-foreground mt-8 mb-4">{project.description2}</p>
 
