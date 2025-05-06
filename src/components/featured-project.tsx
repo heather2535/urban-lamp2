@@ -26,18 +26,18 @@ interface FeaturedProjectProps {
 
 // Add a mapping of tags to their images
 const tagImages: { [key: string]: string } = {
+  "UI/UX Design": "/images/image1.jpg",
   "Web Development": "/image1.png",
   "Product Design": "/image10.png",
-  "UI/UX Design": "/images/image1.jpg",
   "Graphic Design": "/image13.png",
   "Branding": "/image5.jpg",
 }
 
 export function FeaturedProject({ projects }: FeaturedProjectProps) {
-  const [currentImage, setCurrentImage] = useState("/image1.jpg")
+  const [currentImage, setCurrentImage] = useState("/images/image1.jpg")
   const [nextImage, setNextImage] = useState("/image10.jpg")
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const [activeTag, setActiveTag] = useState("Web Development")
+  const [activeTag, setActiveTag] = useState("UI/UX Design")
   const allTags = Array.from(new Set(projects.flatMap((project) => project.tags)))
   const images = Object.values(tagImages)
   const [currentIndex, setCurrentIndex] = useState(0)
