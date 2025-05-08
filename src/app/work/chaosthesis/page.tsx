@@ -6,10 +6,10 @@ import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar c
 import Link from "next/link"  // Ensure to import Link for routing
 
 const project = {
-    title: "Flourescent Light Installation",
-    description: "Process that records the glow or visible light given off by certain substances when they are irradiated by ultraviolet rays.",
-    date: "May 22, 2023",
-    description2: "Heather Davies - May 21, 2023",
+    title: "Chaos & Order: Graphic Design Thesis",
+    description: "A collection of my graphic design work from my thesis.",
+    date: "May 06, 2025",
+    description2: "Heather Davies - May 6, 2025",
     video: "/video2.mov?height=450&width=800", 
     content: `
       <br></br>
@@ -97,7 +97,7 @@ const project = {
       <br></br>
       
     `,
-    tags: ["Web Development", "Data Visualization", "Crypto", "Finance"],
+    tags: ["All Projects", "Graphic Design", "Branding"],
   }
   
 
@@ -119,37 +119,24 @@ export default function CryptoDashboardPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container max-w-2xl mx-auto px-4 py-8">
+      <main className="container max-w-2xl mx-auto mt-6 px-4 py-8">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
           <p className="text-[14px] text-muted-foreground mt-8 mb-4">{project.description2}</p>
 
           <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
           <p className="text-muted-foreground mb-4">{project.date}</p>
 
-          {/* Tag and Search Filters */}
-          <div className="mb-8 flex flex-wrap items-center gap-4">
-            <div className="flex-grow max-w-md">
-              <SearchBar onSearch={setSearchQuery} />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <Link href="../" onClick={() => setSelectedTag(null)} className="px-4 py-2 border rounded">
-                All
-              </Link>
-              {allTags.map((tag) => (
-                <Link 
-                  key={tag} 
-                  href="../" 
-                  onClick={() => setSelectedTag(tag)} 
-                  className={`px-4 py-2 border rounded ${selectedTag === tag ? "bg-blue-500 text-white" : ""}`}
-                >
-                  {tag}
-                </Link>
-              ))}
-            </div>
+          {/* Filtered Tags */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            {filteredProjects.map((tag) => (
+              <Badge key={tag} variant="secondary">
+                {tag}
+              </Badge>
+            ))}
           </div>
 
           {/* Video section */}
-          <div className="relative mb-6">
+          <div className="relative mt-6 mb-6">
             <video controls width="100%" height="auto" className="object-cover rounded-lg">
               <source src={project.video} type="video/mp4" />
               {/* Fallback text for unsupported browsers */}
@@ -160,14 +147,7 @@ export default function CryptoDashboardPage() {
           <p className="lead">{project.description}</p>
           <div dangerouslySetInnerHTML={{ __html: project.content }} />
 
-          {/* Filtered Tags */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {filteredProjects.map((tag) => (
-              <Badge key={tag} variant="secondary">
-                {tag}
-              </Badge>
-            ))}
-          </div>
+
         </article>
       </main>
     </div>

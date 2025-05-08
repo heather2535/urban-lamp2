@@ -71,24 +71,44 @@ export const projects: Project[] = [
 
 
   {
-    title: "Flourescent Light Installation",
-    description: "Interactive virtual space for students to showcase their reads in an environment.",
-    date: "January 10, 2024",
-    image: "/image8.jpeg",
+    title: "Chaos & Order: Graphic Design Thesis",
+    description: "A collection of my graphic design work from my thesis.",
+    date: "May 06, 2025",
+    image: "/image13.png",
     videoUrl: "/video1.mov",
-    href: "/work/flourescent-film",
-    tags: ["All Projects", "Graphic Design", "3D Design"],
+    href: "/work/chaosthesis",
+    tags: ["All Projects", "Graphic Design", "Branding"],
   },
   {
-    title: "Establishing Shot Bridge Simulation",
+    title: "BLOSM Add-On Venetian Map Simulation",
     description: "Using Blender, I created this simple simulation of a car driving across a bridge.",
     date: "June 10, 2023",
     image: "/image9.png",
     videoUrl: "/video7.mp4",
     href: "/work/establishing-shot",
+    tags: ["All Projects", "3D Design"],
+  },
+  {
+    title: "Architectural Visualization for 12/12 Aventura",
+    description: "Using Blender, I created this simple simulation of a car driving across a bridge.",
+    date: "June 10, 2023",
+    image: "/gallery/image1.jpg",
+    videoUrl: "/video7.mp4",
+    href: "/work/establishing-shot",
     tags: ["All Projects", "Graphic Design", "3D Design"],
   },
+
+  {
+    title: "Establishing Shot Bridge Simulation",
+    description: "Using Blender, I created this simple simulation of a car driving across a bridge.",
+    date: "June 10, 2023",
+    image: "/gallery/image5.png",
+    videoUrl: "/video7.mp4",
+    href: "/work/establishing-shot",
+    tags: ["All Projects", "Graphic Design", "Branding"],
+  },
 ]
+
 
 export const allTags = Array.from(new Set(projects.flatMap((project) => project.tags))).sort()
 
