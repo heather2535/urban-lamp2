@@ -5,36 +5,88 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const galleryImages = [
-  { src: "/gallery/image1.jpg", alt: "12/12 Aventura Rendering", title: "12/12 Aventura Rendering" },
-  { src: "/gallery/image2.gif", alt: "Graphic Design Place Branding", title: "Graphic Design Place Branding" },
-  { src: "/gallery/image3.jpg", alt: "Land of The Rising Sun Editorial", title: "Land of The Rising Sun Editorial" },
-  { src: "/gallery/image4.gif", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
-  { src: "/gallery/image5.png", alt: "Muse Marketing Editorial Design", title: "Muse Marketing Editorial Design" },
-  { src: "/gallery/image6.jpg", alt: "Project 6", title: "Project 6" },
-  { src: "/gallery/image7.png", alt: "Project 7", title: "Project 7" },
-  { src: "/gallery/image8.png", alt: "Project 8", title: "Project 8" },
-  { src: "/gallery/image9.png", alt: "Project 9", title: "Project 9" },
-  { src: "/gallery/image10.png", alt: "Project 10", title: "Project 10" },
-  { src: "/gallery/image11.jpg", alt: "Project 11", title: "Project 11" },
-  { src: "/gallery/image12.jpg", alt: "Project 12", title: "Project 12" },
+  { src: "/gallery/image13.png", alt: "Grunge Never Dies", title: "Editorial Design of Grunge Never Dies: A Tribute to the Grunge Era" },
+  { src: "/gallery/image14.jpg", alt: "Graphic Design Place Branding", title: "Graphic Design Place Branding" },
+  { src: "/gallery/image15.jpg", alt: "Land of The Rising Sun Editorial", title: "Land of The Rising Sun Editorial" },
+  { src: "/gallery/image16.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image17.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image18.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image19.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image20.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image21.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image22.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image23.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image24.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image25.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image26.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image27.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image28.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image29.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image36.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image38.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image39.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image40.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image41.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image42.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image43.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image44.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image45.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image46.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image47.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  
 ]
 
 const tags = ["All", "3D", "Editorial", "Branding", "UI/UX", "Motion"]
 
+const firstContainerImages = [
+  { src: "/gallery/image42.png", alt: "Audiozic Prototype 1" },
+  { src: "/gallery/image43.png", alt: "Audiozic Prototype 2" },
+  { src: "/gallery/image44.png", alt: "Audiozic Prototype 3" },
+  { src: "/gallery/image45.png", alt: "Audiozic Prototype 4" },
+  { src: "/gallery/image46.png", alt: "Audiozic Prototype 5" },
+  { src: "/gallery/image47.png", alt: "Audiozic Prototype 6" },
+  { src: "/gallery/image42.png", alt: "Audiozic Prototype 7" },
+  { src: "/gallery/image43.png", alt: "Audiozic Prototype 8" },
+  { src: "/gallery/image44.png", alt: "Audiozic Prototype 9" },
+  { src: "/gallery/image45.png", alt: "Audiozic Prototype 10" },
+  { src: "/gallery/image46.png", alt: "Audiozic Prototype 11" },
+  { src: "/gallery/image47.png", alt: "Audiozic Prototype 12" }
+];
+
+const thirdContainerImages = [
+  { src: "/gallery/image35.jpg", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+  { src: "/gallery/image36.jpg", alt: "Muse Marketing Editorial Design", title: "Muse Marketing Editorial Design" },
+  { src: "/gallery/image48.jpg", alt: "Project 6", title: "Project 6" },
+  { src: "/gallery/image49.jpg", alt: "Project 7", title: "Project 7" },
+  { src: "/gallery/image50.jpg", alt: "Project 8", title: "Project 8" }
+];
+
 export default function GraphicsPage() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
+  const [selectedContainer, setSelectedContainer] = useState<string | null>(null)
+  const pathname = usePathname()
 
   const showNext = () => {
-    if (selectedIndex === null) return
-    setSelectedIndex((selectedIndex + 1) % galleryImages.length)
+    if (selectedIndex === null || selectedContainer === null) return
+    const currentImages = 
+      selectedContainer === 'first' ? firstContainerImages :
+      selectedContainer === 'third' ? thirdContainerImages :
+      galleryImages
+    setSelectedIndex((selectedIndex + 1) % currentImages.length)
   }
 
   const showPrevious = () => {
-    if (selectedIndex === null) return
-    setSelectedIndex(selectedIndex === 0 ? galleryImages.length - 1 : selectedIndex - 1)
+    if (selectedIndex === null || selectedContainer === null) return
+    const currentImages = 
+      selectedContainer === 'first' ? firstContainerImages :
+      selectedContainer === 'third' ? thirdContainerImages :
+      galleryImages
+    setSelectedIndex(selectedIndex === 0 ? currentImages.length - 1 : selectedIndex - 1)
   }
 
   return (
@@ -44,7 +96,7 @@ export default function GraphicsPage() {
 
       {/* Title Section */}
       <section className="flex items-center justify-center px-4">
-        <div className="flex items-center justify-center relative w-full py-32 sm:py-48">
+        <div className="flex items-center justify-center relative w-full py-16 sm:py-24">
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
           <div className="container relative z-20">
             <div className="mx-auto max-w-5xl text-center">
@@ -59,67 +111,224 @@ export default function GraphicsPage() {
         </div>
       </section>
 
-      {/* Tags Section */}
-      <section className="flex mx-auto w-full px-4 sm:px-12">
-        <div className="container mx-auto">
-          <h2 className="text-foreground text-3xl font-bold tracking-tight mb-6">
-            Tags
-          </h2>
-          <div className="flex flex-wrap gap-3 mb-8 max-w-full">
-            {tags.map((tag) => (
-              <motion.button
-                key={tag}
-                onClick={() => setSelectedTag(tag === "All" ? null : tag)}
-                className={cn(
-                  "group flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 transition-all",
-                  selectedTag === tag || (tag === "All" && !selectedTag)
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-background hover:border-primary hover:bg-primary/10"
-                )}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="text-sm font-medium">{tag}</span>
-              </motion.button>
-            ))}
+     
+      {/* First Container */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
+          <div className="flex flex-col gap-6">
+            <div className="flex gap-6">
+              {/* First Project - 1/2 width */}
+              <div className="w-1/2">
+                <div 
+                  className="relative cursor-pointer hover:opacity-90 transition-opacity h-full"
+                  onClick={() => {
+                    setSelectedIndex(0)
+                    setSelectedContainer('first')
+                  }}
+                >
+                  <img
+                    src="/gallery/image36.png"
+                    alt="Chaos & Order"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h3 className="text-xl font-semibold text-white mb-2">Chaos & Order: Graphic Design Thesis</h3>
+                      <p className="text-white/80">Click to view full project</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Grid of Images - 1/2 width */}
+              <div className="w-1/2">
+                <div className="grid grid-cols-4 gap-2 h-full">
+                  {firstContainerImages.map((image, index) => (
+                    <div 
+                      key={index}
+                      className="aspect-[4/3] overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+                      onClick={() => {
+                        setSelectedIndex(index)
+                        setSelectedContainer('first')
+                      }}
+                    >
+                      <div className="relative h-full">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Photo Gallery */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
-          {galleryImages.map((image, index) => (
-            <div 
-              key={index} 
-              className="relative overflow-hidden rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
-              onClick={() => setSelectedIndex(index)}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-auto"
-              />
+      {/* Second Container Section */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
+          <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-3 gap-2">
+              {[
+                { src: "/gallery/image5.png", alt: "Audiozic Prototype", title: "Audiozic Prototype" },
+                { src: "/gallery/image30.png", alt: "Muse Marketing Editorial Design", title: "Muse Marketing Editorial Design" },
+                { src: "/gallery/image31.png", alt: "Project 6", title: "Project 6" },
+                { src: "/gallery/image32.png", alt: "Project 7", title: "Project 7" },
+                { src: "/gallery/image33.png", alt: "Project 8", title: "Project 8" },
+                { src: "/gallery/image34.png", alt: "Project 9", title: "Project 9" }
+              ].map((image, index) => (
+                <div 
+                  key={index}
+                  className="aspect-[4/3] overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
+                  onClick={() => {
+                    setSelectedIndex(index)
+                    setSelectedContainer('second')
+                  }}
+                >
+                  <div className="relative flex-grow">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform"
+                    />
+                  </div>
+                  <div className="p-2 bg-white/50 dark:bg-gray-800/50">
+                    <h3 className="text-sm font-semibold text-foreground truncate">{image.title}</h3>
+                    <p className="text-xs text-muted-foreground truncate">{image.alt}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+            <div className="mt-4">
+              <h2 className="text-2xl font-semibold text-foreground">Muse Marketing: Editorial Design</h2>
+              <p className="text-sm text-muted-foreground mt-1">Click to view full project</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <Dialog open={selectedIndex !== null} onOpenChange={() => setSelectedIndex(null)}>
+      {/* Third Container Section */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
+          <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-5 gap-2">
+              {thirdContainerImages.map((image, index) => (
+                <div 
+                  key={index}
+                  className="overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer h-full"
+                  onClick={() => {
+                    setSelectedIndex(index)
+                    setSelectedContainer('third')
+                  }}
+                >
+                  <div className="relative h-full">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4">
+              <h2 className="text-2xl font-semibold text-foreground">Cervera Real Estate: Graphic Design & Branding Specialist</h2>
+              <p className="text-sm text-muted-foreground mt-1">Click to view full project</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Second Container */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
+          <div className="flex flex-col gap-6">
+            <div className="flex gap-6">
+              {/* Grid of Images - 1/2 width */}
+              <div className="w-1/2">
+                <div className="grid grid-cols-4 gap-2 h-full">
+                  {Array.from({ length: 16 }).map((_, index) => (
+                    <div 
+                      key={index}
+                      className="aspect-[4/3] overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
+                      onClick={() => setSelectedIndex(index + 1)}
+                    >
+                      <div className="relative flex-grow">
+                        <img
+                          src={galleryImages[index + 1].src}
+                          alt={galleryImages[index + 1].alt}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform"
+                        />
+                      </div>
+                      <div className="p-2 bg-white/50 dark:bg-gray-800/50">
+                        <h3 className="text-sm font-semibold text-foreground truncate">{galleryImages[index + 1].title}</h3>
+                        <p className="text-xs text-muted-foreground truncate">{galleryImages[index + 1].alt}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* First Project - 1/2 width */}
+              <div className="w-1/2">
+                <div 
+                  className="relative cursor-pointer hover:opacity-90 transition-opacity h-full"
+                  onClick={() => setSelectedIndex(0)}
+                >
+                  <img
+                    src={galleryImages[0].src}
+                    alt={galleryImages[0].alt}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h3 className="text-xl font-semibold text-white mb-2">{galleryImages[0].title}</h3>
+                      <p className="text-white/80">Click to view full project</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Dialog open={selectedIndex !== null} onOpenChange={() => {
+        setSelectedIndex(null)
+        setSelectedContainer(null)
+      }}>
         <DialogContent className="max-w-6xl">
-          <DialogTitle>{selectedIndex !== null ? galleryImages[selectedIndex].title : ""}</DialogTitle>
+          <DialogTitle>
+            {selectedIndex !== null && selectedContainer !== null 
+              ? (selectedContainer === 'first' ? firstContainerImages[selectedIndex].alt :
+                 selectedContainer === 'third' ? thirdContainerImages[selectedIndex].title :
+                 galleryImages[selectedIndex].title)
+              : ""}
+          </DialogTitle>
           <div className="relative">
-            {selectedIndex !== null && (
+            {selectedIndex !== null && selectedContainer !== null && (
               <img
-                src={galleryImages[selectedIndex].src}
-                alt={galleryImages[selectedIndex].alt}
-                className="w-full h-auto rounded-lg"
+                src={selectedContainer === 'first' ? firstContainerImages[selectedIndex].src :
+                     selectedContainer === 'third' ? thirdContainerImages[selectedIndex].src :
+                     galleryImages[selectedIndex].src}
+                alt={selectedContainer === 'first' ? firstContainerImages[selectedIndex].alt :
+                     selectedContainer === 'third' ? thirdContainerImages[selectedIndex].alt :
+                     galleryImages[selectedIndex].alt}
+                className={`w-full rounded-lg ${
+                  selectedContainer === 'third' ? 'max-h-[60vh] object-contain' : 'h-auto'
+                }`}
               />
             )}
           </div>
           {/* Thumbnails */}
           <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
-            {galleryImages.map((image, index) => (
+            {(selectedContainer === 'first' ? firstContainerImages :
+              selectedContainer === 'third' ? thirdContainerImages :
+              galleryImages).map((image, index) => (
               <img
                 key={index}
                 src={image.src}

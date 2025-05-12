@@ -47,9 +47,9 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center space-x-2">
             <Palette className="h-8 w-8 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
-            <span className="text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x">
+            <h1 className="text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x">
               Heather Davies
-            </span>
+            </h1>
           </Link>
 
           {/* Desktop Navigation */}
@@ -92,6 +92,36 @@ export function Navigation() {
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <a 
+                    href="https://www.linkedin.com/in/heatherrdavies/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={cn(
+                      "group inline-flex h-10 w-10 items-center justify-center rounded-full overflow-hidden hover:border-pink-500 transition-colors"
+                    )}
+                  >
+                    <img
+                      src="/images/linkedin.png"
+                      alt="Contact"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                    />
+                  </a>
+                </NavigationMenuItem>
+                <NavigationMenuItem className="ml-20">
+                  <a 
+                    href="mailto:daviesheather518@gmail.com"
+                    className={cn(
+                      "group inline-flex h-10 w-10 items-center justify-center rounded-full overflow-hidden hover:border-pink-500 transition-colors"
+                    )}
+                  >
+                    <img
+                      src="/images/mail.png"
+                      alt="Email"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform scale-110"
+                    />
+                  </a>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
             <ModeToggle />
@@ -123,6 +153,34 @@ export function Navigation() {
                   )}>
                     About
                   </Link>
+                  <div className="flex gap-20">
+                    <a 
+                      href="https://www.linkedin.com/in/heatherrdavies/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={cn(
+                        "group w-8 h-8 rounded-full overflow-hidden hover:border-pink-500 transition-colors"
+                      )}
+                    >
+                      <img
+                        src="/images/linkedin.png"
+                        alt="Contact"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                      />
+                    </a>
+                    <a 
+                      href="mailto:daviesheather518@gmail.com"
+                      className={cn(
+                        "group w-8 h-8 rounded-full overflow-hidden hover:border-pink-500 transition-colors"
+                      )}
+                    >
+                      <img
+                        src="/images/mail.png"
+                        alt="Email"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform scale-110"
+                      />
+                    </a>
+                  </div>
                 </nav>
               </SheetContent>
             </Sheet>
