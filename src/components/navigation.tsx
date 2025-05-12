@@ -94,32 +94,13 @@ export function Navigation() {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <a 
-                    href="https://www.linkedin.com/in/heatherrdavies/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className={cn(
-                      "group inline-flex h-10 w-10 items-center justify-center rounded-full overflow-hidden hover:border-pink-500 transition-colors"
-                    )}
-                  >
-                    <img
-                      src="/images/linkedin.png"
-                      alt="Contact"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                    />
-                  </a>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="ml-20">
-                  <a 
                     href="mailto:daviesheather518@gmail.com"
                     className={cn(
-                      "group inline-flex h-10 w-10 items-center justify-center rounded-full overflow-hidden hover:border-pink-500 transition-colors"
+                      navigationMenuTriggerStyle(),
+                      "hover:text-pink-500"
                     )}
                   >
-                    <img
-                      src="/images/mail.png"
-                      alt="Email"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform scale-110"
-                    />
+                    <h3>Contact</h3>
                   </a>
                 </NavigationMenuItem>
               </NavigationMenuList>
@@ -153,34 +134,12 @@ export function Navigation() {
                   )}>
                     About
                   </Link>
-                  <div className="flex gap-20">
-                    <a 
-                      href="https://www.linkedin.com/in/heatherrdavies/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className={cn(
-                        "group w-8 h-8 rounded-full overflow-hidden hover:border-pink-500 transition-colors"
-                      )}
-                    >
-                      <img
-                        src="/images/linkedin.png"
-                        alt="Contact"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                      />
-                    </a>
-                    <a 
-                      href="mailto:daviesheather518@gmail.com"
-                      className={cn(
-                        "group w-8 h-8 rounded-full overflow-hidden hover:border-pink-500 transition-colors"
-                      )}
-                    >
-                      <img
-                        src="/images/mail.png"
-                        alt="Email"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform scale-110"
-                      />
-                    </a>
-                  </div>
+                  <a 
+                    href="mailto:daviesheather518@gmail.com"
+                    className="text-sm transition-colors hover:text-pink-500"
+                  >
+                    Contact
+                  </a>
                 </nav>
               </SheetContent>
             </Sheet>

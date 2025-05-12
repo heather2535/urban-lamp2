@@ -48,33 +48,63 @@ export function ProjectFilter({ tags, selectedTag, onTagSelect, onSearch }: Proj
 
   return (
     <div className="mb-8">
-      <div className="flex flex-wrap gap-3">
-        {sortedTags.map((tag) => (
-          <motion.button
-            key={tag}
-            onClick={() => onTagSelect(selectedTag === tag ? null : tag)}
-            className={cn(
-              "group flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 transition-all",
-              selectedTag === tag || (tag === "All Projects" && !selectedTag)
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-border bg-background hover:border-primary hover:bg-primary/10",
-            )}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <span
+      <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-wrap justify-center gap-3">
+          {sortedTags.slice(0, Math.ceil(sortedTags.length / 2)).map((tag) => (
+            <motion.button
+              key={tag}
+              onClick={() => onTagSelect(selectedTag === tag ? null : tag)}
               className={cn(
-                "flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full transition-colors",
+                "group flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 transition-all",
                 selectedTag === tag || (tag === "All Projects" && !selectedTag)
-                  ? "bg-primary-foreground text-primary"
-                  : "bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary",
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border bg-background hover:border-primary hover:bg-primary/10",
               )}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              {tagIcons[tag]}
-            </span>
-            <span className="text-xs font-medium">{tag}</span>
-          </motion.button>
-        ))}
+              <span
+                className={cn(
+                  "flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full transition-colors",
+                  selectedTag === tag || (tag === "All Projects" && !selectedTag)
+                    ? "bg-primary-foreground text-primary"
+                    : "bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary",
+                )}
+              >
+                {tagIcons[tag]}
+              </span>
+              <span className="text-xs font-medium">{tag}</span>
+            </motion.button>
+          ))}
+        </div>
+        <div className="flex flex-wrap justify-center gap-3">
+          {sortedTags.slice(Math.ceil(sortedTags.length / 2)).map((tag) => (
+            <motion.button
+              key={tag}
+              onClick={() => onTagSelect(selectedTag === tag ? null : tag)}
+              className={cn(
+                "group flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 transition-all",
+                selectedTag === tag || (tag === "All Projects" && !selectedTag)
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border bg-background hover:border-primary hover:bg-primary/10",
+              )}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span
+                className={cn(
+                  "flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full transition-colors",
+                  selectedTag === tag || (tag === "All Projects" && !selectedTag)
+                    ? "bg-primary-foreground text-primary"
+                    : "bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary",
+                )}
+              >
+                {tagIcons[tag]}
+              </span>
+              <span className="text-xs font-medium">{tag}</span>
+            </motion.button>
+          ))}
+        </div>
       </div>
     </div>
   )

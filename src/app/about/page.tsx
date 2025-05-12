@@ -15,39 +15,68 @@ export default function About() {
       <Navigation />
       <main className="container mx-auto px-4 py-14">
         <div className="max-w-2xl mx-auto">
-        <div className="relative w-full">       
-          <Image
-            className="w-80 mt-12 h-auto rounded-full shadow-lg mx-auto"
-            src="/about.png"
-            width="500"
-            height="500"
-            alt="image"
-          />
-        </div>
           <h1 className="text-3xl font-semibold mt-8 mb-2 text-center">About Me</h1>
+          
+          <div className="relative w-full overflow-hidden mt-6 mb-12">
+            <div className="flex animate-scroll">
+              <div className="flex gap-6">
+                <Image
+                  className="w-64 h-64 object-cover rounded-lg shadow-lg"
+                  src="/images/image15.jpg"
+                  width="256"
+                  height="256"
+                  alt="Gallery image 1"
+                />
+                <Image
+                  className="w-64 h-64 object-cover rounded-lg shadow-lg"
+                  src="/images/image16.jpg"
+                  width="256"
+                  height="256"
+                  alt="Gallery image 2"
+                />
+                <Image
+                  className="w-64 h-64 object-cover rounded-lg shadow-lg"
+                  src="/images/image17.jpg"
+                  width="256"
+                  height="256"
+                  alt="Gallery image 3"
+                />
+                <Image
+                  className="w-64 h-64 object-cover rounded-lg shadow-lg"
+                  src="/images/image18.jpg"
+                  width="256"
+                  height="256"
+                  alt="Gallery image 4"
+                />
+              </div>
+              
+            </div>
+          </div>
+
+          <style jsx global>{`
+            @keyframes scroll {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+            .animate-scroll {
+              animation: scroll 20s linear infinite;
+              display: flex;
+              width: max-content;
+            }
+            .animate-scroll:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+
           <p className="text-md mb-4 text-center text-gray-700 dark:text-gray-300">Hi, I'm Heather Davies, a senior at Boston University, where I'm pursuing a B.F.A. in Graphic Design with a minor in Psychology. My academic journey, internships, and passion for design have equipped me with a unique blend of creative and technical expertise. Through coursework in UX/UI design, cognitive psychology, and design strategy, I've developed a deep understanding of how to craft meaningful, user-centered experiences that address real-world challenges</p>
           <h1 className="text-xl font-bold mt-8 mb-2 text-center">Passion for User-Centered Design </h1>
           <p className="text-md mb-4 text-center text-gray-700 dark:text-gray-300">I am deeply passionate about designing intuitive and impactful user experiences. By integrating principles of psychology, visual storytelling, and data-driven strategies, I thrive on creating designs that resonate with users and deliver measurable results. Whether it's simplifying workflows, improving usability, or enhancing brand identity, I'm driven by the opportunity to use design as a tool for positive change.</p>
-          <h1 className="text-xl font-bold mt-8 mb-2 text-center">Technical Proficiency</h1>
-          <p className="text-md mb-4 text-center text-gray-700 dark:text-gray-300">I bring a diverse set of skills to every project, blending creativity with technical know-how.
-            I am highly proficient in design tools like:
-            Figma, Photoshop, Illustrator, and Sketch.
-
-            I also excel in prototyping tools such as:
-            InVision and Principle, and I have front-end development skills in HTML and CSS, allowing me to bridge the gap between design and development.
-
-            In addition, I'm experienced with:
-            Asana, Jira, Trello, and agile methodologies like Scrum and Kanban.
-            These tools have supported my ability to manage product lifecycles, lead cross-functional teams, and deliver user-focused results.</p>
-          <h1 className="text-xl font-bold mt-8 mb-2 text-center">Projects and Experience          </h1>
-          <p className="text-md mb-4 text-center text-gray-700 dark:text-gray-300">Throughout my academic and professional journey, I've led and contributed to a wide range of impactful projects:
-
-            Talentora: As the Lead User Experience Designer, I developed the branding, user interface, and over 50 screens, increasing brand recognition and streamlining hiring processes through an AI-powered recruiting platform.
-            Boston University Ethical AI Dashboard: Designed an interactive dashboard integrating tools like ShadCN, MUI, and Next.js, supporting researchers in making responsible AI decisions.
-            Boston Children's Hospital ALS Resource App: Improved usability and satisfaction by 30% through intuitive interface designs.
-            DEI-Focused Consulting App: Led the design of workflows for a tool empowering companies to implement measurable diversity practices.</p>
-          <h1 className="text-xl font-semibold mt-8 mb-2 text-center">Constant Learner and Collaborative Team Member          </h1>
-          <p className="text-md mb-4 text-center text-gray-700 dark:text-gray-300">In the ever-evolving fields of UX/UI and design, I value the importance of continuous learning. I stay up-to-date with emerging trends and technologies, taking courses and attending workshops on topics like machine learning, agile methodologies, and accessibility in design.</p>
+           
+          
           <p className="text-md mb-4 text-center text-gray-700 dark:text-gray-300">I thrive in collaborative environments, whether I'm leading a team or contributing as a member. I believe the best solutions come from open communication and diverse perspectives.</p>
           <h1 className="text-xl font-bold mt-8 mb-2 text-center">Future Aspirations          </h1>
           <p className="text-md mb-4 text-center text-gray-700 dark:text-gray-300">As I approach graduation, I'm eager to bring my skills and passion to an innovative organization where I can create impactful user experiences. I'm especially interested in opportunities that combine design expertise with technical problem-solving to enhance user satisfaction and contribute to meaningful projects.</p>

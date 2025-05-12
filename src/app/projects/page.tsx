@@ -44,7 +44,7 @@ export default function ProjectsPage() {
               <div className="relative">
                 <div className="absolute inset-0 blur-3xl -z-10 bg-[radial-gradient(circle,rgba(236,72,153,0.6)_0%,transparent_70%)]" />
                 <h1 className="text-foreground text-1xl font-semibold tracking-tight text-7xl">
-                  Featured Projects
+                  Projects
                 </h1>
                 <p className=" mt-6 text-md leading-8 text-gray-700 dark:text-gray-200 mb-6">
                 Crafting digital experiences. 
@@ -56,12 +56,9 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Section */}
-      <section ref={projectsRef} className="flex mx-auto max-w-full min-h-screen px-12 pt-22">
-        <div className="container -mb-2">
-          <div className="flex items-center space-x-2">
-
-       
-      
+      <section ref={projectsRef} className="flex mx-auto w-full min-h-screen px-4 sm:px-12 pt-22">
+        <div className="container mx-auto max-w-7xl">
+          <div className="flex items-center justify-center space-x-2">
           </div>
 
           <ProjectFilter
@@ -71,7 +68,7 @@ export default function ProjectsPage() {
             onSearch={setSearchQuery}
           />
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
             {filteredProjects.map((project) => (
               <ProjectCard key={project.href} project={project} />
             ))}
