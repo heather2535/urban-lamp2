@@ -1,6 +1,6 @@
 import { JSX, useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import {
   Folder,
   Search,
@@ -11,9 +11,10 @@ import {
   Palette,
   Layers,
   Code,
- 
+  ArrowRight,
 } from "lucide-react"
 import { ScrollingLogos } from "./scrolling-logos"
+import { Button } from "@/components/button"
 
 interface FeaturedProjectProps {
   projects: {
@@ -24,150 +25,111 @@ interface FeaturedProjectProps {
   }[]
 }
 
-// Add a mapping of tags to their images
-const tagImages: { [key: string]: string } = {
-  "UI/UX Design": "/images/image1.jpg",
-  "Product Design": "/image10.png",
-  "Web Development": "/image1.png",
-  "Graphic Design": "/image13.png",
-  "Branding": "/image5.png",
+// Add a mapping of tags to their images and descriptions
+const projectData: { [key: string]: { image: string; description: string } } = {
+  "UI/UX Design": {
+    image: "/images/image1.jpg",
+    description: "A comprehensive redesign of the user interface and experience for a leading mobile application, focusing on intuitive navigation and enhanced user engagement."
+  },
+  "Product Design": {
+    image: "/image10.png",
+    description: "End-to-end product design process for a new SaaS platform, from initial concept to final implementation, emphasizing user-centered design principles."
+  },
+  "Web Development": {
+    image: "/image1.png",
+    description: "Modern web application development using cutting-edge technologies, delivering responsive and performant solutions for complex business needs."
+  },
+  "Graphic Design": {
+    image: "/image13.png",
+    description: "Creative visual solutions for brand identity and marketing materials, combining artistic vision with strategic communication goals."
+  },
+  "Branding": {
+    image: "/image5.png",
+    description: "Comprehensive brand development and strategy, creating cohesive visual identities that resonate with target audiences and drive business growth."
+  },
 }
 
 export function FeaturedProject({ projects }: FeaturedProjectProps) {
-  const [currentImage, setCurrentImage] = useState("/images/image1.jpg")
-  const [nextImage, setNextImage] = useState("/image10.jpg")
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const [activeTag, setActiveTag] = useState("UI/UX Design")
-  const allTags = Array.from(new Set(projects.flatMap((project) => project.tags)))
-  const images = Object.values(tagImages)
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  // Get array of tag names in the same order as images
-  const orderedTags = Object.keys(tagImages)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const nextIndex = (currentIndex + 1) % images.length
-      setNextImage(images[nextIndex])
-      setIsTransitioning(true)
-      
-      setTimeout(() => {
-        setCurrentImage(images[nextIndex])
-        setCurrentIndex(nextIndex)
-        // Set the active tag to match the current image
-        setActiveTag(orderedTags[nextIndex])
-        setIsTransitioning(false)
-      }, 700)
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [currentIndex, images, orderedTags])
-
-  // Update handleTagClick to also update currentIndex
-  const handleTagClick = (tag: string) => {
-    const tagIndex = orderedTags.indexOf(tag)
-    if (tagIndex !== -1) {
-      setActiveTag(tag)
-      setIsTransitioning(true)
-      setCurrentIndex(tagIndex)
-      setCurrentImage(images[tagIndex])
-      setTimeout(() => {
-        setIsTransitioning(false)
-      }, 300)
-    }
-  }
-
-  // Create a mapping for tags to their respective icons
-  const tagIcons: { [key: string]: JSX.Element } = {
-    "UI/UX Design": <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "Web Development": <Code className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "Product Design": <BarChart className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "Branding": <Palette className="h-4 w-4 sm:h-5 sm:w-5" />,
-    "Graphic Design": <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />,
-  }
-
-  // Slice the tags to only show the first 4
-  const displayedTags = allTags.slice(1, 6);
+  const projectsList = Object.entries(projectData)
 
   return (
-    <div className="mb-24 -mt-16 container mx-auto max-w-full border-pink-500">
-      {/* Tags and Text Section */}
-      
-        
-     
-
-      <div className="relative z-20 mb-4">
-        <div className="w-full">
-          <div className="container mx-auto">
-            <div className="flex flex-col items-center justify-center">
-              {/* Tags */}
-              <div className="w-full max-w-6xl px-2 sm:px-5 py-2 sm:py-3 rounded-full flex items-center justify-center">
-                <div
-                  className="flex flex-wrap lg:flex-nowrap justify-center transition-all ease-in-out duration-500 gap-2 sm:gap-3"
-                  style={{
-                    transform: activeTag ? "translateX(-10px)" : "translateX(0)",
-                  }}
-                >
-                  {displayedTags.map((tag) => (
-                    <motion.button
-                      key={tag}
-                      onClick={() => handleTagClick(tag)}
-                      className={cn(
-                        "group flex items-center gap-1 sm:gap-2 whitespace-nowrap rounded-full border px-2 sm:px-4 py-1.5 sm:py-2 transition-all",
-                        activeTag === tag
-                          ? "border-primary bg-primary text-primary-foreground"
-                          : "border-gray-300 dark:border-border bg-background/20 hover:border-primary hover:bg-primary/10"
-                      )}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <span
-                        className={cn(
-                          "flex h-6 sm:h-8 w-6 sm:w-8 items-center justify-center rounded-full transition-colors",
-                          activeTag === tag
-                            ? "bg-primary-foreground text-primary"
-                            : "bg-gray-200 dark:bg-background/30 text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary"
-                        )}
-                      >
-                        {tagIcons[tag] || <Tag className="h-4 sm:h-5 w-4 sm:w-5" />}
-                      </span>
-                      <span className="text-xs sm:text-sm font-medium">{tag}</span>
-                    </motion.button>
-                  ))}
+    <div className="mb-24 -mt-16 container mx-auto max-w-6xl">
+      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8 text-center">
+        Featured Projects
+      </h2>
+      {/* Projects Section */}
+      <div className="max-w-7xl mx-auto rounded-[20px] p-5 relative overflow-hidden">
+        <div className="relative">
+          <motion.div
+            className="flex"
+            animate={{
+              x: [0, -2000],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 30,
+                ease: "linear",
+              },
+            }}
+          >
+            {projectsList.map(([title, data], index) => (
+              <div key={index} className="flex-shrink-0 w-[800px] px-4">
+                <div className="flex gap-8 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                  <div className="w-1/2">
+                    <img
+                      src={data.image}
+                      alt={`Featured project: ${title}`}
+                      className="rounded-lg h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="w-1/2 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                        {title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 mb-6">
+                        {data.description}
+                      </p>
+                    </div>
+                    <Button className="w-fit hover:text-black">
+                      Read Case Study
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
               </div>
-
-              {/* Streamlining Text */}
-              <div className="text-center text-gray-700 dark:text-white/70 mt-4 mb-8">
-           
+            ))}
+            {/* Duplicate projects for seamless loop */}
+            {projectsList.map(([title, data], index) => (
+              <div key={`dup-${index}`} className="flex-shrink-0 w-[800px] px-4">
+                <div className="flex gap-8 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                  <div className="w-1/2">
+                    <img
+                      src={data.image}
+                      alt={`Featured project: ${title}`}
+                      className="rounded-lg h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="w-1/2 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                        {title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 mb-6">
+                        {data.description}
+                      </p>
+                    </div>
+                    <Button className="w-fit hover:text-white">
+                      Read Case Study
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Image Section */}
-      <div className="bg-pink-400/20 border-[1px] border-pink-300/40 max-w-4xl mx-auto rounded-[20px] p-5 relative"
-        style={{
-          boxShadow: "0 -30px 100px 20px rgba(236, 72, 153, 0.2)",
-        }}>
-        <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentImage}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-              className="relative z-10"
-            >
-              <img
-                src={currentImage}
-                alt={`Featured project for ${activeTag}`}
-                className="rounded-lg h-full w-full object-cover"
-              />
-            </motion.div>
-          </AnimatePresence>
+            ))}
+          </motion.div>
         </div>
       </div>
     </div>

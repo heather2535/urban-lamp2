@@ -37,47 +37,126 @@ export default function ProjectsPage() {
   return (
     <div className="group min-h-screen bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a2a3a] dark:to-[#6a4e92]">
       <AuraCursor />
-      <Navigation  />
+      <Navigation />
 
       {/* Hero Section */}
       <section className="flex items-center justify-center px-4">
-        <div className="flex items-center justify-center relative w-full py-60 sm:py-40">
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" /> {/* Grainy texture */}
-          
-          <div className="container relative z-20">
-            <div className="mx-auto max-w-5xl text-center">
-              <h1 className="text-zinc-800 dark:text-white text-4xl font-bold tracking-tight sm:text-6xl lg:text-6xl">
-              I’m Heather Davies, a multi-disciplinary designer who crafts sleek, intuitive apps and sites that focus on user experience.              </h1>
+      <div className="flex items-center justify-center relative w-full py-60 sm:py-40">
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" /> {/* Grainy texture */}
         
+        <div className="container relative z-20">
+        <div className="mx-auto max-w-3xl px-4">
+          <div className="flex items-center gap-6 mb-8">
+          <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-pink-500/40 flex-shrink-0">
+            <img
+            src="/images/profile.png"
+            alt="Heather's profile picture"
+            className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="flex flex-col items-start h-40 justify-between">
+            <h1 className="text-zinc-800 dark:text-white text-4xl font-bold tracking-tight sm:text-6xl lg:text-6xl">
+            <span className="text-primary">Heather Davies</span>
+            </h1>
+            <p className="text-gray-600 dark:text-gray-300 text-lg sm:textlg mb-2">
+            Multidisciplinary Designer
+            </p>
+            <p className="text-gray-700 dark:text-white/70 text-base sm:text-md max-w-2xl">
+            I am a multidisciplinary designer specializing in sleek visuals, UX, and product design. My passion for crafting user-centered experiences blends creativity with human centric solutions.
+            </p>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </section>
 
+      {/* Design Toolkit Section */}
+      <section className="py-10 -mt-20 bg-white dark:bg-gray-900">
+      <div className="container mx-auto max-w-4xl px-4">
+        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8 text-center">
+        My Design Toolkit
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="bg-white/80 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+          <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+            <img src="/images/figma.png" alt="UI/UX Design" className="w-full h-full object-cover scale-105" />
+          </div>
+          <h3 className="text-sm font-semibold text-gray-800 dark:text-white">Figma</h3>
+          </div>
+        </div>
+        <div className="bg-white/80 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+          <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+            <img src="/images/adobeillustrator.webp" alt="Visual Design" className="w-full h-full object-cover scale-105" />
+          </div>
+          <h3 className="text-sm font-semibold text-gray-800 dark:text-white">Adobe Illustrator</h3>
+          </div>
+        </div>
+        <div className="bg-white/80 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+          <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+            <img src="/images/creativesuite.jpeg" alt="Prototyping" className="w-full h-full object-cover" />
+          </div>
+          <h3 className="text-sm font-semibold text-gray-800 dark:text-white">Adobe Creative Suite</h3>
+          </div>
+        </div>
+        <div className="bg-white/80 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+          <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+            <img src="/images/canva.svg" alt="Development" className="w-full h-full object-cover" />
+          </div>
+          <h3 className="text-sm font-semibold text-gray-800 dark:text-white">Canva</h3>
+          </div>
+        </div>
+        <div className="bg-white/80 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+          <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+            <img src="/images/adobexd.png" alt="3D Design" className="w-full h-full object-cover" />
+          </div>
+          <h3 className="text-sm font-semibold text-gray-800 dark:text-white">Adobe XD</h3>
+          </div>
+        </div>
+        <div className="bg-white/80 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow">
+          <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+            <img src="/images/notion.webp" alt="Motion Design" className="w-full h-full object-cover" />
+          </div>
+          <h3 className="text-sm font-semibold text-gray-800 dark:text-white">Notion</h3>
+          </div>
+        </div>
+        </div>
+
+        {/* Featured Project Section */}
+        <div ref={projectsRef} className="mt-32">
+          
+          <FeaturedProject projects={filteredProjects} />
+        </div>
+      </div>
+      </section>
+
+      {/* Quote Section */}
+      <section className="py-20 bg-white dark:bg-gray-900">
+        <div className="container mx-auto max-w-4xl px-4">
+          <div className="relative">
+            <div className="absolute -top-10 -left-10 text-9xl text-pink-500/10 dark:text-pink-500/20 font-serif">"</div>
+            <blockquote className="text-3xl md:text-4xl font-light text-gray-800 dark:text-white/90 leading-relaxed italic">
+              Design is not just what it looks like and feels like. Design is how it works.
+            </blockquote>
+            <div className="mt-8 text-right">
+              <p className="text-lg text-gray-600 dark:text-gray-400">— Steve Jobs</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Project Section */}
-      <div ref={projectsRef}>
-        <FeaturedProject projects={filteredProjects} />
-      </div>
-      
+     
 
-      {/* Projects Section */}
-      
-   {/* Featured Project 2 Section */}
-   <div className="px-10 -mt-8 pt-8 bg-background">
-        <AutomationSection />
-      </div>
+     
 
 
-      {/* Skills Section */}
-      <div className="px-10 -mt-8 pt-8  bg-background" >
-       
-      </div>
-
-          {/* Skills Section */}
-          <div className="px-10 -mt-8 pt-8  bg-background" >
-        <SkillsSection />
-      </div>
+     
     </div>
   )
 }
