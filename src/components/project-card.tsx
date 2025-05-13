@@ -55,10 +55,19 @@ export function ProjectCard({ project }: { project: Project }) {
             {project.tags
               .filter((tag) => tag !== "All Projects") // Exclude the "All Projects" tag
               .map((tag) => (
-                <span key={tag} className="badge badge-secondary text-xs flex items-center gap-1">
-                  {tagIcons[tag]}
-                  {tag}
-                </span>
+                <Link 
+                  key={tag} 
+                  href={`/projects?tag=${encodeURIComponent(tag)}`}
+                  className="no-underline"
+                >
+                  <span 
+                    key={tag} 
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
+                  >
+                    {tagIcons[tag]}
+                    {tag}
+                  </span>
+                </Link>
               ))}
           </div>
 

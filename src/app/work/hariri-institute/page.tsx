@@ -1,16 +1,17 @@
 "use client";
+import * as React from "react"
 import { useState, useEffect } from "react"
 import { Navigation } from "@/components/navigation"
 import { Badge } from "@/components/badge"
 import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
 import Link from "next/link"  // Ensure to import Link for routing
 import { createPortal } from 'react-dom'
+import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
 
 const project = {
   title: "Website Redesign for Hariri Institute at Duan Family Center for Faculty Computing and Engineering",
   description: "Complete redesign and development of the institute's web presence.",
   date: "March 3, 2025",
-  description2: "Heather Davies - Mar 3, 2025",
   image: "/image11.png",
   content: `
   
@@ -39,14 +40,7 @@ const project = {
         <div className="col-span-1">
           <p className="text-left">The primary goal was to modernize the website to better serve its core audiences: researchers, faculty, students, institutional partners, and donors. This meant aligning the visual identity with Boston University's official Office of Research theme, while designing flexible content systems tailored to Hariri's needs. The challenge was to balance institutional consistency with custom storytelling—spotlighting Hariri's people, research clusters, events, and initiatives without overwhelming visitors.</p>
         </div>
-        <div className="col-span-1">
-          <img
-            src="/images/image12.png"
-            alt="Hariri Institute Design Goals"
-            className="rounded-lg shadow-md w-full h-auto object-cover"
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </div>
+        
       </div>
     </div>
     <br>
@@ -65,14 +59,7 @@ const project = {
         <div className="col-span-1">
           <p className="text-left">My design approach focused on clarity, accessibility, and modularity. I began with a comprehensive audit of the current site structure, followed by stakeholder interviews to better understand communication priorities. These conversations revealed a desire for greater emphasis on people and research projects, along with the need to surface upcoming events and recent news without relying on manual updates.</p>
         </div>
-        <div className="col-span-1">
-          <img
-            src="/images/image9.png"
-            alt="Design Process and Research"
-            className="rounded-lg shadow-md w-full h-auto object-cover"
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </div>
+        
       </div>
     </div>
     <br>
@@ -85,16 +72,7 @@ const project = {
         <div className="col-span-1">
           <p className="text-left">Throughout the project, I worked closely with the Institute's Communications Manager, Director of Operations, and affiliated researchers to test concepts and iterate on designs. I conducted informal usability tests using click-through prototypes to gauge how users explored pages, which links they gravitated toward, and where confusion arose.</p>
         </div>
-        <div className="col-span-1">
-          <video
-            className="rounded-lg shadow-md w-3/4 h-auto mx-auto"
-            controls
-            style={{ maxWidth: "400px", maxHeight: "200px", height: "auto" }}
-          >
-            <source src="/videos/hariri-demo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+   
       </div>
     </div>
     <br>
@@ -166,17 +144,9 @@ One key insight was that many internal users relied on the website to locate arc
       />
     </div>
     <br></br>
-        <div className="mt-4">
-      <img
-        src="/images/image8.png"
-        alt="Low to High Fidelity Prototypes"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
     <p> Figure 3 and 4: Proposed Splash Page Designs</p>
-       <br></br>
-      <div className="mt-4">
+    <br></br>
+    <div className="mt-4">
       <img
         src="/images/image10.png"
         alt="Low to High Fidelity Prototypes"
@@ -248,6 +218,20 @@ function Slideshow({ images, id }: { images: string[], id: string }) {
   );
 }
 
+// Define tagIcons with explicit typing for keys
+const tagIcons: Record<string, JSX.Element> = {
+  "All Projects": <Folder className="h-3 w-3" />,
+  "3D Design": <Grid className="h-3 w-3" />,
+  "AI Integration": <Cpu className="h-3 w-3" />,
+  "Branding": <Tag className="h-3 w-3" />,
+  "Data Vis": <BarChart className="h-3 w-3" />,
+  "Graphic Design": <Palette className="h-3 w-3" />,
+  "UI/UX": <Layers className="h-3 w-3" />,
+  "UI/UX Design": <Layout className="h-3 w-3" />,
+  "Product Design": <Package className="h-3 w-3" />,
+  "Web Development": <Code className="h-3 w-3" />,
+}
+
 export default function CryptoDashboardPage() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
@@ -268,18 +252,25 @@ export default function CryptoDashboardPage() {
       <Navigation />
       <main className="mt-6 container max-w-2xl mx-auto px-4 py-8">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
-          <p className="text-[14px] text-muted-foreground mt-8 mb-4">{project.description2}</p>
-
           <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
           <p className="text-muted-foreground mb-4">{project.date}</p>
 
-      
-           {/* Filtered Tags */}
-                 <div className="mt-4 flex flex-wrap gap-2">
+          {/* Filtered Tags */}
+          <div className="mt-4 flex flex-wrap gap-2">
             {filteredProjects.map((tag) => (
-              <Badge key={tag} variant="secondary">
-                {tag}
-              </Badge>
+              <Link 
+                key={tag} 
+                href={`/projects?tag=${encodeURIComponent(tag)}`}
+                className="no-underline"
+              >
+                <Badge 
+                  variant="secondary" 
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
+                >
+                  {tagIcons[tag]}
+                  {tag}
+                </Badge>
+              </Link>
             ))}
           </div>
 
@@ -288,7 +279,7 @@ export default function CryptoDashboardPage() {
             <img
               src={project.image}
               alt="ALS Clinical Decision Tool"
-              className="rounded-lg shadow-md"
+              className="rounded-lg"
               style={{ maxWidth: "100%", height: "auto" }}
             />
           </div>

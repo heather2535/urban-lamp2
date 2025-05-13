@@ -5,22 +5,109 @@ import { Badge } from "@/components/badge"
 import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
 import Link from "next/link"  // Ensure to import Link for routing
 import { createPortal } from 'react-dom'
+import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
 
 const project = {
   title: "ALS: App in Collaboration with Boston Children's Hospital",
   description: "A web application designed to provide resources and support for individuals with ALS. The platform uses user input to recommend resources based on user input, making it easier for patients and caregivers to find relevant information.",
   date: "December 3, 2024",
-  description2: "Heather Davies - Dec 3, 2024",
   image: "/images/image1.jpg",
   content: `
   
     <br></br>
-    <h2 style="font-size: 2em; font-weight: bold;">Project Overview</h2>
+    <h2 style="font-size: 2em; font-weight: bold;">Introduction</h2>
     <br>
-    <p>People with ALS around the world are not offered a variety of clinical options. There are dozens of opportunities for what could be the most beneficial option to them, but are usually only offered a few. The goal is to take clinical decision making and turn it into a tool that allows ALS patients to look at options and discuss them with their clinician. This tool/guide will allow people with ALS and clinicians/clinics to collaborate in the process of identifying best options throughout the disease process. Tools, resources, and methodologies are continually evolving to help people with ALS to cope with their condition. Because of the rapid nature of development(s), communicating updated resources to both clinicians and patients is difficult.</p>
+    <p>
+    People with ALS (Amyotrophic Lateral Sclerosis) face a fragmented landscape of treatment options. While numerous clinical opportunities exist, most patients are presented with only a limited selection. This web application aims to bridge that gap by providing a guided platform that recommends resources based on user input—empowering patients and non-specialist clinicians to collaboratively explore the most relevant and up-to-date ALS treatments.
+    </p>
     <br>
-    <p>The two primary users of this application (mobile or web app) would be patients with ALS or clinicians who work with ALS patients on occasion (such as primary care physicians etc). The goal would be to provide them with a guided system that is constantly updated with the latest information. Each answer to a question or series of questions would lead the user down a different branch of questions and finally suggestions for the patient's current condition. The end goal would be creating a platform that helps distribute the information to patients and clinicians who might not have access to clinics with ALS experts.</p>
+    <h2 style="font-size: 2em; font-weight: bold;">Goals</h2>
+    <br>
 
+    <ul className="list-disc pl-8 space-y-4 text-base">
+      <li className="relative">
+        <span className="absolute -left-4">•</span>
+        <strong> Support Collaborative Decision-Making: </strong> Create a tool that facilitates conversations between patients and clinicians around available treatment paths.
+        <ul className="list-disc pl-8 mt-2 space-y-2">
+          <li className="relative">
+            <span className="absolute -left-4">•</span>
+            <strong>Deliver Personalized Information:</strong> Recommend resources tailored to the patient's stage, symptoms, and needs.
+          </li>
+          <li className="relative">
+            <span className="absolute -left-4">•</span>
+            <strong>Ensure Accessibility and Ease of Use:</strong> Design an intuitive experience that accommodates both patients and generalist clinicians.
+        </ul>
+      </li>
+      <li className="relative">
+        <span className="absolute -left-4">•</span>
+       <strong>Enable Sustainable Content Updates:</strong> Equip admins and clinic staff with a scalable backend for managing the latest resources and questions.
+      </li>
+    </ul>
+    <br></br>
+    <h2 style="font-size: 2em; font-weight: bold;">Process</h2>
+    <br>
+    <h2 style="font-size: 1.5em; font-weight: bold;">1. User Research & Interviews</h2>
+
+
+    <ul className="list-disc pl-12 space-y-4 text-base">
+      <li className="relative">
+        <span className="absolute -left-4">•</span>
+        <strong> Support Collaborative Decision-Making: </strong> Create a tool that facilitates conversations between patients and clinicians around available treatment paths.
+        <ul className="list-disc pl-12 mt-2 space-y-2">
+          <li className="relative">
+            <span className="absolute -left-4">•</span>
+            <strong>Deliver Personalized Information:</strong> Recommend resources tailored to the patient's stage, symptoms, and needs.
+          </li>
+          <li className="relative">
+            <span className="absolute -left-4">•</span>
+            <strong>Ensure Accessibility and Ease of Use:</strong> Design an intuitive experience that accommodates both patients and generalist clinicians.
+          </li>
+        </ul>
+      </li>
+      <li className="relative">
+        <span className="absolute -left-4">•</span>
+        <strong>Enable Sustainable Content Updates:</strong> Equip admins and clinic staff with a scalable backend for managing the latest resources and questions.
+      </li>
+    </ul>
+
+
+
+    <ol className="list-decimal pl-8 space-y-4" style={{ fontSize: "1.5em" }}>
+      <li className="relative">
+        <ul className="list-disc pl-8 mt-2 space-y-2" style={{ fontSize: "0.9em" }}>
+          <li>Conducted interviews with ALS patients and their caregivers</li>
+          <li>Spoke with general practitioners and specialists</li>
+          <li>Analyzed pain points in current treatment information access</li>
+        </ul>
+      </li>
+      <li className="relative">
+        <span className="absolute -left-4">2.</span>
+        <strong>Information Architecture</strong>
+        <ul className="list-disc pl-8 mt-2 space-y-2" style={{ fontSize: "0.9em" }}>
+          <li>Mapped out decision trees for different patient scenarios</li>
+          <li>Designed question flows based on research insights</li>
+          <li>Created content structure for resources and recommendations</li>
+        </ul>
+      </li>
+      <li className="relative">
+        <span className="absolute -left-4">3.</span>
+        <strong>Prototyping & Testing</strong>
+        <ul className="list-disc pl-8 mt-2 space-y-2" style={{ fontSize: "0.9em" }}>
+          <li>Developed low-fidelity wireframes</li>
+          <li>Created interactive prototypes in Figma</li>
+          <li>Conducted usability testing with target users</li>
+        </ul>
+      </li>
+      <li className="relative">
+        <span className="absolute -left-4">4.</span>
+        <strong>Implementation & Iteration</strong>
+        <ul className="list-disc pl-8 mt-2 space-y-2" style={{ fontSize: "0.9em" }}>
+          <li>Built initial version using Typeform</li>
+          <li>Integrated with Next.js for custom features</li>
+          <li>Added bookmarking and progress tracking</li>
+        </ul>
+      </li>
+    </ol>
     <br></br>
     <div id="als-slideshow-1"></div>
     <br>
@@ -155,6 +242,20 @@ const project = {
   }
   
 
+// Define tagIcons with explicit typing for keys
+const tagIcons: Record<string, JSX.Element> = {
+  "All Projects": <Folder className="h-3 w-3" />,
+  "3D Design": <Grid className="h-3 w-3" />,
+  "AI Integration": <Cpu className="h-3 w-3" />,
+  "Branding": <Tag className="h-3 w-3" />,
+  "Data Vis": <BarChart className="h-3 w-3" />,
+  "Graphic Design": <Palette className="h-3 w-3" />,
+  "UI/UX": <Layers className="h-3 w-3" />,
+  "UI/UX Design": <Layout className="h-3 w-3" />,
+  "Product Design": <Package className="h-3 w-3" />,
+  "Web Development": <Code className="h-3 w-3" />,
+}
+
 function Slideshow({ images, id }: { images: string[], id: string }) {
   const [index, setIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
@@ -209,18 +310,25 @@ export default function CryptoDashboardPage() {
       <Navigation />
       <main className="mt-6 container max-w-2xl mx-auto px-4 py-8 pb-24">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
-          <p className="text-[14px] text-muted-foreground mt-8 mb-4">{project.description2}</p>
-
           <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
           <p className="text-muted-foreground mb-4">{project.date}</p>
 
-      
-           {/* Filtered Tags */}
-                 <div className="mt-4 flex flex-wrap gap-2">
+          {/* Filtered Tags */}
+          <div className="mt-4 flex flex-wrap gap-2">
             {filteredProjects.map((tag) => (
-              <Badge key={tag} variant="secondary">
-                {tag}
-              </Badge>
+              <Link 
+                key={tag} 
+                href={`/projects?tag=${encodeURIComponent(tag)}`}
+                className="no-underline"
+              >
+                <Badge 
+                  variant="secondary" 
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
+                >
+                  {tagIcons[tag]}
+                  {tag}
+                </Badge>
+              </Link>
             ))}
           </div>
 

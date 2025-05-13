@@ -27,7 +27,7 @@ export const projects: Project[] = [
     image: "/image1.png",
     videoUrl: "/video2.mov",
     href: "/work/crypto-dashboard",
-    tags: ["All Projects", "Web Development", "Graphic Design", "Branding"],
+    tags: ["All Projects", "Web Development", "Branding"],
   },
   {
     title: "Talentora: Designing A Conversational AI Interview Platform",
