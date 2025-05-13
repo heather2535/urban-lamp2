@@ -6,6 +6,7 @@ import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar c
 import Link from "next/link"  // Ensure to import Link for routing
 import { createPortal } from 'react-dom'
 import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
+import React from 'react'
 
 const project = {
   title: "ALS: App in Collaboration with Boston Children's Hospital",
@@ -243,7 +244,7 @@ const project = {
   
 
 // Define tagIcons with explicit typing for keys
-const tagIcons: Record<string, JSX.Element> = {
+const tagIcons: Record<string, React.ReactElement> = {
   "All Projects": <Folder className="h-3 w-3" />,
   "3D Design": <Grid className="h-3 w-3" />,
   "AI Integration": <Cpu className="h-3 w-3" />,
