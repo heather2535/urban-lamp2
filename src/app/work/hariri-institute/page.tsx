@@ -219,7 +219,7 @@ function Slideshow({ images, id }: { images: string[], id: string }) {
 }
 
 // Define tagIcons with explicit typing for keys
-const tagIcons: Record<string, JSX.Element> = {
+const tagIcons: Record<string, React.ReactElement> = {
   "All Projects": <Folder className="h-3 w-3" />,
   "3D Design": <Grid className="h-3 w-3" />,
   "AI Integration": <Cpu className="h-3 w-3" />,
