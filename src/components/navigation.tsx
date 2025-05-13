@@ -57,6 +57,18 @@ export function Navigation() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
+                  <Link href="/" legacyBehavior passHref>
+                    <NavigationMenuLink 
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        pathname === "/" && "text-pink-500"
+                      )}
+                    >
+                      <h3>Home</h3>
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
                   <Link href="/projects" legacyBehavior passHref>
                     <NavigationMenuLink 
                       className={cn(
@@ -119,6 +131,11 @@ export function Navigation() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[200px] pt-12">
                 <nav className="flex flex-col gap-4">
+                  <Link href="/" className={cn("text-sm transition-colors hover:text-pink-500",
+                    pathname === "/" && "text-pink-500"
+                  )}>
+                    Home
+                  </Link>
                   <Link href="/projects" className={cn("text-sm transition-colors hover:text-pink-500",
                     pathname === "/projects" && "text-pink-500"
                   )}>
@@ -152,6 +169,6 @@ export function Navigation() {
 
 const navigationMenuTriggerStyle = () => {
   return cn(
-    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:text-white focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:text-white data-[inactive]:text-white/70"
+    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:text-pink-500 focus:text-pink-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:text-white data-[inactive]:text-white/70"
   )
 }

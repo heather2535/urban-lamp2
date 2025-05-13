@@ -120,22 +120,22 @@ export default function GraphicsPage() {
               {/* First Project - 1/2 width */}
               <div className="w-1/2">
                 <div 
-                  className="relative cursor-pointer hover:opacity-90 transition-opacity h-full"
+                  className="relative cursor-pointer hover:opacity-90 transition-opacity flex flex-col h-full"
                   onClick={() => {
                     setSelectedIndex(0)
                     setSelectedContainer('first')
                   }}
                 >
-                  <img
-                    src="/gallery/image36.png"
-                    alt="Chaos & Order"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-xl font-semibold text-white mb-2">Chaos & Order: Graphic Design Thesis</h3>
-                      <p className="text-white/80">Click to view full project</p>
-                    </div>
+                  <div className="flex-grow">
+                    <img
+                      src="/gallery/image36.png"
+                      alt="Chaos & Order"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="mt-4">
+                    <h3 className="text-xl font-semibold text-foreground mb-2">Chaos & Order: Graphic Design Thesis</h3>
+                    <p className="text-muted-foreground">Click to view full project</p>
                   </div>
                 </div>
               </div>
@@ -276,19 +276,19 @@ export default function GraphicsPage() {
               {/* First Project - 1/2 width */}
               <div className="w-1/2">
                 <div 
-                  className="relative cursor-pointer hover:opacity-90 transition-opacity h-full"
+                  className="relative cursor-pointer hover:opacity-90 transition-opacity flex flex-col h-full"
                   onClick={() => setSelectedIndex(0)}
                 >
-                  <img
-                    src={galleryImages[0].src}
-                    alt={galleryImages[0].alt}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-xl font-semibold text-white mb-2">{galleryImages[0].title}</h3>
-                      <p className="text-white/80">Click to view full project</p>
-                    </div>
+                  <div className="flex-grow">
+                    <img
+                      src={galleryImages[0].src}
+                      alt={galleryImages[0].alt}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="mt-4">
+                    <h3 className="text-xl font-semibold text-foreground mb-2">{galleryImages[0].title}</h3>
+                    <p className="text-muted-foreground">Click to view full project</p>
                   </div>
                 </div>
               </div>

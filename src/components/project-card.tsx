@@ -1,7 +1,22 @@
-import { Calendar, Share } from "lucide-react" // Import the Share icon
+import * as React from "react"
+import { Calendar, Share, Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react" // Import the Share icon
 import { useState } from "react"
 import Link from "next/link"
 import { Project } from "@/types/project"
+
+// Define tagIcons with explicit typing for keys
+const tagIcons: Record<string, JSX.Element> = {
+  "All Projects": <Folder className="h-3 w-3" />,
+  "3D Design": <Grid className="h-3 w-3" />,
+  "AI Integration": <Cpu className="h-3 w-3" />,
+  "Branding": <Tag className="h-3 w-3" />,
+  "Data Vis": <BarChart className="h-3 w-3" />,
+  "Graphic Design": <Palette className="h-3 w-3" />,
+  "UI/UX": <Layers className="h-3 w-3" />,
+  "UI/UX Design": <Layout className="h-3 w-3" />,
+  "Product Design": <Package className="h-3 w-3" />,
+  "Web Development": <Code className="h-3 w-3" />,
+}
 
 export function ProjectCard({ project }: { project: Project }) {
   const [isHovered, setIsHovered] = useState(false) // Track hover state for zoom effect
@@ -26,10 +41,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <div className="p-3"> {/* Reduced padding */}
           {/* Always Visible Metadata */}
           <div className="mb-3"> {/* Reduced margin */}
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Calendar className="h-4 w-4 text-pink-500" />
-              <span className="text-sm">{project.date}</span>
-            </div>
+          
           </div>
 
           {/* Title */}
@@ -43,7 +55,8 @@ export function ProjectCard({ project }: { project: Project }) {
             {project.tags
               .filter((tag) => tag !== "All Projects") // Exclude the "All Projects" tag
               .map((tag) => (
-                <span key={tag} className="badge badge-secondary text-xs">
+                <span key={tag} className="badge badge-secondary text-xs flex items-center gap-1">
+                  {tagIcons[tag]}
                   {tag}
                 </span>
               ))}

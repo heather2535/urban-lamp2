@@ -13,7 +13,8 @@ import {
   Palette,
   Layers,
   Code,
- 
+  Layout,
+  Package,
 } from "lucide-react"
 import { type JSX, useEffect, useState, useRef } from "react"
 
@@ -33,6 +34,8 @@ const tagIcons: Record<string, JSX.Element> = {
   "Data Vis": <BarChart className="h-4 w-4 sm:h-5 sm:w-5" />,
   "Graphic Design": <Palette className="h-4 w-4 sm:h-5 sm:w-5" />,
   "UI/UX": <Layers className="h-4 w-4 sm:h-5 sm:w-5" />,
+  "UI/UX Design": <Layout className="h-4 w-4 sm:h-5 sm:w-5" />,
+  "Product Design": <Package className="h-4 w-4 sm:h-5 sm:w-5" />,
   "Web Development": <Code className="h-4 w-4 sm:h-5 sm:w-5" />,
 }
 export function ProjectFilter({ tags, selectedTag, onTagSelect, onSearch }: ProjectFilterProps) {
