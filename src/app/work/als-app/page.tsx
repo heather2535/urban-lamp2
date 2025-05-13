@@ -47,73 +47,68 @@ const project = {
     <br></br>
     <h2 style="font-size: 2em; font-weight: bold;">Process</h2>
     <br>
-    <h2 style="font-size: 1.5em; font-weight: bold;">1. User Research & Interviews</h2>
+    <h2 style="font-size: 1.5em; font-weight: bold;">1. UX Research & Discovery</h2>
+    <p> Through interviews with ALS patients and primary care physicians, several key challenges were identified:</p>
 
-
-    <ul className="list-disc pl-12 space-y-4 text-base">
+    <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
         <span className="absolute -left-4">•</span>
-        <strong> Support Collaborative Decision-Making: </strong> Create a tool that facilitates conversations between patients and clinicians around available treatment paths.
-        <ul className="list-disc pl-12 mt-2 space-y-2">
+          Patients are overwhelmed by the volume and complexity of treatment information.
+
+        <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
-            <span className="absolute -left-4">•</span>
-            <strong>Deliver Personalized Information:</strong> Recommend resources tailored to the patient's stage, symptoms, and needs.
+            <span className="absolute -left-8">•</span>
+            Clinicians need a streamlined way to stay current with ALS developments.
+
           </li>
           <li className="relative">
             <span className="absolute -left-4">•</span>
-            <strong>Ensure Accessibility and Ease of Use:</strong> Design an intuitive experience that accommodates both patients and generalist clinicians.
+            Both groups desire a system that is intuitive and light on cognitive load.
+
           </li>
         </ul>
       </li>
       <li className="relative">
         <span className="absolute -left-4">•</span>
-        <strong>Enable Sustainable Content Updates:</strong> Equip admins and clinic staff with a scalable backend for managing the latest resources and questions.
+        Personalization and clarity are essential to build trust and usability.
+
+        </li>
+    </ul>
+    <br>
+    <p>These insights shaped the app's design principles: clarity, accessibility, and progressive disclosure.
+
+    </p>
+    <br></br>
+    <h2 style="font-size: 1.5em; font-weight: bold;">2. User Personas & Journey Mapping</h2>
+    <p>I developed distinct personas representing:</p>
+       <ul className="list-disc pl-20 space-y-4 text-base">
+      <li className="relative">
+        <span className="absolute -left-4">•</span>
+        A patient navigating treatment stages
+        <ul className="list-disc pl-20 mt-2 space-y-2">
+          <li className="relative">
+            <span className="absolute -left-8">•</span>
+            A generalist clinician unfamiliar with ALS-specific options
+          </li>
+          <li className="relative">
+            <span className="absolute -left-4">•</span>An admin updating resources
+            An admin updating resources
+          </li>
+        </ul>
       </li>
     </ul>
 
-
-
-    <ol className="list-decimal pl-8 space-y-4" style={{ fontSize: "1.5em" }}>
-      <li className="relative">
-        <ul className="list-disc pl-8 mt-2 space-y-2" style={{ fontSize: "0.9em" }}>
-          <li>Conducted interviews with ALS patients and their caregivers</li>
-          <li>Spoke with general practitioners and specialists</li>
-          <li>Analyzed pain points in current treatment information access</li>
-        </ul>
-      </li>
-      <li className="relative">
-        <span className="absolute -left-4">2.</span>
-        <strong>Information Architecture</strong>
-        <ul className="list-disc pl-8 mt-2 space-y-2" style={{ fontSize: "0.9em" }}>
-          <li>Mapped out decision trees for different patient scenarios</li>
-          <li>Designed question flows based on research insights</li>
-          <li>Created content structure for resources and recommendations</li>
-        </ul>
-      </li>
-      <li className="relative">
-        <span className="absolute -left-4">3.</span>
-        <strong>Prototyping & Testing</strong>
-        <ul className="list-disc pl-8 mt-2 space-y-2" style={{ fontSize: "0.9em" }}>
-          <li>Developed low-fidelity wireframes</li>
-          <li>Created interactive prototypes in Figma</li>
-          <li>Conducted usability testing with target users</li>
-        </ul>
-      </li>
-      <li className="relative">
-        <span className="absolute -left-4">4.</span>
-        <strong>Implementation & Iteration</strong>
-        <ul className="list-disc pl-8 mt-2 space-y-2" style={{ fontSize: "0.9em" }}>
-          <li>Built initial version using Typeform</li>
-          <li>Integrated with Next.js for custom features</li>
-          <li>Added bookmarking and progress tracking</li>
-        </ul>
-      </li>
-    </ol>
-    <br></br>
-    <div id="als-slideshow-1"></div>
     <br>
-    <h2 style="font-size: 2em; font-weight: bold;">User Flow Chart
-    </h2>
+    <p>Journey maps helped visualize each user's emotional and informational needs throughout the experience.</p>
+    <br></br>
+
+    <h2 style="font-size: 1.5em; font-weight: bold;">3. Information Architecture & Flow Design</h2>
+    <p>I created a guided, question-based interface that mimics a "choose-your-own-path" conversation. User inputs dynamically steer the experience, reducing information overload and surfacing relevant recommendations in real time.
+    </p>
+     
+
+    <br>
+    <br>
     <div className="mt-4">
       <img
         src="/images/image3.png"
@@ -125,42 +120,128 @@ const project = {
     <br>
     <p> Figure 1: User Flow Chart</p>
     <br>
-    <p>As the UX Designer and UX Researcher on this project, my role was centered around improving how patients with ALS and non-specialist clinicians navigate and access relevant, up-to-date treatment options. ALS treatment landscapes evolve rapidly, yet many patients are only presented with limited clinical options. I was tasked with designing a tool that facilitates more informed, collaborative decision-making between patients and clinicians by guiding users through personalized question flows that ultimately provide targeted resources and treatment suggestions.
-    </p>
+    <h2 style="font-size: 1.5em; font-weight: bold;">4. Prototyping</h2>
+           <ul className="list-disc pl-20 space-y-4 text-base">
+      <li className="relative">
+        <span className="absolute -left-4">•</span>
+        Built low-to-high fidelity prototypes that translated complex clinical decision trees into clean, usable flows.
+        <ul className="list-disc pl-20 mt-2 space-y-2">
+          <li className="relative">
+            <span className="absolute -left-8">•</span>
+            Prototypes were iteratively tested to ensure they scaled as more branches and content were introduced.
+          </li>
+          <li className="relative">
+            <span className="absolute -left-4">•</span>An admin updating resources
+            I used tools like Figma and Typeform to simulate branching logic, with a future transition to a React-based system in mind.
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <br></br>
+    <h2 style="font-size: 1.5em; font-weight: bold;">5. Interaction Design & Developer Handoff</h2>
+    <ul className="list-disc pl-20 space-y-4 text-base">
+      <li className="relative">
+        <span className="absolute -left-4">•</span>
+        Collaborated with developers to implement accessible UI patterns, including:
+        <ul className="list-disc pl-20 mt-2 space-y-2">
+          <li className="relative">
+            <span className="absolute -left-8">•</span>
+            A responsive hamburger menu for simple navigation
+          </li>
+          <li className="relative">
+            <span className="absolute -left-8">•</span>
+            Bookmark features using localStorage so users can save resources without creating an account
+          </li>
+          <li className="relative">
+            <span className="absolute -left-8">•</span>
+            Visual consistency for clear affordance and reduced friction
+          </li>
+           <li className="relative">
+            <span className="absolute -left-8">•</span>
+            Planned future compatibility with frameworks like ReactFlow for more robust logic management.
+          </li>
+        </ul>
+      </li>
+    </ul>
+   <br></br>
+   <h2 style="font-size: 1.5em; font-weight: bold;">6. Scalability Planning</h2>
+   <p>Knowing the project would eventually outgrow Typeform, I designed the interface with modularity and future extensibility in mind—supporting multimedia content, deeper branching logic, and dynamic routing.
+   </p>
+   <br></br>
+  <h2 style="font-size: 2em; font-weight: bold;">Results</h2>
+ <ul className="list-disc pl-20 space-y-4 text-base">
+      <li className="relative">
+        <span className="absolute -left-4">•</span>
+        Delivered a prototype-ready, scalable interface tailored to ALS patients and generalist clinicians.
+        <ul className="list-disc pl-20 mt-2 space-y-2">
+          <li className="relative">
+            <span className="absolute -left-8">•</span>
+            Created a structure that supports ongoing clinical updates and collaborative patient-clinician discussions.
+          </li>
+          <li className="relative">
+            <span className="absolute -left-8">•</span>
+            Implemented progress-saving features to reduce barriers to access, especially for first-time users.
+          </li>
+          
+        </ul>
+      </li>
+    </ul>
     <br></br>
 
-    <h2 style="font-size: 2em; font-weight: bold;">Design Challenges & UX Research Insights
-    </h2>
-    <br>
-    <p>Through early user research—including interviews with patients and clinicians—it became clear that:
-    </p>
-    <br>
-    <ul>
-    <li>*   Patients often feel overwhelmed by the lack of clear, accessible information about their treatment options.</li>
-    <li>* Clinicians expressed a need for a tool that simplifies the process of staying updated on the latest ALS treatments and resources.</li>
-    <li>* Both groups emphasized the importance of a user-friendly interface that minimizes cognitive load and facilitates collaboration.</li>
-    <li>* Patients and clinicians highlighted the value of personalized recommendations tailored to the patient's specific condition and stage of the disease.</li>
+
+
+    <h2 style="font-size: 2em; font-weight: bold;">Tools Used</h2>
+     <ul className="list-disc pl-20 space-y-4 text-base">
+      <li className="relative">
+        <span className="absolute -left-4">•</span>
+        <strong>Figma</strong> – Interface design & prototyping
+        <ul className="list-disc pl-20 mt-2 space-y-2">
+          <li className="relative">
+            <span className="absolute -left-8">•</span>
+            <strong>Typeform</strong> – Early logic simulation
+          </li>
+          <li className="relative">
+            <span className="absolute -left-8">•</span>
+            <strong>Next.js</strong> – Front-end framework (planned for dynamic routing)
+          </li>
+           <li className="relative">
+            <span className="absolute -left-8">•</span>
+            <strong>ReactFlow</strong> – Future tool for custom question logic (<a href="https://reactflow.dev/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">planned</a>)
+          </li>
+          <li className="relative">
+            <span className="absolute -left-8">•</span>
+            <strong>localStorage API</strong> – Bookmarking and progress saving without account creation
+          </li>
+          
+        </ul>
+      </li>
     </ul>
+    <br></br>
+    <h2 style="font-size: 2em; font-weight: bold;">Recommended Next Steps</h2>
+
+    <ol className="list-decimal pl-8 space-y-4" style={{ fontSize: "1.5em" }}>
+  
+      <li className="relative">
+        <span className="absolute -left-4">1.</span>
+        <strong>Custom Logic Builder for Admins</strong>
+        <ul className="list-disc pl-8 mt-2 space-y-2" style={{ fontSize: "0.9em" }}>
+          <li>Replace Typeform with a visual editor that allows non-technical users to create and update logic flows easily.</li>
+          
+        </ul>
+      </li>
+      <li className="relative">
+        <span className="absolute -left-4">2.</span>
+        <strong>Dynamic Routing for Personalization</strong>
+        <ul className="list-disc pl-8 mt-2 space-y-2" style={{ fontSize: "0.9em" }}>
+          <li>Use Next.js dynamic routes (e.g., [id].tsx) to generate personalized URLs that improve continuity across sessions and devices.</li>
+        </ul>
+      </li>
+    </ol>
+    <br></br>
+    <div id="als-slideshow-1"></div>
     <br>
-    <p>These insights shaped the guiding UX principles of clarity, accessibility, and progressive disclosure (presenting information only when needed).</p>
- 
-    <br></br>
-    <h3 style="font-size: 2em; font-weight: bold;">UX Contributions & Solutions</h3>
-    
-    <br></br>
-    <h3 style="font-size: 1.5em; font-weight: bold;">1. Information Architecture & Flow Design</h3>
-    <p>I designed the question-based interaction model to simulate a "guided conversation" tailored to each user's situation. Each answer dynamically adjusts the direction of the form, helping users avoid information overload.</p>
-    
-    <br></br>
-    <h3 style="font-size: 1.5em; font-weight: bold;">2. User Personas & Journey Mapping</h3>
-    <p>I developed distinct personas (ALS patient, generalist clinician, and admin) and created user journey maps to better understand each user's emotional and informational needs throughout the experience.
-    </p>
-    
-    <br></br>
-    <h3 style="font-size: 1.5em; font-weight: bold;">3. Low to High Fidelity Prototypes</h3>
-    <p>I translated the Figma-based clinical logic trees into a usable, testable interface, ensuring that the design could scale as more branches were added. This included prototyping branching logic that mimicked what was built out in Typeform, with future implementation in mind.
-    </p>
-    <br>
+   
+  
     <div className="mt-4">
       <img
         src="/images/image2.png"
@@ -190,19 +271,6 @@ const project = {
     <p> Figure 2-4: Researched Design System</p>
     <br></br>
 
-    <h3 style="font-size: 1.5em; font-weight: bold;">4. Interface & Interaction Design</h3>
-    <p>I collaborated with the dev team to ensure the tool was intuitive to use—incorporating a hamburger menu for simplified navigation, consistent visual styling, and bookmark functionality to return to saved resources later.
-    </p>
-
-    <br></br>
-    <h3 style="font-size: 1.5em; font-weight: bold;">5. Designing for Extendability</h3>
-    <p>Knowing that our solution needed to evolve beyond Typeform, I designed with scalability in mind—planning how ReactFlow or a future custom backend might take over, ensuring the interface could accommodate multimedia content and more complex flows without confusion.
-    </p>
-  
-    <br></br>
-    <h3 style="font-size: 1.5em; font-weight: bold;">6. Bookmark & Progress Features:</h3>
-    <p>I advocated for and helped scope out the implementation of localStorage-based saving of progress and resources, so users wouldn't need to create an account to return to where they left off—removing a major barrier to accessibility.
-    </p>
     <br></br>
         <div className="mt-4">
       <img
@@ -214,16 +282,7 @@ const project = {
     </div>
   
     <br></br>
-    <h3 style="font-size: 2em; font-weight: bold;">Recommended Next Steps</h3>
-    <br>
-    <h3 style="font-size: 1.2em; font-weight: bold;">1. Custom Logic Builder for Admins</h3>
-    <p>The current admin flow relies on Typeform. Building an intuitive interface for non-technical users (like clinic staff) to update questions and answers will be key for sustainability.
-    </p>
-
-    <br></br>
-    <h3 style="font-size: 1.2em; font-weight: bold;">2. Improved Personalization & Routing</h3>
-    <p>With Next.js dynamic routing ([id].tsx), we can map directly to major question trees—streamlining the experience and offering personalized URLs that can be shared across devices.
-    </p>
+   
   
     <br></br>
     <h3 style="font-size: 2em; font-weight: bold;">

@@ -16,12 +16,19 @@ const project = {
   content: `
   
     <br></br>
-    <h2 style="font-size: 2em; font-weight: bold;">Project Overview</h2>
+    <h2 style="font-size: 2em; font-weight: bold;">Introduction</h2>
     <br>
     <div className="container mx-auto">
       <div className="grid grid-cols-2 gap-8">
         <div className="col-span-1">
-          <p className="text-left">The Hariri Institute, housed within the Duan Family Center for Faculty Computing and Engineering, needed a complete overhaul of its outdated web presence. The site had become difficult to navigate, visually inconsistent, and disconnected from the dynamic, interdisciplinary work the Institute supports. As the lead UI/UX Designer on this project, I worked over a 4-month period to redesign and rebuild the website with a focus on clarity, accessibility, and sustainable content management. The goal was to align the design with Boston University's Office of Research theme while giving the Hariri Institute its own voice through refined structure, visuals, and functionality.</p>
+          <p className="text-left">
+          The Hariri Institute for Computing, housed within Boston University’s Duan Family Center for Faculty Computing and Engineering, needed a complete redesign of its outdated web presence. The site no longer reflected the scope or impact of the Institute’s work and lacked visual cohesion, accessibility, and scalability.
+          </p>
+          <br>
+          <p>
+          I served as the lead UI/UX Designer, working closely with stakeholders to craft a modern, accessible, and maintainable site that aligned with BU’s Office of Research theme while reflecting Hariri’s distinct interdisciplinary mission.
+
+          </p>
         </div>
         <div className="col-span-1">
           <img

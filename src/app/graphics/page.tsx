@@ -152,9 +152,9 @@ export default function GraphicsPage() {
         <section className="container mx-auto px-4 py-8">
           <div className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
             <div className="flex flex-col gap-6">
-              <div className="flex gap-6">
-                {/* First Project - 1/2 width */}
-                <div className="w-1/2">
+              <div className="flex flex-col md:flex-row gap-6">
+                {/* First Project - full width on mobile, 1/2 on desktop */}
+                <div className="w-full md:w-1/2">
                   <div 
                     className="relative cursor-pointer hover:opacity-90 transition-opacity flex flex-col h-full"
                     onClick={() => {
@@ -176,9 +176,9 @@ export default function GraphicsPage() {
                   </div>
                 </div>
 
-                {/* Grid of Images - 1/2 width */}
-                <div className="w-1/2">
-                  <div className="grid grid-cols-4 gap-2 h-full">
+                {/* Grid of Images - full width on mobile, 1/2 on desktop */}
+                <div className="w-full md:w-1/2">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 h-full">
                     {firstContainerImages.map((image, index) => (
                       <div 
                         key={index}
@@ -283,10 +283,10 @@ export default function GraphicsPage() {
         <section className="container mx-auto px-4 py-8">
           <div className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
             <div className="flex flex-col gap-6">
-              <div className="flex gap-6">
-                {/* Grid of Images - 1/2 width */}
-                <div className="w-1/2">
-                  <div className="grid grid-cols-4 gap-2 h-full">
+              <div className="flex flex-col md:flex-row gap-6">
+                {/* Grid of Images - full width on mobile, 1/2 on desktop */}
+                <div className="w-full md:w-1/2">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 h-full">
                     {Array.from({ length: 16 }).map((_, index) => (
                       <div 
                         key={index}
@@ -309,8 +309,8 @@ export default function GraphicsPage() {
                   </div>
                 </div>
 
-                {/* First Project - 1/2 width */}
-                <div className="w-1/2">
+                {/* First Project - full width on mobile, 1/2 on desktop */}
+                <div className="w-full md:w-1/2">
                   <div 
                     className="relative cursor-pointer hover:opacity-90 transition-opacity flex flex-col h-full"
                     onClick={() => setSelectedIndex(0)}
