@@ -94,17 +94,17 @@ export const projects: Project[] = [
     date: "June 10, 2023",
     image: "/gallery/image1.jpg",
     videoUrl: "/video7.mp4",
-    href: "/work/establishing-shot",
+    href: "/work/architectural-vis",
     tags: ["All Projects", "Graphic Design", "3D Design"],
   },
 
   {
-    title: "Establishing Shot Bridge Simulation",
+    title: "Marketing Campaign for a New Product",
     description: "Using Blender, I created this simple simulation of a car driving across a bridge.",
     date: "June 10, 2023",
     image: "/gallery/image5.png",
     videoUrl: "/video7.mp4",
-    href: "/work/establishing-shot",
+    href: "/work/marketing-campaign",
     tags: ["All Projects", "Graphic Design", "Branding"],
   },
 ]
