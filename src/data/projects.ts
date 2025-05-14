@@ -21,7 +21,7 @@ export const projects: Project[] = [
   }, 
 
   {
-    title: "Building a Crypto Price Tracker and Sentiment Analysis App",
+    title: "Real-Time Cryptocurrency Tracking Dashboard with News Integration and Price Alerts",
     description: "Real-time cryptocurrency tracking dashboard with news integration and price alerts.",
     date: "December 28, 2024",
     image: "/image1.png",

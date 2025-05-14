@@ -86,7 +86,7 @@ export default function ProjectsPage() {
         <AuraCursor />
 
         {/* Hero Section */}
-        <section className="flex items-center justify-center px-4">
+        <section className="flex items-center justify-center  py-4 px-4">
           <div className="flex items-center justify-center relative w-full pt-32 sm:pt-48">
             <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" /> {/* Grainy texture */}
             
@@ -99,7 +99,7 @@ export default function ProjectsPage() {
                     Projects
                   </h1>
                   <p className="mt-6 text-md leading-8 text-gray-700 dark:text-gray-200 mb-6 animate-slide-up-delayed">
-                    Crafting digital experiences. 
+                  Designing interfaces that connect, guide, and delight. 
                   </p>
                 </div>
               </div>
@@ -108,9 +108,9 @@ export default function ProjectsPage() {
         </section>
 
         {/* Projects Section */}
-        <section ref={projectsRef} className="flex mx-auto w-full min-h-screen px-4 sm:px-12 pt-22">
+        <section ref={projectsRef} className="bg-white dark:bg-gray-900 flex mx-auto w-full min-h-screen px-4 sm:px-12 pt-22">
           <div className="container mx-auto max-w-7xl">
-            <div className="flex items-center justify-center space-x-2">
+            <div className="mt-4 flex items-center justify-center space-x-2">
             </div>
 
             <ProjectFilter
