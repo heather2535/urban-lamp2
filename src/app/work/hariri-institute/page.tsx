@@ -426,39 +426,45 @@ export default function CryptoDashboardPage() {
           <article className="prose lg:prose-xl dark:prose-invert">
             {/* Three Columns Section */}
             <div className="container max-w-6xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 text-center">
                 <div className="p-4 rounded-lg">
                   <h3 className="font-bold text-lg mb-2">Role</h3>
-                  <p className="text-sm text-muted-foreground">
-                  Product Designer
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                  UX Researcher
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="text-sm text-muted-foreground">
+                      Product Designer
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      UX Researcher
+                    </p>
+                  </div>
                 </div>
                 <div className="p-4 rounded-lg">
                   <h3 className="font-bold text-lg mb-2">Team</h3>
-                  <p className="text-sm text-muted-foreground">
-                  Heather Davies
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                  Kate Ragosta
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                  Selena Huang
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                  Katherine D'Angelo
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="text-sm text-muted-foreground">
+                      Heather Davies
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Kate Ragosta
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Selena Huang
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Katherine D'Angelo
+                    </p>
+                  </div>
                 </div>
                 <div className="p-4 rounded-lg">
                   <h3 className="font-bold text-lg mb-2">Duration</h3>
-                  <p className="text-sm text-muted-foreground">
-                  Nov. 2024 - March. 2025
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                  4 mo. total
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="text-sm text-muted-foreground">
+                      Nov. 2024 - March. 2025
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      4 mo. total
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

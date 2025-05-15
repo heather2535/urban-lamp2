@@ -368,13 +368,7 @@ export default function CryptoDashboardPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <div className="relative w-full h-[600px] bg-white dark:bg-gray-900">
-        <img
-          src={project.image}
-          alt="ALS Clinical Decision Tool"
-          className="absolute inset-0 w-[1920px] h-[600px] object-cover object-center"
-          style={{ objectPosition: '60% 30%' }}
-        />
+      <div className="relative w-full bg-white dark:bg-gray-900">
         {/* Back Button */}
         <div className="absolute top-24 left-0 right-0 z-10">
           <div className="container max-w-6xl mx-auto px-4">
@@ -399,32 +393,42 @@ export default function CryptoDashboardPage() {
             </Link>
           </div>
         </div>
-      </div>
 
-      {/* Title Section */}
-      <div className="bg-white dark:bg-gray-900 py-8">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
-            <div className="flex flex-wrap gap-2">
-              {filteredProjects.map((tag, index) => (
-                <React.Fragment key={tag}>
-                  {tag === "UI/UX" && <div className="w-full" />}
-                  <Link 
-                    href={`/projects?tag=${encodeURIComponent(tag)}`}
-                    className="no-underline"
-                  >
-                    <Badge 
-                      variant="secondary" 
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+        {/* Two Column Layout */}
+        <div className="container max-w-6xl mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-16 md:mt-0">
+            {/* Left Column - Text */}
+            <div className="max-w-xl order-2 md:order-1 pl-4 md:pl-0">
+              <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
+              <div className="flex flex-wrap gap-2">
+                {filteredProjects.map((tag, index) => (
+                  <React.Fragment key={tag}>
+                    {tag === "UI/UX" && <div className="w-full" />}
+                    <Link 
+                      href={`/projects?tag=${encodeURIComponent(tag)}`}
+                      className="no-underline"
                     >
-                      {tagIcons[tag]}
-                      {tag}
-                    </Badge>
-                  </Link>
-                </React.Fragment>
-              ))}
+                      <Badge 
+                        variant="secondary" 
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+                      >
+                        {tagIcons[tag]}
+                        {tag}
+                      </Badge>
+                    </Link>
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column - Image */}
+            <div className="relative order-1 md:order-2">
+              <img
+                src={project.image}
+                alt="ALS Clinical Decision Tool"
+                className="w-full h-auto object-contain rounded-lg"
+              />
             </div>
           </div>
         </div>
