@@ -47,7 +47,7 @@ export default function About() {
                         <rect width="20" height="16" x="2" y="4" rx="2"/>
                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                       </svg>
-                      daviesheather518@gmail.com
+                      <span className="hidden sm:inline">daviesheather518@gmail.com</span>
                     </a>
                     <a 
                       href="https://www.linkedin.com/in/heatherrdavies/" 
@@ -60,7 +60,7 @@ export default function About() {
                         <rect width="4" height="12" x="2" y="9"/>
                         <circle cx="4" cy="4" r="2"/>
                       </svg>
-                      LinkedIn
+                      <span className="hidden sm:inline">LinkedIn</span>
                     </a>
                     <a 
                       href="/resume.pdf" 
@@ -72,7 +72,7 @@ export default function About() {
                         <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
                         <polyline points="14 2 14 8 20 8"/>
                       </svg>
-                      Resume
+                      <span className="hidden sm:inline">Resume</span>
                     </a>
                   </div>
                   {/* Images Section */}
