@@ -390,25 +390,25 @@ export default function CryptoDashboardPage() {
           </div>
             {/* Three Columns Section */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-            <div className="p-4 rounded-lg shadow-sm">
+            <div className="p-4 rounded-lg">
               <h3 className="font-bold text-lg mb-2">Role</h3>
-              <p className="text-sm text-muted-foreground">
-              UI/UX Researcher
-              </p>
               <p className="text-sm text-muted-foreground">
               UX Designer
               </p>
             </div>
-            <div className="p-4  rounded-lg shadow-sm">
+            <div className="p-4  rounded-lg">
               <h3 className="font-bold text-lg mb-2">Team</h3>
               <p className="text-sm text-muted-foreground">
               Heather Davies
                 </p>
               <p className="text-sm text-muted-foreground">
-              Team of 4
+              Kate Ragosta
+              </p>
+              <p className="text-sm text-muted-foreground">
+              Selena Huang
               </p>
             </div>
-            <div className="p-4  rounded-lg shadow-sm">
+            <div className="p-4  rounded-lg">
               <h3 className="font-bold text-lg mb-2">Duration</h3>
               <p className="text-sm text-muted-foreground">
               Nov. 2024 - March. 2025

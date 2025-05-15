@@ -41,7 +41,7 @@ const projectData: { [key: string]: { image: string; description: string; href: 
   "Web Development": {
     image: "/image1.png",
     description: "Modern web application development using cutting-edge technologies, delivering responsive and performant solutions for complex business needs.",
-    href: "#"
+    href: "/work/crypto-dashboard"
   }
 }
 
@@ -49,34 +49,34 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
   const projectsList = Object.entries(projectData)
 
   return (
-    <div className="mb-24 -mt-16 container mx-auto max-w-6xl">
-      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8 text-center">
+    <div className="mb-24 -mt-16 container mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-8 text-center">
         Featured Projects
       </h2>
       {/* Projects Section */}
-      <div className="max-w-7xl mx-auto rounded-[20px] p-5 relative">
-        <div className="grid grid-cols-1 gap-8">
+      <div className="max-w-7xl mx-auto rounded-[20px] p-3 sm:p-5 relative">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8">
           {projectsList.map(([title, data], index) => (
-            <div key={index} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-              <div className="flex gap-8">
-                <div className="w-1/2">
+            <div key={index} className="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                <div className="w-full sm:w-1/2">
                   <img
                     src={data.image}
                     alt={`Featured project: ${title}`}
-                    className="rounded-lg h-full w-full object-cover"
+                    className="rounded-lg h-[200px] sm:h-full w-full object-cover"
                   />
                 </div>
-                <div className="w-1/2 flex flex-col justify-between">
+                <div className="w-full sm:w-1/2 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-3 sm:mb-4">
                       {title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-6">
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6">
                       {data.description}
                     </p>
                   </div>
                   <Link href={data.href}>
-                    <Button className="w-fit hover:text-black">
+                    <Button className="w-full sm:w-fit hover:text-black">
                       Read Case Study
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>

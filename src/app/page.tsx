@@ -41,35 +41,34 @@ export default function ProjectsPage() {
 
       {/* Hero Section */}
       <section className="flex items-center justify-center px-4">
-      <div className="flex items-center justify-center relative w-full py-60 sm:py-40">
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" /> {/* Grainy texture */}
-        
-        <div className="container relative z-20">
-        <div className="mx-auto max-w-3xl px-4">
-          <div className="flex items-center gap-6 mb-8">
-          <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-pink-500/40 flex-shrink-0">
-            <img
-            src="/images/profile.png"
-            alt="Heather's profile picture"
-            className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="flex flex-col items-start h-40 justify-between">
-            <h1 className="text-zinc-800 dark:text-white text-4xl font-bold tracking-tight sm:text-6xl lg:text-6xl">
-            <span className="text-primary">Heather Davies</span>
-            </h1>
-            <p className="text-gray-600 dark:text-gray-300 text-lg sm:textlg mb-2">
-            Multidisciplinary Designer
-            </p>
-            <p className="text-gray-700 dark:text-white/70 text-base sm:text-md max-w-2xl">
-            I’m a multidisciplinary designer crafting elegant, user-first experiences. My work combines visual polish with a deep understanding of how people think, feel, and use technology.
-
-            </p>
-          </div>
+        <div className="flex items-center justify-center relative w-full py-20 sm:py-40">
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
+          
+          <div className="container relative z-20">
+            <div className="mx-auto max-w-3xl px-4">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
+                <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-pink-500/40 flex-shrink-0">
+                  <img
+                    src="/images/profile.png"
+                    alt="Heather's profile picture"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                  <h1 className="text-zinc-800 dark:text-white text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight mb-2 sm:mb-0">
+                    <span className="text-primary">Heather Davies</span>
+                  </h1>
+                  <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-2">
+                    Multidisciplinary Designer
+                  </p>
+                  <p className="text-gray-700 dark:text-white/70 text-sm sm:text-base max-w-2xl">
+                    I'm a multidisciplinary designer crafting elegant, user-first experiences. My work combines visual polish with a deep understanding of how people think, feel, and use technology.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        </div>
-      </div>
       </section>
 
       {/* Featured Projects Section */}
