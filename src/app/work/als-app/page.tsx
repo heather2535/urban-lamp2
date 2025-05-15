@@ -9,10 +9,9 @@ import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Packag
 import React from 'react'
 
 const project = {
-  title: "ALS: App in Collaboration with Boston Children's Hospital",
-  description: "A web application designed to provide resources and support for individuals with ALS. The platform uses user input to recommend resources based on user input, making it easier for patients and caregivers to find relevant information.",
+  title: "ALS: App in Collaboration with\nBoston Children's Hospital",
   date: "December 3, 2024",
-  image: "/images/image1.jpg",
+  image: "/images/image19.png",
   content: `
   
     <br></br>
@@ -360,7 +359,6 @@ export default function CryptoDashboardPage() {
     const matchesTag = selectedTag ? tag === selectedTag : true
     const matchesSearch =
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
     return matchesTag && matchesSearch
   })
@@ -368,79 +366,175 @@ export default function CryptoDashboardPage() {
   return (
     <div className="min-h-screen bg-transparent">
       <Navigation />
-      <main className="mt-6 container max-w-2xl mx-auto px-4 py-8 pb-24">
-        <article className="prose lg:prose-xl dark:prose-invert mx-auto">
-          <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
-          <p className="text-muted-foreground mb-4">{project.date}</p>
-
-          {/* Filtered Tags */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {filteredProjects.map((tag) => (
-              <Link 
-                key={tag} 
-                href={`/projects?tag=${encodeURIComponent(tag)}`}
-                className="no-underline"
+      
+      {/* Hero Section */}
+      <div className="relative w-full h-[600px] bg-white dark:bg-gray-900">
+        <img
+          src={project.image}
+          alt="ALS Clinical Decision Tool"
+          className="absolute inset-0 w-[1920px] h-[600px] object-cover object-center"
+          style={{ objectPosition: '60% 30%' }}
+        />
+        {/* Back Button */}
+        <div className="absolute top-24 left-0 right-0 z-10">
+          <div className="container max-w-6xl mx-auto px-4">
+            <Link 
+              href="/projects" 
+              className="inline-flex items-center gap-2 text-sm text-gray-900 hover:text-gray-200 dark:text-white dark:hover:text-gray-200 hover:bg-black/70 px-4 py-2 rounded-lg transition-all duration-200"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
               >
-                <Badge 
-                  variant="secondary" 
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
-                >
-                  {tagIcons[tag]}
-                  {tag}
-                </Badge>
-              </Link>
-            ))}
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Back to Projects
+            </Link>
           </div>
+        </div>
+        <div className="absolute inset-0 flex flex-col justify-center p-8">
+          <div className="container max-w-6xl mx-auto px-4">
+            <div className="max-w-3xl">
+              <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
+              <div className="flex flex-wrap gap-2">
+                {filteredProjects.map((tag, index) => (
+                  <React.Fragment key={tag}>
+                    {tag === "UI/UX" && <div className="w-full" />}
+                    <Link 
+                      href={`/projects?tag=${encodeURIComponent(tag)}`}
+                      className="no-underline"
+                    >
+                      <Badge 
+                        variant="secondary" 
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+                      >
+                        {tagIcons[tag]}
+                        {tag}
+                      </Badge>
+                    </Link>
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          {/* Video section */}
-          <div className="relative mt-6 mb-6">
-            <img
-              src={project.image}
-              alt="ALS Clinical Decision Tool"
-              className="rounded-lg shadow-md"
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-          </div>
+      <div className="w-full bg-transparent">
+        <main className="w-full">
+          <article className="prose lg:prose-xl dark:prose-invert">
             {/* Three Columns Section */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-            <div className="p-4 rounded-lg">
-              <h3 className="font-bold text-lg mb-2">Role</h3>
-              <p className="text-sm text-muted-foreground">
-              UX Designer
-              </p>
+            <div className="container max-w-6xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                <div className="p-4 rounded-lg text-center">
+                  <h3 className="font-bold text-lg mb-2">Role</h3>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="text-sm text-muted-foreground">
+                      Design Strategist, UX
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Researcher, UI/UX
+                    </p>
+                  </div>
+                </div>
+                <div className="p-4 rounded-lg text-center">
+                  <h3 className="font-bold text-lg mb-2">Team</h3>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="text-sm text-muted-foreground">
+                      Heather Davies
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Brian Zeng
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Avdeep Kaur
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Minyang Li
+                    </p>
+                  </div>
+                </div>
+                <div className="p-4 rounded-lg text-center">
+                  <h3 className="font-bold text-lg mb-2">Duration</h3>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="text-sm text-muted-foreground">
+                      Sep. 2024 - Dec. 2024
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      4 mo. total
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="p-4  rounded-lg">
-              <h3 className="font-bold text-lg mb-2">Team</h3>
-              <p className="text-sm text-muted-foreground">
-              Heather Davies
-                </p>
-              <p className="text-sm text-muted-foreground">
-              Brian Zeng
-              </p>
-              <p className="text-sm text-muted-foreground">
-              Avdeep Kaur
-              </p>
-              <p className="text-sm text-muted-foreground">
-              Minyang Li
-              </p>
+
+            {/* Two Columns Section */}
+            <div className="container max-w-6xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div>
+                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    The primary goal was to create a user-friendly platform that helps ALS patients and their caregivers navigate the complex landscape of treatment options. We aimed to bridge the gap between available clinical opportunities and patient awareness, ensuring that users could easily find and understand relevant resources based on their specific needs and circumstances.
+                  </p>
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Solution:</h2>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    We developed an intuitive web application that uses a guided, question-based interface to recommend personalized resources. The solution features a clean, accessible design that accommodates both patients and generalist clinicians, with a scalable backend that allows for easy updates to treatment information and clinical pathways.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="p-4  rounded-lg">
-              <h3 className="font-bold text-lg mb-2">Duration</h3>
-              <p className="text-sm text-muted-foreground">
-              Sep. 2024 - Dec. 2024
-              </p>
-              <p className="text-sm text-muted-foreground">
-              4 mo. total
-              </p>
-              <br></br>
+
+            <div className="container max-w-6xl mx-auto px-4 mt-8 flex justify-center">
+              <Link 
+                href="https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-200"
+              >
+                Working Prototype
+              </Link>
             </div>
+
+            <div className="w-full bg-white dark:bg-gray-900 mt-12">
+              <div className="container max-w-6xl mx-auto px-4 py-8">
+                <div dangerouslySetInnerHTML={{ __html: project.content }} />
+                
+                <div className="mt-16 flex justify-center">
+                  <Link 
+                    href="/projects" 
+                    className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    >
+                      <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Projects
+                  </Link>
+                </div>
+              </div>
             </div>
-          <p className="lead">{project.description}</p>
-          <div dangerouslySetInnerHTML={{ __html: project.content }} />
-         
-          
-        </article>
-      </main>
+          </article>
+        </main>
+      </div>
     </div>
   )
 }

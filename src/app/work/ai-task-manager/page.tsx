@@ -21,7 +21,7 @@ const tagIcons: Record<string, React.ReactElement> = {
 }
 
 const project = {
-    title: "Talentora: Designing A Conversational AI Interview Platform",
+    title: "Talentora: Designing A\nConversational AI Interview Platform",
     description: "A platform that uses AI to conduct interviews and evaluate candidates.",
     date: "February 3, 2025",
     video: "/video1.mov?height=450&width=800", 
@@ -30,7 +30,7 @@ const project = {
       <h2 style="font-size: 2em; font-weight: bold;">Introduction</h2>
       <br>
       <p>
-      In today’s fast-paced job market, small to medium-sized businesses often struggle with the early stages of hiring. Without the resources for dedicated HR teams or costly recruiting agencies, these companies are forced to manually screen applicants—an inefficient, time-consuming process.
+      In today's fast-paced job market, small to medium-sized businesses often struggle with the early stages of hiring. Without the resources for dedicated HR teams or costly recruiting agencies, these companies are forced to manually screen applicants—an inefficient, time-consuming process.
       </p>
       <br>
       <p>
@@ -69,7 +69,7 @@ const project = {
   
       <h2 style="font-size: 1.5em; font-weight: bold;">1. Job Posting Trigger</h2>
       <p>
-      Companies post jobs via job boards and manage them through their existing Applicant Tracking System (ATS). This triggers Talentora’s interview automation workflow.
+      Companies post jobs via job boards and manage them through their existing Applicant Tracking System (ATS). This triggers Talentora's interview automation workflow.
       </p>
       <br>
       <div className="col-span-1">
@@ -85,7 +85,7 @@ const project = {
         <br></br>
       <h2 style="font-size: 1.5em; font-weight: bold;">2. Role & Company Upload</h2>
       <p>
-      Employers upload detailed information about their company and the open role. This data allows Talentora to tailor the interview process to reflect the company’s values and job-specific requirements.
+      Employers upload detailed information about their company and the open role. This data allows Talentora to tailor the interview process to reflect the company's values and job-specific requirements.
       </p>
       <br>
              <div className="col-span-1">
@@ -102,7 +102,7 @@ const project = {
 
       <h2 style="font-size: 1.5em; font-weight: bold;">3. AI-Driven Interview via Ora Scouts</h2>
       <p>
-      Talentora’s AI agents, known as <strong>Ora Scouts</strong>, call applicants and conduct dynamic, conversational interviews using voice AI. These interactions mimic a real first-round interview.
+      Talentora's AI agents, known as <strong>Ora Scouts</strong>, call applicants and conduct dynamic, conversational interviews using voice AI. These interactions mimic a real first-round interview.
       </p>
       <br>
         <div className="col-span-1">
@@ -124,7 +124,7 @@ const project = {
       <br></br>
       <h2 style="font-size: 1.5em; font-weight: bold;">5. Candidate Summary Output</h2>
       <p>
-      Employers receive a curated shortlist of top candidates, along with key insights into each applicant’s strengths, weaknesses, and cultural fit—making final selection faster and easier.
+      Employers receive a curated shortlist of top candidates, along with key insights into each applicant's strengths, weaknesses, and cultural fit—making final selection faster and easier.
       </p>
       <br></br>
 
@@ -139,7 +139,7 @@ const project = {
         <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
         <span className="absolute -left-4">•</span>
-       <strong>Compared to HireVue:</strong> Talentora offers a more personalized and less “robotic” AI interaction, ideal for smaller companies.
+       <strong>Compared to HireVue:</strong> Talentora offers a more personalized and less "robotic" AI interaction, ideal for smaller companies.
         <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
             <span className="absolute -left-8">•</span>
@@ -228,46 +228,162 @@ export default function CryptoDashboardPage() {
   })
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-transparent">
       <Navigation />
-      <main className="container mt-6 max-w-2xl mx-auto px-4 py-8">
-        <article className="prose lg:prose-xl dark:prose-invert mx-auto">
-          <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
-          <p className="text-muted-foreground mb-4">{project.date}</p>
-
-           {/* Filtered Tags */}
-            <div className="mt-4 flex flex-wrap gap-2">
-            {filteredProjects.map((tag) => (
-              <Link 
-                key={tag} 
-                href={`/projects?tag=${encodeURIComponent(tag)}`}
-                className="no-underline"
+      
+      {/* Hero Section */}
+      <div className="relative w-full h-[600px] bg-white dark:bg-gray-900">
+        <img
+          src="/image16.png"
+          alt="AI Task Manager Overview"
+          className="absolute inset-0 w-[1920px] h-[600px] object-cover object-center"
+          style={{ objectPosition: '60% 30%' }}
+        />
+        {/* Back Button */}
+        <div className="absolute top-24 left-0 right-0 z-10">
+          <div className="container max-w-6xl mx-auto px-4">
+            <Link 
+              href="/projects" 
+              className="inline-flex items-center gap-2 text-sm text-gray-900 hover:text-gray-200 dark:text-white dark:hover:text-gray-200 hover:bg-black/70 px-4 py-2 rounded-lg transition-all duration-200"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
               >
-                <span 
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
-                >
-                  {tagIcons[tag]}
-                  {tag}
-                </span>
-              </Link>
-            ))}
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Back to Projects
+            </Link>
           </div>
-
-          {/* Video section */}
-          <div className="relative mt-6 mb-6">
-            <video controls width="100%" height="auto" className="object-cover rounded-lg">
-              <source src={project.video} type="video/mp4" />
-              {/* Fallback text for unsupported browsers */}
-              Your browser does not support the video tag.
-            </video>
+        </div>
+        <div className="absolute inset-0 flex flex-col justify-center p-8">
+          <div className="container max-w-6xl mx-auto px-4">
+            <div className="max-w-6xl">
+              <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
+              <div className="flex flex-wrap gap-2">
+                {filteredProjects.map((tag) => (
+                  <Link 
+                    key={tag} 
+                    href={`/projects?tag=${encodeURIComponent(tag)}`}
+                    className="no-underline"
+                  >
+                    <Badge 
+                      variant="secondary" 
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+                    >
+                      {tagIcons[tag]}
+                      {tag}
+                    </Badge>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
 
-          <p className="lead">{project.description}</p>
-          <div dangerouslySetInnerHTML={{ __html: project.content }} />
+      <div className="w-full bg-transparent">
+        <main className="w-full">
+          <article className="prose lg:prose-xl dark:prose-invert">
+            {/* Three Columns Section */}
+            <div className="container max-w-6xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                <div className="p-4 rounded-lg">
+                  <h3 className="font-bold text-lg mb-2">Role</h3>
+                  <p className="text-sm text-muted-foreground">
+                  Design Strategist, UX
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                  Researcher, UI/UX
+                  </p>
+                </div>
+                <div className="p-4 rounded-lg">
+                  <h3 className="font-bold text-lg mb-2">Team</h3>
+                  <p className="text-sm text-muted-foreground">
+                  Heather Davies
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                  Ben Gardiner
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                  Lucas Yoon
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                  Vincent Li
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                  Abdel Lokma
+                  </p>
+                </div>
+                <div className="p-4 rounded-lg">
+                  <h3 className="font-bold text-lg mb-2">Duration</h3>
+                  <p className="text-sm text-muted-foreground">
+                  Sept. 09 '24 - Feb. 30 '25
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                  6 months total
+                  </p>
+                </div>
+              </div>
+            </div>
 
+            {/* Two Columns Section */}
+            <div className="container max-w-6xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div>
+                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    The primary goal was to create an AI-powered platform that automates first-round interviews, helping businesses identify top candidates quickly and effectively. We aimed to streamline the hiring process for small to medium-sized businesses without dedicated HR teams.
+                  </p>
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Solution:</h2>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    We developed a full-stack web application that uses AI to conduct dynamic, conversational interviews through voice AI agents called Ora Scouts. The platform analyzes responses using semantic and emotional insight analysis to provide accurate candidate evaluations.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-        </article>
-      </main>
+            <div className="w-full bg-white dark:bg-gray-900 mt-12">
+              <div className="container max-w-6xl mx-auto px-4 py-8">
+                <div dangerouslySetInnerHTML={{ __html: project.content }} />
+                
+                {/* Bottom Back Button */}
+                <div className="mt-16 flex justify-center">
+                  <Link 
+                    href="/projects" 
+                    className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    >
+                      <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Projects
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </article>
+        </main>
+      </div>
     </div>
   )
 }

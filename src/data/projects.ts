@@ -2,7 +2,7 @@ import type { Project } from "../types/project"
 
 export const projects: Project[] = [
   {
-    title: "ALS: App in Collaboration with Boston Children's Hospital",
+    title: "ALS App Design with Boston Children's Hospital",
     description: "A web application designed to provide resources and support for individuals with ALS.",
     date: "December 28, 2024",
     image: "/images/image1.jpg",
@@ -11,7 +11,7 @@ export const projects: Project[] = [
     tags: ["All Projects", "UI/UX Design", "Product Design"],
   },
   {
-    title: "Website Redesign for Hariri Institute at Duan Family Center for Faculty Computing and Engineering",
+    title: "Website Redesign for Hariri Institute",
     description: "Complete redesign and development of the institute's web presence.",
     date: "March 03, 2025",
     image: "/image10.png",
@@ -21,7 +21,7 @@ export const projects: Project[] = [
   }, 
 
   {
-    title: "Real-Time Cryptocurrency Tracking Dashboard with News Integration and Price Alerts",
+    title: "Real-Time Cryptocurrency Tracking Dashboard",
     description: "Real-time cryptocurrency tracking dashboard with news integration and price alerts.",
     date: "December 28, 2024",
     image: "/image1.png",
@@ -40,7 +40,7 @@ export const projects: Project[] = [
   },
 
   {
-    title: "Designing a Web Applications for DEI Consulting",
+    title: "Designing a DEI Consulting Web Application",
     description: "Brand identity design for a line of sustainable, eco-friendly products.",
     date: "March 15, 2024",
     image: "/image4.png",

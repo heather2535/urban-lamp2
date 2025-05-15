@@ -4,9 +4,26 @@ import { Navigation } from "@/components/navigation"
 import { Badge } from "@/components/badge"
 import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
 import Link from "next/link"  // Ensure to import Link for routing
+import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
+
+// Define tagIcons with explicit typing for keys
+const tagIcons: Record<string, React.ReactElement> = {
+  "All Projects": <Folder className="h-3 w-3" />,
+  "3D Design": <Grid className="h-3 w-3" />,
+  "AI Integration": <Cpu className="h-3 w-3" />,
+  "Branding": <Tag className="h-3 w-3" />,
+  "Data Vis": <BarChart className="h-3 w-3" />,
+  "Graphic Design": <Palette className="h-3 w-3" />,
+  "UI/UX": <Layers className="h-3 w-3" />,
+  "UI/UX Design": <Layout className="h-3 w-3" />,
+  "Product Design": <Package className="h-3 w-3" />,
+  "Web Development": <Code className="h-3 w-3" />,
+  "Crypto": <Cpu className="h-3 w-3" />,
+  "Finance": <BarChart className="h-3 w-3" />,
+}
 
 const project = {
-    title: "DEI Consulting Web Application",
+    title: "Designing a DEI Consulting Web Application",
     description: "Brand identity design for a line of sustainable, eco-friendly products.",
     date: "March 15, 2024",
     video: "/video4.mov?height=450&width=800", 
@@ -23,7 +40,7 @@ const project = {
       <br>
       <p>The problem we are addressing is twofold: first, the need for an accessible, robust web app that serves as a comprehensive learning and engagement platform; second, the need for a space where people from all walks of life—activists, intellectuals, businesses—can come together to have open, productive conversations around social justice.</p>
       <br>
-      <p>The platform will empower individuals and organizations with the tools they need to advance their causes. By combining structured learning with a social hub, we’ll enable users to build stronger, more effective networks, share knowledge, and push forward the cause of diversity and inclusion in their personal and professional lives.</p>
+      <p>The platform will empower individuals and organizations with the tools they need to advance their causes. By combining structured learning with a social hub, we'll enable users to build stronger, more effective networks, share knowledge, and push forward the cause of diversity and inclusion in their personal and professional lives.</p>
 
       <br></br>
       <h2 style="font-size: 2em; font-weight: bold;">User Archetypes</h2>
@@ -49,7 +66,7 @@ const project = {
       <br></br>
       <h1 style="font-size: 2em; font-weight: bold;">User Needs</h1>
       <br>
-      <p>To better understand the core functionality needed, we’ve identified some key needs based on user feedback and testing:</p>
+      <p>To better understand the core functionality needed, we've identified some key needs based on user feedback and testing:</p>
       
       <br></br>
       <h3 style="font-size: 1.5em; font-weight: bold;">Scheduling Content Sessions</h3>
@@ -63,18 +80,18 @@ const project = {
       <br>
       <p style="font-weight: bold;">"I want to be able to filter which discussions I want to engage in."</p>
       <br>
-      <p>This feature is crucial for users who want to engage in specific conversations. Whether they’re interested in activism, business practices, or academic discussions, users need a way to filter and prioritize topics that matter most to them. Providing filters will help users focus their energy on relevant discussions while ensuring the space remains relevant and manageable for each individual.</p>
+      <p>This feature is crucial for users who want to engage in specific conversations. Whether they're interested in activism, business practices, or academic discussions, users need a way to filter and prioritize topics that matter most to them. Providing filters will help users focus their energy on relevant discussions while ensuring the space remains relevant and manageable for each individual.</p>
 
       <br></br>
       <h2 style="font-size: 2em; font-weight: bold;">User Testing & Iterations</h2>
       <br>
-      <p>As part of the development process, we have been conducting user testing to ensure that the platform aligns with user needs and expectations. Based on feedback, we’ve made several iterations, particularly in the account creation process.</p>
+      <p>As part of the development process, we have been conducting user testing to ensure that the platform aligns with user needs and expectations. Based on feedback, we've made several iterations, particularly in the account creation process.</p>
 
       <br></br>
       <h3 style="font-size: 1.5em; font-weight: bold;">Account Creation Iterations</h3>
       <br>
       <p style="font-size: 1.2em; font-weight: bold;">Before</p>
-      <p>Initially, we started with site templates that simplified the process but didn’t fully address user needs. The process was generic, and users struggled with navigating through account creation smoothly.</p>
+      <p>Initially, we started with site templates that simplified the process but didn't fully address user needs. The process was generic, and users struggled with navigating through account creation smoothly.</p>
       <br>
       <p style="font-size: 1.2em; font-weight: bold;">After</p>
       <p>After gathering user feedback, we refined the account creation flow by adding personalized questions, enabling users to select the type of user archetype (activist, intellectual, business) they identify with. This change allows us to better tailor the user experience from the very beginning, ensuring that users are immediately offered the resources and discussions most relevant to their interests and needs.</p>
@@ -92,7 +109,7 @@ const project = {
       
       
     `,
-    tags: ["Web Development", "Data Vis", "Crypto", "Finance"],
+    tags: ["Graphic Design", "Branding"],
   }
   
 
@@ -116,10 +133,47 @@ export default function CryptoDashboardPage() {
       <Navigation />
       <main className="container max-w-2xl mx-auto px-4 py-16">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
+          {/* Top Back Button */}
+          <Link 
+            href="/projects" 
+            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 mt-8 mb-8"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="16" 
+              height="16" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Projects
+          </Link>
 
           <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
           <p className="text-muted-foreground mb-4">{project.date}</p>
-
+          
+          {/* Filtered Tags */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            {filteredProjects.map((tag) => (
+              <Link 
+                key={tag} 
+                href={`/projects?tag=${encodeURIComponent(tag)}`}
+                className="no-underline"
+              >
+                <span 
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
+                >
+                  {tagIcons[tag]}
+                  {tag}
+                </span>
+              </Link>
+            ))}
+          </div>
           
 
           {/* Video section */}
@@ -134,13 +188,29 @@ export default function CryptoDashboardPage() {
           <p className="lead">{project.description}</p>
           <div dangerouslySetInnerHTML={{ __html: project.content }} />
 
-          {/* Filtered Tags */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {filteredProjects.map((tag) => (
-              <Badge key={tag} variant="secondary">
-                {tag}
-              </Badge>
-            ))}
+          
+
+          {/* Bottom Back Button */}
+          <div className="mt-16 flex justify-center">
+            <Link 
+              href="/projects" 
+              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Back to Projects
+            </Link>
           </div>
         </article>
       </main>

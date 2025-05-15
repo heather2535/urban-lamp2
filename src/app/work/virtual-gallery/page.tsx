@@ -4,12 +4,26 @@ import { Navigation } from "@/components/navigation"
 import { Badge } from "@/components/badge"
 import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
 import Link from "next/link"  // Ensure to import Link for routing
+import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
+
+// Define tagIcons with explicit typing for keys
+const tagIcons: Record<string, React.ReactElement> = {
+  "All Projects": <Folder className="h-3 w-3" />,
+  "3D Design": <Grid className="h-3 w-3" />,
+  "AI Integration": <Cpu className="h-3 w-3" />,
+  "Branding": <Tag className="h-3 w-3" />,
+  "Data Vis": <BarChart className="h-3 w-3" />,
+  "Graphic Design": <Palette className="h-3 w-3" />,
+  "UI/UX": <Layers className="h-3 w-3" />,
+  "UI/UX Design": <Layout className="h-3 w-3" />,
+  "Product Design": <Package className="h-3 w-3" />,
+  "Web Development": <Code className="h-3 w-3" />,
+}
 
 const project = {
     title: "Library Database E-Learning Platform",
     description: "Interactive virtual space for students to showcase their reads in an environment.",
     date: "January 10, 2024",
-    description2: "Heather Davies - Jan 10, 2024",
     video: "/video6.mp4?height=450&width=800", 
     content: `
       <br></br>
@@ -34,7 +48,7 @@ const project = {
       <br>
       <p>To further refine our approach, we mapped out user journeys to understand students' tasks, goals, and frustrations when trying to navigate course materials. Through this process, we identified areas where user needs were unclear or misaligned with existing systems. This prompted the creation of follow-up questions to address these challenges more effectively.</p>
       <br>
-      <p>During a collaborative team meeting, we reviewed the insights from the SWOT analysis, customer interviews, and journey maps. This discussion helped us clarify critical aspects of the app’s design and functionality, ensuring that the solution would improve accessibility to academic resources and simplify the learning process.</p>
+      <p>During a collaborative team meeting, we reviewed the insights from the SWOT analysis, customer interviews, and journey maps. This discussion helped us clarify critical aspects of the app's design and functionality, ensuring that the solution would improve accessibility to academic resources and simplify the learning process.</p>
       <br></br>
 
       <h2 style="font-size: 2em; font-weight: bold;">Key Features</h2>
@@ -42,7 +56,7 @@ const project = {
       <p>To address the needs and frustrations identified during our discovery phase, we focused on the following key features for Journalink:</p>
       <br>
       <h2 style="font-size: 1.5em; font-weight: bold;">1. Improved Accessibility to Academic Resources </h2>
-      <p>Journalink consolidates all of a student’s textbooks and course readings in one convenient location, eliminating the need to navigate through multiple platforms to access essential resources.</p>
+      <p>Journalink consolidates all of a student's textbooks and course readings in one convenient location, eliminating the need to navigate through multiple platforms to access essential resources.</p>
             
       <br>          
       <h2 style="font-size: 1.5em; font-weight: bold;">2. Collaborative Note-Taking</h2>
@@ -92,7 +106,7 @@ const project = {
 
 
     `,
-    tags: ["Web Development", "Data Visualization", "Crypto", "Finance"],
+    tags: ["Web Development", "UI/UX Design"],
   }
   
 
@@ -114,37 +128,52 @@ export default function CryptoDashboardPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container max-w-2xl mx-auto px-4 py-8">
+      <main className="container max-w-2xl mx-auto px-4 mt-6 py-8">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
-          <p className="text-[14px] text-muted-foreground mt-8 mb-4">{project.description2}</p>
+          {/* Top Back Button */}
+          <Link 
+            href="/projects" 
+            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 mt-8 mb-8"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="16" 
+              height="16" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Projects
+          </Link>
 
           <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
           <p className="text-muted-foreground mb-4">{project.date}</p>
 
-          {/* Tag and Search Filters */}
-          <div className="mb-8 flex flex-wrap items-center gap-4">
-            <div className="flex-grow max-w-md">
-              <SearchBar onSearch={setSearchQuery} />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <Link href="../" onClick={() => setSelectedTag(null)} className="px-4 py-2 border rounded">
-                All
-              </Link>
-              {allTags.map((tag) => (
-                <Link 
-                  key={tag} 
-                  href="../" 
-                  onClick={() => setSelectedTag(tag)} 
-                  className={`px-4 py-2 border rounded ${selectedTag === tag ? "bg-blue-500 text-white" : ""}`}
+          {/* Filtered Tags */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            {filteredProjects.map((tag) => (
+              <Link 
+                key={tag} 
+                href={`/projects?tag=${encodeURIComponent(tag)}`}
+                className="no-underline"
+              >
+                <span 
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
                 >
+                  {tagIcons[tag]}
                   {tag}
-                </Link>
-              ))}
-            </div>
+                </span>
+              </Link>
+            ))}
           </div>
 
           {/* Video section */}
-          <div className="relative mb-6">
+          <div className="relative mt-6 mb-6">
             <video controls width="100%" height="auto" className="object-cover rounded-lg">
               <source src={project.video} type="video/mp4" />
               {/* Fallback text for unsupported browsers */}
@@ -155,13 +184,29 @@ export default function CryptoDashboardPage() {
           <p className="lead">{project.description}</p>
           <div dangerouslySetInnerHTML={{ __html: project.content }} />
 
-          {/* Filtered Tags */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {filteredProjects.map((tag) => (
-              <Badge key={tag} variant="secondary">
-                {tag}
-              </Badge>
-            ))}
+          
+
+          {/* Bottom Back Button */}
+          <div className="mt-16 flex justify-center">
+            <Link 
+              href="/projects" 
+              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Back to Projects
+            </Link>
           </div>
         </article>
       </main>

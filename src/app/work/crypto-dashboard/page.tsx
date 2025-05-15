@@ -4,6 +4,7 @@ import { Badge } from "@/components/badge"
 import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
 import Link from "next/link"  // Ensure to import Link for routing
 import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
+import { Navigation } from "@/components/navigation"
 
 // Define tagIcons with explicit typing for keys
 const tagIcons: Record<string, React.ReactElement> = {
@@ -20,31 +21,42 @@ const tagIcons: Record<string, React.ReactElement> = {
 }
 
 const project = {
-    title: "Real-Time Cryptocurrency Tracking Dashboard with News Integration and Price Alerts",
+    title: "Real-Time Cryptocurrency\nTracking Dashboard",
     date: "December 28, 2024",
-    video: "/crypto-dashboard-video.mov?height=450&width=800", 
+    video: "/videos/video1.mov?height=450&width=800", 
     content: `
       <br></br>
       <br>      
       <br>
       <h2 style="font-size: 2em; font-weight: bold;">Introduction</h2>
       <br>
-        <p>
+        <p className="text-gray-700 dark:text-gray-300">
           Cryptocurrency is one of the most volatile markets today, making it essential for investors to monitor not only live prices but also the sentiment surrounding each coin. To address this need, I designed and developed a Crypto Price Tracker and Sentiment Analysis App—a full-stack web application that aggregates real-time price data, analyzes the tone of crypto-related news, and provides alerts to help users stay informed and make better decisions.        
         </p>
       <br>
 
-       <div className="col-span-1">
-          <img
-            src="/images/image12.png"
-            alt="Design Process and Research"
-            className="rounded-lg shadow-md w-full h-auto object-cover"
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </div>
-      <p>Figure 1:  A full-page screenshot of my crypto app's dashboard.
+      <div className="col-span-1">
+        <img
+          src="/images/image12.png"
+          alt="Design Process and Research"
+          className="rounded-lg shadow-md w-full h-auto object-cover"
+          style={{ maxWidth: "100%", height: "auto" }}
+        />
+      </div>
+      <p>Figure 1:  A full-page screenshot of my crypto app's dashboard.</p>
       <br></br>
 
+      {/* Hero Video */}
+      <div className="mt-6 mb-6">
+        <video 
+          controls 
+          className="rounded-lg shadow-md"
+          style={{ maxWidth: "100%", height: "auto" }}
+        >
+          <source src={project.video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
       <h2 style="font-size: 2em; font-weight: bold;">Goals</h2>
     <br>
@@ -187,7 +199,7 @@ const project = {
     <br>
     <h2 style="font-size: 1.5em; font-weight: bold;">2. Backend Development</h2>
     <p>
-    The backend was built with Node.js and Express.js, acting as a bridge between the APIs and the frontend. The CoinMarketCap API provided real-time price data, while the News API delivered articles which were then analyzed by Google Cloud’s NLP service. Each article's sentiment score was parsed and labeled as Positive, Negative, or Neutral.
+    The backend was built with Node.js and Express.js, acting as a bridge between the APIs and the frontend. The CoinMarketCap API provided real-time price data, while the News API delivered articles which were then analyzed by Google Cloud's NLP service. Each article's sentiment score was parsed and labeled as Positive, Negative, or Neutral.
     </p>
     <br>
     <h2 style="font-size: 1.5em; font-weight: bold;">3. Sentiment Analysis Integration</h2>
@@ -239,7 +251,7 @@ const project = {
     <br>
    
     `,
-    tags: ["Web Development", "Data Visualization", "Crypto", "Finance"],
+    tags: ["Web Development", "Data Visualization"],
   }
   
 
@@ -258,75 +270,153 @@ export default function CryptoDashboardPage() {
   })
 
   return (
-    <div className="min-h-screen bg-background">
-      <main className="container max-w-2xl mx-auto px-4 py-16">
-        <article className="prose lg:prose-xl dark:prose-invert mx-auto">
-          <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
-          <p className="text-muted-foreground mb-4">{project.date}</p>
-          {/* Filtered Tags */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {filteredProjects.map((tag) => (
-              <Link 
-                key={tag} 
-                href={`/projects?tag=${encodeURIComponent(tag)}`}
-                className="no-underline"
+    <div className="min-h-screen bg-transparent">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <div className="relative w-full h-[600px] bg-white dark:bg-gray-900">
+        <img
+          src="/images/image20.png"
+          alt="Crypto Dashboard Overview"
+          className="absolute inset-0 w-[1920px] h-[600px] object-cover object-center"
+          style={{ objectPosition: '60% 30%' }}
+        />
+        {/* Back Button */}
+        <div className="absolute top-24 left-0 right-0 z-10">
+          <div className="container max-w-6xl mx-auto px-4">
+            <Link 
+              href="/projects" 
+              className="inline-flex items-center gap-2 text-sm text-gray-900 hover:text-gray-200 dark:text-white dark:hover:text-gray-200 hover:bg-black/70 px-4 py-2 rounded-lg transition-all duration-200"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
               >
-                <Badge 
-                  variant="secondary" 
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
-                >
-                  {tagIcons[tag]}
-                  {tag}
-                </Badge>
-              </Link>
-            ))}
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Back to Projects
+            </Link>
           </div>
-
-
-          {/* Video section */}
-          <div className="relative mt-6 mb-6">
-            <video controls width="100%" height="auto" className="object-cover rounded-lg">
-              <source src={project.video} type="video/mp4" />
-              {/* Fallback text for unsupported browsers */}
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
-          {/* Three Columns Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-            <div className="p-4 rounded-lg">
-              <h3 className="font-bold text-lg mb-2">Role</h3>
-              <p className="text-sm text-muted-foreground">
-              Full Stack Developer
-              </p>
-              <p className="text-sm text-muted-foreground">
-              UX Designer
-              </p>
-            </div>
-            <div className="p-4 rounded-lg">
-              <h3 className="font-bold text-lg mb-2">Team</h3>
-              <p className="text-sm text-muted-foreground">
-              Heather Davies
-              </p>
-              <p className="text-sm text-muted-foreground">
-              Solo Project
-              </p>
-            </div>
-            <div className="p-4 rounded-lg">
-              <h3 className="font-bold text-lg mb-2">Duration</h3>
-              <p className="text-sm text-muted-foreground">
-              Dec. 24 '24 - Dec. 28 '24
-              </p>
-              <p className="text-sm text-muted-foreground">
-              4 days total
-              </p>
+        </div>
+        <div className="absolute inset-0 flex flex-col justify-center p-8">
+          <div className="container max-w-6xl mx-auto px-4">
+            <div className="max-w-6xl">
+              <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
+              <div className="flex flex-wrap gap-2">
+                {filteredProjects.map((tag) => (
+                  <Link 
+                    key={tag} 
+                    href={`/projects?tag=${encodeURIComponent(tag)}`}
+                    className="no-underline"
+                  >
+                    <Badge 
+                      variant="secondary" 
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+                    >
+                      {tagIcons[tag]}
+                      {tag}
+                    </Badge>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div dangerouslySetInnerHTML={{ __html: project.content }} />
+      <div className="w-full bg-transparent">
+        <main className="w-full">
+          <article className="prose lg:prose-xl dark:prose-invert">
+            {/* Three Columns Section */}
+            <div className="container max-w-6xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                <div className="p-4 rounded-lg">
+                  <h3 className="font-bold text-lg mb-2">Role</h3>
+                  <p className="text-sm text-muted-foreground">
+                  Full Stack Developer
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                  UX Designer
+                  </p>
+                </div>
+                <div className="p-4 rounded-lg">
+                  <h3 className="font-bold text-lg mb-2">Team</h3>
+                  <p className="text-sm text-muted-foreground">
+                  Heather Davies
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                  Solo Project
+                  </p>
+                </div>
+                <div className="p-4 rounded-lg">
+                  <h3 className="font-bold text-lg mb-2">Duration</h3>
+                  <p className="text-sm text-muted-foreground">
+                  Dec. 24 '24 - Dec. 28 '24
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                  4 days total
+                  </p>
+                </div>
+              </div>
+            </div>
 
-        </article>
-      </main>
+            {/* Two Columns Section */}
+            <div className="container max-w-6xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div>
+                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    The primary goal was to create a real-time cryptocurrency tracking dashboard that provides users with live price data, sentiment analysis, and news integration. We aimed to help investors make informed decisions by combining multiple data sources into a single, intuitive interface.
+                  </p>
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Solution:</h2>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    I developed a full-stack web application that aggregates real-time price data from CoinMarketCap, analyzes news sentiment using Google Cloud NLP, and provides a clean, responsive interface for monitoring market trends and receiving price alerts.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full bg-white dark:bg-gray-900 mt-12">
+              <div className="container max-w-6xl mx-auto px-4 py-8">
+                <div dangerouslySetInnerHTML={{ __html: project.content }} />
+                
+                {/* Bottom Back Button */}
+                <div className="mt-16 flex justify-center">
+                  <Link 
+                    href="/projects" 
+                    className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    >
+                      <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Projects
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </article>
+        </main>
+      </div>
     </div>
   )
 }

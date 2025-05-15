@@ -61,9 +61,47 @@ export default function ProjectsPage() {
                   <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-2">
                     Multidisciplinary Designer
                   </p>
-                  <p className="text-gray-700 dark:text-white/70 text-sm sm:text-base max-w-2xl">
-                    I'm a multidisciplinary designer crafting elegant, user-first experiences. My work combines visual polish with a deep understanding of how people think, feel, and use technology.
+                  <p className="text-gray-700 dark:text-white/70 text-sm sm:text-base max-w-2xl mb-4">
+                    Passionate about creating purposeful, research-driven products that enhance usability, accessibility, and overall performance. My work combines visual polish with a deep understanding of how people think, feel, and use technology.
                   </p>
+                  {/* Contact Links */}
+                  <div className="flex flex-wrap gap-4 items-center justify-center sm:justify-start">
+                    <a 
+                      href="mailto:heather.davies@example.com" 
+                      className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect width="20" height="16" x="2" y="4" rx="2"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                      </svg>
+                      daviesheather518@gmail.com
+                    </a>
+                    <a 
+                      href="https://www.linkedin.com/in/heatherrdavies/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect width="4" height="12" x="2" y="9"/>
+                        <circle cx="4" cy="4" r="2"/>
+                      </svg>
+                      LinkedIn
+                    </a>
+                    <a 
+                      href="/resume.pdf" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                      </svg>
+                      Resume
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
