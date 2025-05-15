@@ -35,17 +35,6 @@ export default function About() {
         <section className="bg-white dark:bg-gray-900 w-full min-h-screen">
           <div className="max-w-2xl mx-auto px-4 py-8">
             <div className="flex flex-col gap-6">
-              {/* Quote Section */}
-              <div className="relative mt-12 mb-12">
-                <div className="absolute -top-10 -left-10 text-9xl text-pink-500/10 dark:text-pink-500/20 font-serif">"</div>
-                <blockquote className="text-3xl md:text-4xl font-light text-gray-800 dark:text-white/90 leading-relaxed italic">
-                  Design is not just what it looks like and feels like. Design is how it works.
-                </blockquote>
-                <div className="mt-8 text-right">
-                  <p className="text-lg text-gray-600 dark:text-gray-400">— Steve Jobs</p>
-                </div>
-              </div>
-
               <p className="text-md text-center text-gray-700 dark:text-gray-300">Hi, I'm Heather Davies, a senior at Boston University, where I'm pursuing a B.F.A. in Graphic Design with a minor in Psychology. My academic journey, internships, and passion for design have equipped me with a unique blend of creative and technical expertise. Through coursework in UX/UI design, cognitive psychology, and design strategy, I've developed a deep understanding of how to craft meaningful, user-centered experiences that address real-world challenges</p>
               
               <h1 className="text-xl font-bold text-center">Passion for User-Centered Design</h1>
@@ -59,6 +48,17 @@ export default function About() {
               <h1 className="text-xl font-semibold text-center">Let's Connect!</h1>
               <p className="text-md text-center text-gray-700 dark:text-gray-300">I'm always excited to connect with fellow designers, professionals, and mentors. Whether it's collaborating, sharing insights, or exploring new opportunities, I welcome the chance to grow and learn from others.
               Feel free to connect with me on LinkedIn or check out my work on GitHub.</p>
+
+              {/* Quote Section */}
+              <div className="relative mt-12 mb-12">
+                <div className="absolute -top-10 -left-10 text-9xl text-pink-500/10 dark:text-pink-500/20 font-serif">"</div>
+                <blockquote className="text-3xl md:text-4xl font-light text-gray-800 dark:text-white/90 leading-relaxed italic">
+                  Design is not just what it looks like and feels like. Design is how it works.
+                </blockquote>
+                <div className="mt-8 text-right">
+                  <p className="text-lg text-gray-600 dark:text-gray-400">— Steve Jobs</p>
+                </div>
+              </div>
 
               {/* Images Section */}
               <div className="relative w-full overflow-hidden mt-12 mb-12">
