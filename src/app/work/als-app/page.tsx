@@ -399,30 +399,32 @@ export default function CryptoDashboardPage() {
             </Link>
           </div>
         </div>
-        <div className="absolute inset-0 flex flex-col justify-center p-8">
-          <div className="container max-w-6xl mx-auto px-4">
-            <div className="max-w-3xl">
-              <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
-              <div className="flex flex-wrap gap-2">
-                {filteredProjects.map((tag, index) => (
-                  <React.Fragment key={tag}>
-                    {tag === "UI/UX" && <div className="w-full" />}
-                    <Link 
-                      href={`/projects?tag=${encodeURIComponent(tag)}`}
-                      className="no-underline"
+      </div>
+
+      {/* Title Section */}
+      <div className="bg-white dark:bg-gray-900 py-8">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="max-w-3xl">
+            <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
+            <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
+            <div className="flex flex-wrap gap-2">
+              {filteredProjects.map((tag, index) => (
+                <React.Fragment key={tag}>
+                  {tag === "UI/UX" && <div className="w-full" />}
+                  <Link 
+                    href={`/projects?tag=${encodeURIComponent(tag)}`}
+                    className="no-underline"
+                  >
+                    <Badge 
+                      variant="secondary" 
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
                     >
-                      <Badge 
-                        variant="secondary" 
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
-                      >
-                        {tagIcons[tag]}
-                        {tag}
-                      </Badge>
-                    </Link>
-                  </React.Fragment>
-                ))}
-              </div>
+                      {tagIcons[tag]}
+                      {tag}
+                    </Badge>
+                  </Link>
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </div>

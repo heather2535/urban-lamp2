@@ -9,7 +9,7 @@ import { createPortal } from 'react-dom'
 import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
 
 const project = {
-  title: "Website Redesign for Hariri Institute \nat Duan Family Center for Faculty \nComputing and Engineering",
+  title: "Website Redesign for Hariri Institute",
   date: "March 3, 2025",
   image: "/image15.png",
   content: `
@@ -355,13 +355,7 @@ export default function CryptoDashboardPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <div className="relative w-full h-[600px] bg-white dark:bg-gray-900">
-        <img
-          src={project.image}
-          alt="Hariri Institute Website"
-          className="absolute inset-0 w-[1920px] h-[600px] object-cover object-center"
-          style={{ objectPosition: '60% 30%' }}
-        />
+      <div className="relative w-full bg-white dark:bg-gray-900">
         {/* Back Button */}
         <div className="absolute top-24 left-0 right-0 z-10">
           <div className="container max-w-6xl mx-auto px-4">
@@ -386,9 +380,12 @@ export default function CryptoDashboardPage() {
             </Link>
           </div>
         </div>
-        <div className="absolute inset-0 flex flex-col justify-center p-8">
-          <div className="container max-w-6xl mx-auto px-4">
-            <div className="max-w-6xl">
+
+        {/* Two Column Layout */}
+        <div className="container max-w-6xl mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-16 md:mt-0">
+            {/* Left Column - Text */}
+            <div className="max-w-xl order-2 md:order-1 pl-4 md:pl-0">
               <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
               <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
               <div className="flex flex-wrap gap-2">
@@ -410,6 +407,15 @@ export default function CryptoDashboardPage() {
                   </React.Fragment>
                 ))}
               </div>
+            </div>
+
+            {/* Right Column - Image */}
+            <div className="relative order-1 md:order-2">
+              <img
+                src={project.image}
+                alt="Hariri Institute Website"
+                className="w-full h-auto object-contain rounded-lg"
+              />
             </div>
           </div>
         </div>

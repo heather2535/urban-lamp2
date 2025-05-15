@@ -126,7 +126,7 @@ export default function About() {
                           className="relative z-10"
                         >
                           <Image
-                            className="w-64 h-64 object-cover rounded-lg shadow-lg cursor-grab active:cursor-grabbing"
+                            className="w-64 h-64 object-cover rounded-md shadow-lg cursor-grab active:cursor-grabbing"
                             src="/images/image16.jpg"
                             width="256"
                             height="256"
@@ -153,7 +153,7 @@ export default function About() {
                           className="relative z-10"
                         >
                           <Image
-                            className="w-64 h-64 object-cover rounded-lg shadow-lg cursor-grab active:cursor-grabbing"
+                            className="w-64 h-64 object-cover rounded-md shadow-lg cursor-grab active:cursor-grabbing"
                             src="/images/image17.jpg"
                             width="256"
                             height="256"
@@ -180,7 +180,7 @@ export default function About() {
                           className="relative z-10"
                         >
                           <Image
-                            className="w-64 h-64 object-cover rounded-lg shadow-lg cursor-grab active:cursor-grabbing"
+                            className="w-64 h-64 object-cover rounded-md shadow-lg cursor-grab active:cursor-grabbing"
                             src="/images/image18.jpg"
                             width="256"
                             height="256"
