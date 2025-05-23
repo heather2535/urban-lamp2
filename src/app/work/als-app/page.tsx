@@ -15,6 +15,15 @@ const project = {
   content: `
   
     <br></br>
+    <div className="mt-4">
+      <img
+        src="/images/image19.png"
+        alt="ALS Clinical Decision Tool"
+        className="rounded-lg shadow-md"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+    </div>
+    <br></br>
     <h2 style="font-size: 2em; font-weight: bold;">Introduction</h2>
     <br>
     <p>
@@ -23,6 +32,17 @@ const project = {
     <br>
     <h2 style="font-size: 2em; font-weight: bold;">Goals</h2>
     <br>
+  <div className="mt-4">
+      <img
+        src="/images/image21.png"
+        alt="ALS Clinical Decision Tool"
+        className="rounded-lg shadow-md"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+      <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1: Bookmarking Frames</p>
+    </div>
+    <br></br>
+
 
     <ul className="list-disc pl-8 space-y-4 text-base">
       <li className="relative">
@@ -43,6 +63,36 @@ const project = {
        <strong>Enable Sustainable Content Updates:</strong> Equip admins and clinic staff with a scalable backend for managing the latest resources and questions.
       </li>
     </ul>
+    <br></br>
+      <div className="mt-4">
+      <img
+        src="/images/image22.png"
+        alt="ALS Clinical Decision Tool"
+        className="rounded-lg shadow-md"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+      <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 2: Bookmarking Frames</p>
+    </div>
+    <br></br>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="mt-4">
+        <img
+          src="/images/image23.png"
+          alt="ALS Clinical Decision Tool"
+          className="rounded-lg shadow-md"
+          style={{ maxWidth: "100%", height: "auto" }}
+        />
+      </div>
+      <div className="mt-4">
+        <img
+          src="/images/image24.png"
+          alt="ALS Clinical Decision Tool"
+          className="rounded-lg shadow-md"
+          style={{ maxWidth: "100%", height: "auto" }}
+        />
+        <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 3: Popup Designs (Cookies, Consent)</p>
+      </div>
+    </div>
     <br></br>
     <h2 style="font-size: 2em; font-weight: bold;">Process</h2>
     <br>
@@ -239,61 +289,25 @@ const project = {
     <br></br>
     <div id="als-slideshow-1"></div>
     <br>
-   
-  
     <div className="mt-4">
-      <img
-        src="/images/image2.png"
-        alt="Low to High Fidelity Prototypes"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
-    <br></br>
-        <div className="mt-4">
-      <img
-        src="/images/image4.png"
-        alt="Low to High Fidelity Prototypes"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
-       <br></br>
-        <div className="mt-4">
-      <img
-        src="/images/image5.png"
-        alt="Low to High Fidelity Prototypes"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
-    <p> Figure 2-4: Researched Design System</p>
+        <img
+          src="/images/image25.png"
+          alt="Low to High Fidelity Prototypes"
+          className="rounded-lg shadow-md"
+          style={{ maxWidth: "50%", height: "50%" }}
+        />
+      </div>
+    
+  
+    <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">Figure 2-4: Researched Design System</p>
     <br></br>
 
     <br></br>
-        <div className="mt-4">
-      <img
-        src="/images/image6.png"
-        alt="Low to High Fidelity Prototypes"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
-  
+   
     <br></br>
    
   
-    <br></br>
-    <h3 style="font-size: 2em; font-weight: bold;">
-      <a 
-        href="https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="inline-block px-6 py-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:border-blue-500 hover:text-blue-600 transition-all duration-200"
-      >
-        Final Website for Client 
-      </a>
-    </h3>
+ 
 
    
   `,
@@ -398,38 +412,42 @@ export default function CryptoDashboardPage() {
         <div className="container max-w-6xl mx-auto px-4 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-16 md:mt-0">
             {/* Left Column - Text */}
-            <div className="max-w-xl order-2 md:order-1 pl-4 md:pl-0">
-              <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
-              <div className="flex flex-wrap gap-2">
-                {filteredProjects.map((tag, index) => (
-                  <React.Fragment key={tag}>
-                    {tag === "UI/UX" && <div className="w-full" />}
-                    <Link 
-                      href={`/projects?tag=${encodeURIComponent(tag)}`}
-                      className="no-underline"
-                    >
-                      <Badge 
-                        variant="secondary" 
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+            <Link href="https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default" className="no-underline">
+              <div className="max-w-xl order-2 md:order-1 pl-4 md:pl-0">
+                <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
+                <div className="flex flex-wrap gap-2">
+                  {filteredProjects.map((tag, index) => (
+                    <React.Fragment key={tag}>
+                      {tag === "UI/UX" && <div className="w-full" />}
+                      <Link 
+                        href={`/projects?tag=${encodeURIComponent(tag)}`}
+                        className="no-underline"
                       >
-                        {tagIcons[tag]}
-                        {tag}
-                      </Badge>
-                    </Link>
-                  </React.Fragment>
-                ))}
+                        <Badge 
+                          variant="secondary" 
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+                        >
+                          {tagIcons[tag]}
+                          {tag}
+                        </Badge>
+                      </Link>
+                    </React.Fragment>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Link>
 
             {/* Right Column - Image */}
-            <div className="relative order-1 md:order-2">
-              <img
-                src={project.image}
-                alt="ALS Clinical Decision Tool"
-                className="w-full h-auto object-contain rounded-lg"
-              />
-            </div>
+            <Link href="/work/als-app" className="no-underline">
+              <div className="relative order-1 md:order-2">
+                <img
+                  src={project.image}
+                  alt="ALS Clinical Decision Tool"
+                  className="w-full h-auto object-contain rounded-lg"
+                />
+              </div>
+            </Link>
           </div>
         </div>
       </div>

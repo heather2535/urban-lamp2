@@ -23,18 +23,20 @@ export function ProjectCard({ project }: { project: Project }) {
 
   return (
     <div
-      className="relative block  h-[400px]  overflow-hidden bg-transparent transition-colors rounded-md mb-4" // Card hover effect
+      className="relative block h-[400px] overflow-hidden bg-white dark:bg-gray-800 transition-colors rounded-xl mb-4 shadow-lg hover:shadow-xl" // Changed rounded-md to rounded-xl
       onMouseEnter={() => setIsHovered(true)} // Trigger hover state
       onMouseLeave={() => setIsHovered(false)} // Reset hover state
     >
       {/* Image Section */}
-      <div className="border border-input rounded-lg overflow-hidden h-[250px] flex items-center justify-center"> {/* Reduced height */}
-        <img
-          src={project.image || "/placeholder.svg"}
-          alt={project.title}
-          className={`rounded-lg object-cover w-full h-full transition-transform duration-300 ${isHovered ? "scale-110" : "scale-100"}`} // Make image fill the container
-        />
-      </div>
+      <Link href={project.href} className="block">
+        <div className="border border-input rounded-t-lg overflow-hidden h-[250px] flex items-center justify-center">
+          <img
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            className={`object-cover w-full h-full transition-transform duration-300 ${isHovered ? "scale-110" : "scale-100"}`}
+          />
+        </div>
+      </Link>
 
       {/* Title and Description - Linkable Content */}
       <Link href={project.href} passHref>
@@ -62,7 +64,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 >
                   <span 
                     key={tag} 
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors cursor-pointer"
                   >
                     {tagIcons[tag]}
                     {tag}
@@ -71,7 +73,7 @@ export function ProjectCard({ project }: { project: Project }) {
               ))}
           </div>
 
-          <p className="mt-2 text-sm text-muted-foreground mb-16">{project.description}</p> {/* Adjusted bottom margin */}
+          <h3 className="mt-2 text-sm text-muted-foreground mb-16">{project.description}</h3> {/* Adjusted bottom margin */}
         </div>
       </Link>
 

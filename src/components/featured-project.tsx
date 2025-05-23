@@ -49,10 +49,10 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
   const projectsList = Object.entries(projectData)
 
   return (
-    <div className="mb-24 -mt-16 container mx-auto max-w-6xl px-4 sm:px-6">
-      <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-8 text-center">
-        Featured Projects
-      </h2>
+    <div className="mb-24 -mt-16 container mx-auto max-w-6xl px-4 sm:px-6 ">
+        <h1 className="text-zinc-800 dark:text-white text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-2 sm:mb-0 text-center">
+                  Featured Projects
+      </h1>
       {/* Projects Section */}
       <div className="max-w-7xl mx-auto rounded-[20px] p-3 sm:p-5 relative">
         <div className="grid grid-cols-1 gap-6 sm:gap-8">
@@ -68,16 +68,16 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
                 </div>
                 <div className="w-full sm:w-1/2 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-3 sm:mb-4">
+                    <h3 className="text-md sm:text-xl font-bold text-gray-800 dark:text-white mb-3 sm:mb-4">
                       {title}
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6">
+                    <h3 className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6">
                       {data.description}
-                    </p>
+                    </h3>
                   </div>
                   <Link href={data.href}>
                     <Button className="w-full sm:w-fit hover:text-black">
-                      Read Case Study
+                      <h3>Read Case Study</h3>
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>

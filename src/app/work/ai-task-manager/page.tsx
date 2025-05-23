@@ -206,7 +206,7 @@ const project = {
   
    
     `,
-    tags: ["All Projects", "Web Development", "Branding", "UI/UX Design"],
+    tags: [ "Web Development", "Branding", "UI/UX Design"],
 
 
   }

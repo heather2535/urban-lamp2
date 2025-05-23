@@ -126,7 +126,7 @@ export default function GraphicsPage() {
   return (
     <>
       <style>{styles}</style>
-      <div className="group min-h-screen bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a2a3a] dark:to-[#6a4e92]">
+      <div className="group min-h-screen bg-white dark:bg-gray-900">
         <AuraCursor />
         <Navigation />
 
@@ -148,7 +148,7 @@ export default function GraphicsPage() {
         </section>
 
         {/* Main Content Section */}
-        <section className="bg-white dark:bg-gray-900 container max-w-full px-4 py-8">
+        <section className="bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a2a3a] dark:to-[#6a4e92 container max-w-full px-4 py-8">
           <div className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 border max-w-7xl mx-auto border-gray-200 dark:border-gray-700 shadow-lg">
             <div className="flex flex-col gap-8">
               {/* First Container */}

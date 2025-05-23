@@ -20,7 +20,7 @@ export default function About() {
       const y4 = useTransform(scrollYProgress, [0, 1], [0, 120])
     
   return (
-    <div className={`group min-h-screen bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a2a3a] dark:to-[#6a4e92] ${showAura ? "" : "pointer-events-none"}`}>
+    <div className={`group min-h-screen bg-transparent dark:bg-gray-900  ${showAura ? "" : "pointer-events-none"}`}>
               {showAura && <AuraCursor />}
 
       <Navigation />
@@ -197,31 +197,31 @@ export default function About() {
         </section>
 
         {/* Text Section with full-width white background */}
-        <section className="bg-white dark:bg-gray-900 w-full min-h-screen">
+        <section className="bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a2a3a] dark:to-[#6a4e92] w-full min-h-screen">
           <div className="max-w-2xl mx-auto px-4 py-8">
             <div className="flex flex-col gap-6">
-              <p className="text-md text-center text-gray-700 dark:text-gray-300">Hi, I'm Heather Davies, a senior at Boston University, where I'm pursuing a B.F.A. in Graphic Design with a minor in Psychology. My academic journey, internships, and passion for design have equipped me with a unique blend of creative and technical expertise. Through coursework in UX/UI design, cognitive psychology, and design strategy, I've developed a deep understanding of how to craft meaningful, user-centered experiences that address real-world challenges</p>
+              <h1 className="text-md text-center text-gray-700 dark:text-gray-300">Hi, I'm Heather Davies, a senior at Boston University, where I'm pursuing a B.F.A. in Graphic Design with a minor in Psychology. My academic journey, internships, and passion for design have equipped me with a unique blend of creative and technical expertise. Through coursework in UX/UI design, cognitive psychology, and design strategy, I've developed a deep understanding of how to craft meaningful, user-centered experiences that address real-world challenges</h1>
               
-              <h1 className="text-xl font-bold text-center">Passion for User-Centered Design</h1>
-              <p className="text-md text-center text-gray-700 dark:text-gray-300">I am deeply passionate about designing intuitive and impactful user experiences. By integrating principles of psychology, visual storytelling, and data-driven strategies, I thrive on creating designs that resonate with users and deliver measurable results. Whether it's simplifying workflows, improving usability, or enhancing brand identity, I'm driven by the opportunity to use design as a tool for positive change.</p>
+              <p className="text-xl font-bold text-center">Passion for User-Centered Design</p>
+              <h1 className="text-md text-center text-gray-700 dark:text-gray-300">I am deeply passionate about designing intuitive and impactful user experiences. By integrating principles of psychology, visual storytelling, and data-driven strategies, I thrive on creating designs that resonate with users and deliver measurable results. Whether it's simplifying workflows, improving usability, or enhancing brand identity, I'm driven by the opportunity to use design as a tool for positive change.</h1>
               
-              <p className="text-md text-center text-gray-700 dark:text-gray-300">I thrive in collaborative environments, whether I'm leading a team or contributing as a member. I believe the best solutions come from open communication and diverse perspectives.</p>
+              <h1 className="text-md text-center text-gray-700 dark:text-gray-300">I thrive in collaborative environments, whether I'm leading a team or contributing as a member. I believe the best solutions come from open communication and diverse perspectives.</h1>
               
-              <h1 className="text-xl font-bold text-center">Future Aspirations</h1>
+              <p className="text-xl font-bold text-center">Future Aspirations</p>
               <p className="text-md text-center text-gray-700 dark:text-gray-300">As I approach graduation, I'm eager to bring my skills and passion to an innovative organization where I can create impactful user experiences. I'm especially interested in opportunities that combine design expertise with technical problem-solving to enhance user satisfaction and contribute to meaningful projects.</p>
               
-              <h1 className="text-xl font-semibold text-center">Let's Connect!</h1>
+              <p className="text-xl font-semibold text-center">Let's Connect!</p>
               <p className="text-md text-center text-gray-700 dark:text-gray-300">I'm always excited to connect with fellow designers, professionals, and mentors. Whether it's collaborating, sharing insights, or exploring new opportunities, I welcome the chance to grow and learn from others.
               Feel free to connect with me on LinkedIn or check out my work on GitHub.</p>
 
               {/* Quote Section */}
-              <div className="relative mt-12 mb-12">
+              <div className="relative mt-12">
                 <div className="absolute -top-10 -left-10 text-9xl text-pink-500/10 dark:text-pink-500/20 font-serif">"</div>
                 <blockquote className="text-3xl md:text-4xl font-light text-gray-800 dark:text-white/90 leading-relaxed italic">
                   Design is not just what it looks like and feels like. Design is how it works.
                 </blockquote>
                 <div className="mt-8 text-right">
-                  <p className="text-lg text-gray-600 dark:text-gray-400">— Steve Jobs</p>
+                  <h3 className="text-lg text-gray-600 dark:text-gray-400">— Steve Jobs</h3>
                 </div>
               </div>
             </div>

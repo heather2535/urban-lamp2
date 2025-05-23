@@ -82,25 +82,33 @@ export default function ProjectsPage() {
   return (
     <>
       <style>{styles}</style>
-      <div className="group min-h-screen bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a2a3a] dark:to-[#6a4e92]">
+      <div className="group min-h-screen bg-white dark:bg-gray-900">
         <AuraCursor />
 
         {/* Hero Section */}
-        <section className="flex items-center justify-center  py-4 px-4">
+        <section className="flex items-center justify-center py-4 px-4">
           <div className="flex items-center justify-center relative w-full pt-32 sm:pt-48">
             <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" /> {/* Grainy texture */}
             
-              <div className="container relative z-20">
+            <div className="container relative z-20">
               <div className="mx-auto max-w-5xl text-center">
-
                 <div className="relative animate-float">
                   <div className="absolute inset-0 blur-[100px] -z-10 bg-[radial-gradient(circle,rgba(236,72,153,0.4)_0%,rgba(236,72,153,0.2)_30%,transparent_70%)] animate-ambient-glow" />
                   <h1 className="text-foreground text-1xl font-semibold tracking-tight text-7xl animate-slide-up">
                     Projects
                   </h1>
-                  <p className="mt-6 text-md leading-8 text-gray-700 dark:text-gray-200 mb-6 animate-slide-up-delayed">
-                  Designing interfaces that connect, guide, and delight. 
-                  </p>
+                  <h3 className="mt-6 text-md leading-8 text-gray-700 dark:text-gray-200 mb-6 animate-slide-up-delayed">
+                    Designing interfaces that connect, guide, and delight. 
+                  </h3>
+                </div>
+
+                <div className="mt-12 animate-slide-up-delayed">
+                  <ProjectFilter
+                    tags={allTags}
+                    selectedTag={selectedTag}
+                    onTagSelect={setSelectedTag}
+                    onSearch={setSearchQuery}
+                  />
                 </div>
               </div>
             </div>
@@ -108,17 +116,10 @@ export default function ProjectsPage() {
         </section>
 
         {/* Projects Section */}
-        <section ref={projectsRef} className="bg-white dark:bg-gray-900 flex mx-auto w-full min-h-screen px-4 sm:px-12 pt-22">
+        <section ref={projectsRef} className="bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a1f2e] dark:to-[#2a2f3e] flex mx-auto w-full min-h-screen px-4 sm:px-12 pt-22 pb-32">
           <div className="container mx-auto max-w-7xl">
             <div className="mt-4 flex items-center justify-center space-x-2">
             </div>
-
-            <ProjectFilter
-              tags={allTags}
-              selectedTag={selectedTag}
-              onTagSelect={setSelectedTag}
-              onSearch={setSearchQuery}
-            />
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
               {filteredProjects.map((project) => (

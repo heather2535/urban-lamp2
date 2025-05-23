@@ -9,7 +9,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/navigation-menu"
-import { Menu, Palette } from 'lucide-react'
+import { Menu, Palette, Linkedin, FileText, Mail } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 import { ModeToggle } from "./mode-toggle"
@@ -53,15 +53,15 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4 flex-1 justify-center">
             <NavigationMenu>
-              <NavigationMenuList>
+              <NavigationMenuList className="flex gap-8">
                 <NavigationMenuItem>
                   <Link href="/" legacyBehavior passHref>
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === "/" && "text-pink-500"
+                        pathname === "/" && "text-pink-500 border-b-2 border-pink-500"
                       )}
                     >
                       <h3>Home</h3>
@@ -73,7 +73,7 @@ export function Navigation() {
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === "/projects" && "text-pink-500"
+                        pathname === "/projects" && "text-pink-500 border-b-2 border-pink-500"
                       )}
                     >
                       <h3>Projects</h3>
@@ -85,7 +85,7 @@ export function Navigation() {
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === "/graphics" && "text-pink-500 hover:text-pink-600"
+                        pathname === "/graphics" && "text-pink-500 border-b-2 border-pink-500"
                       )}
                     >
                       <h3>Graphics</h3>
@@ -97,7 +97,7 @@ export function Navigation() {
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === "/about" && "text-pink-500 hover:text-pink-600"
+                        pathname === "/about" && "text-pink-500 border-b-2 border-pink-500"
                       )}
                     >
                       <h3>About</h3>
@@ -117,6 +117,30 @@ export function Navigation() {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
+          </div>
+          <div className="hidden md:flex items-center gap-6">
+            <a 
+              href="https://www.linkedin.com/in/heatherrdavies/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-pink-500 transition-colors"
+            >
+              <Linkedin className="h-6 w-6" />
+            </a>
+            <a 
+              href="/resume.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-pink-500 transition-colors"
+            >
+              <FileText className="h-6 w-6" />
+            </a>
+            <a 
+              href="mailto:daviesheather518@gmail.com"
+              className="text-gray-600 hover:text-pink-500 transition-colors"
+            >
+              <Mail className="h-6 w-6" />
+            </a>
             <ModeToggle />
           </div>
 
@@ -156,6 +180,32 @@ export function Navigation() {
                     className="text-sm transition-colors hover:text-pink-500"
                   >
                     Contact
+                  </a>
+                  <div className="border-t border-gray-200 dark:border-gray-700 my-2"></div>
+                  <a 
+                    href="https://www.linkedin.com/in/heatherrdavies/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                    LinkedIn
+                  </a>
+                  <a 
+                    href="/resume.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
+                  >
+                    <FileText className="h-4 w-4" />
+                    Resume
+                  </a>
+                  <a 
+                    href="mailto:daviesheather518@gmail.com"
+                    className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
+                  >
+                    <Mail className="h-4 w-4" />
+                    Email
                   </a>
                 </nav>
               </SheetContent>

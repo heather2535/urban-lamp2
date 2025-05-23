@@ -60,8 +60,8 @@ export function ProjectFilter({ tags, selectedTag, onTagSelect, onSearch }: Proj
               className={cn(
                 "group flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 transition-all",
                 selectedTag === tag || (tag === "All Projects" && !selectedTag)
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-background hover:border-primary hover:bg-primary/10",
+                  ? "border-pink-500 bg-pink-500 text-white dark:bg-pink-600 dark:border-pink-600"
+                  : "border-pink-200 bg-pink-100 hover:border-pink-500 hover:bg-pink-200 dark:bg-pink-900/30 dark:border-pink-800/50 dark:hover:bg-pink-900/50 dark:hover:border-pink-700",
               )}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -70,8 +70,8 @@ export function ProjectFilter({ tags, selectedTag, onTagSelect, onSearch }: Proj
                 className={cn(
                   "flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full transition-colors",
                   selectedTag === tag || (tag === "All Projects" && !selectedTag)
-                    ? "bg-primary-foreground text-primary"
-                    : "bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary",
+                    ? "border-pink-500 bg-pink-500 text-white dark:bg-pink-600 dark:border-pink-600"
+                    : "border-pink-200 bg-pink-100 hover:border-pink-500 hover:bg-pink-200 dark:bg-pink-900/30 dark:border-pink-800/50 dark:hover:bg-pink-900/50 dark:hover:border-pink-700",
                 )}
               >
                 {tagIcons[tag]}
@@ -88,8 +88,8 @@ export function ProjectFilter({ tags, selectedTag, onTagSelect, onSearch }: Proj
               className={cn(
                 "group flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 transition-all",
                 selectedTag === tag || (tag === "All Projects" && !selectedTag)
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-background hover:border-primary hover:bg-primary/10",
+                  ? "border-pink-500 bg-pink-500 text-white dark:bg-pink-600 dark:border-pink-600"
+                  : "border-pink-200 bg-pink-100 hover:border-pink-500 hover:bg-pink-200 dark:bg-pink-900/30 dark:border-pink-800/50 dark:hover:bg-pink-900/50 dark:hover:border-pink-700",
               )}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -98,8 +98,8 @@ export function ProjectFilter({ tags, selectedTag, onTagSelect, onSearch }: Proj
                 className={cn(
                   "flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full transition-colors",
                   selectedTag === tag || (tag === "All Projects" && !selectedTag)
-                    ? "bg-primary-foreground text-primary"
-                    : "bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary",
+                    ? "border-pink-500 bg-pink-500 text-white dark:bg-pink-600 dark:border-pink-600"
+                    : "border-pink-200 bg-pink-100 hover:border-pink-500 hover:bg-pink-200 dark:bg-pink-900/30 dark:border-pink-800/50 dark:hover:bg-pink-900/50 dark:hover:border-pink-700",
                 )}
               >
                 {tagIcons[tag]}
