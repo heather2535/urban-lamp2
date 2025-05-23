@@ -49,8 +49,8 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
   const projectsList = Object.entries(projectData)
 
   return (
-    <div className="mb-24 -mt-16 container mx-auto max-w-6xl px-4 sm:px-6 ">
-        <h1 className="text-zinc-800 dark:text-white text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-2 sm:mb-0 text-center">
+    <div className="mb-28 pb-10 -mt-16 container mx-auto max-w-6xl px-4 sm:px-6 ">
+        <h1 className="text-zinc-800 pb-10 dark:text-white text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-2 sm:mb-0 text-center">
                   Featured Projects
       </h1>
       {/* Projects Section */}
