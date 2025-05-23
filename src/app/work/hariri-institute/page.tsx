@@ -9,10 +9,12 @@ import { createPortal } from 'react-dom'
 import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
 
 const project = {
-  title: "Website Redesign for Hariri Institute",
+  title: "Website Redesign for\n Hariri Institute",
   date: "March 3, 2025",
   image: "/image15.png",
   content: `
+
+  
   
     <br></br>
     <h2 style="font-size: 2em; font-weight: bold;">Introduction</h2>
@@ -355,71 +357,53 @@ export default function CryptoDashboardPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <div className="relative w-full bg-white dark:bg-gray-900">
-        {/* Back Button */}
-        <div className="absolute top-24 left-0 right-0 z-10">
-          <div className="container max-w-6xl mx-auto px-4">
-            <Link 
-              href="/projects" 
-              className="inline-flex items-center gap-2 text-sm text-gray-900 hover:text-gray-200 dark:text-white dark:hover:text-gray-200 hover:bg-black/70 px-4 py-2 rounded-lg transition-all duration-200"
-            >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
-              Back to Projects
-            </Link>
-          </div>
-        </div>
-
-        {/* Two Column Layout */}
-        <div className="container max-w-6xl mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-16 md:mt-0">
+          {/* Three Column Layout */}
+          <div className="container max-w-7xl mx-auto px-4 py-24">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center mt-16 md:mt-0">
             {/* Left Column - Text */}
-            <div className="max-w-xl order-2 md:order-1 pl-4 md:pl-0">
-              <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
-              <div className="flex flex-wrap gap-2">
-                {filteredProjects.map((tag, index) => (
-                  <React.Fragment key={tag}>
-                    {tag === "UI/UX" && <div className="w-full" />}
-                    <Link 
-                      href={`/projects?tag=${encodeURIComponent(tag)}`}
-                      className="no-underline"
-                    >
-                      <Badge 
-                        variant="secondary" 
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
-                      >
-                        {tagIcons[tag]}
-                        {tag}
-                      </Badge>
-                    </Link>
-                  </React.Fragment>
-                ))}
-              </div>
+            <div className="md:col-span-1 order-2 md:order-1">
+              <Link href="https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default" className="no-underline">
+                <div className="max-w-xl pl-4 md:pl-0">
+                  <h1 className="font-bold text-[40px] mb-6 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
+                  <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">{project.date}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {filteredProjects.map((tag, index) => (
+                      <React.Fragment key={tag}>
+                        {tag === "UI/UX" && <div className="w-full" />}
+                        <Link 
+                          href={`/projects?tag=${encodeURIComponent(tag)}`}
+                          className="no-underline"
+                        >
+                          <Badge 
+                            variant="secondary" 
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border-pink-200 bg-pink-100 hover:border-pink-500 hover:bg-pink-200 dark:bg-pink-900/30 dark:border-pink-800/50 dark:hover:bg-pink-900/50 dark:hover:border-pink-700 text-pink-700 dark:text-pink-100 transition-colors cursor-pointer"
+                          >
+                            {tagIcons[tag]}
+                            {tag}
+                          </Badge>
+                        </Link>
+                      </React.Fragment>
+                    ))}
+                  </div>
+                </div>
+              </Link>
             </div>
 
             {/* Right Column - Image */}
-            <div className="relative order-1 md:order-2">
-              <img
-                src={project.image}
-                alt="Hariri Institute Website"
-                className="w-full h-auto object-contain rounded-lg"
-              />
+            <div className="md:col-span-2 order-1 md:order-2">
+              <Link href="/work/als-app" className="no-underline">
+                <div className="relative">
+                  <img
+                    src={project.image}
+                    alt="ALS Clinical Decision Tool"
+                    className="w-full h-auto object-contain"
+                    style={{ maxWidth: "100%", height: "auto" }}
+                  />
+                </div>
+              </Link>
             </div>
           </div>
         </div>
-      </div>
 
       <div className="w-full bg-transparent">
         <main className="w-full">
