@@ -23,13 +23,13 @@ export function ProjectCard({ project }: { project: Project }) {
 
   return (
     <div
-      className="relative block h-[400px] overflow-hidden bg-white dark:bg-gray-800 transition-colors rounded-xl mb-4 shadow-lg hover:shadow-xl" // Changed rounded-md to rounded-xl
-      onMouseEnter={() => setIsHovered(true)} // Trigger hover state
-      onMouseLeave={() => setIsHovered(false)} // Reset hover state
+      className="relative block overflow-hidden bg-white dark:bg-gray-800 transition-colors rounded-xl mb-4 shadow-lg hover:shadow-xl"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image Section */}
       <Link href={project.href} className="block">
-        <div className="border border-input rounded-t-lg overflow-hidden h-[250px] flex items-center justify-center">
+        <div className="border border-input rounded-t-lg overflow-hidden h-[200px] flex items-center justify-center">
           <img
             src={project.image || "/placeholder.svg"}
             alt={project.title}
@@ -40,22 +40,17 @@ export function ProjectCard({ project }: { project: Project }) {
 
       {/* Title and Description - Linkable Content */}
       <Link href={project.href} passHref>
-        <div className="p-3"> {/* Reduced padding */}
-          {/* Always Visible Metadata */}
-          <div className="mb-3"> {/* Reduced margin */}
-          
-          </div>
-
+        <div className="p-4">
           {/* Title */}
           <h3
-            className={`text-md font-bold transition-colors ${isHovered ? "text-blue-500" : "text-black dark:text-white"}`} // Title turns blue on hover
+            className={`text-md font-bold transition-colors ${isHovered ? "text-blue-500" : "text-black dark:text-white"}`}
           >
             {project.title}
           </h3>
 
           <div className="mt-2 flex flex-wrap gap-2">
             {project.tags
-              .filter((tag) => tag !== "All Projects") // Exclude the "All Projects" tag
+              .filter((tag) => tag !== "All Projects")
               .map((tag) => (
                 <Link 
                   key={tag} 
@@ -73,7 +68,7 @@ export function ProjectCard({ project }: { project: Project }) {
               ))}
           </div>
 
-          <h3 className="mt-2 text-sm text-muted-foreground mb-16">{project.description}</h3> {/* Adjusted bottom margin */}
+          <h3 className="mt-2 text-sm text-muted-foreground">{project.description}</h3>
         </div>
       </Link>
 
@@ -81,15 +76,15 @@ export function ProjectCard({ project }: { project: Project }) {
       <button
         className="border border-input absolute top-4 right-4 p-2 rounded-full bg-white hover:bg-white text-black hover:bg-transparent"
         onClick={(e) => {
-          e.stopPropagation() // Prevent the link from being followed when clicking the share button
+          e.stopPropagation()
           if (navigator.share) {
-        navigator.share({
-          title: project.title,
-          text: project.description,
-          url: project.href,
-        }).catch((error) => console.error("Error sharing:", error))
+            navigator.share({
+              title: project.title,
+              text: project.description,
+              url: project.href,
+            }).catch((error) => console.error("Error sharing:", error))
           } else {
-        console.log("Web Share API not supported in this browser.")
+            console.log("Web Share API not supported in this browser.")
           }
         }}
       >
