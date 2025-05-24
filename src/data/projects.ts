@@ -83,7 +83,7 @@ export const projects: Project[] = [
     title: "Chaos & Order: Graphic Design Thesis",
     description: "A collection of my graphic design work from my thesis.",
     date: "May 06, 2025",
-    image: "/image13.png",
+    image: "/gallery/image36.png",
     videoUrl: "/video1.mov",
     href: "/work/chaosthesis",
     tags: ["All Projects", "Graphic Design", "Branding"],
