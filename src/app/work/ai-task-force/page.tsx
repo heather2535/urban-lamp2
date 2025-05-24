@@ -43,7 +43,7 @@ const project = {
 V3 — Motion and Animation</h2>
     <br>
     <h1>
-    Learning about and utilizing animation was very compelling to me because although I had worked with visual design in the past, I’d never really had an opportunity to implement animation and motion in a design before. I knew I wanted my animations to supplement the welcoming nature of my dashboard, so it was crucial that my animations enhanced my UX, and didn’t sabotage it.
+    Learning about and utilizing animation was very compelling to me because although I had worked with visual design in the past, I'd never really had an opportunity to implement animation and motion in a design before. I knew I wanted my animations to supplement the welcoming nature of my dashboard, so it was crucial that my animations enhanced my UX, and didn't sabotage it.
   </h1>
   <br>
       <h1>
@@ -51,7 +51,7 @@ V3 — Motion and Animation</h2>
       </h1>
       <br>
       <h1>
-      Another animation that proved successful was the ability to click on the Graph View toggle to select which graph was to be viewed: Semantic Network or Topic Analysis. For this animation, I used an easing-out dissolve of the darkened button to indicate that the button was essentially shifting to the next question.  
+      Another animation that proved successful was the ability to click on the Graph View toggle to select which graph was to be viewed: Semantic Network or Topic Analysis. For this animation, I used an easing-out dissolve of the darkened button to indicate that the button was essentially shifting to the next question.  
 </h1>
 
 <h1>
@@ -156,45 +156,41 @@ export default function CryptoDashboardPage() {
         </div>
 
         {/* Two Column Layout */}
-        <div className="-pt-10 py-10 container max-w-6xl mx-auto px-4 py-16">
-          <div className="pt-10 grid grid-cols-3 gap-8 items-center mt-16 md:mt-0">
-            {/* Left Column - Text */}
-            <Link href="https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default" className="no-underline">
-              <div className="max-w-xl order-2 md:order-1 pl-4 md:pl-0">
-                <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
-                <div className="flex flex-wrap gap-2">
-                  {filteredProjects.map((tag, index) => (
-                    <React.Fragment key={tag}>
-                      {tag === "UI/UX" && <div className="w-full" />}
-                      <Link 
-                        href={`/projects?tag=${encodeURIComponent(tag)}`}
-                        className="no-underline"
-                      >
-                        <Badge 
-                          variant="secondary" 
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
-                        >
-                          {tagIcons[tag]}
-                          {tag}
-                        </Badge>
-                      </Link>
-                    </React.Fragment>
-                  ))}
-                </div>
-              </div>
-            </Link>
+        <div className="container max-w-6xl mx-auto px-4 py-8 md:py-16">
+          <div className="flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8 items-center mt-12 md:mt-16">
+            {/* Image - Full width on mobile */}
+            <div className="w-full md:col-span-2 order-1">
+              <img
+                src={project.image}
+                alt="ALS Clinical Decision Tool"
+                className="w-full h-auto object-contain rounded-lg"
+              />
+            </div>
 
-            {/* Right Column - Image */}
-            <Link href="/work/als-app" className="no-underline col-span-2">
-              <div className="relative order-1 md:order-2">
-                <img
-                  src={project.image}
-                  alt="ALS Clinical Decision Tool"
-                  className="w-full h-auto object-contain rounded-lg"
-                />
+            {/* Text Content - Full width on mobile */}
+            <div className="w-full order-2 mt-6 md:mt-0">
+              <h1 className="font-bold text-2xl md:text-[32px] mb-3 md:mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
+              <p className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</p>
+              <div className="flex flex-wrap gap-2">
+                {filteredProjects.map((tag, index) => (
+                  <React.Fragment key={tag}>
+                    {tag === "UI/UX" && <div className="w-full" />}
+                    <Link 
+                      href={`/projects?tag=${encodeURIComponent(tag)}`}
+                      className="no-underline"
+                    >
+                      <Badge 
+                        variant="secondary" 
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+                      >
+                        {tagIcons[tag]}
+                        {tag}
+                      </Badge>
+                    </Link>
+                  </React.Fragment>
+                ))}
               </div>
-            </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -391,10 +387,11 @@ export default function CryptoDashboardPage() {
                     </div>
                     <div className="space-y-6">
                       <h2 className="text-gray-700 dark:text-gray-300">
-                      For my next dashboard view black-and-white iteration, I made a few design tweaks to convey different feelings when looking at the dashboard. Based on my persona analysis, I concluded that most students would want to feel less overwhelmed by the paper details on the screen. I decided to make the panels rounded to convey a more lighthearted, fun vibe. This is also why I included more space for the connections graph and further emphasized it to make things feel more balanced.                        </h2>
+                      For my next dashboard view black-and-white iteration, I made a few design tweaks to convey different feelings when looking at the dashboard. Based on my persona analysis, I concluded that most students would want to feel less overwhelmed by the paper details on the screen. I decided to make the panels rounded to convey a more lighthearted, fun vibe. This is also why I included more space for the connections graph and further emphasized it to make things feel more balanced.  
+                      </h2>
                       <h2 className="text-gray-700 dark:text-gray-300">
                         
-                      I originally kept the instructor view more square on my second iteration, but I later decided to change this to achieve visual consistency among the two dashboards. The persona of Prof. Rodriguez indicated she wanted policy research to seem “chill” to her students, so I determined it’d be important for her dashboard to also feel more lighthearted and soft. A couple other design changes I made were expanding the size of the adder box and distinguishing suggested buttons more clearly.
+                      I originally kept the instructor view more square on my second iteration, but I later decided to change this to achieve visual consistency among the two dashboards. The persona of Prof. Rodriguez indicated she wanted policy research to seem "chill" to her students, so I determined it'd be important for her dashboard to also feel more lighthearted and soft. A couple other design changes I made were expanding the size of the adder box and distinguishing suggested buttons more clearly.
                       </h2>
                     </div>
                     
@@ -416,7 +413,7 @@ export default function CryptoDashboardPage() {
 
                 <br></br>
                 <h2 className="text-gray-700 dark:text-gray-300">
-                Color proved to be a very effective tool, as it allowed me to draw the user’s eye to certain parts of the page. In addition, it also helped me demonstrate certain capabilities. For example, I made the “Search” button filled with the purple color to highlight its importance, but I almost made the area surrounding the selected question a few shades darker. This implied that the question had been “clicked on” as though it were a button! 
+                Color proved to be a very effective tool, as it allowed me to draw the user's eye to certain parts of the page. In addition, it also helped me demonstrate certain capabilities. For example, I made the "Search" button filled with the purple color to highlight its importance, but I almost made the area surrounding the selected question a few shades darker. This implied that the question had been "clicked on" as though it were a button!  
                         </h2>
                 </div>
                 </div>
