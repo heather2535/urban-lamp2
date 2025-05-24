@@ -2,13 +2,22 @@ import type { Project } from "../types/project"
 
 export const projects: Project[] = [
   {
-    title: "Generative AI Task Force Advice Dashboard",
+    title: "Fuse Networking App",
     description: "A web application designed to provide resources and support for individuals with ALS.",
     date: "December 28, 2024",
-    image: "/images/image29.png",
+    image: "/images/image37.png",
     videoUrl: "/video2.mov",
-    href: "/work/ai-task-force",
-    tags: ["All Projects", "UI/UX Design", "Product Design"],
+    href: "/work/fuse",
+    tags: ["All Projects", "UI/UX Design", "Branding"],
+  },
+  {
+    title: "Real-Time Cryptocurrency Tracking Dashboard",
+    description: "Real-time cryptocurrency tracking dashboard with news integration and price alerts.",
+    date: "December 28, 2024",
+    image: "/image1.png",
+    videoUrl: "/video2.mov",
+    href: "/work/crypto-dashboard",
+    tags: ["All Projects", "Web Development", "Product Design"],
   },
   {
     title: "ALS App Design with Boston Children's Hospital",
@@ -20,6 +29,16 @@ export const projects: Project[] = [
     tags: ["All Projects", "UI/UX Design", "Product Design"],
   },
   {
+    title: "Generative AI Task Force Advice Dashboard",
+    description: "A web application designed to provide resources and support for individuals with ALS.",
+    date: "December 28, 2024",
+    image: "/images/image29.png",
+    videoUrl: "/video2.mov",
+    href: "/work/ai-task-force",
+    tags: ["All Projects", "UI/UX Design", "Product Design"],
+  },
+  
+  {
     title: "Website Redesign for Hariri Institute",
     description: "Complete redesign and development of the institute's web presence.",
     date: "March 03, 2025",
@@ -29,15 +48,7 @@ export const projects: Project[] = [
     tags: ["All Projects", "Web Development"],
   }, 
 
-  {
-    title: "Real-Time Cryptocurrency Tracking Dashboard",
-    description: "Real-time cryptocurrency tracking dashboard with news integration and price alerts.",
-    date: "December 28, 2024",
-    image: "/image1.png",
-    videoUrl: "/video2.mov",
-    href: "/work/crypto-dashboard",
-    tags: ["All Projects", "Web Development", "Branding"],
-  },
+
   {
     title: "Talentora: A Conversational AI Interview Platform",
     description: "Designing a platform that uses AI to evaluate job applicants.",

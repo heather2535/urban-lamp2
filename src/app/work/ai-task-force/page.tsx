@@ -131,7 +131,7 @@ export default function CryptoDashboardPage() {
       {/* Hero Section */}
       <div className="relative w-full bg-white dark:bg-gray-900">
         {/* Back Button */}
-        <div className="absolute top-24 left-0 right-0 z-10">
+        <div className="absolute top-4 left-0 right-0 z-10">
           <div className="container max-w-6xl mx-auto px-4">
             <Link 
               href="/projects" 
@@ -156,7 +156,7 @@ export default function CryptoDashboardPage() {
         </div>
 
         {/* Two Column Layout */}
-        <div className="container max-w-6xl mx-auto px-4 py-8 md:py-16 mt-32">
+        <div className="container max-w-6xl mx-auto px-4 py-8 md:py-16 mt-16">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-8 items-center">
             {/* Text Content - First Column */}
             <div className="w-full order-2 md:order-1">
@@ -259,10 +259,9 @@ export default function CryptoDashboardPage() {
 
             <div className="container max-w-6xl mx-auto px-4">
               <div className="mt-8">
-                <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Gallery</h2>
               </div>
 
-              <div className="grid grid-cols-2 gap-8 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                 <div className="space-y-6">
                   <img
                     src="/images/image32.jpg"

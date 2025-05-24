@@ -35,8 +35,8 @@ const project = {
           <img
             src="/images/image11.png"
             alt="Hariri Institute Website Overview"
-            className="rounded-lg shadow-md w-1/2 h-auto mx-auto"
-            style={{ maxWidth: "300px", maxHeight: "150px", height: "auto" }}
+            className="rounded-lg shadow-md w-1/3 h-auto mx-auto"
+            style={{ maxWidth: "200px", maxHeight: "100px", height: "auto" }}
           />
         </div>
       </div>
@@ -410,40 +410,43 @@ export default function CryptoDashboardPage() {
           <article className="prose lg:prose-xl dark:prose-invert">
             {/* Three Columns Section */}
             <div className="container max-w-6xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 text-center">
-                <div className="p-4 rounded-lg">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                <div className="p-4 rounded-lg text-center">
                   <h3 className="font-bold text-lg mb-2">Role</h3>
                   <div className="flex flex-col items-center gap-1">
                     <p className="text-sm text-muted-foreground">
-                      Product Designer
+                      Design Strategist, UX
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      UX Researcher
+                      Researcher, UI/UX
                     </p>
                   </div>
                 </div>
-                <div className="p-4 rounded-lg">
+                <div className="p-4 rounded-lg text-center">
+                  <img
+                    src="/images/image11.png"
+                    alt="Hariri Institute Website Overview"
+                    className="rounded-lg shadow-md w-1/3 h-auto mx-auto mb-4"
+                    style={{ maxWidth: "200px", maxHeight: "100px", height: "auto" }}
+                  />
                   <h3 className="font-bold text-lg mb-2">Team</h3>
                   <div className="flex flex-col items-center gap-1">
                     <p className="text-sm text-muted-foreground">
                       Heather Davies
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Kate Ragosta
+                      Jason Huang
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Selena Huang
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Katherine D'Angelo
+                      Wesley Wildman
                     </p>
                   </div>
                 </div>
-                <div className="p-4 rounded-lg">
+                <div className="p-4 rounded-lg text-center">
                   <h3 className="font-bold text-lg mb-2">Duration</h3>
                   <div className="flex flex-col items-center gap-1">
                     <p className="text-sm text-muted-foreground">
-                      Nov. 2024 - March. 2025
+                      Sep. 2024 - Dec. 2024
                     </p>
                     <p className="text-sm text-muted-foreground">
                       4 mo. total
@@ -499,7 +502,7 @@ export default function CryptoDashboardPage() {
             </div>
 
             <div className="w-full bg-white dark:bg-gray-900 mt-12">
-              <div className="container max-w-6xl mx-auto px-4 py-8">
+              <div className="container max-w-3xl mx-auto px-4 py-8">
                 <div dangerouslySetInnerHTML={{ __html: project.content }} />
                 
                 {/* Bottom Back Button */}

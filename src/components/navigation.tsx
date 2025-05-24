@@ -64,7 +64,7 @@ export function Navigation() {
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === "/projects" && "text-pink-500 border-b-2 border-pink-500"
+                        (pathname === "/projects" || pathname.startsWith("/work/")) && "text-pink-500 border-b-2 border-pink-500"
                       )}
                     >
                       <h3>Projects</h3>

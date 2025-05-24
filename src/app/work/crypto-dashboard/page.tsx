@@ -35,28 +35,8 @@ const project = {
         </p>
       <br>
 
-      <div className="col-span-1">
-        <img
-          src="/images/image12.png"
-          alt="Design Process and Research"
-          className="rounded-lg shadow-md w-full h-auto object-cover"
-          style={{ maxWidth: "100%", height: "auto" }}
-        />
-      </div>
-      <p>Figure 1:  A full-page screenshot of my crypto app's dashboard.</p>
-      <br></br>
 
-      {/* Hero Video */}
-      <div className="mt-6 mb-6">
-        <video 
-          controls 
-          className="rounded-lg shadow-md"
-          style={{ maxWidth: "100%", height: "auto" }}
-        >
-          <source src={project.video} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+ 
 
       <h2 style="font-size: 2em; font-weight: bold;">Goals</h2>
     <br>
@@ -68,9 +48,9 @@ const project = {
         <ul className="list-disc pl-20 mt-2 space-y-2">
            <div className="col-span-1">
             <video
-            className="rounded-lg shadow-md w-full h-auto"
+            className="rounded-lg w-1/3 h-auto mx-auto"
             controls
-            style={{ maxWidth: "100%", height: "auto" }}
+            style={{ maxWidth: "300px", height: "auto" }}
             >
             <source src="/videos/video1.mov" type="video/mp4" />
             Your browser does not support the video tag.
@@ -274,15 +254,9 @@ export default function CryptoDashboardPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <div className="relative w-full h-[600px] bg-white dark:bg-gray-900">
-        <img
-          src="/images/image20.png"
-          alt="Crypto Dashboard Overview"
-          className="absolute inset-0 w-[1920px] h-[600px] object-cover object-center"
-          style={{ objectPosition: '60% 30%' }}
-        />
+      <div className="relative w-full bg-white dark:bg-gray-900">
         {/* Back Button */}
-        <div className="absolute top-24 left-0 right-0 z-10">
+        <div className="absolute top-4 left-0 right-0 z-10">
           <div className="container max-w-6xl mx-auto px-4">
             <Link 
               href="/projects" 
@@ -305,11 +279,14 @@ export default function CryptoDashboardPage() {
             </Link>
           </div>
         </div>
-        <div className="absolute inset-0 flex flex-col justify-center p-8">
-          <div className="container max-w-6xl mx-auto px-4">
-            <div className="max-w-6xl">
-              <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</p>
+
+        {/* Two Column Layout */}
+        <div className="container max-w-6xl mx-auto px-4 py-8 md:py-16 mt-16">
+          <div className="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+            {/* Text Content - First Column */}
+            <div className="w-full order-2 md:order-1 md:col-span-4">
+              <h1 className="font-bold text-2xl md:text-[32px] mb-3 md:mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
+              <p className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</p>
               <div className="flex flex-wrap gap-2">
                 {filteredProjects.map((tag) => (
                   <Link 
@@ -327,6 +304,16 @@ export default function CryptoDashboardPage() {
                   </Link>
                 ))}
               </div>
+            </div>
+
+            {/* Image - Second Column */}
+            <div className="w-full order-1 md:order-2 md:col-span-8">
+              <img
+                src="/images/image12.png"
+                alt="Crypto Dashboard Overview"
+                className="rounded-lg w-full h-auto object-cover"
+                style={{ maxHeight: "500px" }}
+              />
             </div>
           </div>
         </div>
@@ -369,7 +356,7 @@ export default function CryptoDashboardPage() {
             </div>
 
             {/* Two Columns Section */}
-            <div className="container max-w-6xl mx-auto px-4">
+            <div className="container max-w-7xl mx-auto px-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                 <div>
                   <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
@@ -387,7 +374,7 @@ export default function CryptoDashboardPage() {
             </div>
 
             <div className="w-full bg-white dark:bg-gray-900 mt-12">
-              <div className="container max-w-6xl mx-auto px-4 py-8">
+              <div className="container max-w-2xl mx-auto px-4 py-8">
                 <div dangerouslySetInnerHTML={{ __html: project.content }} />
                 
                 {/* Bottom Back Button */}
