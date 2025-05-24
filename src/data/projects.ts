@@ -2,6 +2,15 @@ import type { Project } from "../types/project"
 
 export const projects: Project[] = [
   {
+    title: "Generative AI Task Force Advice Dashboard",
+    description: "A web application designed to provide resources and support for individuals with ALS.",
+    date: "December 28, 2024",
+    image: "/images/image29.png",
+    videoUrl: "/video2.mov",
+    href: "/work/ai-task-force",
+    tags: ["All Projects", "UI/UX Design", "Product Design"],
+  },
+  {
     title: "ALS App Design with Boston Children's Hospital",
     description: "A web application designed to provide resources and support for individuals with ALS.",
     date: "December 28, 2024",
