@@ -130,17 +130,17 @@ export default function CryptoDashboardPage() {
       
       {/* Hero Section */}
       <div className="relative w-full bg-white dark:bg-gray-900">
-        {/* Back Button */}
-        <div className="absolute top-4 left-0 right-0 z-10">
+        {/* Top Back Button */}
+        <div className="absolute top-8 left-0 right-0 z-10">
           <div className="container max-w-6xl mx-auto px-4">
             <Link 
               href="/projects" 
-              className="inline-flex items-center gap-2 text-sm text-gray-900 hover:text-gray-200 dark:text-white dark:hover:text-gray-200 hover:bg-black/70 px-4 py-2 rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
+                width="14" 
+                height="14" 
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor" 
@@ -161,7 +161,7 @@ export default function CryptoDashboardPage() {
             {/* Text Content - First Column */}
             <div className="w-full order-2 md:order-1 md:col-span-2">
               <h1 className="font-bold text-2xl md:text-[32px] mb-3 md:mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-              <p className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</p>
+              <h2 className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</h2>
               <div className="flex flex-wrap gap-2">
                 {filteredProjects.map((tag, index) => (
                   <React.Fragment key={tag}>
@@ -472,7 +472,7 @@ export default function CryptoDashboardPage() {
                   Presenting my prototype with the aim to help users find jobs and internships easily and apply to them quickly. 
                   </h2>
                   <h2 className="text-gray-700 dark:text-gray-300">
-                  The first change I made to my prototype based on user feedback was with visuals. The initial version was looking to bland and old fashioned, so I switched to a visually more appeal look for all changes that you’ll see in my prototype. 
+                  The first change I made to my prototype based on user feedback was with visuals. The initial version was looking to bland and old fashioned, so I switched to a visually more appeal look for all changes that you'll see in my prototype. 
                   </h2>
                   <h2 className="text-gray-700 dark:text-gray-300">
                   The second change I made was with the job filters. Initially users were having trouble finding specific filters so I incorporated a search bar and a filter system that relies on tags or keywords to find relevant job offers. 
@@ -481,14 +481,14 @@ export default function CryptoDashboardPage() {
                   A third change I made related to the quick apply feature. Before there was no immediate feedback to the user that the application was submitted, so I added a confirmation page as well as a page where the user can view their pending or past applications. 
                   </h2>
                   <h2 className="text-gray-700 dark:text-gray-300">
-                  Now moving on to my clickable prototype, first you’ll be taken to the login and registration pages, where you would enter a new or existing username and password in order to get into the app.
+                  Now moving on to my clickable prototype, first you'll be taken to the login and registration pages, where you would enter a new or existing username and password in order to get into the app.
                   </h2>
                   <h2 className="text-gray-700 dark:text-gray-300">
-                  Once registering or logging in, the next ideal step would be to go to the account page and fill out the information fields that appear, including uploading your resume in order for the quick apply feature to work. So let’s go to the filters page and try looking for a job relating to relevant fields. So you would pick the filters you wanted and press ‘apply filters’ to see job offerings related to your entered fields. 
+                  Once registering or logging in, the next ideal step would be to go to the account page and fill out the information fields that appear, including uploading your resume in order for the quick apply feature to work. So let's go to the filters page and try looking for a job relating to relevant fields. So you would pick the filters you wanted and press 'apply filters' to see job offerings related to your entered fields. 
                   </h2>
                   <h2 className="text-gray-700 dark:text-gray-300">
                     Next, you should be able to see some job offerings, and be able to click on them to start your
-application. You will then be able to verify the information entered into you account is correct before hitting the ‘quick apply’ feature that will automatically fill the application out for you
+application. You will then be able to verify the information entered into you account is correct before hitting the 'quick apply' feature that will automatically fill the application out for you
                   </h2>
                 </div>
               </div>
@@ -502,12 +502,12 @@ application. You will then be able to verify the information entered into you ac
             <div className="mt-16 flex justify-center">
               <Link 
                 href="/projects" 
-                className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+                className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
               >
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
-                  width="16" 
-                  height="16" 
+                  width="14" 
+                  height="14" 
                   viewBox="0 0 24 24" 
                   fill="none" 
                   stroke="currentColor" 

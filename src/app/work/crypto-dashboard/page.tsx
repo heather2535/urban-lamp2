@@ -30,9 +30,9 @@ const project = {
       <br>
       <h2 style="font-size: 2em; font-weight: bold;">Introduction</h2>
       <br>
-        <p className="text-gray-700 dark:text-gray-300">
+        <h2 className="text-gray-700 dark:text-gray-300">
           Cryptocurrency is one of the most volatile markets today, making it essential for investors to monitor not only live prices but also the sentiment surrounding each coin. To address this need, I designed and developed a Crypto Price Tracker and Sentiment Analysis App—a full-stack web application that aggregates real-time price data, analyzes the tone of crypto-related news, and provides alerts to help users stay informed and make better decisions.        
-        </p>
+        </h2>
       <br>
 
 
@@ -43,26 +43,25 @@ const project = {
       
     <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-        <strong>Live Cryptocurrency Tracking:</strong> Real-time monitoring of the top 10 cryptocurrencies, including Bitcoin and Ethereum.
+        <h2><strong>• Live Cryptocurrency Tracking:</strong> Real-time monitoring of the top 10 cryptocurrencies, including Bitcoin and Ethereum.</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
            <div className="col-span-1">
             <video
-            className="rounded-lg w-1/3 h-auto mx-auto"
+            className="rounded-lg w-full h-auto mx-auto"
             controls
-            style={{ maxWidth: "300px", height: "auto" }}
+            style={{ maxWidth: "48rem", height: "auto" }}
             >
             <source src="/videos/video1.mov" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
-        <p>Figure 2:  A cropped section of my app showing real-time price updates for top cryptocurrencies (e.g., BTC, ETH).
-        </p>
+        <h2>Figure 2:  A cropped section of my app showing real-time price updates for top cryptocurrencies (e.g., BTC, ETH).
+        </h2>
         <br>
 
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            <strong>Sentiment Analysis:</strong> A clear understanding of the tone of news articles surrounding each coin, categorized as Positive, Neutral, or Negative.
+            <h2><strong>• Sentiment Analysis:</strong> A clear understanding of the tone of news articles surrounding each coin, categorized as Positive, Neutral, or Negative.</h2>
+
           </li>
 
 
@@ -80,8 +79,7 @@ const project = {
 <br>
 
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            <strong>News Integration:</strong> A curated feed of crypto-related news to inform users of market trends.
+            <h2><strong>• News Integration:</strong> A curated feed of crypto-related news to inform users of market trends.</h2>
           </li>
 
                  <div className="col-span-1">
@@ -97,8 +95,7 @@ const project = {
         <br>
 
            <li className="relative">
-            <span className="absolute -left-8">•</span>
-            <strong>Price Alerts:</strong> Immediate insights into major price changes or shifts in sentiment.
+            <h2><strong>• Price Alerts:</strong> Immediate insights into major price changes or shifts in sentiment.</h2>
           </li>
         
           
@@ -111,12 +108,10 @@ const project = {
    <h2 style="font-size: 1.5em; font-weight: bold;">Frontend</h2>
     <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-        <strong>React.js</strong>: For creating dynamic, responsive, and reusable UI components.
+        <h2><strong>• React.js</strong>: For creating dynamic, responsive, and reusable UI components.</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            <strong>Axios</strong>: For making HTTP requests to fetch live data from the backend.
+            <h2><strong>• Axios</strong>: For making HTTP requests to fetch live data from the backend.</h2>
           </li>   
         </ul>
       </li>
@@ -126,24 +121,19 @@ const project = {
     <h2 style="font-size: 1.5em; font-weight: bold;">Backend</h2>
     <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-       <strong>Node.js + Express.js</strong>: For building a lightweight server and managing routes and APIs.
+       <h2><strong>• Node.js + Express.js</strong>: For building a lightweight server and managing routes and APIs.</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-           <strong> CoinMarketCap API: </strong> For real-time price data of cryptocurrencies.
+            <h2><strong>• CoinMarketCap API: </strong> For real-time price data of cryptocurrencies.</h2>
           </li>   
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-           <strong> News API: </strong> To fetch the latest cryptocurrency-related news articles.
+            <h2><strong>• News API: </strong> To fetch the latest cryptocurrency-related news articles.</h2>
           </li>
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-           <strong> Google Cloud NLP API: </strong> For running sentiment analysis on fetched news content.
+            <h2><strong>• Google Cloud NLP API: </strong> For running sentiment analysis on fetched news content.</h2>
           </li>
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-           <strong> node-cron: </strong> For scheduling periodic data updates.
+            <h2><strong>• node-cron: </strong> For scheduling periodic data updates.</h2>
           </li>  
         </ul>
       </li>
@@ -152,8 +142,7 @@ const project = {
     <h2 style="font-size: 1.5em; font-weight: bold;">Deployment</h2>
     <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-        <strong>Heroku: </strong> For deploying the application and making it publicly accessible.
+        <h2> <strong>• Heroku: </strong> For deploying the application and making it publicly accessible.</h2>
       </li>
     </ul>
     <br></br>
@@ -169,41 +158,41 @@ const project = {
             style={{ maxWidth: "100%", height: "auto" }}
           />
         </div>
-        <p>Figure 4: Red highlighted section shows the backend code for the sentiment analysis file organization.
+        <h2>Figure 4: Red highlighted section shows the backend code for the sentiment analysis file organization.</h2>
         <br></br>
 
     <h2 style="font-size: 1.5em; font-weight: bold;">1. Frontend Development</h2>
-    <p>
+    <h2>
     I began by designing the dashboard using React.js, focusing on a modular component structure to handle live price updates, sentiment outputs, and the news feed. This approach allowed smooth updates without full page reloads, improving performance and user experience.
-    </p>
+    </h2>
     <br>
     <h2 style="font-size: 1.5em; font-weight: bold;">2. Backend Development</h2>
-    <p>
+    <h2>
     The backend was built with Node.js and Express.js, acting as a bridge between the APIs and the frontend. The CoinMarketCap API provided real-time price data, while the News API delivered articles which were then analyzed by Google Cloud's NLP service. Each article's sentiment score was parsed and labeled as Positive, Negative, or Neutral.
-    </p>
+    </h2>
     <br>
     <h2 style="font-size: 1.5em; font-weight: bold;">3. Sentiment Analysis Integration</h2>
-    <p>
+    <h2>
     The Google Cloud NLP API was used to analyze each news article's sentiment and extract key topics. The results were then categorized into Positive, Negative, or Neutral sentiments, providing users with a quick overview of how the market was feeling about specific coins.
-    </p>
+    </h2>
     <br>
     <h2 style="font-size: 1.5em; font-weight: bold;">4. Cron Job Scheduling</h2>
-    <p>
+    <h2>
     To ensure the sentiment data remained current, I implemented cron jobs using the node-cron package. These jobs fetched and updated the sentiment data every 12 hours, making sure that users always saw the most up-to-date analysis. This was crucial for keeping the app responsive and relevant, especially given the fast-moving nature of cryptocurrency markets.
-    </p>
+    </h2>
     <br>
     <h2 style="font-size: 1.5em; font-weight: bold;">5. Deployment</h2>
-    <p>
+    <h2>
     Once the development was complete, I deployed the application on Heroku, a cloud platform that supports Node.js applications. This made the app publicly accessible and ready for use by anyone interested in tracking cryptocurrency prices and sentiment.
-    </p>
+    </h2>
     <br></br>
 
     
     <h2 style="font-size: 2em; font-weight: bold;">Results</h2>
     <br>
-    <p>
+    <h2>
       The final application is a real-time dashboard that:
-    </p>
+    </h2>
         <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
         <span className="absolute -left-4">•</span>
@@ -256,16 +245,16 @@ export default function CryptoDashboardPage() {
       {/* Hero Section */}
       <div className="relative w-full bg-white dark:bg-gray-900">
         {/* Back Button */}
-        <div className="absolute top-4 left-0 right-0 z-10">
+        <div className="absolute top-8 left-0 right-0 z-10">
           <div className="container max-w-6xl mx-auto px-4">
             <Link 
               href="/projects" 
-              className="inline-flex items-center gap-2 text-sm text-gray-900 hover:text-gray-200 dark:text-white dark:hover:text-gray-200 hover:bg-black/70 px-4 py-2 rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
+                width="14" 
+                height="14" 
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor" 
@@ -327,30 +316,30 @@ export default function CryptoDashboardPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
                 <div className="p-4 rounded-lg">
                   <h3 className="font-bold text-lg mb-2">Role</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <h3 className="text-sm text-muted-foreground">
                   Full Stack Developer
-                  </p>
-                  <p className="text-sm text-muted-foreground">
+                  </h3>
+                  <h3 className="text-sm text-muted-foreground">
                   UX Designer
-                  </p>
+                  </h3>
                 </div>
                 <div className="p-4 rounded-lg">
                   <h3 className="font-bold text-lg mb-2">Team</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <h3 className="text-sm text-muted-foreground">
                   Heather Davies
-                  </p>
-                  <p className="text-sm text-muted-foreground">
+                  </h3>
+                  <h3 className="text-sm text-muted-foreground">
                   Solo Project
-                  </p>
+                  </h3>
                 </div>
                 <div className="p-4 rounded-lg">
                   <h3 className="font-bold text-lg mb-2">Duration</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <h3 className="text-sm text-muted-foreground">
                   Dec. 24 '24 - Dec. 28 '24
-                  </p>
-                  <p className="text-sm text-muted-foreground">
+                  </h3>
+                  <h3 className="text-sm text-muted-foreground">
                   4 days total
-                  </p>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -360,33 +349,33 @@ export default function CryptoDashboardPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                 <div>
                   <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-gray-700 dark:text-gray-300">
                     The primary goal was to create a real-time cryptocurrency tracking dashboard that provides users with live price data, sentiment analysis, and news integration. We aimed to help investors make informed decisions by combining multiple data sources into a single, intuitive interface.
-                  </p>
+                  </h2>
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Solution:</h2>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-gray-700 dark:text-gray-300">
                     I developed a full-stack web application that aggregates real-time price data from CoinMarketCap, analyzes news sentiment using Google Cloud NLP, and provides a clean, responsive interface for monitoring market trends and receiving price alerts.
-                  </p>
+                  </h2>
                 </div>
               </div>
             </div>
 
             <div className="w-full bg-white dark:bg-gray-900 mt-12">
-              <div className="container max-w-2xl mx-auto px-4 py-8">
+              <div className="container max-w-6xl mx-auto px-4 py-8">
                 <div dangerouslySetInnerHTML={{ __html: project.content }} />
                 
                 {/* Bottom Back Button */}
                 <div className="mt-16 flex justify-center">
                   <Link 
                     href="/projects" 
-                    className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+                    className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
                   >
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
-                      width="16" 
-                      height="16" 
+                      width="14" 
+                      height="14" 
                       viewBox="0 0 24 24" 
                       fill="none" 
                       stroke="currentColor" 

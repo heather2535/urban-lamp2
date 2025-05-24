@@ -15,28 +15,30 @@ const project = {
   content: `
   
     <br></br>
-    <div className="grid grid-cols-3 gap-4">
-      <div></div>
-      <div className="mt-4">
-        <img
-          src="/images/image30.png"
-          alt="ALS Clinical Decision Tool"
-          className="rounded-lg shadow-md w-full max-w-sm mx-auto"
-          style={{ height: "auto" }}
-        />
-        <h1 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1: This is the Topic Model view of my final dashboard design.</h1>
+    <div className="max-w-3xl mx-auto">
+      <div className="grid grid-cols-3 gap-4">
+        <div></div>
+        <div className="mt-4">
+          <img
+            src="/images/image30.png"
+            alt="ALS Clinical Decision Tool"
+            className="rounded-lg shadow-md w-full max-w-sm mx-auto"
+            style={{ height: "auto" }}
+          />
+          <h1 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1: This is the Topic Model view of my final dashboard design.</h1>
+        </div>
+        <br></br>
+        <div className="mt-4">
+          <img
+            src="/images/image31.png"
+            alt="ALS Clinical Decision Tool"
+            className="rounded-lg shadow-md w-full max-w-3xl"
+            style={{ height: "auto" }}
+          />
+          <h1 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 2: And here's the Synopsis Graph view of my final design!</h1>
+        </div>
+        <div></div>
       </div>
-      <br></br>
-           <div className="mt-4">
-        <img
-          src="/images/image31.png"
-          alt="ALS Clinical Decision Tool"
-          className="rounded-lg shadow-md w-full max-w-3xl"
-          style={{ height: "auto" }}
-        />
-        <h1 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 2: And here's the Synopsis Graph view of my final design!</h1>
-      </div>
-      <div></div>
     </div>
     <br></br>
     <h2 style="font-size: 2em; font-weight: bold;">
@@ -125,22 +127,22 @@ export default function CryptoDashboardPage() {
   })
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a1f2e] dark:to-[#2a2f3e]">
       <Navigation />
       
       {/* Hero Section */}
       <div className="relative w-full bg-white dark:bg-gray-900">
-        {/* Back Button */}
-        <div className="absolute top-4 left-0 right-0 z-10">
+        {/* Top Back Button */}
+        <div className="absolute top-8 left-0 right-0 z-10">
           <div className="container max-w-6xl mx-auto px-4">
             <Link 
               href="/projects" 
-              className="inline-flex items-center gap-2 text-sm text-gray-900 hover:text-gray-200 dark:text-white dark:hover:text-gray-200 hover:bg-black/70 px-4 py-2 rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
+                width="14" 
+                height="14" 
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor" 
@@ -257,7 +259,7 @@ export default function CryptoDashboardPage() {
               </div>
             </div>
 
-            <div className="container max-w-6xl mx-auto px-4">
+            <div className="container max-w-3xl mx-auto px-4">
               <div className="mt-8">
               </div>
 
@@ -426,15 +428,16 @@ export default function CryptoDashboardPage() {
               </div>
             </div>
 
+            {/* Bottom Back Button */}
             <div className="mt-16 flex justify-center">
               <Link 
                 href="/projects" 
-                className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+                className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
               >
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
-                  width="16" 
-                  height="16" 
+                  width="14" 
+                  height="14" 
                   viewBox="0 0 24 24" 
                   fill="none" 
                   stroke="currentColor" 

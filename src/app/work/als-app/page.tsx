@@ -388,12 +388,12 @@ export default function CryptoDashboardPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <Link 
               href="/projects" 
-              className="inline-flex items-center gap-2 text-sm text-gray-900 hover:text-gray-200 dark:text-white dark:hover:text-gray-200 hover:bg-black/70 px-4 py-2 rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
+                width="14" 
+                height="14" 
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor" 
@@ -536,12 +536,12 @@ export default function CryptoDashboardPage() {
                 <div className="mt-16 flex justify-center">
                   <Link 
                     href="/projects" 
-                    className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+                    className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
                   >
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
-                      width="16" 
-                      height="16" 
+                      width="14" 
+                      height="14" 
                       viewBox="0 0 24 24" 
                       fill="none" 
                       stroke="currentColor" 

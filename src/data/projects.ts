@@ -11,6 +11,26 @@ export const projects: Project[] = [
     tags: ["All Projects", "UI/UX Design", "Branding"],
   },
   {
+    title: "Generative AI Task Force Advice Dashboard",
+    description: "A web application designed to provide resources and support for individuals with ALS.",
+    date: "December 28, 2024",
+    image: "/images/image29.png",
+    videoUrl: "/video2.mov",
+    href: "/work/ai-task-force",
+    tags: ["All Projects", "UI/UX Design", "Product Design"],
+  },
+   
+  {
+    title: "Website Redesign for Hariri Institute",
+    description: "Complete redesign and development of the institute's web presence.",
+    date: "March 03, 2025",
+    image: "/image15.png",
+    videoUrl: "/video1.mov",
+    href: "/work/hariri-institute",
+    tags: ["All Projects", "Web Development"],
+  }, 
+
+  {
     title: "Real-Time Cryptocurrency Tracking Dashboard",
     description: "Real-time cryptocurrency tracking dashboard with news integration and price alerts.",
     date: "December 28, 2024",
@@ -28,26 +48,8 @@ export const projects: Project[] = [
     href: "/work/als-app",
     tags: ["All Projects", "UI/UX Design", "Product Design"],
   },
-  {
-    title: "Generative AI Task Force Advice Dashboard",
-    description: "A web application designed to provide resources and support for individuals with ALS.",
-    date: "December 28, 2024",
-    image: "/images/image29.png",
-    videoUrl: "/video2.mov",
-    href: "/work/ai-task-force",
-    tags: ["All Projects", "UI/UX Design", "Product Design"],
-  },
-  
-  {
-    title: "Website Redesign for Hariri Institute",
-    description: "Complete redesign and development of the institute's web presence.",
-    date: "March 03, 2025",
-    image: "/image15.png",
-    videoUrl: "/video1.mov",
-    href: "/work/hariri-institute",
-    tags: ["All Projects", "Web Development"],
-  }, 
-
+ 
+ 
 
   {
     title: "Talentora: A Conversational AI Interview Platform",
