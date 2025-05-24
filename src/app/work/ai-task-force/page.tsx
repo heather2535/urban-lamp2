@@ -156,19 +156,10 @@ export default function CryptoDashboardPage() {
         </div>
 
         {/* Two Column Layout */}
-        <div className="container max-w-6xl mx-auto px-4 py-8 md:py-16">
-          <div className="flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8 items-center mt-12 md:mt-16">
-            {/* Image - Full width on mobile */}
-            <div className="w-full md:col-span-2 order-1">
-              <img
-                src={project.image}
-                alt="ALS Clinical Decision Tool"
-                className="w-full h-auto object-contain rounded-lg"
-              />
-            </div>
-
-            {/* Text Content - Full width on mobile */}
-            <div className="w-full order-2 mt-6 md:mt-0">
+        <div className="container max-w-6xl mx-auto px-4 py-8 md:py-16 mt-32">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+            {/* Text Content - First Column */}
+            <div className="w-full order-2 md:order-1">
               <h1 className="font-bold text-2xl md:text-[32px] mb-3 md:mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
               <p className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</p>
               <div className="flex flex-wrap gap-2">
@@ -190,6 +181,15 @@ export default function CryptoDashboardPage() {
                   </React.Fragment>
                 ))}
               </div>
+            </div>
+
+            {/* Image - Second Column */}
+            <div className="w-full order-1 md:order-2">
+              <img
+                src={project.image}
+                alt="ALS Clinical Decision Tool"
+                className="w-full h-auto object-contain rounded-lg"
+              />
             </div>
           </div>
         </div>
