@@ -57,16 +57,7 @@ export function Navigation() {
             <NavigationMenu>
               <NavigationMenuList className="flex gap-8">
                 <NavigationMenuItem>
-                  <Link href="/" legacyBehavior passHref>
-                    <NavigationMenuLink 
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        pathname === "/" && "text-pink-500 border-b-2 border-pink-500"
-                      )}
-                    >
-                      <h3>Home</h3>
-                    </NavigationMenuLink>
-                  </Link>
+                
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link href="/projects" legacyBehavior passHref>
@@ -219,6 +210,6 @@ export function Navigation() {
 
 const navigationMenuTriggerStyle = () => {
   return cn(
-    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:text-pink-500 focus:text-pink-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:text-white data-[inactive]:text-white/70"
+    "group inline-flex h-10 w-max items-center justify-center bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:text-pink-500 focus:text-pink-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:text-white data-[inactive]:text-white/70"
   )
 }
