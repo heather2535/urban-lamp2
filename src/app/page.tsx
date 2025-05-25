@@ -12,6 +12,12 @@ import { AutomationSection } from "@/components/featured-project2"
 import { ProjectFilter } from "@/components/project-filter copy"
 import { FeaturedProject } from "@/components/featured-project"
 import Link from "next/link"
+import { Anton } from 'next/font/google'
+
+const anton = Anton({ 
+  subsets: ['latin'],
+  weight: ['400'],
+})
 
 export default function ProjectsPage() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
@@ -55,8 +61,8 @@ export default function ProjectsPage() {
                   />
                 </div>
                 <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                  <h1 className="text-zinc-800 dark:text-white text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight mb-2 sm:mb-0">
-                    <span className="text-primary">Heather Davies</span>
+                  <h1 className={`text-zinc-800 dark:text-white text-7xl sm:text-8xl lg:text-9xl font-bold tracking-tight mb-2 sm:mb-0 ${anton.className}`}>
+                    <span className="text-primary">HEATHER DAVIES</span>
                   </h1>
                   <h1 className="text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-4">
                     Multidisciplinary Designer
