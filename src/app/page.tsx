@@ -47,7 +47,7 @@ export default function ProjectsPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="flex items-center justify-center px-4 border-b border-gray-300/80 dark:border-white/10 h-[1080px]">
+      <section className="flex items-center justify-center px-4 border-b border-gray-300/80 dark:border-white/10 h-[800px]">
         <div className="flex items-center justify-center relative w-full h-full">
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
           
