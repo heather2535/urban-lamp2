@@ -46,97 +46,14 @@ export function Navigation() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center space-x-2">
-            <Palette className="h-8 w-8 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
-            <h1 className="text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x">
+            <Palette className="h-8 w-8 text-gray dark:text-white text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 " />
+            <h1 className="text-gray-900 dark:text-white text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
               Heather Davies
             </h1>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-4 flex-1 justify-center">
-            <NavigationMenu>
-              <NavigationMenuList className="flex gap-8">
-                <NavigationMenuItem>
-                
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/projects" legacyBehavior passHref>
-                    <NavigationMenuLink 
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        (pathname === "/projects" || pathname.startsWith("/work/")) && "text-pink-500 border-b-2 border-pink-500"
-                      )}
-                    >
-                      <h3>Projects</h3>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/graphics" legacyBehavior passHref>
-                    <NavigationMenuLink 
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        pathname === "/graphics" && "text-pink-500 border-b-2 border-pink-500"
-                      )}
-                    >
-                      <h3>Graphics</h3>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/about" legacyBehavior passHref>
-                    <NavigationMenuLink 
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        pathname === "/about" && "text-pink-500 border-b-2 border-pink-500"
-                      )}
-                    >
-                      <h3>About</h3>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <a 
-                    href="mailto:daviesheather518@gmail.com"
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "hover:text-pink-500"
-                    )}
-                  >
-                    <h3>Contact</h3>
-                  </a>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-          <div className="hidden md:flex items-center gap-6">
-            <a 
-              href="https://www.linkedin.com/in/heatherrdavies/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-pink-500 transition-colors"
-            >
-              <Linkedin className="h-6 w-6" />
-            </a>
-            <a 
-              href="/resume.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-pink-500 transition-colors"
-            >
-              <FileText className="h-6 w-6" />
-            </a>
-            <a 
-              href="mailto:daviesheather518@gmail.com"
-              className="text-gray-600 hover:text-pink-500 transition-colors"
-            >
-              <Mail className="h-6 w-6" />
-            </a>
-            <ModeToggle />
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center gap-4">
+          {/* Navigation Menu for all screens */}
+          <div className="flex items-center gap-4">
             <ModeToggle />
             <Sheet>
               <SheetTrigger asChild>
@@ -144,31 +61,31 @@ export function Navigation() {
                   <Menu className="h-6 w-6" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[200px] pt-12">
+              <SheetContent side="right" className="w-[300px] pt-12">
                 <nav className="flex flex-col gap-4">
-                  <Link href="/" className={cn("text-sm transition-colors hover:text-pink-500",
+                  <Link href="/" className={cn("text-base transition-colors hover:text-pink-500",
                     pathname === "/" && "text-pink-500"
                   )}>
                     Home
                   </Link>
-                  <Link href="/projects" className={cn("text-sm transition-colors hover:text-pink-500",
+                  <Link href="/projects" className={cn("text-base transition-colors hover:text-pink-500",
                     pathname === "/projects" && "text-pink-500"
                   )}>
                     Projects
                   </Link>
-                  <Link href="/graphics" className={cn("text-sm transition-colors hover:text-pink-500",
+                  <Link href="/graphics" className={cn("text-base transition-colors hover:text-pink-500",
                     pathname === "/graphics" && "text-pink-500"
                   )}>
                     Graphics
                   </Link>
-                  <Link href="/about" className={cn("text-sm transition-colors hover:text-pink-500",
+                  <Link href="/about" className={cn("text-base transition-colors hover:text-pink-500",
                     pathname === "/about" && "text-pink-500"
                   )}>
                     About
                   </Link>
                   <a 
                     href="mailto:daviesheather518@gmail.com"
-                    className="text-sm transition-colors hover:text-pink-500"
+                    className="text-base transition-colors hover:text-pink-500"
                   >
                     Contact
                   </a>
@@ -177,9 +94,9 @@ export function Navigation() {
                     href="https://www.linkedin.com/in/heatherrdavies/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
+                    className="text-base transition-colors hover:text-pink-500 flex items-center gap-2"
                   >
-                    <Linkedin className="h-4 w-4" />
+                    <Linkedin className="h-5 w-5" />
                     LinkedIn
                   </a>
                   <a 
@@ -188,14 +105,14 @@ export function Navigation() {
                     rel="noopener noreferrer"
                     className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
                   >
-                    <FileText className="h-4 w-4" />
+                    <FileText className="h-5 w-5" />
                     Resume
                   </a>
                   <a 
                     href="mailto:daviesheather518@gmail.com"
-                    className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
+                    className="text-base transition-colors hover:text-pink-500 flex items-center gap-2"
                   >
-                    <Mail className="h-4 w-4" />
+                    <Mail className="h-5 w-5" />
                     Email
                   </a>
                 </nav>

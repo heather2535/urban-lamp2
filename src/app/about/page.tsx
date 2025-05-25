@@ -4,7 +4,12 @@ import Image from "next/image"
 import { AuraCursor } from "@/components/aura-cursor"
 import { useState, useMemo, useRef, useEffect } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
+import { Anton } from 'next/font/google'
 
+const anton = Anton({ 
+  subsets: ['latin'],
+  weight: ['400'],
+})
 
 export default function About() {
       const [showAura, setShowAura] = useState(true)
@@ -33,8 +38,8 @@ export default function About() {
               <div className="mx-auto max-w-5xl text-center">
                 <div className="relative animate-float">
                   <div className="absolute inset-0 blur-[120px] -z-10 bg-[radial-gradient(circle,rgba(236,72,153,0.4)_0%,rgba(236,72,153,0.2)_30%,transparent_70%)] animate-ambient-glow" />
-                  <h1 className="text-foreground text-7xl font-semibold tracking-tight text-center">
-                    About Me
+                  <h1 className={`text-6xl sm:text-7xl lg:text-9xl font-black mb-2 sm:mb-0 text-center ${anton.className}`}>
+                    <span className="text-primary">ABOUT ME</span>
                   </h1>
                   <br></br>
                   {/* Contact Links */}

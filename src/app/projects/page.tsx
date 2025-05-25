@@ -7,6 +7,12 @@ import { AuraCursor } from "@/components/aura-cursor"
 import { Navigation } from "@/components/navigation"
 import { projects, allTags } from "@/data/projects"
 import { Button } from "@/components/button"
+import { Anton } from 'next/font/google'
+
+const anton = Anton({ 
+  subsets: ['latin'],
+  weight: ['400'],
+})
 
 const styles = `
 @keyframes float {
@@ -94,8 +100,8 @@ export default function ProjectsPage() {
               <div className="mx-auto max-w-5xl text-center">
                 <div className="relative animate-float">
                   <div className="absolute inset-0 blur-[100px] -z-10 bg-[radial-gradient(circle,rgba(236,72,153,0.4)_0%,rgba(236,72,153,0.2)_30%,transparent_70%)] animate-ambient-glow" />
-                  <h1 className="text-foreground text-1xl font-semibold tracking-tight text-7xl animate-slide-up">
-                    Projects
+                  <h1 className={`text-6xl sm:text-7xl lg:text-9xl font-black mb-2 sm:mb-0 text-center ${anton.className}`}>
+                    <span className="text-primary">PROJECTS</span>
                   </h1>
                   <h3 className="mt-6 text-md leading-8 text-gray-700 dark:text-gray-200 mb-6 animate-slide-up-delayed">
                     Designing interfaces that connect, guide, and delight. 

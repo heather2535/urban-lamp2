@@ -7,6 +7,12 @@ import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { Anton } from 'next/font/google'
+
+const anton = Anton({ 
+  subsets: ['latin'],
+  weight: ['400'],
+})
 
 const styles = `
 @keyframes float {
@@ -138,8 +144,8 @@ export default function GraphicsPage() {
               <div className="mx-auto max-w-5xl text-center">
                 <div className="relative animate-float">
                   <div className="absolute inset-0 blur-[120px] -z-10 bg-[radial-gradient(circle,rgba(236,72,153,0.4)_0%,rgba(236,72,153,0.2)_30%,transparent_70%)] animate-ambient-glow" />
-                  <h1 className="text-foreground text-7xl font-semibold tracking-tight text-center">
-                    Graphics
+                  <h1 className={`text-6xl sm:text-7xl lg:text-9xl font-black mb-2 sm:mb-0 text-center ${anton.className}`}>
+                    <span className="text-primary">GRAPHICS</span>
                   </h1>
                 </div>
               </div>
