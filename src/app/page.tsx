@@ -54,51 +54,51 @@ export default function ProjectsPage() {
           <div className="container relative z-20">
             <div className="mx-auto max-w-[90vw] px-4">
               <div className="flex flex-col sm:flex-row-reverse items-center sm:items-start gap-12 mb-12 relative">
-                <div className="relative w-36 h-36 sm:w-56 sm:h-56 rounded-full overflow-hidden flex-shrink-0 sm:absolute sm:right-0 sm:top-0 sm:translate-y-[-15%] z-10">
+                <div className="relative w-36 h-36 sm:w-56 sm:h-56 rounded-full overflow-hidden flex-shrink-0 sm:absolute sm:right-0 sm:top-0 sm:translate-y-[-15%] z-0">
                   <img
                     src="/images/profile.png"
                     alt="Heather's profile picture"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="flex flex-col items-center text-center w-full sm:pr-24 sm:pt-8 relative z-20">
-                  <h1 className={`text-pink-600/40 dark:text-pink-400 text-5xl sm:text-6xl lg:text-8xl font-black mb-2 sm:mb-0 text-center ${anton.className}`}>
+                <div className="flex flex-col items-center text-center w-full sm:pr-24 sm:pt-8 relative z-10">
+                  <h1 className={`text-pink-600/40 dark:text-pink-400 text-4xl sm:text-6xl lg:text-8xl font-black mb-2 sm:mb-0 text-center ${anton.className}`}>
                     <span>HEATHER DAVIES</span>
                   </h1>
-                  <h1 className={`text-zinc-800 dark:text-white text-6xl sm:text-7xl lg:text-9xl font-black mb-2 sm:mb-0 whitespace-nowrap text-center ${anton.className}`}>
+                  <h1 className={`text-zinc-800 dark:text-white text-5xl sm:text-7xl lg:text-9xl font-black mb-2 sm:mb-0 text-center ${anton.className}`}>
                     <span className="text-primary">PRODUCT DESIGNER</span>
                   </h1>
                  
-                  <h1 className="text-gray-700 dark:text-white/70 text-md sm:text-lg lg:text-2xl max-w-[90vw] mb-4 whitespace-nowrap tracking-tight">
+                  <h1 className="text-gray-700 dark:text-white/70 text-sm sm:text-lg lg:text-2xl max-w-[90vw] mb-4 text-center tracking-tight">
                     CRAFTING BEAUTIFUL, ACCESSIBLE, AND PERFORMANT DIGITAL EXPERIENCES.
                   </h1>
                   
                   {/* Contact Links */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-32 w-full max-w-[90vw] mt-16 sm:mt-32">
+                  <div className="flex flex-row justify-center gap-4 sm:gap-32 w-full max-w-[90vw] mt-8 sm:mt-32">
                     <a 
                       href="https://www.linkedin.com/in/heatherrdavies/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex flex-col items-center p-4 border-b-2 border-gray-800 dark:border-gray-200 hover:border-pink-500 transition-colors"
+                      className="flex flex-col items-center p-2 sm:p-4 border-b-2 border-gray-800 dark:border-gray-200 hover:border-pink-500 transition-colors"
                     >
-                      <Linkedin className="h-8 w-8 mb-2" />
-                      <span className="text-sm">LinkedIn</span>
+                      <Linkedin className="h-6 w-6 sm:h-8 sm:w-8 mb-2" />
+                      <span className="text-xs sm:text-sm">LinkedIn</span>
                     </a>
                     <a 
                       href="mailto:daviesheather518@gmail.com"
-                      className="flex flex-col items-center p-4 border-b-2 border-gray-800 dark:border-gray-200 hover:border-pink-500 transition-colors"
+                      className="flex flex-col items-center p-2 sm:p-4 border-b-2 border-gray-800 dark:border-gray-200 hover:border-pink-500 transition-colors"
                     >
-                      <Mail className="h-8 w-8 mb-2" />
-                      <span className="text-sm">Email</span>
+                      <Mail className="h-6 w-6 sm:h-8 sm:w-8 mb-2" />
+                      <span className="text-xs sm:text-sm">Email</span>
                     </a>
                     <a 
                       href="/resume.pdf" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex flex-col items-center p-4 border-b-2 border-gray-800 dark:border-gray-200 hover:border-pink-500 transition-colors"
+                      className="flex flex-col items-center p-2 sm:p-4 border-b-2 border-gray-800 dark:border-gray-200 hover:border-pink-500 transition-colors"
                     >
-                      <FileText className="h-8 w-8 mb-2" />
-                      <span className="text-sm">Resume</span>
+                      <FileText className="h-6 w-6 sm:h-8 sm:w-8 mb-2" />
+                      <span className="text-xs sm:text-sm">Resume</span>
                     </a>
                   </div>
                 </div>
