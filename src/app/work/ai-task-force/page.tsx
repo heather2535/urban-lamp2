@@ -163,7 +163,7 @@ export default function CryptoDashboardPage() {
             {/* Text Content - First Column */}
             <div className="w-full order-2 md:order-1">
               <h1 className="font-bold text-2xl md:text-[32px] mb-3 md:mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-              <p className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</p>
+              <h2 className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</h2>
               <div className="flex flex-wrap gap-2">
                 {filteredProjects.map((tag, index) => (
                   <React.Fragment key={tag}>
