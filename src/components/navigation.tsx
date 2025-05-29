@@ -123,6 +123,12 @@ export function Navigation() {
               <Linkedin className="h-6 w-6" />
             </a>
             <a 
+              href="mailto:daviesheather518@gmail.com"
+              className="text-gray-600 hover:text-pink-500 transition-colors"
+            >
+              <Mail className="h-6 w-6" />
+            </a>
+            <a 
               href="/resume.pdf" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -130,18 +136,12 @@ export function Navigation() {
             >
               <FileText className="h-6 w-6" />
             </a>
-            <a 
-              href="mailto:daviesheather518@gmail.com"
-              className="text-gray-600 hover:text-pink-500 transition-colors"
-            >
-              <Mail className="h-6 w-6" />
-            </a>
-            <ModeToggle />
+            {/* <ModeToggle /> */}
           </div>
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center gap-4">
-            <ModeToggle />
+            {/* <ModeToggle /> */}
             <Sheet>
               <SheetTrigger asChild>
                 <button className="p-2">
@@ -187,6 +187,13 @@ export function Navigation() {
                     LinkedIn
                   </a>
                   <a 
+                    href="mailto:daviesheather518@gmail.com"
+                    className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
+                  >
+                    <Mail className="h-4 w-4" />
+                    Email
+                  </a>
+                  <a 
                     href="/resume.pdf" 
                     target="_blank" 
                     rel="noopener noreferrer"
@@ -194,13 +201,6 @@ export function Navigation() {
                   >
                     <FileText className="h-4 w-4" />
                     Resume
-                  </a>
-                  <a 
-                    href="mailto:daviesheather518@gmail.com"
-                    className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
-                  >
-                    <Mail className="h-4 w-4" />
-                    Email
                   </a>
                 </nav>
               </SheetContent>

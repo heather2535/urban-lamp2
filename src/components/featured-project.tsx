@@ -66,7 +66,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
       <div className="max-w-7xl mx-auto rounded-[20px] p-3 sm:p-5 relative">
         <div className="grid grid-cols-1 gap-6 sm:gap-8">
           {projectsList.map(([title, data], index) => (
-            <div key={index} className="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-[0_4px_20px_-4px_rgba(236,72,153,0.3)] dark:shadow-[0_4px_20px_-4px_rgba(236,72,153,0.2)]">
+            <div key={index} className="bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:to-[#1a2a3a] rounded-xl p-4 sm:p-6">
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
                 <div className="w-full sm:w-1/2">
                   <img
