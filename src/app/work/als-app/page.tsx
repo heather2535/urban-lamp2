@@ -14,254 +14,13 @@ const project = {
   image: "/images/image19.png",
   content: `
   
-    <br></br>
-    <div className="mt-4">
-      <img
-        src="/images/image19.png"
-        alt="ALS Clinical Decision Tool"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
-    <br></br>
-    <h2 style="font-size: 2em; font-weight: bold;">Introduction</h2>
-    <br>
-    <h2>
-    People with ALS (Amyotrophic Lateral Sclerosis) face a fragmented landscape of treatment options. While numerous clinical opportunities exist, most patients are presented with only a limited selection. This web application aims to bridge that gap by providing a guided platform that recommends resources based on user input—empowering patients and non-specialist clinicians to collaboratively explore the most relevant and up-to-date ALS treatments.
-    </h2>
-    <br>
-    <h2 style="font-size: 2em; font-weight: bold;">Goals</h2>
-    <br>
-  <div className="mt-4">
-      <img
-        src="/images/image21.png"
-        alt="ALS Clinical Decision Tool"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-      <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1: Bookmarking Frames</h2>
-    </div>
-    <br></br>
-
-
-    <ul className="list-disc pl-8 space-y-4 text-base">
-      <li className="relative">
-        <h2><strong>• Support Collaborative Decision-Making: </strong> Create a tool that facilitates conversations between patients and clinicians around available treatment paths.</h2>
-        <ul className="list-disc pl-8 mt-2 space-y-2">
-          <li className="relative">
-            <h2><strong>• Deliver Personalized Information:</strong> Recommend resources tailored to the patient's stage, symptoms, and needs.</h2>
-          </li>
-          <li className="relative">
-            <h2><strong>• Ensure Accessibility and Ease of Use:</strong> Design an intuitive experience that accommodates both patients and generalist clinicians.</h2>
-        </ul>
-      </li>
-      <li className="relative">
-       <h2><strong>• Enable Sustainable Content Updates:</strong> Equip admins and clinic staff with a scalable backend for managing the latest resources and questions.</h2>
-      </li>
-    </ul>
-    <br></br>
-      <div className="mt-4">
-      <img
-        src="/images/image22.png"
-        alt="ALS Clinical Decision Tool"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-      <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 2: Bookmarking Frames</h2>
-    </div>
-    <br></br>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className="mt-4">
-        <img
-          src="/images/image23.png"
-          alt="ALS Clinical Decision Tool"
-          className="rounded-lg shadow-md"
-          style={{ maxWidth: "100%", height: "auto" }}
-        />
-      </div>
-      
-    </div>
-    <br></br>
-    <h2 style="font-size: 2em; font-weight: bold;">Process</h2>
-    <br>
-    <h2 style="font-size: 1.5em; font-weight: bold;">1. UX Research & Discovery</h2>
-    <h2> Through interviews with ALS patients and primary care physicians, several key challenges were identified:</h2>
-
-    <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-          <h2>• Patients are overwhelmed by the volume and complexity of treatment information.</h2>
-
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• Clinicians need a streamlined way to stay current with ALS developments.</h2>
-
-          </li>
-          <li className="relative">
-            <h2>• Both groups desire a system that is intuitive and light on cognitive load.</h2>
-
-          </li>
-        </ul>
-      </li>
-      <li className="relative">
-        <h2>• Personalization and clarity are essential to build trust and usability.</h2>
-
-        </li>
-    </ul>
-    <br>
-    <h2>These insights shaped the app's design principles: clarity, accessibility, and progressive disclosure.</h2>
-
-    </p>
-    <br></br>
-    <h2 style="font-size: 1.5em; font-weight: bold;">2. User Personas & Journey Mapping</h2>
-    <h2>I developed distinct personas representing:</h2>
-       <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2>• A patient navigating treatment stages</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• A generalist clinician unfamiliar with ALS-specific options</h2>
-          </li>
-          <li className="relative">
-            <h2>• An admin updating resources</h2>
-          </li>
-        </ul>
-      </li>
-    </ul>
-
-    <br>
-    <h2>Journey maps helped visualize each user's emotional and informational needs throughout the experience.</h2>
-    <br></br>
-
-    <h2 style="font-size: 1.5em; font-weight: bold;">3. Information Architecture & Flow Design</h2>
-    <h2>I created a guided, question-based interface that mimics a "choose-your-own-path" conversation. User inputs dynamically steer the experience, reducing information overload and surfacing relevant recommendations in real time.
-    </h2>
-     
-
-    <br>
-    <br>
-    <div className="mt-4">
-      <img
-        src="/images/image3.png"
-        alt="User Flow Chart"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
     
-    <h2 > Figure 1: User Flow Chart</h2>
-    <br>
-    <h2 style="font-size: 1.5em; font-weight: bold;">4. Prototyping</h2>
-           <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2>• Built low-to-high fidelity prototypes that translated complex clinical decision trees into clean, usable flows.</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• Prototypes were iteratively tested to ensure they scaled as more branches and content were introduced.</h2>
-          </li>
-          <li className="relative">
-            <h2>• An admin updating resources</h2>
-            <h2>I used tools like Figma and Typeform to simulate branching logic, with a future transition to a React-based system in mind.</h2>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <br></br>
-    <h2 style="font-size: 1.5em; font-weight: bold;">5. Interaction Design & Developer Handoff</h2>
-    <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2>• Collaborated with developers to implement accessible UI patterns, including:</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• A responsive hamburger menu for simple navigation</h2>
-          </li>
-          <li className="relative">
-            <h2>• Bookmark features using localStorage so users can save resources without creating an account</h2>
-          </li>
-          <li className="relative">
-            <h2>• Visual consistency for clear affordance and reduced friction</h2>
-          </li>
-           <li className="relative">
-            <h2>• Planned future compatibility with frameworks like ReactFlow for more robust logic management.</h2>
-          </li>
-        </ul>
-      </li>
-    </ul>
-   <br></br>
-   <h2 style="font-size: 1.5em; font-weight: bold;">6. Scalability Planning</h2>
-   <h2 >Knowing the project would eventually outgrow Typeform, I designed the interface with modularity and future extensibility in mind—supporting multimedia content, deeper branching logic, and dynamic routing.
-   </h2>
-   <br></br>
-  <h2 style="font-size: 2em; font-weight: bold;">Results</h2>
- <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2>• Delivered a prototype-ready, scalable interface tailored to ALS patients and generalist clinicians.</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• Created a structure that supports ongoing clinical updates and collaborative patient-clinician discussions.</h2>
-          </li>
-          <li className="relative">
-            <h2>• Implemented progress-saving features to reduce barriers to access, especially for first-time users.</h2>
-          </li>
-          
-        </ul>
-      </li>
-    </ul>
-    <br></br>
+   
+   
+   
 
 
 
-    <h2 style="font-size: 2em; font-weight: bold;">Tools Used</h2>
-     <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2>•  <strong>Figma</strong> – Interface design & prototyping</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• <strong>Typeform</strong> – Early logic simulation</h2>
-          </li>
-          <li className="relative">
-            <h2>• <strong>Next.js</strong> – Front-end framework (planned for dynamic routing)</h2>
-          </li>
-           <li className="relative">
-            <h2>• <strong>ReactFlow</strong> – Future tool for custom question logic (<a href="https://reactflow.dev/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">planned</a>)</h2>
-          </li>
-          <li className="relative">
-            <h2>• <strong>localStorage API</strong> – Bookmarking and progress saving without account creation</h2>
-          </li>
-          
-        </ul>
-      </li>
-    </ul>
-    <br></br>
-    <h2 style="font-size: 2em; font-weight: bold;">Recommended Next Steps</h2>
-
-    <ol className="list-decimal pl-8 space-y-4" style={{ fontSize: "1.5em" }}>
-  
-      <li className="relative">
-        <h2 className="text-2xl font-bold mb-4">1. <strong>Custom Logic Builder for Admins</strong></h2>
-        <ul className="list-disc pl-8 mt-2 space-y-2 text-lg">
-          <h2><li>Replace Typeform with a visual editor that allows non-technical users to create and update logic flows easily.</li></h2>
-        </ul>
-      </li>
-      <li className="relative">
-        <h2 className="text-2xl font-bold mb-4">2. <strong>Dynamic Routing for Personalization</strong></h2>
-        <ul className="list-disc pl-8 mt-2 space-y-2 text-lg">
-          <h2><li>Use Next.js dynamic routes (e.g., [id].tsx) to generate personalized URLs that improve continuity across sessions and devices.</li></h2>
-        </ul>
-      </li>
-    </ol>
-    <br></br>
-    <div id="als-slideshow-1"></div>
-    <br>
-    <div className="mt-4">
-        <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">Figure 2-4: Researched Design System</h2>
-
-        <img
-          src="/images/image25.png"
-          alt="Low to High Fidelity Prototypes"
-          className="rounded-lg shadow-md"
-          style={{ maxWidth: "50%", height: "50%" }}
-        />
-      </div>
   
     
    
@@ -475,13 +234,13 @@ export default function CryptoDashboardPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                 <div>
                   <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-gray-700 text-sm md:text-md lg:text-md dark:text-gray-300">
                     The primary goal was to create a user-friendly platform that helps ALS patients and their caregivers navigate the complex landscape of treatment options. We aimed to bridge the gap between available clinical opportunities and patient awareness, ensuring that users could easily find and understand relevant resources based on their specific needs and circumstances.
                   </h2>
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Solution:</h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-gray-700 text-sm dark:text-gray-300">
                     We developed an intuitive web application that uses a guided, question-based interface to recommend personalized resources. The solution features a clean, accessible design that accommodates both patients and generalist clinicians, with a scalable backend that allows for easy updates to treatment information and clinical pathways.
                   </h2>
                 </div>
@@ -518,44 +277,231 @@ export default function CryptoDashboardPage() {
               <div className="container max-w-6xl mx-auto px-4 py-8">
                 <div dangerouslySetInnerHTML={{ __html: project.content }} />
                 
-                <div className="mt-16 flex justify-center">
-                  <Link 
-                    href="/projects" 
-                    className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
-                  >
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      width="24" 
-                      height="24" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                      className="text-black sm:text-white dark:sm:text-black sm:hidden"
-                    >
-                      <path d="M15 18l-6-6 6-6"/>
-                    </svg>
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      width="14" 
-                      height="14" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                      className="hidden sm:block text-white dark:text-black"
-                    >
-                      <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
-                  </Link>
+             
+              <div className="max-w-3xl mx-auto">
+                <h2 className="text-lg font-bold">Introduction</h2>
+               
+                <h2 className="text-sm">
+                People with ALS (Amyotrophic Lateral Sclerosis) face a fragmented landscape of treatment options. While numerous clinical opportunities exist, most patients are presented with only a limited selection. This web application aims to bridge that gap by providing a guided platform that recommends resources based on user input—empowering patients and non-specialist clinicians to collaboratively explore the most relevant and up-to-date ALS treatments.
+                </h2>
+                <br></br>
+                <h2 className="text-lg font-bold">Goals</h2>
+              <div className="mt-4">
+                  <img
+                    src="/images/image21.png"
+                    alt="ALS Clinical Decision Tool"
+                    className="rounded-lg shadow-md"
+                    style={{ maxWidth: "100%", height: "auto" }}
+                  />
+                  <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1: Bookmarking Frames</h2>
                 </div>
-              </div>
+                <br></br>
+                <ul className="list-disc pl-8 space-y-2 text-base">
+                  <li className="relative text-sm md:text-md">
+                    <h2><strong>Support Collaborative Decision-Making:</strong> Create a tool that facilitates conversations between patients and clinicians around available treatment paths.</h2>
+                  </li>
+                  <li className="relative text-sm md:text-md">
+                    <h2><strong>Deliver Personalized Information:</strong> Recommend resources tailored to the patient's stage, symptoms, and needs.</h2>
+                  </li>
+                  <li className="relative text-sm md:text-md">
+                    <h2><strong>Ensure Accessibility and Ease of Use:</strong> Design an intuitive experience that accommodates both patients and generalist clinicians.</h2>
+                  </li>
+                  <li className="relative text-sm md:text-md">
+                    <h2><strong>Enable Sustainable Content Updates:</strong> Equip admins and clinic staff with a scalable backend for managing the latest resources and questions.</h2>
+                  </li>
+                </ul>
+                <br></br>
+              <div className="mt-4">
+              <img
+                src="/images/image22.png"
+                alt="ALS Clinical Decision Tool"
+                className="rounded-lg shadow-md"
+                style={{ maxWidth: "100%", height: "auto" }}
+              />
+              <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 2: Bookmarking Frames</h2>
             </div>
+            <br></br>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="mt-4">
+                <img
+                  src="/images/image23.png"
+                  alt="ALS Clinical Decision Tool"
+                  className="rounded-lg shadow-md"
+                  style={{ maxWidth: "200%", height: "auto" }}
+                />
+              </div>
+              </div>
+              <br></br>
+            <h2 className="text-lg font-bold">Process</h2>
+            <br></br>
+            <h2 className="text-lg font-bold">1. UX Research & Discovery</h2>
+            <h2 className="text-sm"> Through interviews with ALS patients and primary care physicians, several key challenges were identified:</h2>
+            <ul className="list-disc pl-20  text-base">
+              <li className="relative">
+                  <h2 className="text-sm">Patients are overwhelmed by the volume and complexity of treatment information.</h2>
+                  <li className="relative">
+                    <h2 className="text-sm">Clinicians need a streamlined way to stay current with ALS developments.</h2>
+                  </li>
+                  <li className="relative">
+                    <h2 className="text-sm">Both groups desire a system that is intuitive and light on cognitive load.</h2>
+                  </li>
+              </li>
+              <li className="relative">
+                <h2 className="text-sm">Personalization and clarity are essential to build trust and usability.</h2>
+                </li>
+            </ul>
+            <br></br>
+    <h2 className="text-sm">These insights shaped the app's design principles: clarity, accessibility, and progressive disclosure.</h2>
+
+    
+    <br></br>
+    <h2 className="text-lg font-bold">2. User Personas & Journey Mapping</h2>
+    <h2 className="text-sm">I developed distinct personas representing:</h2>
+    <ul className="list-disc pl-20 space-y-4 text-base">
+      <li className="relative">
+        <h2 className="text-sm">A patient navigating treatment stages</h2>
+          <li className="relative">
+            <h2 className="text-sm">A generalist clinician unfamiliar with ALS-specific options</h2>
+          </li>
+          <li className="relative">
+            <h2 className="text-sm">An admin updating resources</h2>
+          </li>
+      </li>
+    </ul>
+
+    <br></br>
+    <h2 className="text-sm">Journey maps helped visualize each user's emotional and informational needs throughout the experience.</h2>
+    <br></br>
+
+    <h2 className="text-lg font-bold">3. Information Architecture & Flow Design</h2>
+    <h2 className="text-sm">I created a guided, question-based interface that mimics a "choose-your-own-path" conversation. User inputs dynamically steer the experience, reducing information overload and surfacing relevant recommendations in real time.
+    </h2>
+     
+
+    <br></br>
+    <br></br>
+    <div className="mt-4">
+      <img
+        src="/images/image3.png"
+        alt="User Flow Chart"
+        className="rounded-lg shadow-md"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+    </div>
+    <h2 className="text-sm"> Figure 1: User Flow Chart</h2>
+    <br></br>
+    <h2 className="text-lg font-bold">4. Prototyping</h2>
+      <ul className="list-disc pl-20 space-y-4 text-base">
+      <li className="relative">
+        <h2 className="text-sm">Built low-to-high fidelity prototypes that translated complex clinical decision trees into clean, usable flows.</h2>
+          <li className="relative">
+            <h2 className="text-sm">Prototypes were iteratively tested to ensure they scaled as more branches and content were introduced.</h2>
+          </li>
+          <li className="relative">
+            <h2 className="text-sm">An admin updating resources</h2>
+            <h2 className="text-sm">I used tools like Figma and Typeform to simulate branching logic, with a future transition to a React-based system in mind.</h2>
+          </li>
+      </li>
+    </ul>
+    <br></br>
+    <h2 className="text-lg font-bold">5. Interaction Design & Developer Handoff</h2>
+    <ul className="list-disc pl-20 space-y-4 text-base">
+      <li className="relative">
+        <h2 className="text-sm">Collaborated with developers to implement accessible UI patterns, including:</h2>
+        
+      <li className="relative">
+            <h2 className="text-sm">A responsive hamburger menu for simple navigation</h2>
+          </li>
+          <li className="relative">
+            <h2 className="text-sm">Bookmark features using localStorage so users can save resources without creating an account</h2>
+          </li>
+          <li className="relative">
+            <h2 className="text-sm">Visual consistency for clear affordance and reduced friction</h2>
+          </li>
+           <li className="relative">
+            <h2 className="text-sm">Planned future compatibility with frameworks like ReactFlow for more robust logic management.</h2>
+          </li>
+        
+      </li>
+    </ul>
+   <br></br>
+   <h2 className="text-lg font-bold">6. Scalability Planning</h2>
+   <h2 className="text-sm">Knowing the project would eventually outgrow Typeform, I designed the interface with modularity and future extensibility in mind—supporting multimedia content, deeper branching logic, and dynamic routing.
+   </h2>
+   <br></br>
+  <h2 className="text-lg font-bold">Results</h2>
+ <ul className="list-disc pl-20 space-y-4 text-base">
+      <li className="relative">
+        <h2 className="text-sm">Delivered a prototype-ready, scalable interface tailored to ALS patients and generalist clinicians.</h2>
+          <li className="relative">
+            <h2 className="text-sm">Created a structure that supports ongoing clinical updates and collaborative patient-clinician discussions.</h2>
+          </li>
+          <li className="relative">
+            <h2 className="text-sm">Implemented progress-saving features to reduce barriers to access, especially for first-time users.</h2>
+          </li>
+                </li>
+    </ul>
+    <br></br>
+
+    <h2 className="text-lg font-bold">Tools Used</h2>
+     <ul className="list-disc pl-20 space-y-4 text-base">
+      <li className="relative">
+        <h2><strong>Figma</strong> – Interface design & prototyping</h2>
+          <li className="relative">
+            <h2 className="text-sm"><strong>Typeform</strong> – Early logic simulation</h2>
+          </li>
+          <li className="relative">
+            <h2 className="text-sm"><strong>Next.js</strong> – Front-end framework (planned for dynamic routing)</h2>
+          </li>
+           <li className="relative">
+            <h2 className="text-sm"><strong>ReactFlow</strong> – Future tool for custom question logic (<a href="https://reactflow.dev/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">planned</a>)</h2>
+          </li>
+          <li className="relative">
+            <h2 className="text-sm"><strong>localStorage API</strong> – Bookmarking and progress saving without account creation</h2>
+          </li>
+                </li>
+    </ul>
+    <br></br>
+    <h2 className="text-lg font-bold">Recommended Next Steps</h2>
+
+    <ol className="list-decimal pl-8 space-y-4" style={{ fontSize: "1.5em" }}>
+  
+      <li className="relative">
+        <h2 className="text-lg font-bold "><strong>Custom Logic Builder for Admins</strong></h2>
+        <ul className="list-disc pl-8 mt-2 space-y-2 text-lg">
+          <h2 className="text-sm"><li>Replace Typeform with a visual editor that allows non-technical users to create and update logic flows easily.</li></h2>
+        </ul>
+      </li>
+      <li className="relative">
+        <h2 className="text-lg font-bold mb-4"><strong>Dynamic Routing for Personalization</strong></h2>
+        <ul className="list-disc pl-8 mt-2 space-y-2 text-lg">
+          <h2 className="text-sm"><li>Use Next.js dynamic routes (e.g., [id].tsx) to generate personalized URLs that improve continuity across sessions and devices.</li></h2>
+        </ul>
+      </li>
+    </ol>
+    <br></br>
+    <div id="als-slideshow-1"></div>
+    <br></br>
+    <div className="mt-4">
+        <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">Figure 2-4: Researched Design System</h2>
+
+        <img
+          src="/images/image25.png"
+          alt="Low to High Fidelity Prototypes"
+          className="rounded-lg shadow-md"
+          style={{ maxWidth: "100%", height: "50%" }}
+        />
+      </div>
+    
+
+
+
+              </div>
+                
+              </div>
+              
+            </div>
+            
           </article>
         </main>
       </div>

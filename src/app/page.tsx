@@ -138,7 +138,7 @@ export default function ProjectsPage() {
                     Passionate about creating purposeful, research-driven products that enhance usability, accessibility, and overall performance. My work combines visual polish with a deep understanding of how people think, feel, and use technology.
                   </h1>
                   {/* Contact Buttons - Only visible on small screens */}
-                  <div className="sm:hidden flex gap-6 w-full justify-center mt-32">
+                  {/*<div className="sm:hidden flex gap-6 w-full justify-center mt-32">
                     <Link href="mailto:heather@example.com">
                       <Button variant="outline" className="w-14 h-14 p-0 flex items-center justify-center">
                         <Mail className="h-6 w-6" />
@@ -154,7 +154,7 @@ export default function ProjectsPage() {
                         <FileText className="h-6 w-6" />
                       </Button>
                     </Link>
-                  </div>
+                  </div>*/}
                 </div>
               </div>
             </div>
