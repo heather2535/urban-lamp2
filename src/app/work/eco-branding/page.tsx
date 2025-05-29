@@ -52,33 +52,66 @@ export default function CryptoDashboardPage() {
       <Navigation />
       <main className="container max-w-6xl mx-auto px-4 py-16">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
-          {/* Top Back Button */}
-          <Link 
-            href="/projects" 
-            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 mt-8 mb-8"
-          >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="16" 
-              height="16" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
+            {/* Back Button */}
+            <div className="absolute top-24 left-0 right-0 z-10">
+          <div className="container max-w-6xl mx-auto px-4">
+            <Link 
+              href="/projects" 
+              className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
             >
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            Back to Projects
-          </Link>
-
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                className="text-black sm:text-white dark:sm:text-black sm:hidden"
+              >
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="14" 
+                height="14" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                className="hidden sm:block text-white dark:text-black"
+              >
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
+            </Link>
+          </div>
+        </div>
+        
           {/* Hero Section - Two Column Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-start mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center mt-10 mb-16">
+            {/* Right Column - Video (now first on mobile) */}
+            <div className="md:col-span-3 relative order-first md:order-last">
+              <video 
+                controls 
+                width="100%" 
+                height="auto" 
+                className="object-cover rounded-lg shadow-lg"
+                poster="/image4.png"
+              >
+                <source src={project.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
             {/* Left Column - Text Content */}
             <div className="md:col-span-2 space-y-6">
-              <h1 className="font-bold text-[40px]">{project.title}</h1>
-              <p className="text-muted-foreground">{project.date}</p>
+              <h1 className="font-bold text-3xl sm:text-4xl md:text-[40px]">{project.title}</h1>
+              <h2 className="text-muted-foreground">{project.date}</h2>
               
               {/* Tags */}
               <div className="flex flex-wrap gap-2">
@@ -98,29 +131,73 @@ export default function CryptoDashboardPage() {
                 ))}
               </div>
 
-              <p className="lead text-lg">{project.description}</p>
             </div>
+          </div>
 
-            {/* Right Column - Video */}
-            <div className="md:col-span-3 relative">
-              <video controls width="100%" height="auto" className="object-cover rounded-lg shadow-lg">
-                <source src={project.video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          {/* Three Columns Section */}
+          <div className="bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:to-[#1a2a3a] container max-w-6xl mx-auto px-4 flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 max-w-4xl">
+              <div className="p-4 rounded-lg text-center">
+                <h3 className="font-bold text-lg mb-2">Role</h3>
+                <div className="flex flex-col items-center gap-1">
+                  <p className="text-sm text-muted-foreground">
+                    Design Strategist, UX
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Researcher, UI/UX
+                  </p>
+                </div>
+              </div>
+              <div className="p-4 rounded-lg text-center">
+                <h3 className="font-bold text-lg mb-2">Team</h3>
+                <div className="flex flex-col items-center gap-1">
+                  <p className="text-sm text-muted-foreground">
+                    Heather Davies
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Ben Gardiner
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Lucas Yoon
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Vincent Li
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Abdel Lokma
+                  </p>
+                </div>
+              </div>
+              <div className="p-4 rounded-lg text-center">
+                <h3 className="font-bold text-lg mb-2">Duration</h3>
+                <div className="flex flex-col items-center gap-1">
+                  <p className="text-sm text-muted-foreground">
+                    Sept. 09 '24 - Feb. 30 '25
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    6 months total
+                  </p>
+                </div>
+              </div>
+              
             </div>
+            
           </div>
 
           {/* Full Width Text Section */}
-          <div className="max-w-6xl mx-auto mb-16">
+          <div className="bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:to-[#1a2a3a] max-w-6xl mx-auto mb-16">
             <div className="space-y-6">
-              <h2 className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+              <br></br>
+              <h2 className="text-gray-700 dark:text-gray-300 text-md leading-relaxed">
                 A comprehensive web application designed to facilitate DEI consulting services, enabling organizations to create more inclusive and equitable workplaces. The platform combines user-friendly interfaces with powerful tools for assessment, training, and progress tracking.
               </h2>
-              <h2 className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+              <h2 className="text-gray-700 dark:text-gray-300 text-md leading-relaxed">
                 Through extensive research and user testing, we developed a solution that addresses the unique needs of both consultants and organizations, making DEI initiatives more accessible and effective.
               </h2>
+              <br></br>
             </div>
           </div>
+          
           <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">User Personas</h3>
           
           {/* User Personas Images */}
@@ -144,28 +221,28 @@ export default function CryptoDashboardPage() {
             {/* Research Card */}
             <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
                 <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Activists</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <h2 className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   Activists who are working on the ground level to enact social justice change.
-                </p>
+                </h2>
             </div>
 
             {/* Design Card */}
             <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
                 <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Intellectuals</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <h2 className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   People in academia who want to join discussions around social justice.
-                </p>
+                </h2>
             </div>
 
             {/* Development Card */}
             <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
                 <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Businesses</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <h2 className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   People who want their business to be more socially conscious.
-                </p>
+                </h2>
             </div>
           </div>
-          <br></br>
+          <br></br><br></br>
           <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Journey Maps</h3>
           
           {/* Journey Maps Image */}
@@ -208,22 +285,23 @@ export default function CryptoDashboardPage() {
           <div className="mt-16 flex justify-center">
             <Link 
               href="/projects" 
-              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
+              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 group"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
+                width="24" 
+                height="24" 
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor" 
                 strokeWidth="2" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"
+                className="transition-transform group-hover:-translate-x-1"
               >
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
               </svg>
-              Back to Projects
+              <span className="hidden sm:inline">Back to Projects</span>
             </Link>
           </div>
         </article>
