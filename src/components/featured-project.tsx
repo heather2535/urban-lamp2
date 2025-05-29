@@ -58,7 +58,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
         <h1 className={`text-zinc-800 dark:text-white text-5xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-0 ${anton.className}`}>
           <span className="text-primary">FEATURED</span>
         </h1>
-        <h1 className={`text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-0 ${openSans.className} uppercase tracking-[0.5em] font-light`}>
+        <h1 className={`text-gray-600 mb-10 dark:text-gray-300 text-base sm:text-lg mb-0 ${openSans.className} uppercase tracking-[0.5em] font-light`}>
           Projects
         </h1>
       </div>
