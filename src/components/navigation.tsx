@@ -56,7 +56,7 @@ export function Navigation() {
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === "/" && "text-pink-500 border-b-2 border-pink-500"
+                        pathname === "/" && "text-pink-500 border-b-2 border-pink-500 font-bold"
                       )}
                     >
                       <h3>Home</h3>
@@ -68,7 +68,7 @@ export function Navigation() {
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        (pathname === "/projects" || pathname.startsWith("/work/")) && "text-pink-500 border-b-2 border-pink-500"
+                        (pathname === "/projects" || pathname.startsWith("/work/")) && "text-pink-500 border-b-2 border-pink-500 font-bold"
                       )}
                     >
                       <h3>Projects</h3>
@@ -80,7 +80,7 @@ export function Navigation() {
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === "/graphics" && "text-pink-500 border-b-2 border-pink-500"
+                        pathname === "/graphics" && "text-pink-500 border-b-2 border-pink-500 font-bold"
                       )}
                     >
                       <h3>Graphics</h3>
@@ -92,7 +92,7 @@ export function Navigation() {
                     <NavigationMenuLink 
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        pathname === "/about" && "text-pink-500 border-b-2 border-pink-500"
+                        pathname === "/about" && "text-pink-500 border-b-2 border-pink-500 font-bold"
                       )}
                     >
                       <h3>About</h3>
@@ -214,6 +214,6 @@ export function Navigation() {
 
 const navigationMenuTriggerStyle = () => {
   return cn(
-    "group inline-flex h-10 w-max items-center justify-center bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:text-pink-500 focus:text-pink-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:text-white data-[inactive]:text-white/70"
+    "group inline-flex h-10 w-max items-center justify-center bg-transparent px-4 py-2 text-sm font-normal transition-colors hover:text-pink-500 focus:text-pink-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:text-white data-[inactive]:text-white/70"
   )
 }
