@@ -225,20 +225,28 @@ export default function CryptoDashboardPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <div className="relative w-full h-[600px] bg-white dark:bg-gray-900">
-        <img
-          src="/image16.png"
-          alt="AI Task Manager Overview"
-          className="absolute inset-0 w-[1920px] h-[600px] object-cover object-center"
-          style={{ objectPosition: '60% 30%' }}
-        />
+      <div className="relative w-full bg-white dark:bg-gray-900">
         {/* Back Button */}
         <div className="absolute top-24 left-0 right-0 z-10">
           <div className="container max-w-6xl mx-auto px-4">
             <Link 
               href="/projects" 
-              className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+              className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
             >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                className="text-black sm:text-white dark:sm:text-black sm:hidden"
+              >
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 width="14" 
@@ -249,34 +257,52 @@ export default function CryptoDashboardPage() {
                 strokeWidth="2" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"
+                className="hidden sm:block text-white dark:text-black"
               >
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
               </svg>
-              Back to Projects
+              <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
             </Link>
           </div>
         </div>
-        <div className="absolute inset-0 flex flex-col justify-center p-8">
-          <div className="container max-w-6xl mx-auto px-4">
-            <div className="max-w-6xl">
-              <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-              <h2 className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</h2>
-              <div className="flex flex-wrap gap-2">
-                {filteredProjects.map((tag) => (
-                  <Link 
-                    key={tag} 
-                    href={`/projects?tag=${encodeURIComponent(tag)}`}
-                    className="no-underline"
-                  >
-                    <Badge 
-                      variant="secondary" 
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+
+        {/* Two Column Layout */}
+        <div className="container max-w-7xl mx-auto px-4 py-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16 md:mt-0">
+            {/* Left Column - Text */}
+            <div className="md:col-span-1 order-2 md:order-1">
+              <div className="max-w-xl pl-4 md:pl-0">
+                <h1 className="font-bold text-2xl md:text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
+                <h2 className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</h2>
+                <div className="flex flex-wrap gap-2">
+                  {filteredProjects.map((tag) => (
+                    <Link 
+                      key={tag} 
+                      href={`/projects?tag=${encodeURIComponent(tag)}`}
+                      className="no-underline"
                     >
-                      {tagIcons[tag]}
-                      {tag}
-                    </Badge>
-                  </Link>
-                ))}
+                      <Badge 
+                        variant="secondary" 
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+                      >
+                        {tagIcons[tag]}
+                        {tag}
+                      </Badge>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Image */}
+            <div className="md:col-span-1 order-1 md:order-2">
+              <div className="relative">
+                <img
+                  src="/image16.png"
+                  alt="AI Task Manager Overview"
+                  className="w-full h-auto object-contain rounded-lg"
+                  style={{ maxWidth: "100%", height: "auto" }}
+                />
               </div>
             </div>
           </div>
@@ -287,43 +313,49 @@ export default function CryptoDashboardPage() {
         <main className="w-full">
           <article className="prose lg:prose-xl dark:prose-invert">
             {/* Three Columns Section */}
-            <div className="container max-w-6xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                <div className="p-4 rounded-lg">
+            <div className="container max-w-6xl mx-auto px-4 flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 max-w-4xl">
+                <div className="p-4 rounded-lg text-center">
                   <h3 className="font-bold text-lg mb-2">Role</h3>
-                  <p className="text-sm text-muted-foreground">
-                  Design Strategist, UX
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                  Researcher, UI/UX
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="text-sm text-muted-foreground">
+                      Design Strategist, UX
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Researcher, UI/UX
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4 rounded-lg">
+                <div className="p-4 rounded-lg text-center">
                   <h3 className="font-bold text-lg mb-2">Team</h3>
-                  <p className="text-sm text-muted-foreground">
-                  Heather Davies
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                  Ben Gardiner
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                  Lucas Yoon
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                  Vincent Li
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                  Abdel Lokma
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="text-sm text-muted-foreground">
+                      Heather Davies
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Ben Gardiner
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Lucas Yoon
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Vincent Li
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Abdel Lokma
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4 rounded-lg">
+                <div className="p-4 rounded-lg text-center">
                   <h3 className="font-bold text-lg mb-2">Duration</h3>
-                  <p className="text-sm text-muted-foreground">
-                  Sept. 09 '24 - Feb. 30 '25
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                  6 months total
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="text-sm text-muted-foreground">
+                      Sept. 09 '24 - Feb. 30 '25
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      6 months total
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -354,8 +386,22 @@ export default function CryptoDashboardPage() {
                 <div className="mt-16 flex justify-center">
                   <Link 
                     href="/projects" 
-                    className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+                    className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
                   >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="24" 
+                      height="24" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                      className="text-black sm:text-white dark:sm:text-black sm:hidden"
+                    >
+                      <path d="M15 18l-6-6 6-6"/>
+                    </svg>
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
                       width="14" 
@@ -366,10 +412,11 @@ export default function CryptoDashboardPage() {
                       strokeWidth="2" 
                       strokeLinecap="round" 
                       strokeLinejoin="round"
+                      className="hidden sm:block text-white dark:text-black"
                     >
                       <path d="M19 12H5M12 19l-7-7 7-7"/>
                     </svg>
-                    Back to Projects
+                    <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
                   </Link>
                 </div>
               </div>

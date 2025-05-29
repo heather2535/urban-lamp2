@@ -140,7 +140,7 @@ export function Navigation() {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="md:hidden flex items-center gap-4 absolute top-4 right-4">
             <ModeToggle />
             <Sheet>
               <SheetTrigger asChild>

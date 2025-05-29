@@ -9,7 +9,7 @@ import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Packag
 import React from 'react'
 
 const project = {
-  title: "ALS: App in Collaboration with\nBoston Children's Hospital",
+  title: "ALS: App in Collaboration with Boston Children's Hospital",
   date: "December 3, 2024",
   image: "/images/image19.png",
   content: `
@@ -270,7 +270,7 @@ const project = {
 
    
   `,
-  tags: ["All Projects", "Web Development", "Product Design", "UI/UX"],
+  tags: ["Web Development", "Product Design", "UI/UX"],
   }
   
 
@@ -347,8 +347,22 @@ export default function CryptoDashboardPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <Link 
               href="/projects" 
-              className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+              className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
             >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                className="text-black sm:text-white dark:sm:text-black sm:hidden"
+              >
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 width="14" 
@@ -359,10 +373,11 @@ export default function CryptoDashboardPage() {
                 strokeWidth="2" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"
+                className="hidden sm:block text-white dark:text-black"
               >
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
               </svg>
-              Back to Projects
+              <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
             </Link>
           </div>
         </div>
@@ -371,42 +386,38 @@ export default function CryptoDashboardPage() {
         <div className="container max-w-6xl mx-auto px-4 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-16 md:mt-0">
             {/* Left Column - Text */}
-            <Link href="https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default" className="no-underline">
-              <div className="max-w-xl order-2 md:order-1 pl-4 md:pl-0">
-                <h1 className="font-bold text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-                <h2 className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</h2>
-                <div className="flex flex-wrap gap-2">
-                  {filteredProjects.map((tag, index) => (
-                    <React.Fragment key={tag}>
-                      {tag === "UI/UX" && <div className="w-full" />}
-                      <Link 
-                        href={`/projects?tag=${encodeURIComponent(tag)}`}
-                        className="no-underline"
+            <div className="max-w-xl order-2 md:order-1 pl-4 md:pl-0">
+              <h1 className="font-bold text-2xl md:text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
+              <h2 className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</h2>
+              <div className="flex flex-wrap gap-2">
+                {filteredProjects.map((tag, index) => (
+                  <React.Fragment key={tag}>
+                    {tag === "UI/UX" && <div className="w-full" />}
+                    <Link 
+                      href={`/projects?tag=${encodeURIComponent(tag)}`}
+                      className="no-underline"
+                    >
+                      <Badge 
+                        variant="secondary" 
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
                       >
-                        <Badge 
-                          variant="secondary" 
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
-                        >
-                          {tagIcons[tag]}
-                          {tag}
-                        </Badge>
-                      </Link>
-                    </React.Fragment>
-                  ))}
-                </div>
+                        {tagIcons[tag]}
+                        {tag}
+                      </Badge>
+                    </Link>
+                  </React.Fragment>
+                ))}
               </div>
-            </Link>
+            </div>
 
             {/* Right Column - Image */}
-            <Link href="/work/als-app" className="no-underline">
-              <div className="relative order-1 md:order-2">
-                <img
-                  src={project.image}
-                  alt="ALS Clinical Decision Tool"
-                  className="w-full h-auto object-contain rounded-lg"
-                />
-              </div>
-            </Link>
+            <div className="relative order-1 md:order-2">
+              <img
+                src={project.image}
+                alt="ALS Clinical Decision Tool"
+                className="w-full h-auto object-contain rounded-lg"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -482,9 +493,24 @@ export default function CryptoDashboardPage() {
                 href="https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-block px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-200"
+                className="inline-flex items-center gap-2 text-sm text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200"
               >
-                <h2>Working Prototype</h2>
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                Working Prototype
               </Link>
             </div>
 
@@ -495,8 +521,22 @@ export default function CryptoDashboardPage() {
                 <div className="mt-16 flex justify-center">
                   <Link 
                     href="/projects" 
-                    className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+                    className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
                   >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="24" 
+                      height="24" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                      className="text-black sm:text-white dark:sm:text-black sm:hidden"
+                    >
+                      <path d="M15 18l-6-6 6-6"/>
+                    </svg>
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
                       width="14" 
@@ -507,10 +547,11 @@ export default function CryptoDashboardPage() {
                       strokeWidth="2" 
                       strokeLinecap="round" 
                       strokeLinejoin="round"
+                      className="hidden sm:block text-white dark:text-black"
                     >
                       <path d="M19 12H5M12 19l-7-7 7-7"/>
                     </svg>
-                    Back to Projects
+                    <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
                   </Link>
                 </div>
               </div>

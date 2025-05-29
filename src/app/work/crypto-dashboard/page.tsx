@@ -220,7 +220,7 @@ const project = {
     <br>
    
     `,
-    tags: ["Web Development", "Data Visualization"],
+    tags: ["Web Development", "Product Design"],
   }
   
 
@@ -249,8 +249,22 @@ export default function CryptoDashboardPage() {
           <div className="container max-w-6xl mx-auto px-4">
             <Link 
               href="/projects" 
-              className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+              className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
             >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                className="text-black sm:text-white dark:sm:text-black sm:hidden"
+              >
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 width="14" 
@@ -261,10 +275,11 @@ export default function CryptoDashboardPage() {
                 strokeWidth="2" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"
+                className="hidden sm:block text-white dark:text-black"
               >
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
               </svg>
-              Back to Projects
+              <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
             </Link>
           </div>
         </div>
@@ -397,8 +412,22 @@ export default function CryptoDashboardPage() {
                 <div className="mt-16 flex justify-center">
                   <Link 
                     href="/projects" 
-                    className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+                    className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
                   >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="24" 
+                      height="24" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                      className="text-black sm:text-white dark:sm:text-black sm:hidden"
+                    >
+                      <path d="M15 18l-6-6 6-6"/>
+                    </svg>
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
                       width="14" 
@@ -409,10 +438,11 @@ export default function CryptoDashboardPage() {
                       strokeWidth="2" 
                       strokeLinecap="round" 
                       strokeLinejoin="round"
+                      className="hidden sm:block text-white dark:text-black"
                     >
                       <path d="M19 12H5M12 19l-7-7 7-7"/>
                     </svg>
-                    Back to Projects
+                    <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
                   </Link>
                 </div>
               </div>
