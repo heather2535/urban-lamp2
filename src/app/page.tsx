@@ -163,9 +163,9 @@ export default function ProjectsPage() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-10 -mt-20">
+      <section className="bg-white dark:bg-gray-900 py-10 -mt-20">
         <div className="container mx-auto max-w-4xl px-4">
-          <div ref={projectsRef} className="mt-32">
+          <div ref={projectsRef} className="mt-16">
             <FeaturedProject projects={filteredProjects} />
           </div>
         </div>

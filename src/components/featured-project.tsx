@@ -53,7 +53,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
   const projectsList = Object.entries(projectData)
 
   return (
-    <div className="mb-28 pb-10 -mt-26 container mx-auto max-w-6xl px-4 sm:px-6">
+    <div className="mb-28 pb-10 container mx-auto max-w-6xl px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <h1 className={`text-zinc-800 dark:text-white text-5xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-0 ${anton.className}`}>
           <span className="text-primary">FEATURED</span>
@@ -66,7 +66,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
       <div className="max-w-7xl mx-auto rounded-[20px] p-3 sm:p-5 relative">
         <div className="grid grid-cols-1 gap-6 sm:gap-8">
           {projectsList.map(([title, data], index) => (
-            <div key={index} className="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg">
+            <div key={index} className="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-[0_4px_20px_-4px_rgba(236,72,153,0.3)] dark:shadow-[0_4px_20px_-4px_rgba(236,72,153,0.2)]">
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
                 <div className="w-full sm:w-1/2">
                   <img
