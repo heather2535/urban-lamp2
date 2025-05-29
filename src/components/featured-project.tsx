@@ -1,6 +1,7 @@
 import { JSX, useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
+import { Anton, Open_Sans } from "next/font/google"
 import {
   Folder,
   Search,
@@ -45,14 +46,22 @@ const projectData: { [key: string]: { image: string; description: string; href: 
   }
 }
 
+const anton = Anton({ weight: '400', subsets: ['latin'] })
+const openSans = Open_Sans({ subsets: ['latin'] })
+
 export function FeaturedProject({ projects }: FeaturedProjectProps) {
   const projectsList = Object.entries(projectData)
 
   return (
-    <div className="mb-28 pb-10 -mt-26 container mx-auto max-w-6xl px-4 sm:px-6 ">
-        <h1 className="text-zinc-800 pb-10 dark:text-white text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-2 sm:mb-0 text-center">
-                  Featured Projects
-      </h1>
+    <div className="mb-28 pb-10 -mt-26 container mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
+        <h1 className={`text-zinc-800 dark:text-white text-5xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-0 ${anton.className}`}>
+          <span className="text-primary">FEATURED</span>
+        </h1>
+        <h1 className={`text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-0 ${openSans.className} uppercase tracking-[0.5em] font-light`}>
+          Projects
+        </h1>
+      </div>
       {/* Projects Section */}
       <div className="max-w-7xl mx-auto rounded-[20px] p-3 sm:p-5 relative">
         <div className="grid grid-cols-1 gap-6 sm:gap-8">

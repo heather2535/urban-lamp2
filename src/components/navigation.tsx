@@ -44,7 +44,7 @@ export function Navigation() {
       )}
     >
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-end">
          
 
           {/* Desktop Navigation */}
@@ -140,7 +140,7 @@ export function Navigation() {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center gap-4 absolute top-4 right-4">
+          <div className="md:hidden flex items-center gap-4">
             <ModeToggle />
             <Sheet>
               <SheetTrigger asChild>
