@@ -474,13 +474,13 @@ export default function CryptoDashboardPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                 <div>
                   <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-gray-700 text-sm dark:text-gray-300">
                     The primary goal was to modernize and simplify the Hariri Institute website while aligning with Boston University's Office of Research visual standards. We aimed to improve user experience for both internal and external audiences while ensuring the site could be easily maintained by non-technical staff.
                   </h2>
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Solution:</h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-gray-700 text-sm dark:text-gray-300">
                     We developed a modern, accessible website that balances institutional branding with Hariri's interdisciplinary identity. The solution features a clean design system with reusable components, improved content discoverability, and a streamlined CMS for easy content management.
                   </h2>
                 </div>

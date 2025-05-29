@@ -118,7 +118,7 @@ export default function ProjectsPage() {
           
           <div className="container relative z-20">
             <div className="mx-auto max-w-4xl px-4">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-12 mb-12">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-12 mb-8 sm:mb-12">
                 <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden flex-shrink-0">
                   <img
                     src="/images/profile.png"
@@ -126,15 +126,15 @@ export default function ProjectsPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2">
+                <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-1 sm:space-y-2">
                   <h1 className={`text-zinc-800 dark:text-white text-7xl sm:text-8xl lg:text-9xl font-bold tracking-tight mb-0 ${anton.className}`}>
                     <span className="text-primary">HEATHER</span>
                   </h1>
                   <h1 className={`text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-0 ${openSans.className} uppercase tracking-[0.3em]`}>
                     Multidisciplinary Designer
                   </h1>
-                  <div className="h-4"></div>
-                  <h1 className="text-gray-700 dark:text-white/70 text-sm sm:text-base max-w-2xl mb-6">
+                  <div className="h-2 sm:h-4"></div>
+                  <h1 className="text-gray-700 dark:text-white/70 text-sm sm:text-base max-w-2xl mb-4 sm:mb-6">
                     Passionate about creating purposeful, research-driven products that enhance usability, accessibility, and overall performance. My work combines visual polish with a deep understanding of how people think, feel, and use technology.
                   </h1>
                   {/* Contact Buttons - Only visible on small screens */}
