@@ -13,6 +13,7 @@ import { ProjectFilter } from "@/components/project-filter copy"
 import { FeaturedProject } from "@/components/featured-project"
 import Link from "next/link"
 import { Anton, Open_Sans } from 'next/font/google'
+import { Mail, Linkedin, FileText } from "lucide-react"
 
 const anton = Anton({ 
   subsets: ['latin'],
@@ -136,6 +137,24 @@ export default function ProjectsPage() {
                   <h1 className="text-gray-700 dark:text-white/70 text-sm sm:text-base max-w-2xl mb-6">
                     Passionate about creating purposeful, research-driven products that enhance usability, accessibility, and overall performance. My work combines visual polish with a deep understanding of how people think, feel, and use technology.
                   </h1>
+                  {/* Contact Buttons - Only visible on small screens */}
+                  <div className="sm:hidden flex gap-6 w-full justify-center mt-32">
+                    <Link href="mailto:heather@example.com">
+                      <Button variant="outline" className="w-14 h-14 p-0 flex items-center justify-center">
+                        <Mail className="h-6 w-6" />
+                      </Button>
+                    </Link>
+                    <Link href="https://linkedin.com" target="_blank">
+                      <Button variant="outline" className="w-14 h-14 p-0 flex items-center justify-center">
+                        <Linkedin className="h-6 w-6" />
+                      </Button>
+                    </Link>
+                    <Link href="/resume.pdf" target="_blank">
+                      <Button variant="outline" className="w-14 h-14 p-0 flex items-center justify-center">
+                        <FileText className="h-6 w-6" />
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
