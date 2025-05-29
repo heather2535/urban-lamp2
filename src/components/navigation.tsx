@@ -39,23 +39,29 @@ export function Navigation() {
   return (
     <div
       className={cn(
-        "fixed top-0 left-0 w-full border-b border-white/10 z-50 backdrop-blur-md transition-colors duration-300",
-        scrolled ? "bg-white/20 supports-[backdrop-filter]:bg-background/30" : "bg-transparent"
+        "fixed top-0 left-0 w-full border-b border-white/10 z-50 transition-all duration-300",
+        scrolled ? "bg-white/20 supports-[backdrop-filter]:bg-background/30 backdrop-blur-md" : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center space-x-2">
-            <h1>Heather Davies</h1>
-          {/* Desktop Navigation */}
-          </Link>
+         
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-4 flex-1 justify-center">
             <NavigationMenu>
               <NavigationMenuList className="flex gap-8">
                 <NavigationMenuItem>
-                
+                  <Link href="/" legacyBehavior passHref>
+                    <NavigationMenuLink 
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        pathname === "/" && "text-pink-500 border-b-2 border-pink-500"
+                      )}
+                    >
+                      <h3>Home</h3>
+                    </NavigationMenuLink>
+                  </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link href="/projects" legacyBehavior passHref>

@@ -56,7 +56,7 @@ export default function ProjectsPage() {
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
           
           {/* Decorative Doodles */}
-          <div className="absolute top-10 right-10 w-64 h-64 opacity-20 dark:opacity-10 pointer-events-none animate-float">
+          <div className="absolute top-10 right-10 w-64 h-64 opacity-40 dark:opacity-20 pointer-events-none animate-float">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="animate-wiggle">
               <path
                 fill="none"
@@ -76,7 +76,7 @@ export default function ProjectsPage() {
             </svg>
           </div>
 
-          <div className="absolute bottom-10 left-10 w-48 h-48 opacity-15 dark:opacity-8 pointer-events-none rotate-45 animate-float-delayed">
+          <div className="absolute bottom-10 left-10 w-48 h-48 opacity-30 dark:opacity-15 pointer-events-none rotate-45 animate-float-delayed">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="animate-wiggle-reverse">
               <path
                 fill="none"
@@ -89,7 +89,7 @@ export default function ProjectsPage() {
             </svg>
           </div>
 
-          <div className="absolute top-1/2 left-10 w-32 h-32 opacity-10 dark:opacity-5 pointer-events-none -rotate-12 animate-float-slow">
+          <div className="absolute top-1/2 left-10 w-32 h-32 opacity-20 dark:opacity-10 pointer-events-none -rotate-12 animate-float-slow hidden sm:block">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="animate-wiggle-slow">
               <path
                 fill="none"
@@ -102,7 +102,7 @@ export default function ProjectsPage() {
             </svg>
           </div>
 
-          <div className="absolute bottom-1/2 right-10 w-40 h-40 opacity-15 dark:opacity-8 pointer-events-none rotate-12 animate-float-delayed-slow">
+          <div className="absolute bottom-1/2 right-10 w-40 h-40 opacity-30 dark:opacity-15 pointer-events-none rotate-12 animate-float-delayed-slow hidden sm:block">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="animate-wiggle-reverse-slow">
               <path
                 fill="none"

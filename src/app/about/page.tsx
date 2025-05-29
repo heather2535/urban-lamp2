@@ -31,7 +31,7 @@ export default function About() {
       <Navigation />
       <main className="py-14" ref={containerRef}>
         {/* Hero Section */}
-        <section className="flex items-center justify-center pt-28 px-4">
+        <section className="flex items-center justify-center pt-16 px-4">
           <div className="flex items-center justify-center relative w-full py-16 sm:py-24">
             <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
             <div className="container relative z-20">
@@ -82,8 +82,8 @@ export default function About() {
                   </div>
                   {/* Images Section */}
                   <div className="relative w-full mt-12">
-                    <div className="flex">
-                      <div className="flex gap-4">
+                    <div className="flex justify-center">
+                      <div className="grid grid-cols-2 gap-4 sm:flex sm:gap-4">
                         <motion.div
                           initial={{ opacity: 0, y: 80 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export default function About() {
                           className="relative z-10"
                         >
                           <Image
-                            className="w-64 h-64 object-cover rounded-md shadow-lg cursor-grab active:cursor-grabbing"
+                            className="w-full h-64 object-cover rounded-md shadow-lg cursor-grab active:cursor-grabbing"
                             src="/images/image15.jpg"
                             width="256"
                             height="256"
@@ -131,7 +131,7 @@ export default function About() {
                           className="relative z-10"
                         >
                           <Image
-                            className="w-64 h-64 object-cover rounded-md shadow-lg cursor-grab active:cursor-grabbing"
+                            className="w-full h-64 object-cover rounded-md shadow-lg cursor-grab active:cursor-grabbing"
                             src="/images/image16.jpg"
                             width="256"
                             height="256"
@@ -158,7 +158,7 @@ export default function About() {
                           className="relative z-10"
                         >
                           <Image
-                            className="w-64 h-64 object-cover rounded-md shadow-lg cursor-grab active:cursor-grabbing"
+                            className="w-full h-64 object-cover rounded-md shadow-lg cursor-grab active:cursor-grabbing"
                             src="/images/image17.jpg"
                             width="256"
                             height="256"
@@ -185,7 +185,7 @@ export default function About() {
                           className="relative z-10"
                         >
                           <Image
-                            className="w-64 h-64 object-cover rounded-md shadow-lg cursor-grab active:cursor-grabbing"
+                            className="w-full h-64 object-cover rounded-md shadow-lg cursor-grab active:cursor-grabbing"
                             src="/images/image18.jpg"
                             width="256"
                             height="256"
@@ -213,11 +213,11 @@ export default function About() {
               <h1 className="text-md text-center text-gray-700 dark:text-gray-300">I thrive in collaborative environments, whether I'm leading a team or contributing as a member. I believe the best solutions come from open communication and diverse perspectives.</h1>
               
               <p className="text-xl font-bold text-center">Future Aspirations</p>
-              <p className="text-md text-center text-gray-700 dark:text-gray-300">As I approach graduation, I'm eager to bring my skills and passion to an innovative organization where I can create impactful user experiences. I'm especially interested in opportunities that combine design expertise with technical problem-solving to enhance user satisfaction and contribute to meaningful projects.</p>
+              <h2 className="text-md text-center text-gray-700 dark:text-gray-300">As I approach graduation, I'm eager to bring my skills and passion to an innovative organization where I can create impactful user experiences. I'm especially interested in opportunities that combine design expertise with technical problem-solving to enhance user satisfaction and contribute to meaningful projects.</h2>
               
               <p className="text-xl font-semibold text-center">Let's Connect!</p>
-              <p className="text-md text-center text-gray-700 dark:text-gray-300">I'm always excited to connect with fellow designers, professionals, and mentors. Whether it's collaborating, sharing insights, or exploring new opportunities, I welcome the chance to grow and learn from others.
-              Feel free to connect with me on LinkedIn or check out my work on GitHub.</p>
+              <h2 className="text-md text-center text-gray-700 dark:text-gray-300">I'm always excited to connect with fellow designers, professionals, and mentors. Whether it's collaborating, sharing insights, or exploring new opportunities, I welcome the chance to grow and learn from others.
+              Feel free to connect with me on LinkedIn or check out my work on GitHub.</h2>
 
               {/* Quote Section */}
               <div className="relative mt-12">

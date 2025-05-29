@@ -275,7 +275,7 @@ export default function CryptoDashboardPage() {
             {/* Text Content - First Column */}
             <div className="w-full order-2 md:order-1 md:col-span-4">
               <h1 className="font-bold text-2xl md:text-[32px] mb-3 md:mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-              <p className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</p>
+              <h2 className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</h2>
               <div className="flex flex-wrap gap-2">
                 {filteredProjects.map((tag) => (
                   <Link 
@@ -312,33 +312,33 @@ export default function CryptoDashboardPage() {
         <main className="w-full">
           <article className="prose lg:prose-xl dark:prose-invert">
             {/* Three Columns Section */}
-            <div className="container max-w-6xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                <div className="p-4 rounded-lg">
+            <div className="container max-w-6xl mx-auto px-4 flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4 max-w-4xl">
+                <div className="p-4 rounded-lg text-center">
                   <h3 className="font-bold text-lg mb-2">Role</h3>
                   <h3 className="text-sm text-muted-foreground">
-                  Full Stack Developer
+                    Full Stack Developer
                   </h3>
                   <h3 className="text-sm text-muted-foreground">
-                  UX Designer
+                    UX Designer
                   </h3>
                 </div>
-                <div className="p-4 rounded-lg">
+                <div className="p-4 rounded-lg text-center">
                   <h3 className="font-bold text-lg mb-2">Team</h3>
                   <h3 className="text-sm text-muted-foreground">
-                  Heather Davies
+                    Heather Davies
                   </h3>
                   <h3 className="text-sm text-muted-foreground">
-                  Solo Project
+                    Solo Project
                   </h3>
                 </div>
-                <div className="p-4 rounded-lg">
+                <div className="p-4 rounded-lg text-center">
                   <h3 className="font-bold text-lg mb-2">Duration</h3>
                   <h3 className="text-sm text-muted-foreground">
-                  Dec. 24 '24 - Dec. 28 '24
+                    Dec. 24 '24 - Dec. 28 '24
                   </h3>
                   <h3 className="text-sm text-muted-foreground">
-                  4 days total
+                    4 days total
                   </h3>
                 </div>
               </div>
@@ -359,6 +359,33 @@ export default function CryptoDashboardPage() {
                     I developed a full-stack web application that aggregates real-time price data from CoinMarketCap, analyzes news sentiment using Google Cloud NLP, and provides a clean, responsive interface for monitoring market trends and receiving price alerts.
                   </h2>
                 </div>
+              </div>
+
+              {/* Working Prototype Button */}
+              <div className="flex justify-center mt-12">
+                <a 
+                  href="https://talentora.io" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200"
+                >
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  Working Prototype
+                </a>
               </div>
             </div>
 

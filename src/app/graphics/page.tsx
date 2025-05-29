@@ -132,7 +132,7 @@ export default function GraphicsPage() {
   return (
     <>
       <style>{styles}</style>
-      <div className="group min-h-screen bg-white dark:bg-gray-900">
+      <div className="group min-h-screen bg-transparent dark:bg-gray-900">
         <AuraCursor />
         <Navigation />
 

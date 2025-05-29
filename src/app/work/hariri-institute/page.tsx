@@ -22,12 +22,12 @@ const project = {
     <div className="container mx-auto">
       <div className="grid grid-cols-2 gap-8">
         <div className="col-span-1">
-          <p className="text-left">
+          <h2 className="text-left">
           The Hariri Institute for Computing, housed within Boston University's Duan Family Center for Faculty Computing and Engineering, needed a complete redesign of its outdated web presence. The site no longer reflected the scope or impact of the Institute's work and lacked visual cohesion, accessibility, and scalability.
-          </p>
+          </h2>
           <br>
-          <p>
-          I served as the lead UI/UX Designer, working closely with stakeholders to craft a modern, accessible, and maintainable site that aligned with BU's Office of Research theme while reflecting Hariri's distinct interdisciplinary mission.
+          <h2>
+          I served as the lead UI/UX Designer, working closely with stakeholders to craft a modern, accessible, and maintainable site that aligned with BU's Office of Research theme while reflecting Hariri's distinct interdisciplinary mission.</h2>
 
           </p>
         </div>
@@ -46,28 +46,22 @@ const project = {
     <h2 style="font-size: 2em; font-weight: bold;">Goals</h2>
     <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-        Modernize and simplify the Hariri Institute website.
+       <h2>• Modernize and simplify the Hariri Institute website.</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Align with Boston University's Office of Research visual standards.
+            <h2>• Align with Boston University's Office of Research visual standards.</h2>
           </li>
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Spotlight Hariri's people, events, research clusters, and projects.
+           <h2>• Spotlight Hariri's people, events, research clusters, and projects.</h2>
           </li>
            <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Improve user experience for internal and external audiences.
+           <h2>• Improve user experience for internal and external audiences.</h2>
           </li>
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Streamline content management for non-technical staff.
+           <h2>• Streamline content management for non-technical staff.</h2>
           </li>
            <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Ensure scalability for future growth and evolving needs.
+           <h2>• Ensure scalability for future growth and evolving needs.</h2>
           </li>
           
         </ul>
@@ -81,16 +75,13 @@ const project = {
     <h2 style="font-size: 1.5em; font-weight: bold;">1. Research & Discovery</h2>
         <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-        Conducted a full audit of the existing site to identify UX bottlenecks.
+        <h2>• Conducted a full audit of the existing site to identify UX bottlenecks.</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Held stakeholder interviews with the Communications Manager, Director of Operations, and faculty to understand communication priorities.
+            <h2>• Held stakeholder interviews with the Communications Manager, Director of Operations, and faculty to understand communication priorities.</h2>
           </li>
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Mapped current pain points: difficulty navigating archived content, manual updates, and low visibility of research.
+            <h2>• Mapped current pain points: difficulty navigating archived content, manual updates, and low visibility of research.</h2>
         </ul>
       </li>
     </ul>
@@ -100,16 +91,13 @@ const project = {
      <h2 style="font-size: 1.5em; font-weight: bold;">2. UX & Information Architecture</h2>
         <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-        Developed new site architecture and user flows prioritizing simplicity and clarity.
+        <h2>• Developed new site architecture and user flows prioritizing simplicity and clarity.</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Created personas for key audiences (faculty, students, donors, external partners).
+            <h2>• Created personas for key audiences (faculty, students, donors, external partners).</h2>
           </li>
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Conducted informal usability testing using click-through Figma prototypes to validate navigation patterns and hierarchy.
+            <h2>• Conducted informal usability testing using click-through Figma prototypes to validate navigation patterns and hierarchy.</h2>
         </ul>
       </li>
     </ul>
@@ -123,26 +111,23 @@ const project = {
         style={{ maxWidth: "100%", height: "auto" }}
       />
     </div>
-    <p> Figure 1: Site Architecture</p>
+    <h2> Figure 1: Site Architecture</h2>
     <br></br>
 
      <h2 style="font-size: 1.5em; font-weight: bold;">3. Design System & Prototyping</h2>
         <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-        Created low-to-high fidelity prototypes in Figma.
+        <h2>• Created low-to-high fidelity prototypes in Figma.</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Designed reusable components (expandable bios, research highlights, event cards, FAQ accordions).
+            <h2>• Designed reusable components (expandable bios, research highlights, event cards, FAQ accordions).</h2>
           </li>
           <li className="relative">
             <span className="absolute -left-8">•</span>
             Focused on mobile responsiveness and accessibility from the outset.
         </ul>
          <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Designed scalable, modular components to support various content types and future growth.
+            <h2>• Designed scalable, modular components to support various content types and future growth.</h2>
 
             </ul>
       </li>
@@ -166,16 +151,13 @@ const project = {
      <h2 style="font-size: 1.5em; font-weight: bold;">4. Visual Identity & Customization</h2>
         <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-        Used BU's Office of Research theme as a foundation.
+        <h2>• Used BU's Office of Research theme as a foundation.</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Introduced visual patterns unique to Hariri (custom hero modules, grid layouts, dynamic galleries).
+            <h2>• Introduced visual patterns unique to Hariri (custom hero modules, grid layouts, dynamic galleries).</h2>
           </li>
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Balanced institutional branding with Hariri's interdisciplinary identity.
+            <h2>• Balanced institutional branding with Hariri's interdisciplinary identity.</h2>
         </ul>
       </li>
     </ul>
@@ -188,22 +170,19 @@ const project = {
         style={{ maxWidth: "100%", height: "auto" }}
       />
     </div>
-     <p> Figure 2: Initial Design Concepts</p>
+     <h2> Figure 2: Initial Design Concepts</h2>
     <br></br>
 
        <h2 style="font-size: 1.5em; font-weight: bold;">5. Developer Handoff & Documentation</h2>
         <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-        Delivered annotated mockups with interaction guidance for BU's internal web development team.
+        <h2>• Delivered annotated mockups with interaction guidance for BU's internal web development team.</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Created a CMS layout guide for non-technical staff to maintain the site.
+            <h2>• Created a CMS layout guide for non-technical staff to maintain the site.</h2>
           </li>
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Proposed custom backend content types (e.g., tag researchers by cluster, auto-link bios to news stories).
+            <h2>• Proposed custom backend content types (e.g., tag researchers by cluster, auto-link bios to news stories).</h2>
         </ul>
       </li>
     </ul>
@@ -213,20 +192,16 @@ const project = {
     <br>
   <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-        Successfully launched a redesigned, responsive website with improved UX and content discoverability.
+        <h2>• Successfully launched a redesigned, responsive website with improved UX and content discoverability.</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Internal teams now have tools to maintain up-to-date, relevant content with ease.
+            <h2>• Internal teams now have tools to maintain up-to-date, relevant content with ease.</h2>
           </li>
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            External users can explore Hariri's projects, events, and people more intuitively.
+            <h2>• External users can explore Hariri's projects, events, and people more intuitively.</h2>
         </ul>
         <li className="relative">
-            <span className="absolute -left-8">•</span>
-            The design reflects Hariri's leadership in computational research while remaining accessible to a general audience.
+            <h2>• The design reflects Hariri's leadership in computational research while remaining accessible to a general audience.</h2>
         </ul>
       </li>
     </ul>
@@ -252,31 +227,30 @@ const project = {
         style={{ maxWidth: "100%", height: "auto" }}
       />
     </div>
-    <p> Figure 3 and 4: Proposed Splash Page Designs</p>
+    <h2> Figure 3 and 4: Proposed Splash Page Designs</h2>
     <br>
     <br>
 
   <h2 style="font-size: 2em; font-weight: bold;">Tools Used</h2>
     <ul className="list-disc pl-20 space-y-4 text-base">
       <li className="relative">
-        <span className="absolute -left-4">•</span>
-        <strong>Figma</strong> – Design system, wireframes, high-fidelity mockups
+        <h2>• Figma</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            <strong>Miro</strong> – Site mapping and user journey diagrams
+            <h2>• Miro</h2>
+            <h2>• Site mapping and user journey diagrams</h2>
           </li>
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            <strong>Zoom & Google Meet</strong> – Stakeholder interviews and feedback sessions
+            <h2>• Zoom & Google Meet</h2>
+            <h2>• Stakeholder interviews and feedback sessions</h2>
           </li>
            <li className="relative">
-            <span className="absolute -left-8">•</span>
-            <strong>Google Drive</strong> – Collaborative documentation and UI handoff
+            <h2>• Google Drive</h2>
+            <h2>• Collaborative documentation and UI handoff</h2>
           </li>
           <li className="relative">
-            <span className="absolute -left-8">•</span>
-            <strong>Boston University CMS</strong> –  Implementation with developer guidance
+            <h2>• Boston University CMS</h2>
+            <h2>• Implementation with developer guidance</h2>
           </li>
           
         </ul>
@@ -391,7 +365,7 @@ export default function CryptoDashboardPage() {
               <Link href="https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default" className="no-underline">
                 <div className="max-w-xl pl-4 md:pl-0">
                   <h1 className="font-bold text-[40px] mb-6 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-                  <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">{project.date}</p>
+                  <h2 className="text-gray-700 dark:text-gray-300 mb-6 text-lg">{project.date}</h2>
                   <div className="flex flex-wrap gap-2">
                     {filteredProjects.map((tag, index) => (
                       <React.Fragment key={tag}>
@@ -450,22 +424,19 @@ export default function CryptoDashboardPage() {
                   </div>
                 </div>
                 <div className="p-4 rounded-lg text-center">
-                  <img
-                    src="/images/image11.png"
-                    alt="Hariri Institute Website Overview"
-                    className="rounded-lg shadow-md w-1/3 h-auto mx-auto mb-4"
-                    style={{ maxWidth: "200px", maxHeight: "100px", height: "auto" }}
-                  />
                   <h3 className="font-bold text-lg mb-2">Team</h3>
                   <div className="flex flex-col items-center gap-1">
                     <p className="text-sm text-muted-foreground">
                       Heather Davies
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Jason Huang
+                      Brian Zeng
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Wesley Wildman
+                      Avdeep Kaur
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Minyang Li
                     </p>
                   </div>
                 </div>
@@ -488,15 +459,15 @@ export default function CryptoDashboardPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                 <div>
                   <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-gray-700 dark:text-gray-300">
                     The primary goal was to modernize and simplify the Hariri Institute website while aligning with Boston University's Office of Research visual standards. We aimed to improve user experience for both internal and external audiences while ensuring the site could be easily maintained by non-technical staff.
-                  </p>
+                  </h2>
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Solution:</h2>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-gray-700 dark:text-gray-300">
                     We developed a modern, accessible website that balances institutional branding with Hariri's interdisciplinary identity. The solution features a clean design system with reusable components, improved content discoverability, and a streamlined CMS for easy content management.
-                  </p>
+                  </h2>
                 </div>
               </div>
 
