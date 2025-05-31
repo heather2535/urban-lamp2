@@ -293,6 +293,12 @@ export default function CryptoDashboardPage() {
                     className="rounded-lg shadow-md"
                     style={{ maxWidth: "100%", height: "auto" }}
                   />
+                   <img
+                    src="/images/image54.png"
+                    alt="ALS Clinical Decision Tool"
+                    className="rounded-lg shadow-md"
+                    style={{ maxWidth: "100%", height: "auto" }}
+                  />
                   <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1: Bookmarking Frames</h2>
                 </div>
                 <br></br>

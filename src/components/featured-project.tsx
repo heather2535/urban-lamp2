@@ -29,17 +29,17 @@ interface FeaturedProjectProps {
 
 // Add a mapping of tags to their images and descriptions
 const projectData: { [key: string]: { image: string; description: string; href: string } } = {
-  "UI/UX Design": {
+  "ALS App Design with Boston Children's Hospital": {
     image: "/images/image1.jpg",
     description: "A comprehensive redesign of the user interface and experience for a leading mobile application, focusing on intuitive navigation and enhanced user engagement.",
     href: "/work/als-app"
   },
-  "Product Design": {
+  "Website Redesign for Hariri Institute": {
     image: "/image10.png",
     description: "End-to-end product design process for a new SaaS platform, from initial concept to final implementation, emphasizing user-centered design principles.",
     href: "/work/hariri-institute"
   },
-  "Web Development": {
+  "Real-Time Cryptocurrency Tracking Dashboard": {
     image: "/image1.png",
     description: "Modern web application development using cutting-edge technologies, delivering responsive and performant solutions for complex business needs.",
     href: "/work/crypto-dashboard"

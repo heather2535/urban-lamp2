@@ -2,14 +2,33 @@ import type { Project } from "../types/project"
 
 export const projects: Project[] = [
   {
-    title: "Fuse Networking App",
+    title: "Website Redesign for Hariri Institute",
+    description: "Complete redesign and development of the institute's web presence.",
+    date: "March 03, 2025",
+    image: "/image15.png",
+    videoUrl: "/video1.mov",
+    href: "/work/hariri-institute",
+    tags: ["All Projects", "Web Development"],
+  }, 
+  {
+    title: "ALS App Design with Boston Children's Hospital",
     description: "A web application designed to provide resources and support for individuals with ALS.",
     date: "December 28, 2024",
-    image: "/images/image37.png",
+    image: "/images/image1.jpg",
     videoUrl: "/video2.mov",
-    href: "/work/fuse",
-    tags: ["All Projects", "UI/UX Design", "Branding"],
+    href: "/work/als-app",
+    tags: ["All Projects", "UI/UX Design", "Product Design"],
   },
+  {
+    title: "Designing a DEI Consulting Web Application",
+    description: "Brand identity design for a line of sustainable, eco-friendly products.",
+    date: "March 15, 2024",
+    image: "/image4.png",
+    videoUrl: "/video1.mov",
+    href: "/work/eco-branding",
+    tags: ["All Projects","Graphic Design", "Branding"],
+  },
+ 
   {
     title: "Generative AI Task Force Advice Dashboard",
     description: "A web application designed to provide resources and support for individuals with ALS.",
@@ -19,16 +38,20 @@ export const projects: Project[] = [
     href: "/work/ai-task-force",
     tags: ["All Projects", "UI/UX Design", "Product Design"],
   },
-   
+ 
+ 
   {
-    title: "Website Redesign for Hariri Institute",
-    description: "Complete redesign and development of the institute's web presence.",
-    date: "March 03, 2025",
-    image: "/image15.png",
-    videoUrl: "/video1.mov",
-    href: "/work/hariri-institute",
-    tags: ["All Projects", "Web Development"],
-  }, 
+    title: "Fuse Networking App",
+    description: "A web application designed to provide resources and support for individuals with ALS.",
+    date: "December 28, 2024",
+    image: "/images/image37.png",
+    videoUrl: "/video2.mov",
+    href: "/work/fuse",
+    tags: ["All Projects", "UI/UX Design", "Branding"],
+  },
+  
+   
+ 
 
   {
     title: "Real-Time Cryptocurrency Tracking Dashboard",
@@ -39,16 +62,6 @@ export const projects: Project[] = [
     href: "/work/crypto-dashboard",
     tags: ["All Projects", "Web Development", "Product Design"],
   },
-  {
-    title: "ALS App Design with Boston Children's Hospital",
-    description: "A web application designed to provide resources and support for individuals with ALS.",
-    date: "December 28, 2024",
-    image: "/images/image1.jpg",
-    videoUrl: "/video2.mov",
-    href: "/work/als-app",
-    tags: ["All Projects", "UI/UX Design", "Product Design"],
-  },
- 
  
 
   {
@@ -61,16 +74,7 @@ export const projects: Project[] = [
     tags: ["All Projects", "Web Development", "Branding", "UI/UX Design"],
   },
 
-  {
-    title: "Designing a DEI Consulting Web Application",
-    description: "Brand identity design for a line of sustainable, eco-friendly products.",
-    date: "March 15, 2024",
-    image: "/image4.png",
-    videoUrl: "/video1.mov",
-    href: "/work/eco-branding",
-    tags: ["All Projects","Graphic Design", "Branding"],
-  },
- 
+  
   {
     title: "Library Database E-Learning Platform ",
     description: "Interactive virtual space for students to showcase their reads in an environment.",

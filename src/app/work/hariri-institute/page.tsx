@@ -16,220 +16,18 @@ const project = {
 
   
   
-    <br></br>
-    <h2 style="font-size: 2em; font-weight: bold;">Introduction</h2>
-    <br>
-    <div className="container mx-auto">
-      <div className="grid grid-cols-2 gap-8">
-        <div className="col-span-1">
-          <h2 className="text-left">
-          The Hariri Institute for Computing, housed within Boston University's Duan Family Center for Faculty Computing and Engineering, needed a complete redesign of its outdated web presence. The site no longer reflected the scope or impact of the Institute's work and lacked visual cohesion, accessibility, and scalability.
-          </h2>
-          <br>
-          <h2>
-          I served as the lead UI/UX Designer, working closely with stakeholders to craft a modern, accessible, and maintainable site that aligned with BU's Office of Research theme while reflecting Hariri's distinct interdisciplinary mission.</h2>
-
-          </p>
-        </div>
-        <div className="col-span-1">
-          <img
-            src="/images/image11.png"
-            alt="Hariri Institute Website Overview"
-            className="rounded-lg shadow-md w-1/3 h-auto mx-auto"
-            style={{ maxWidth: "200px", maxHeight: "100px", height: "auto" }}
-          />
-        </div>
-      </div>
-    </div>
-    <br>
-
-    <h2 style="font-size: 2em; font-weight: bold;">Goals</h2>
-    <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-       <h2>• Modernize and simplify the Hariri Institute website.</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• Align with Boston University's Office of Research visual standards.</h2>
-          </li>
-          <li className="relative">
-           <h2>• Spotlight Hariri's people, events, research clusters, and projects.</h2>
-          </li>
-           <li className="relative">
-           <h2>• Improve user experience for internal and external audiences.</h2>
-          </li>
-          <li className="relative">
-           <h2>• Streamline content management for non-technical staff.</h2>
-          </li>
-           <li className="relative">
-           <h2>• Ensure scalability for future growth and evolving needs.</h2>
-          </li>
-          
-        </ul>
-      </li>
-    </ul>
-
-    <br></br>
-  
-    <h2 style="font-size: 2em; font-weight: bold;">Process</h2>
-    <br>
-    <h2 style="font-size: 1.5em; font-weight: bold;">1. Research & Discovery</h2>
-        <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2>• Conducted a full audit of the existing site to identify UX bottlenecks.</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• Held stakeholder interviews with the Communications Manager, Director of Operations, and faculty to understand communication priorities.</h2>
-          </li>
-          <li className="relative">
-            <h2>• Mapped current pain points: difficulty navigating archived content, manual updates, and low visibility of research.</h2>
-        </ul>
-      </li>
-    </ul>
-    <br>
-
-
-     <h2 style="font-size: 1.5em; font-weight: bold;">2. UX & Information Architecture</h2>
-        <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2>• Developed new site architecture and user flows prioritizing simplicity and clarity.</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• Created personas for key audiences (faculty, students, donors, external partners).</h2>
-          </li>
-          <li className="relative">
-            <h2>• Conducted informal usability testing using click-through Figma prototypes to validate navigation patterns and hierarchy.</h2>
-        </ul>
-      </li>
-    </ul>
-    <br>
-
-       <div className="mt-4">
-      <img
-        src="/image12.png"
-        alt="User Flow Chart"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
-    <h2> Figure 1: Site Architecture</h2>
-    <br></br>
-
-     <h2 style="font-size: 1.5em; font-weight: bold;">3. Design System & Prototyping</h2>
-        <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2>• Created low-to-high fidelity prototypes in Figma.</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• Designed reusable components (expandable bios, research highlights, event cards, FAQ accordions).</h2>
-          </li>
-          <li className="relative">
-            <span className="absolute -left-8">•</span>
-            Focused on mobile responsiveness and accessibility from the outset.
-        </ul>
-         <li className="relative">
-            <h2>• Designed scalable, modular components to support various content types and future growth.</h2>
-
-            </ul>
-      </li>
-    </ul>
-    <br>
-     <div className="container mx-auto">
-      <div className="grid grid-cols-2 gap-8">
     
-        <div className="col-span-1">
-          <img
-            src="/images/image8.png"
-            alt="Hariri Institute Design System"
-            className="rounded-lg shadow-md w-full h-auto object-cover"
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-        </div>
-      </div>
-    </div>
-    <br></br>
-
-     <h2 style="font-size: 1.5em; font-weight: bold;">4. Visual Identity & Customization</h2>
-        <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2>• Used BU's Office of Research theme as a foundation.</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• Introduced visual patterns unique to Hariri (custom hero modules, grid layouts, dynamic galleries).</h2>
-          </li>
-          <li className="relative">
-            <h2>• Balanced institutional branding with Hariri's interdisciplinary identity.</h2>
-        </ul>
-      </li>
-    </ul>
-    <br>
-         <div className="mt-4">
-      <img
-        src="/images/image9.png"
-        alt="Low to High Fidelity Prototypes"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
-     <h2> Figure 2: Initial Design Concepts</h2>
-    <br></br>
-
-       <h2 style="font-size: 1.5em; font-weight: bold;">5. Developer Handoff & Documentation</h2>
-        <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2>• Delivered annotated mockups with interaction guidance for BU's internal web development team.</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• Created a CMS layout guide for non-technical staff to maintain the site.</h2>
-          </li>
-          <li className="relative">
-            <h2>• Proposed custom backend content types (e.g., tag researchers by cluster, auto-link bios to news stories).</h2>
-        </ul>
-      </li>
-    </ul>
-    <br></br>
-
-    <h2 style="font-size: 2em; font-weight: bold;">Results</h2>
-    <br>
-  <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2>• Successfully launched a redesigned, responsive website with improved UX and content discoverability.</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2>• Internal teams now have tools to maintain up-to-date, relevant content with ease.</h2>
-          </li>
-          <li className="relative">
-            <h2>• External users can explore Hariri's projects, events, and people more intuitively.</h2>
-        </ul>
-        <li className="relative">
-            <h2>• The design reflects Hariri's leadership in computational research while remaining accessible to a general audience.</h2>
-        </ul>
-      </li>
-    </ul>
-    <br>
    
-    </br>
-   
-    <div className="mt-4">
-      <img
-        src="/images/image7.png"
-        alt="Low to High Fidelity Prototypes"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
 
-    <br>
-    <div className="mt-4">
-      <img
-        src="/images/image10.png"
-        alt="Low to High Fidelity Prototypes"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
-    <h2> Figure 3 and 4: Proposed Splash Page Designs</h2>
-    <br>
-    <br>
+
+     
+
+      
+
+ 
+    
+   
+    
 
   <h2 style="font-size: 2em; font-weight: bold;">Tools Used</h2>
     <ul className="list-disc pl-20 space-y-4 text-base">
@@ -512,10 +310,189 @@ export default function CryptoDashboardPage() {
                   Working Prototype
                 </a>
               </div>
+              
             </div>
+            
 
             <div className="w-full bg-white dark:bg-gray-900 mt-12">
               <div className="container max-w-3xl mx-auto px-4 py-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">Project Scope</h2>
+              <h2 className="text-left text-sm md:text-md lg:text-md">
+              To redesign and redevelop the website for the Boston University Hariri Institute an organization comprised of BU faculty and graduate students across disciplines to study and design intelligent systems. Hariri Institute researchers develop solutions in the areas of Automation, Robotics & Control, Computational Biology & Medicine, Cyber-Physical Systems, Data Analytics, Energy Systems, Information Sources, and Networks.
+              </h2>
+          <br></br>
+          <h2 className="text-left text-sm md:text-md lg:text-md">
+          The goals of the website redesign are to: 
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <div>
+              <ul className="list-disc pl-20 space-y-2 text-base">
+                <li className="relative">
+                  <h2 className="text-left text-sm md:text-md lg:text-md">Develop a holistic architecture and modern UX experience that showcases the Hariri Institute's mission, research, collaborations, news, events, and facult profiles.</h2>
+                </li>
+                <li className="relative">
+                  <h2 className="text-left text-sm md:text-md lg:text-md">Develop a new Events Calendar that better showcases important events, enables event categoriszation, and provides for a more streamlined editing process.</h2>
+                </li>
+                <li className="relative">
+                  <h2 className="text-left text-sm md:text-md lg:text-md">Highlight and promote Hariri Institute's interdiscplinary research, collaboration, and events such as the Tsai Seminars that bring exposure from outside BU.</h2>
+                </li>
+                <li className="relative">
+                  <h2 className="text-left text-sm md:text-md lg:text-md">Create a visual design for the website that focuses on engagement and education and is more in-line stylistically with the institute's new branding identity.</h2>
+                </li>
+                <li className="relative">
+                  <h2 className="text-left text-sm md:text-md lg:text-md">Create landing page and other specialty page designs that automate the display of cross-promotional content.</h2>  
+                </li>
+              </ul>
+            </div>
+
+            <div className="flex items-center justify-center">
+              <img
+                src="/images/image11.png"
+                alt="Hariri Institute Website Overview"
+                className="rounded-lg w-3/4 h-auto object-contain"
+                style={{ maxWidth: "300px", height: "auto" }}
+              />
+            </div>
+          </div>
+          <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Process</h2>
+            <h2 className="text-1xl font-bold mb-2 text-gray-900 dark:text-white">Website Design and Development</h2>
+            <h2 className="text-left text-sm md:text-md lg:text-md">All website design projects undertaken are divided into five stages: 1. Assess 2. Design 3. Develop 4. Produce and 5. Refine.</h2>  
+          <br></br>
+          <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Assess</h2>
+          <h2 className="text-left text-sm md:text-md lg:text-md">During the Assessment stage, I collaborated with the Hariri Institute to identity project goals and organize new and existing information. User experience, business rules, functional requirements, and information architecture are then defined, documented, and submitted to the client for review.</h2>  
+            <br></br>
+            <h2 className="text-1xl font-bold mb-2 text-gray-900 dark:text-white">Site and User Exeperience Review</h2>
+            <h2 className="text-left text-sm md:text-md lg:text-md">An initial review of the Hariri Institute website was conducted to identity issues relating to the current user experience. I then analyzed available site traffic data to determine how current users navigate the site and identify any technological or user interface roadblocks. Additionally, I reviewed site structure to identify where layout changes could benefit the target user experience.</h2>  
+            <br></br>
+            <h2 className="text-1xl font-bold mb-2 text-gray-900 dark:text-white">Target-User Experience Development</h2>
+            <h2 className="text-left text-sm md:text-md lg:text-md">I worked with the Hariri Institute to define the user audiences it seeked to retain and attract, which informs website user scenarios that are key to developing the site's architecture and content flows. This will include a review of Hariri's social media channels and how best to leverage them on the website.</h2>  
+            <br></br>
+            <h2 className="text-1xl font-bold mb-2 text-gray-900 dark:text-white">Functional and Technical Requirements</h2>
+            <h2 className="text-left text-sm md:text-md lg:text-md">I define any new requirements for the WordPress content management system (CMS) and plugins and work within BU's Information Technology department for the implementation/approval of new plugins. Options for specialty pages or any content that requires additional design or programming, will also be defined. After specific content types and pages are defined, I created wireframes of the site's architecture and content flows. Key engagements or complicated user interactions may be prototyped to ensure usability. </h2>  
+            <br></br>
+            <h2 className="text-left text-sm md:text-md lg:text-md">The results of this stage inform Design, Development, and Production, and provide an outline for content development and technology selection.</h2>  
+            <br></br>
+            <div className="mt-4">
+            <img
+              src="/image12.png"
+              alt="User Flow Chart"
+              className="rounded-lg shadow-md"
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
+            </div>
+            <h2 className="text-left text-sm md:text-md lg:text-md"> Figure 1: Site Architecture</h2>
+            <br></br>
+            
+            <h2 className="text-1xl font-bold mb-2 text-gray-900 dark:text-white">1. Research & Discovery</h2>
+            <ul className="list-disc pl-20 space-y-2 text-base">
+            <li className="relative">
+              <h2 className="text-left text-sm md:text-md lg:text-md">Conducted a full audit of the existing site to identify UX bottlenecks.</h2>
+            </li>
+              <li className="relative">
+                  <h2 className="text-left text-sm md:text-md lg:text-md">Held stakeholder interviews with the Communications Manager, Director of Operations, and faculty to understand communication priorities.</h2>
+            </li>
+            <li className="relative">
+              <h2 className="text-left text-sm md:text-md lg:text-md">Mapped current pain points: difficulty navigating archived content, manual updates, and low visibility of research.</h2>
+            </li>
+          </ul>
+          <br></br>
+          <h2 className="text-1xl mb-2 text-gray=900 font-bold">2. UX & Information Architecture</h2>
+            <ul className="list-disc pl-20 space-y-4 text-base">
+          <li className="relative">
+            <h2 className="text-left text-sm md:text-md lg:text-md">Developed new site architecture and user flows prioritizing simplicity and clarity.</h2>
+              <li className="relative">
+                <h2 className="text-left text-sm md:text-md lg:text-md">Created personas for key audiences (faculty, students, donors, external partners).</h2>
+              </li>
+              <li className="relative">
+                <h2 className="text-left text-sm md:text-md lg:text-md">Conducted informal usability testing using click-through Figma prototypes to validate navigation patterns and hierarchy.</h2>
+            </li>
+            
+          </li>
+        </ul>
+        <br></br>
+
+        <h2 className="text-1xl mb-2 text-gray-900 font-bold">3. Design System & Prototyping</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div>
+            <ul className="list-disc pl-20 text-base">
+              <li className="relative">
+                <h2 className="text-left text-sm md:text-md lg:text-md">Created low-to-high fidelity prototypes in Figma.</h2>
+              </li>
+              <li className="relative">
+                <h2 className="text-left text-sm md:text-md lg:text-md">Designed reusable components (expandable bios, research highlights, event cards, FAQ accordions).</h2>
+              </li>
+              <li className="relative">
+                <h2 className="text-left text-sm md:text-md lg:text-md">Focused on mobile responsiveness and accessibility from the outset.</h2>
+              </li>
+              <li className="relative">
+                <h2 className="text-left text-sm md:text-md lg:text-md">Designed scalable, modular components to support various content types and future growth.</h2>
+              </li>
+            </ul>
+          </div>
+          <div className="flex items-center justify-center">
+            <img
+              src="/images/image8.png"
+              alt="Hariri Institute Design System"
+              className="rounded-lg  w-full h-auto object-contain"
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
+          </div>
+          <h2 className="text-left text-sm md:text-md lg:text-md"> Figure 2: Initial Wireframe System</h2>
+        </div>
+        <br></br>
+
+        <h2 className="text-1xl mb-2 text-gray-900 font-bold">4. Visual Identity & Customization</h2>
+        <ul className="list-disc pl-20 space-y-4 text-base">
+          <li className="relative">
+            <h2 className="text-left text-sm md:text-md lg:text-md">Used BU's Office of Research theme as a foundation.</h2>
+            <li className="relative">
+              <h2 className="text-left text-sm md:text-md lg:text-md">Introduced visual patterns unique to Hariri (custom hero modules, grid layouts, dynamic galleries).</h2>
+            </li>
+            <li className="relative">
+              <h2 className="text-left text-sm md:text-md lg:text-md">Balanced institutional branding with Hariri's interdisciplinary identity.</h2>
+            </li>  
+          </li>
+        </ul>
+        
+        <div id="visual-identity-slideshow" className="mt-4">
+          <Slideshow 
+            images={[
+              "/images/image9.png",
+              "/images/image10.png"
+            ]} 
+            id="visual-identity-slideshow"
+          />
+        </div>
+        <h2 className="text-left text-sm md:text-md lg:text-md">Figure 3: Initial Design Concepts</h2>
+        <br></br>
+        <div className="mt-4">
+     
+    </div>
+
+    <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Results</h2> 
+      <ul className="list-disc pl-20  text-base">
+          <li className="relative">
+            <h2 className="text-left text-sm md:text-md lg:text-md">Successfully launched a redesigned, responsive website with improved UX and content discoverability.</h2>
+              </li>
+              <li className="relative">
+                <h2 className="text-left text-sm md:text-md lg:text-md">Internal teams now have tools to maintain up-to-date, relevant content with ease.</h2>
+              </li>
+              <li className="relative">
+                <h2 className="text-left text-sm md:text-md lg:text-md">External users can explore Hariri's projects, events, and people more intuitively.</h2>
+            </li>
+            <li className="relative">
+                <h2 className="text-left text-sm md:text-md lg:text-md">The design reflects Hariri's leadership in computational research while remaining accessible to a general audience.</h2>
+          </li>
+        </ul>
+        <br></br>
+
+
+        
+        <br></br>
+
+      
+        
+                
                 <div dangerouslySetInnerHTML={{ __html: project.content }} />
                 
                 {/* Bottom Back Button */}

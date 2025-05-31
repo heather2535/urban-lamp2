@@ -128,60 +128,151 @@ export default function CryptoDashboardPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container max-w-2xl mx-auto px-4 mt-6 py-8">
+      <main className="container max-w-6xl mx-auto px-4 pt-0">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
           {/* Top Back Button */}
-          <Link 
-            href="/projects" 
-            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 mt-8 mb-8"
-          >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="16" 
-              height="16" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
+          <div className="pt-24">
+            <Link 
+              href="/projects" 
+              className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
             >
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            Back to Projects
-          </Link>
-
-          <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
-          <p className="text-muted-foreground mb-4">{project.date}</p>
-
-          {/* Filtered Tags */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {filteredProjects.map((tag) => (
-              <Link 
-                key={tag} 
-                href={`/projects?tag=${encodeURIComponent(tag)}`}
-                className="no-underline"
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                className="text-black sm:text-white dark:sm:text-black sm:hidden"
               >
-                <span 
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
-                >
-                  {tagIcons[tag]}
-                  {tag}
-                </span>
-              </Link>
-            ))}
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="14" 
+                height="14" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                className="hidden sm:block text-white dark:text-black"
+              >
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
+            </Link>
           </div>
 
-          {/* Video section */}
-          <div className="relative mt-6 mb-6">
-            <video controls width="100%" height="auto" className="object-cover rounded-lg">
-              <source src={project.video} type="video/mp4" />
-              {/* Fallback text for unsupported browsers */}
-              Your browser does not support the video tag.
-            </video>
+          {/* Two Column Hero Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-8">
+            {/* Left Column - Text */}
+            <div className="md:col-span-1">
+              <h1 className="font-bold text-[40px] mb-4">{project.title}</h1>
+              <p className="text-muted-foreground mb-4">{project.date}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {filteredProjects.map((tag) => (
+                  <Link 
+                    key={tag} 
+                    href={`/projects?tag=${encodeURIComponent(tag)}`}
+                    className="no-underline"
+                  >
+                    <span 
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
+                    >
+                      {tagIcons[tag]}
+                      {tag}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column - Video */}
+            <div className="relative md:col-span-2">
+              <video controls width="100%" height="auto" className="object-cover rounded-lg">
+                <source src={project.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
 
           <p className="lead">{project.description}</p>
+          
+          {/* Three Columns Section */}
+          <div className="w-full bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a1f2e] dark:to-[#2a2f3e]">
+            <div className="w-full">
+              <div className="container max-w-6xl mx-auto px-4 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="p-4 rounded-lg text-center">
+                    <h3 className="font-bold text-lg mb-2">Role</h3>
+                    <div className="flex flex-col items-center gap-1">
+                      <p className="text-sm text-muted-foreground">
+                        Design Strategist, UX
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Researcher, UI/UX
+                      </p>
+                    </div>
+                  </div>
+                  <div className="p-4 rounded-lg text-center">
+                    <h3 className="font-bold text-lg mb-2">Team</h3>
+                    <div className="flex flex-col items-center gap-1">
+                      <p className="text-sm text-muted-foreground">
+                        Heather Davies
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Solo Project
+                      </p>
+                    </div>
+                  </div>
+                  <div className="p-4 rounded-lg text-center">
+                    <h3 className="font-bold text-lg mb-2">Duration</h3>
+                    <div className="flex flex-col items-center gap-1">
+                      <p className="text-sm text-muted-foreground">
+                        Sep. 2024 - Dec. 2024
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        4 mo. total
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Problem Section */}
+          <div className="w-full bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a1f2e] dark:to-[#2a2f3e]">
+            <div className="container max-w-3xl mx-auto px-4 py-16">
+              <h2 className="text-2xl font-bold mb-4">Problem</h2>
+              <p className="text-gray-700 dark:text-gray-300">
+                For college students, accessing required readings and textbooks is a critical part of their academic success. However, many students find existing learning management systems (LMS) such as Blackboard and Canvas outdated and difficult to navigate. These platforms often serve multiple functions, from submitting assignments and tracking grades to participating in class discussions and accessing course materials.
+              </p>
+              <br />
+              <p className="text-gray-700 dark:text-gray-300">
+                The problem arises when these LMS platforms attempt to handle everything in one place, making it hard for students to efficiently locate textbooks, required readings, and other academic resources. As a result, students often experience frustration when trying to manage their academic content in one all-encompassing system.
+              </p>
+            </div>
+          </div>
+
+          {/* Solution Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 py-16">
+              <h2 className="text-2xl font-bold mb-4">Solution</h2>
+              <p className="text-gray-700 dark:text-gray-300">
+                Journalink is an innovative platform designed to streamline the academic experience by storing all textbooks and course readings in one central location. Students can add notes, underline and highlight text, and bookmark important sections or pages for easy reference. By offloading the responsibility of accessing course materials from the main LMS, Journalink allows platforms like Blackboard and Canvas to focus on their primary tasks—gradebooks, assignment submissions, and class discussions—while making course documents more accessible and easier to navigate.
+              </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                This approach enhances the user experience by simplifying the process of accessing course readings, enabling students to stay organized and engaged with their academic content. With a more user-friendly interface that consolidates all required readings in one place, students will have easier access to important documents, boosting engagement and improving overall academic success.
+              </p>
+            </div>
+          </div>
+
           <div dangerouslySetInnerHTML={{ __html: project.content }} />
 
           
@@ -213,3 +304,4 @@ export default function CryptoDashboardPage() {
     </div>
   )
 }
+

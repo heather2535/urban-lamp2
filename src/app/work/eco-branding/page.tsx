@@ -50,11 +50,11 @@ export default function CryptoDashboardPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container max-w-6xl mx-auto px-4 py-16">
+      <main className="container max-w-full mx-auto px-4 py-16">
         <article className="prose lg:prose-xl dark:prose-invert mx-auto">
             {/* Back Button */}
             <div className="absolute top-24 left-0 right-0 z-10">
-          <div className="container max-w-6xl mx-auto px-4">
+          <div className="container max-w-full mx-auto px-4">
             <Link 
               href="/projects" 
               className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
@@ -100,7 +100,7 @@ export default function CryptoDashboardPage() {
                 controls 
                 width="100%" 
                 height="auto" 
-                className="object-cover rounded-lg shadow-lg"
+                className="object-cover rounded-lg"
                 poster="/image4.png"
               >
                 <source src={project.video} type="video/mp4" />
@@ -135,7 +135,7 @@ export default function CryptoDashboardPage() {
           </div>
 
           {/* Three Columns Section */}
-          <div className="bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:to-[#1a2a3a] container max-w-6xl mx-auto px-4 flex justify-center">
+          <div className="bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:to-[#1a2a3a] container max-w-full mx-auto px-4 flex justify-center">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 max-w-4xl">
               <div className="p-4 rounded-lg text-center">
                 <h3 className="font-bold text-lg mb-2">Role</h3>
@@ -155,17 +155,15 @@ export default function CryptoDashboardPage() {
                     Heather Davies
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    Ben Gardiner
+                    Ruby Chen
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    Lucas Yoon
+                    Avdeep Kaur
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    Vincent Li
+                    David Lee
                   </p>
-                  <p className="text-sm text-muted-foreground">
-                    Abdel Lokma
-                  </p>
+                  
                 </div>
               </div>
               <div className="p-4 rounded-lg text-center">
@@ -185,96 +183,125 @@ export default function CryptoDashboardPage() {
           </div>
 
           {/* Full Width Text Section */}
-          <div className="bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:to-[#1a2a3a] max-w-6xl mx-auto mb-16">
-            <div className="space-y-6">
+          <div className="w-full bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:to-[#1a2a3a]">
+            <div className="container max-w-3xl mx-auto px-4 py-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                <h3 className="font-bold text-lg mb-2">Problem Statement</h3>
+                  <h2 className="text-left text-sm md:text-md lg:text-md">
+                    A comprehensive web application designed to facilitate DEI consulting services, enabling organizations to create more inclusive and equitable workplaces. The platform combines user-friendly interfaces with powerful tools for assessment, training, and progress tracking.
+                  </h2>
+                </div>
+                <div>
+                <h3 className="font-bold text-lg mb-2">Goal</h3>
+                  <h2 className="text-left text-sm md:text-md lg:text-md leading-relaxed">
+                    Through extensive research and user testing, we developed a solution that addresses the unique needs of both consultants and organizations, making DEI initiatives more accessible and effective.
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* User Archetypes Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 py-16">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">User Archetypes</h3>
+              <h2 className="text-sm md:text-md lg:text-md">The people using this platform as discussed in previous meetings fall into three archtypes and we are trying to tailor the website to help people from all these different archetypes, like activists, and say intellectuals who want to join discussions and businesses who want to be sociall consciouss, our goal was to cater to all three archetypes and provide features that would create an experience for all types of people who are using this website.</h2>
               <br></br>
-              <h2 className="text-gray-700 dark:text-gray-300 text-md leading-relaxed">
-                A comprehensive web application designed to facilitate DEI consulting services, enabling organizations to create more inclusive and equitable workplaces. The platform combines user-friendly interfaces with powerful tools for assessment, training, and progress tracking.
-              </h2>
-              <h2 className="text-gray-700 dark:text-gray-300 text-md leading-relaxed">
-                Through extensive research and user testing, we developed a solution that addresses the unique needs of both consultants and organizations, making DEI initiatives more accessible and effective.
-              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Research Card */}
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Activists</h3>
+                  <h2 className="text-gray-700 dark:text-gray-300 text-sm md:text-md lg:text-md">
+                    Activists who are working on the ground level to enact social justice change.
+                  </h2>
+                </div>
+
+                {/* Design Card */}
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Intellectuals</h3>
+                  <h2 className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-md lg:text-md">
+                    People in academia who want to join discussions around social justice.
+                  </h2>
+                </div>
+
+                {/* Development Card */}
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Businesses</h3>
+                  <h2 className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-md lg:text-md">
+                    People who want their business to be more socially conscious.
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* User Personas Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 pb-16">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">User Research</h3>
+              <h2 className="text-sm md:text-md lg:text-md mb-4">Now I'll just briefly dive into some of the user research that we made before we started the process of designing this app.</h2>
+              <h2 className="text-sm md:text-md lg:text-md mb-4">I made two user personas and jourey maps that kind of talk through essentially what a user would try to do on this application.</h2>
+              <div className="mb-4">
+                <img 
+                  src="/image17.png" 
+                  alt="User journey maps showing the experience flow" 
+                  className="w-full h-auto rounded-lg shadow-lg object-cover"
+                />
+              </div>
+              <h2 className="text-sm md:text-md lg:text-md">For example, we have one where Brandon Jones is a Federal Agenecy Director which is part of one of our Archetypes that we came up with. What this user journey walks through is his expectations of creating a discussion and then being able to join that discussion and talk in it. So, I created these five steps essentially, that go with that. So he creates his account to engage with our platform, and then he navigates to the communities, joins, it, and then tries to look through all the posts that are there. And from that, I had the idea of what he would be able to do afterwards if he wanted to make posts or not and then be able to have recommended discussion groups come up onto his feed, based on what he likes and what he's actually joined, and that would kind of continue that cycle of engagement that was created within just the discussions part of it. </h2>
+            </div>
+          </div>
+
+          {/* Journey Maps Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 pb-16">
+              <div className="space-y-8">
+                <img 
+                  src="/image18.png" 
+                  alt="User journey maps showing the experience flow" 
+                  className="w-full h-auto rounded-lg shadow-lg object-cover"
+                />
+                <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
+                  User journey maps illustrating the key touchpoints and experience flow
+                </p>
+              </div>
               <br></br>
+              <h2 className="text-sm md:text-md lg:text-md">For a second persona, we created Marie Academic which is part ofthe academic archetype and she wants to essentially schedule appoints with you, and so we have that same five step process with that for our journey, and essentially it's that she creates an account on our website, schedules an appointment with you, selects timeslots, and then we have some follow-up actions, that kind of keep that engagement going, of learning to stand up for herself if that's what she wanted to do, and be able to check back in with you and make follow-up apointments, to keep that user coming back to our website in some way. </h2>
             </div>
-          </div>
-          
-          <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">User Personas</h3>
-          
-          {/* User Personas Images */}
-          <div className="grid grid-cols-1 md:grid-cols-1 max-w-6xl gap-8 mb-16">
-            <div className="relative">
-              <img 
-                src="/image19.png" 
-                alt="User persona for activists" 
-                className="w-full h-auto rounded-lg shadow-lg object-cover"
-              />
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                Persona: Social Justice Activist
-              </p>
-            </div>
-           
           </div>
 
-          {/* Three Column Cards Section */}
-          <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">User Archetypes</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {/* Research Card */}
-            <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
-                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Activists</h3>
-                <h2 className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Activists who are working on the ground level to enact social justice change.
-                </h2>
-            </div>
-
-            {/* Design Card */}
-            <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
-                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Intellectuals</h3>
-                <h2 className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  People in academia who want to join discussions around social justice.
-                </h2>
-            </div>
-
-            {/* Development Card */}
-            <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
-                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Businesses</h3>
-                <h2 className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  People who want their business to be more socially conscious.
-                </h2>
+          {/* User Flow Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 pb-16">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">User Flow</h3>
+              <h2 className="text-sm md:text-md lg:text-md mb-4">This is essentially a visual representation of how the user is going to navigate through the app once they sign in.</h2>
+              <div className="mb-4">
+                <img 
+                  src="/image21.png" 
+                  alt="User flow diagram showing the main interaction paths" 
+                  className="w-full h-auto rounded-lg shadow-lg object-cover"
+                />
+              </div>
+              <h2 className="text-sm md:text-md lg:text-md">So, the user begins at the dashboard, and this is where they can quickly make appointments, cathc up the added course content, or browse through any of their diversity communities. On scheduling appointments, they can choose what type of appointment they want to scheudle – one on one vs. group. And in event calendar, they can see all upcoming events and register for open events, and then in coaching, they can request a workshop with the client, or they can also browse coaching packages or download free content. Next in the communities, individuals will be able to see groups recommended to them based on their user archetype, and then finally all of these features are building off of the goal that we have for this app, which is to get people to interact with community coontent regarding DEI and also purchase the client's coaching packages.</h2>
             </div>
           </div>
-          <br></br><br></br>
-          <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Journey Maps</h3>
-          
-          {/* Journey Maps Image */}
-          <div className="relative max-w-6xl w-full mb-16">
-            <img 
-              src="/image17.png" 
-              alt="User journey maps showing the experience flow" 
-              className="w-full h-auto rounded-lg shadow-lg object-cover"
-            />
-            <br></br>
-              <img 
-              src="/image18.png" 
-              alt="User journey maps showing the experience flow" 
-              className="w-full h-auto rounded-lg shadow-lg object-cover"
-            />
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
-              User journey maps illustrating the key touchpoints and experience flow
-            </p>
-          </div>
-          <br></br>
-          <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Wireframes</h3>
-          
-          {/* Wireframes Image */}
-          <div className="relative max-w-6xl w-full mb-16">
-            <img 
-              src="/image20.png" 
-              alt="Initial wireframes showing the user interface layout" 
-              className="w-full h-auto rounded-lg shadow-lg object-cover"
-            />
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
-              Initial wireframes exploring the user interface and interaction patterns
-            </p>
+
+          {/* Wireframes Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 py-16">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Wireframes</h3>
+              <div className="space-y-4">
+                <img 
+                  src="/image20.png" 
+                  alt="Initial wireframes showing the user interface layout" 
+                  className="w-full h-auto rounded-lg shadow-lg object-cover"
+                />
+                <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
+                  Initial wireframes exploring the user interface and interaction patterns
+                </p>
+              </div>
+            </div>
           </div>
 
           <div dangerouslySetInnerHTML={{ __html: project.content }} />

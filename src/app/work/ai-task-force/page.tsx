@@ -247,12 +247,12 @@ export default function CryptoDashboardPage() {
             <div className="container max-w-6xl mx-auto px-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                 <div>
-                  <h2 className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-left text-sm md:text-md lg:text-md">
                   For this project, my goal was to design a visual and interactive web app for student researchers and faculty conducting research in the classroom. I was focused on a scenario in which a team of students are preparing a policy brief on integrating AI-driven tools into university classroom settings in their Data, Ethics, and Society course. However, due to an overall lack of comprehensive understanding in addressing the ethical implications of these technologies, student researchers and educators are seeking a way to promote better analysis in addressing the complex landscape of ethical AI usage. I designed a visual and interactive web app, containing real data from a Data, Ethics, and Society course at Boston University, to help solve this issue. 
                   </h2>
                 </div>
                 <div>
-                  <h1 className="text-gray-700 dark:text-gray-300">
+                  <h1 className="text-left text-sm md:text-md lg:text-md">
                   My visual and interactive web app had two views: a detailed dashboard view and a adding articles view. I wanted to make sure that while the detailed dashboard view allowed for exploration on the semantic network interconnection of various research papers, the adding articles view would ensure quick access to critical information about a paper and assess its relevance to her research. In order to create a strong user experience that met each of these requirements, it was important for me to first conduct adequate design research. Here's how the process unfolded!
                   </h1>
                 </div>
@@ -268,26 +268,26 @@ export default function CryptoDashboardPage() {
                   <img
                     src="/images/image32.jpg"
                     alt="Design Process"
-                    className="rounded-lg shadow-md w-full max-w-sm mx-auto"
+                    className="rounded-lg  w-full max-w-sm mx-auto"
                     style={{ height: "auto" }}
                   />
                   <img
                     src="/images/i.jpg"
                     alt="Design Process"
-                    className="rounded-lg shadow-md w-full max-w-sm mx-auto"
+                    className="rounded-lg  w-full max-w-sm mx-auto"
                     style={{ height: "auto" }}
                   />
                 </div>
 
                 <div className="space-y-6">
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Dashboard View</h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-left text-sm md:text-md lg:text-md">
                     <strong>Idea 1:</strong> A search bar to input queries to start your research, with pre-defined example prompts to guide users. Search options include additional filters or settings for refining the search.
                   </h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-left text-sm md:text-md lg:text-md">
                     <strong>Idea 2:</strong> A list of papers or articles matching the search query are displayed in the search results, with options to select papers to add to a graph.
                   </h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-left text-sm md:text-md lg:text-md">
                     <strong>Idea 3:</strong> Semantic network graph displays a connections/node-based search. This graphical representation displays connections between papers, filtered by tags, keywords, or other attributes. Right navigation displays detailed information about the selected paper, including title, tags, and additional information.
                   </h2>
                   <br></br>
