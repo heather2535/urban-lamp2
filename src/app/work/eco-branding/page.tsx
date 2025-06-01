@@ -293,50 +293,141 @@ export default function CryptoDashboardPage() {
               <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Key Features</h3>
               <h2 className="text-sm md:text-md lg:text-md mb-4">Based on our user research and journey maps, we identified several key features that would enhance the user experience and meet the needs of our different user archetypes.</h2>
               <div className="space-y-6">
-                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
-                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Community Engagement</h3>
-                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
-                    Users can join and participate in DEI-focused communities, share resources, and engage in meaningful discussions with like-minded individuals.
-                  </p>
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Onboarding</h3>
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Streamlined onboarding process with guided tutorials and interactive walkthroughs to help users get started quickly.
+                  </h2>
+                  <div className="mt-4">
+                    <img 
+                      src="/image23.gif" 
+                      alt="Onboarding Process" 
+                      className="w-full h-auto rounded-lg shadow-lg object-cover"
+                    />
+                    <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 5: Onboarding Flow</h2>
+                  </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
                   <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Appointment Scheduling</h3>
-                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
                     Flexible scheduling system for one-on-one consultations, group sessions, and workshops, with automated reminders and follow-ups.
-                  </p>
+                  </h2>
+                  <div className="mt-4">
+                    <img 
+                      src="/image24.gif" 
+                      alt="Onboarding Process" 
+                      className="w-full h-auto rounded-lg shadow-lg object-cover"
+                    />
+                    <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 6: Appointment Scheduling Flow</h2>
+                  </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
-                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Resource Library</h3>
-                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Community Discussions</h3>
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
                     Comprehensive collection of DEI resources, including articles, guides, and downloadable content for continuous learning.
-                  </p>
+                  </h2>
+                  <div className="mt-4">
+                    <img 
+                      src="/image26.gif" 
+                      alt="Onboarding Process" 
+                      className="w-full h-auto rounded-lg shadow-lg object-cover"
+                    />
+                    <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 7: Community Discussion Flow</h2>
+                  </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
-                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Event Management</h3>
-                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Manage Coaching Content</h3>
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
                     Calendar integration for upcoming events, workshops, and training sessions, with easy registration and participation tracking.
-                  </p>
+                  </h2>
+                  <div className="mt-4">
+                    <img 
+                      src="/image25.gif" 
+                      alt="Onboarding Process" 
+                      className="w-full h-auto rounded-lg shadow-lg object-cover"
+                    />
+                    <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 8: Course Content Flow</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Wireframes Section */}
+          {/* User Testing Section */}
           <div className="w-full bg-white dark:bg-gray-900">
             <div className="container max-w-3xl mx-auto px-4 py-16">
-              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Wireframes</h3>
-              <div className="space-y-4">
-                <img 
-                  src="/image20.png" 
-                  alt="Initial wireframes showing the user interface layout" 
-                  className="w-full h-auto rounded-lg shadow-lg object-cover"
-                />
-                <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
-                  Initial wireframes exploring the user interface and interaction patterns
-                </p>
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">User Testing</h3>
+              <h2 className="text-sm md:text-md lg:text-md mb-4">We conducted extensive user testing to validate our design decisions and ensure the platform meets the needs of all user archetypes. Here are the key findings from our testing sessions:</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-sm font-bold mb-2 text-gray-900 dark:text-white">Less Redundant Dashboard</h3>
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Dashboard should cater to user interest and be less redundant
+                  </h2>
+                </div>
+
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-sm font-bold mb-2 text-gray-900 dark:text-white">More Interactive Communities</h3>
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Communities tab needs more clarity and interactivity
+                  </h2>
+                </div>
+
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-sm font-bold mb-2 text-gray-900 dark:text-white">User Friendly Onboarding</h3>
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Added a welcome to the app message and more visuals
+                  </h2>
+                </div>
+
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-sm font-bold mb-2 text-gray-900 dark:text-white">Course Content</h3>
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Created clearer categories for what is course content
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Reflection Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 py-16">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Reflection</h3>
+              <h2 className="text-sm md:text-md lg:text-md mb-8">Looking back on this project, here are the key learnings and insights that shaped our approach to DEI consulting platform design:</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Design Process Evolution</h3>
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    The iterative nature of our design process revealed the importance of continuous user feedback. Each testing phase brought new insights that significantly improved the platform's usability and accessibility.
+                  </h2>
+                </div>
+
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">User-Centric Approach</h3>
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Understanding the diverse needs of our user archetypes helped us create a more inclusive platform. The balance between academic rigor and practical accessibility was crucial for success.
+                  </h2>
+                </div>
+
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Technical Implementation</h3>
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    The integration of various features while maintaining performance and scalability taught us valuable lessons about technical architecture and user experience optimization.
+                  </h2>
+                </div>
+
+                <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Future Considerations</h3>
+                  <h2 className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Looking ahead, we see opportunities for AI integration, enhanced community features, and expanded analytics capabilities to further improve the platform's effectiveness.
+                  </h2>
+                </div>
               </div>
             </div>
           </div>

@@ -30,7 +30,7 @@ const project = {
       <br>
       <h2 style="font-size: 2em; font-weight: bold;">Introduction</h2>
       <br>
-        <h2 className="text-gray-700 dark:text-gray-300">
+        <h2 className="text-gray-700 dark:text-gray-300 text-sm md:text-md lg:text-md">
           Cryptocurrency is one of the most volatile markets today, making it essential for investors to monitor not only live prices but also the sentiment surrounding each coin. To address this need, I designed and developed a Crypto Price Tracker and Sentiment Analysis App—a full-stack web application that aggregates real-time price data, analyzes the tone of crypto-related news, and provides alerts to help users stay informed and make better decisions.        
         </h2>
       <br>
@@ -364,13 +364,13 @@ export default function CryptoDashboardPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                 <div>
                   <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-gray-700 dark:text-gray-300 text-sm md:text-md lg:text-md">
                     The primary goal was to create a real-time cryptocurrency tracking dashboard that provides users with live price data, sentiment analysis, and news integration. We aimed to help investors make informed decisions by combining multiple data sources into a single, intuitive interface.
                   </h2>
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Solution:</h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
+                  <h2 className="text-gray-700 dark:text-gray-300 text-sm md:text-md lg:text-md">
                     I developed a full-stack web application that aggregates real-time price data from CoinMarketCap, analyzes news sentiment using Google Cloud NLP, and provides a clean, responsive interface for monitoring market trends and receiving price alerts.
                   </h2>
                 </div>
@@ -405,7 +405,7 @@ export default function CryptoDashboardPage() {
             </div>
 
             <div className="w-full bg-white dark:bg-gray-900 mt-12">
-              <div className="container max-w-6xl mx-auto px-4 py-8">
+              <div className="container max-w-3xl mx-auto px-4 py-8">
                 <div dangerouslySetInnerHTML={{ __html: project.content }} />
                 
                 {/* Bottom Back Button */}
