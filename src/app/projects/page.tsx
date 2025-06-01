@@ -250,8 +250,8 @@ export default function ProjectsPage() {
                 href={`/work/${project.id === 1 ? 'hariri-institute' :
                       project.id === 2 ? 'als-app' :
                       project.id === 3 ? 'dei-consulting' :
-                      project.id === 4 ? 'generative-ai-dashboard' :
-                      project.id === 5 ? 'fuse-networking' :
+                      project.id === 4 ? 'ai-task-force' :
+                      project.id === 5 ? 'fuse' :
                       project.id === 6 ? 'crypto-dashboard' :
                       project.id === 7 ? 'talentora' :
                       project.id === 8 ? 'library-platform' :

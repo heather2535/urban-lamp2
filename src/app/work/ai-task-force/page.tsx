@@ -1,115 +1,57 @@
 "use client";
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Navigation from "@/components/navigation"
 import { Badge } from "@/components/badge"
-import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
-import Link from "next/link"  // Ensure to import Link for routing
-import { createPortal } from 'react-dom'
-import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
-import React from 'react'
+import { SearchBar } from "@/components/search-bar"
+import Link from "next/link"
+import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package, ArrowLeft, ArrowUpRight, Circle, Square, Triangle, ExternalLink, ChevronRight } from "lucide-react"
+import { motion } from "framer-motion"
+import Image from "next/image"
 
 const project = {
   title: "Generative AI Advice Dashboard",
+  description: "A visual and interactive web app for student researchers and faculty conducting research in the classroom.",
   date: "December 3, 2024",
   image: "/images/image29.png",
   content: `
-  
-    <br></br>
     <div className="max-w-3xl mx-auto">
       <div className="grid grid-cols-3 gap-4">
         <div></div>
-    <div className="mt-4">
-      <img
-        src="/images/image30.png"
-        alt="ALS Clinical Decision Tool"
+        <div className="mt-4">
+          <img
+            src="/images/image30.png"
+            alt="ALS Clinical Decision Tool"
             className="rounded-lg shadow-md w-full max-w-sm mx-auto"
             style={{ height: "auto" }}
-      />
+          />
           <h1 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1: This is the Topic Model view of my final dashboard design.</h1>
-    </div>
-    <br></br>
-  <div className="mt-4">
-      <img
+        </div>
+        <br></br>
+        <div className="mt-4">
+          <img
             src="/images/image31.png"
-        alt="ALS Clinical Decision Tool"
+            alt="ALS Clinical Decision Tool"
             className="rounded-lg shadow-md w-full max-w-3xl"
             style={{ height: "auto" }}
-      />
+          />
           <h1 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 2: And here's the Synopsis Graph view of my final design!</h1>
-    </div>
+        </div>
         <div></div>
       </div>
     </div>
     <br></br>
-    <h2 style="font-size: 2em; font-weight: bold;">
-V3 — Motion and Animation</h2>
-    <br>
-    <h1>
-    Learning about and utilizing animation was very compelling to me because although I had worked with visual design in the past, I'd never really had an opportunity to implement animation and motion in a design before. I knew I wanted my animations to supplement the welcoming nature of my dashboard, so it was crucial that my animations enhanced my UX, and didn't sabotage it.
-  </h1>
-  <br>
-      <h1>
+    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">V3 — Motion and Animation</h3>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      Learning about and utilizing animation was very compelling to me because although I had worked with visual design in the past, I'd never really had an opportunity to implement animation and motion in a design before. I knew I wanted my animations to supplement the welcoming nature of my dashboard, so it was crucial that my animations enhanced my UX, and didn't sabotage it.
+    </p>
+    <p className="text-gray-700 leading-relaxed mb-6">
       Upon assessing my dashboard, there were a few animations I immediately sought to implement, and a few others that occurred to me as I worked through my next iteration. I knew that I wanted to have the user be able to scroll down the Recommendaton bar ; however, I had to make sure that the way I animated in XD actually made it feel like a scroll bar, and not just a dissolving mess downward. This meant that all of the comment panels had to stay in place and not warp as the user scrolled.
-      </h1>
-      <br>
-      <h1>
-      Another animation that proved successful was the ability to click on the Graph View toggle to select which graph was to be viewed: Semantic Network or Topic Analysis. For this animation, I used an easing-out dissolve of the darkened button to indicate that the button was essentially shifting to the next question.  
-</h1>
-
-<h1>
-
- 
+    </p>
+    <p className="text-gray-700 leading-relaxed mb-6">
+      Another animation that proved successful was the ability to click on the Graph View toggle to select which graph was to be viewed: Semantic Network or Topic Analysis. For this animation, I used an easing-out dissolve of the darkened button to indicate that the button was essentially shifting to the next question.
+    </p>
   `,
-  tags: [ "Web Development", "Product Design", "UI/UX"],
-  }
-  
-
-// Define tagIcons with explicit typing for keys
-const tagIcons: Record<string, React.ReactElement> = {
-  "All Projects": <Folder className="h-3 w-3" />,
-  "3D Design": <Grid className="h-3 w-3" />,
-  "AI Integration": <Cpu className="h-3 w-3" />,
-  "Branding": <Tag className="h-3 w-3" />,
-  "Data Vis": <BarChart className="h-3 w-3" />,
-  "Graphic Design": <Palette className="h-3 w-3" />,
-  "UI/UX": <Layers className="h-3 w-3" />,
-  "UI/UX Design": <Layout className="h-3 w-3" />,
-  "Product Design": <Package className="h-3 w-3" />,
-  "Web Development": <Code className="h-3 w-3" />,
-}
-
-function Slideshow({ images, id }: { images: string[], id: string }) {
-  const [index, setIndex] = useState(0);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const prev = () => setIndex((i) => (i === 0 ? images.length - 1 : i - 1));
-  const next = () => setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
-
-  if (!mounted) return null;
-
-  const container = document.getElementById(id);
-  if (!container) return null;
-
-  return createPortal(
-    <div className="mt-4 flex flex-col items-center">
-      <img
-        src={images[index]}
-        alt={`ALS Clinical Decision Tool Design ${index + 1}`}
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-      <div className="mt-2 flex gap-2">
-        <button onClick={prev} className="px-2 py-1 bg-gray-200 rounded">Prev</button>
-        <span>{index + 1} / {images.length}</span>
-        <button onClick={next} className="px-2 py-1 bg-gray-200 rounded">Next</button>
-      </div>
-    </div>,
-    container
-  );
+  tags: ["Web Development", "Product Design", "UI/UX"],
 }
 
 export default function CryptoDashboardPage() {
@@ -122,337 +64,308 @@ export default function CryptoDashboardPage() {
     const matchesTag = selectedTag ? tag === selectedTag : true
     const matchesSearch =
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
     return matchesTag && matchesSearch
   })
 
   return (
-    <div className="min-h-screen bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a1f2e] dark:to-[#2a2f3e]">
+    <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+      {/* Floating geometric shapes */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <motion.div
+          className="absolute top-32 left-16 text-orange-300 opacity-15"
+          animate={{ rotate: 360, scale: [1, 1.2, 1] }}
+          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+        >
+          <Circle size={80} />
+        </motion.div>
+        <motion.div
+          className="absolute top-1/2 right-24 text-purple-300 opacity-20"
+          animate={{ rotate: -360, y: [-20, 20, -20] }}
+          transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <Square size={60} />
+        </motion.div>
+        <motion.div
+          className="absolute bottom-32 left-1/3 text-pink-300 opacity-25"
+          animate={{ rotate: 180, x: [-10, 10, -10] }}
+          transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <Triangle size={45} />
+        </motion.div>
+      </div>
+
       <Navigation />
-      
-      {/* Hero Section */}
-      <div className="relative w-full bg-white dark:bg-gray-900">
-        {/* Top Back Button */}
-        <div className="absolute top-8 left-0 right-0 z-10">
-          <div className="container max-w-6xl mx-auto px-4">
-            <Link 
-              href="/projects" 
-              className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+      <main className="container mx-auto px-6 lg:px-8 relative z-10">
+        <article className="prose lg:prose-xl dark:prose-invert">
+          {/* Back Button */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="pt-8 mb-12"
+          >
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-800 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="14" 
-                height="14" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
+              <ArrowLeft className="w-4 h-4" />
               Back to Projects
             </Link>
-          </div>
-        </div>
+          </motion.div>
 
-        {/* Two Column Layout */}
-        <div className="container max-w-6xl mx-auto px-4 py-8 md:py-16 mt-16">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-            {/* Text Content - First Column */}
-            <div className="w-full order-2 md:order-1">
-              <h1 className="font-bold text-2xl md:text-[32px] mb-3 md:mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-              <h2 className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</h2>
-                <div className="flex flex-wrap gap-2">
-                  {filteredProjects.map((tag, index) => (
-                    <React.Fragment key={tag}>
-                      {tag === "UI/UX" && <div className="w-full" />}
-                      <Link 
-                        href={`/projects?tag=${encodeURIComponent(tag)}`}
-                        className="no-underline"
-                      >
-                        <Badge 
-                          variant="secondary" 
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
-                        >
-                          {tagIcons[tag]}
-                          {tag}
-                        </Badge>
-                      </Link>
-                    </React.Fragment>
-                  ))}
-                </div>
-              </div>
-
-            {/* Image - Second Column */}
-            <div className="w-full order-1 md:order-2">
-                <img
-                  src={project.image}
-                  alt="ALS Clinical Decision Tool"
-                  className="w-full h-auto object-contain rounded-lg"
-                />
-              </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="w-full bg-transparent">
-        <main className="w-full">
-          <article className="prose lg:prose-xl dark:prose-invert">
-            {/* Three Columns Section */}
-            <div className="container max-w-6xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Role</h3>
-                  <div className="flex flex-col items-center gap-1">
-                    <p className="text-sm text-muted-foreground">
-                      Design Strategist, UX
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Researcher, UI/UX
-                    </p>
-                  </div>
-                </div>
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Team</h3>
-                  <div className="flex flex-col items-center gap-1">
-                    <p className="text-sm text-muted-foreground">
-                      Heather Davies
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Jason Huang
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Wesley Wildman
-                    </p>
-                   
-                  </div>
-                </div>
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Duration</h3>
-                  <div className="flex flex-col items-center gap-1">
-                    <p className="text-sm text-muted-foreground">
-                      Sep. 2024 - Dec. 2024
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      4 mo. total
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Two Columns Section */}
-            <div className="container max-w-6xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div>
-                  <h2 className="text-left text-sm md:text-md lg:text-md">
-                  For this project, my goal was to design a visual and interactive web app for student researchers and faculty conducting research in the classroom. I was focused on a scenario in which a team of students are preparing a policy brief on integrating AI-driven tools into university classroom settings in their Data, Ethics, and Society course. However, due to an overall lack of comprehensive understanding in addressing the ethical implications of these technologies, student researchers and educators are seeking a way to promote better analysis in addressing the complex landscape of ethical AI usage. I designed a visual and interactive web app, containing real data from a Data, Ethics, and Society course at Boston University, to help solve this issue. 
-                  </h2>
-                </div>
-                <div>
-                  <h1 className="text-left text-sm md:text-md lg:text-md">
-                  My visual and interactive web app had two views: a detailed dashboard view and a adding articles view. I wanted to make sure that while the detailed dashboard view allowed for exploration on the semantic network interconnection of various research papers, the adding articles view would ensure quick access to critical information about a paper and assess its relevance to her research. In order to create a strong user experience that met each of these requirements, it was important for me to first conduct adequate design research. Here's how the process unfolded!
-                  </h1>
-                </div>
-              </div>
-            </div>
-
-            <div className="container max-w-3xl mx-auto px-4">
-              <div className="mt-8">
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                <div className="space-y-6">
-                  <img
-                    src="/images/image32.jpg"
-                    alt="Design Process"
-                    className="rounded-lg  w-full max-w-sm mx-auto"
-                    style={{ height: "auto" }}
-                  />
-                  <img
-                    src="/images/i.jpg"
-                    alt="Design Process"
-                    className="rounded-lg  w-full max-w-sm mx-auto"
-                    style={{ height: "auto" }}
+          {/* Hero Section - Two Column Layout */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center mt-10 mb-16"
+          >
+            {/* Right Column - Image */}
+            <motion.div
+              className="md:col-span-3 relative order-first md:order-last"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <div className="relative max-w-[640px] mx-auto">
+                <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
+                <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto object-cover rounded-lg"
+                    priority
                   />
                 </div>
-
-                <div className="space-y-6">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Dashboard View</h2>
-                  <h2 className="text-left text-sm md:text-md lg:text-md">
-                    <strong>Idea 1:</strong> A search bar to input queries to start your research, with pre-defined example prompts to guide users. Search options include additional filters or settings for refining the search.
-                  </h2>
-                  <h2 className="text-left text-sm md:text-md lg:text-md">
-                    <strong>Idea 2:</strong> A list of papers or articles matching the search query are displayed in the search results, with options to select papers to add to a graph.
-                  </h2>
-                  <h2 className="text-left text-sm md:text-md lg:text-md">
-                    <strong>Idea 3:</strong> Semantic network graph displays a connections/node-based search. This graphical representation displays connections between papers, filtered by tags, keywords, or other attributes. Right navigation displays detailed information about the selected paper, including title, tags, and additional information.
-                  </h2>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Adder View</h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
-                    <strong>Idea 1:</strong> The User Profile Section allows access to user profile and settings. By tapping on saved graphs, a list of saved graphs created by the user opens. Similarly, the saved papers button opens a list of papers saved by the user. while the settings allow for configuration preferences to be set for the application, such as light mode and dark mode. Finally, there is an option to log out of the application.
-                  </h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
-                    <strong>Idea 2:</strong> List View/Grid View Toggle options to view saved papers in a list or grid format.
-                  </h2>
-                  <h2 className="text-gray-700 dark:text-gray-300">
-                    <strong>Idea 3:</strong> Semantic network graph displays a connections/node-based search. This graphical representation displays connections between papers, filtered by tags, keywords, or other attributes. Right navigation displays detailed information about the selected paper, including title, tags, and additional information.
-                  </h2>
-                </div>
               </div>
+            </motion.div>
 
-              <div className="mt-12">
-                <h2 className="text-gray-700 dark:text-gray-300">
-                  After much ideation, I finally decided on emphasizing idea 1, the three step process, as there was too much information and functionality features to have it all displayed on one screen. However, I knew that I still wanted to incorporate components of the other 2 concepts as well. Here's what the iterative process was like!
-                </h2>
-                <br></br>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">V1– Black and White Iterations</h2>
-                <br></br>
-                <h2> Dashboard view</h2>
-                <div className="mt-6">
-                  <img
-                    src="/images/image33.png"
-                    alt="Black and White Iterations"
-                    className="rounded-lg shadow-md w-full max-w-3xl mx-auto"
-                    style={{ height: "auto" }}
-                  />
-                  <h2 className="text-center text-gray-700 dark:text-gray-300 mt-4">My first black-and-white iterations of the dashboard view.</h2>
-                <br></br>
-                <h2 className="text-gray-700 dark:text-gray-300">
-                There were a few key features I wanted to highlight in my first digital iterations. First, in the dashboard view, I wanted to make sure the Selected Articles, Recommended Articles, and Connections Node Graph were all emphasized enough. Thus, I wanted to lay out the visual hierarchy in a way that allowed the user to follow those components in a natural, cohesive manner.
-                </h2>
-                <br></br>
-                <h2 className="text-gray-700 dark:text-gray-300">
-                The eye immediately gravitates towards the Selected Articles bar on the left, and the user can quickly reference their chosen content along with relevant tags and metadata. As the eye moves to the right, the user is able to identify the box to see their recommended articles. Then, they can scan the list of additional articles tailored to the user's interests. For the digital iteration, I included and detailed a few additional capabilities, such as tagging posts with hashtags to organize commentary, as well as the ability to expand dropdowns for more details.
-                </h2>
-                <br></br>
-                <h2 className="text-gray-700 dark:text-gray-300">
-                The eye then transitions to the Connections Node Graph on the far right. This visual representation maps out the relationships between different articles, offering more insight into how various pieces of content are interconnected. The interactive controls at the bottom of this section, such as zooming in, zooming out, and downloading, enhance user interaction.
-                </h2>
-                <br></br>
-                <h2 className="text-gray-700 dark:text-gray-300">
-                Clicking on an entry in the Selected or Recommended bar opens a comprehensive view on the right side,. This view includes an overview, references, and citations, ensuring that users have all the necessary information in one place. For this iteration, I also included a tagging feature, allowing users to categorize articles with relevant keywords like AI Policy and AI Ethics. This addition helps in organizing and filtering content based on specific themes or topics.
-                </h2>
-                <br></br>
-                <h2 className="text-gray-700 dark:text-gray-300">
-                I made sure to utilize a grid in my first iteration so that I could layout out my components in a way that was visually complementary and unified. Using the grid structure, I sought to balance the detailed article view with the Selected and Recommended bar, while still emphasizing the Connections Node Graph. However, in hindsight, I don't think I did a great job with balance on iteration 1, as the article details box was shifted too far to the left on the screen. This is something I aimed to fix on future iterations.
-                </h2>
-                <br></br>
-                  <h2>Adder View V-1</h2>
-                <div className="mt-12">
-                  <img
-                    src="/images/image34.png"
-                    alt="Dashboard Iteration"
-                    className="rounded-lg shadow-md w-full max-w-3xl mx-auto"
-                    style={{ height: "auto" }}
-                  />
-                  <h2 className="text-center text-gray-700 dark:text-gray-300 mt-4">Iteration 1 of the adder view.</h2>
-                  <br></br>
-                  <h2 className="text-gray-700 dark:text-gray-300">
-                  My first digital iteration for the adder view is an action that occurs when the user hits the add button on the top of the dashboard navigation. When this occurs, the central part of the screen opens a pop-up window. While the visual components are much more simple, I flushed out a few additioonal functionalities the adder view should have. A few of these include: 
-                    <ol className="list-decimal pl-6 mt-2 space-y-2">
-                      <li>A search bar to input queries to start your research, with pre-defined example prompts to guide users.</li>
-                      <li>A list of papers or articles matching the search query are displayed in the search results, with options to select papers to add to a graph.</li>
-                      <li>A semantic network graph displays a connections/node-based search. This graphical representation displays connections between papers, filtered by tags, keywords, or other attributes.</li>
-                    </ol>
-                </h2>
-                <br></br>
-                <h2 className="text-gray-700 dark:text-gray-300">
-                A few of the design decisions I made included placing the adder view at the central part of the screen. Because this is the primary functionality, I felt it should occupy the most significant portion of the screen.For the search button, I chose to place it next to the search bar because this is where the mouse, and eye, naturally gravitates toward.                </h2>
-                </div>
+            {/* Left Column - Text Content */}
+            <motion.div
+              className="md:col-span-2 space-y-6"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <motion.h1
+                className="text-5xl lg:text-7xl font-black tracking-tight leading-none"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">
+                  {project.title}
+                </span>
+              </motion.h1>
 
-                <div className="mt-12">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-6">
-                      <img
-                        src="/images/image35.png"
-                        alt="Adder View Iteration"
-                        className="rounded-lg shadow-md w-full max-w-lg mx-auto"
-                        style={{ height: "auto" }}
-                      />
-                         <img
-                        src="/images/image36.png"
-                        alt="Adder View Iteration"
-                        className="rounded-lg shadow-md w-full max-w-lg mx-auto"
-                        style={{ height: "auto" }}
-                      />
-                    </div>
-                    <div className="space-y-6">
-                      <h2 className="text-gray-700 dark:text-gray-300">
-                      For my next dashboard view black-and-white iteration, I made a few design tweaks to convey different feelings when looking at the dashboard. Based on my persona analysis, I concluded that most students would want to feel less overwhelmed by the paper details on the screen. I decided to make the panels rounded to convey a more lighthearted, fun vibe. This is also why I included more space for the connections graph and further emphasized it to make things feel more balanced.  
-                      </h2>
-                      <h2 className="text-gray-700 dark:text-gray-300">
-                        
-                      I originally kept the instructor view more square on my second iteration, but I later decided to change this to achieve visual consistency among the two dashboards. The persona of Prof. Rodriguez indicated she wanted policy research to seem "chill" to her students, so I determined it'd be important for her dashboard to also feel more lighthearted and soft. A couple other design changes I made were expanding the size of the adder box and distinguishing suggested buttons more clearly.
-                      </h2>
-                    </div>
-                    
-               
+              <motion.p
+                className="text-xl text-gray-600 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                {project.description}
+              </motion.p>
 
-                  </div>
-                  <br></br>
-                  <br></br>
-                  
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">V2 — Color Iterations</h2>
-                  <br></br>
-                  <h2 className="text-gray-700 dark:text-gray-300">
-                  I was really excited to start working with color because I felt it would be able to help me accent certain features of my dashboard. Furthermore, I knew that the right color would be able to reaffirm the feeling of lightheartedness I wanted to convey.
-                  </h2>
-                  <br></br>
-                  <h2 className="text-gray-700 dark:text-gray-300">
-                  I started by playing around with a light blue and light red color. After tweaking the values of each hue for a bit, I realized that blue felt too prototype-y and text was difficult to read, and red was a little too bold. Ultimately, I settled on a shade of light purple that I felt captured the essence of my dashboard: it was calming, clean, and most importantly, welcoming. I wanted my dashboard to invite the user to interact with it, and the softness of the lavender purple I chose really conveyed that sense of emotional draw.
-                        </h2>
+              <motion.div
+                className="flex items-center gap-3 text-gray-600"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <span className="text-sm">{project.date}</span>
+              </motion.div>
 
-                <br></br>
-                <h2 className="text-gray-700 dark:text-gray-300">
-                Color proved to be a very effective tool, as it allowed me to draw the user's eye to certain parts of the page. In addition, it also helped me demonstrate certain capabilities. For example, I made the "Search" button filled with the purple color to highlight its importance, but I almost made the area surrounding the selected question a few shades darker. This implied that the question had been "clicked on" as though it were a button!  
-                        </h2>
-                </div>
-                </div>
-              </div>
-            </div>
-            
-
-            <div className="w-full bg-white dark:bg-gray-900 mt-12">
-              <div className="bg-white dark:bg-gray-900 container max-w-6xl mx-auto px-4 py-8">
-                <div dangerouslySetInnerHTML={{ __html: project.content }} />
-              </div>
-            </div>
-                
-            {/* Bottom Back Button */}
-                <div className="mt-16 flex justify-center">
-                  <Link 
-                    href="/projects" 
-                className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+              {/* Tags */}
+              <motion.div
+                className="flex flex-wrap gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+              >
+                {filteredProjects.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-300"
                   >
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                  width="14" 
-                  height="14" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    >
-                      <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    Back to Projects
-                  </Link>
+                    {tag}
+                  </span>
+                ))}
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
+          {/* Scroll to Explore */}
+          <motion.div
+            className="flex flex-col items-center justify-center gap-2 text-gray-500 mt-8 mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <span className="text-sm">Scroll to explore</span>
+            <ChevronRight className="w-4 h-4 rotate-90" />
+          </motion.div>
+
+          {/* Three Columns Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">Role</h3>
+                <div className="space-y-1">
+                  <p className="text-gray-600">Design Strategist, UX</p>
+                  <p className="text-gray-600">Researcher, UI/UX</p>
+                </div>
+              </div>
+              <div className="text-center">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">Team</h3>
+                <div className="space-y-1">
+                  <p className="text-gray-600">Heather Davies</p>
+                  <p className="text-gray-600">Jason Huang</p>
+                  <p className="text-gray-600">Wesley Wildman</p>
+                </div>
+              </div>
+              <div className="text-center">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">Duration</h3>
+                <div className="space-y-1">
+                  <p className="text-gray-600">Sep. 2024 - Dec. 2024</p>
+                  <p className="text-gray-600">4 mo. total</p>
+                </div>
+              </div>
             </div>
-          </article>
-        </main>
-      </div>
+          </motion.div>
+
+          {/* Problem Statement and Goal Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Problem Statement</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  For this project, my goal was to design a visual and interactive web app for student researchers and faculty conducting research in the classroom. I was focused on a scenario in which a team of students are preparing a policy brief on integrating AI-driven tools into university classroom settings in their Data, Ethics, and Society course. However, due to an overall lack of comprehensive understanding in addressing the ethical implications of these technologies, student researchers and educators are seeking a way to promote better analysis in addressing the complex landscape of ethical AI usage.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Goal</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  I designed a visual and interactive web app, containing real data from a Data, Ethics, and Society course at Boston University, to help solve this issue. My visual and interactive web app had two views: a detailed dashboard view and a adding articles view. I wanted to make sure that while the detailed dashboard view allowed for exploration on the semantic network interconnection of various research papers, the adding articles view would ensure quick access to critical information about a paper and assess its relevance to her research.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Dashboard View Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold mb-6">Dashboard View</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  The dashboard view provides a comprehensive overview of the research landscape, allowing users to explore semantic network interconnections between various research papers. This view helps researchers understand the relationships and patterns within their field of study.
+                </p>
+              </div>
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/image32.jpg"
+                    alt="Dashboard view showing semantic network interconnections"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+            <p className="text-right text-gray-600 mt-4 font-medium">
+              Figure 1: Topic Model view of the final dashboard design
+            </p>
+          </motion.div>
+
+          {/* Adder View Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold mb-6">Adder View</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  The adder view provides a streamlined interface for quickly accessing critical information about research papers and assessing their relevance to ongoing research. This view helps researchers efficiently evaluate and incorporate new sources into their work.
+                </p>
+              </div>
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/i.jpg"
+                    alt="Adder view showing paper assessment interface"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+            <p className="text-right text-gray-600 mt-4 font-medium">
+              Figure 2: Synopsis Graph view of the final design
+            </p>
+          </motion.div>
+
+          {/* Content Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+          >
+            <div dangerouslySetInnerHTML={{ __html: project.content }} />
+          </motion.div>
+
+          {/* Navigation */}
+          <div className="flex justify-between items-center">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Projects
+            </Link>
+
+            <Link
+              href="/work/fuse"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
+            >
+              Next Project
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </article>
+      </main>
     </div>
   )
 }
