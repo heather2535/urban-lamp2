@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/mode-toggle"
-import { Navigation } from "@/components/navigation"
+import Navigation from "@/components/navigation"
 
 export default function Page() {
   return (
