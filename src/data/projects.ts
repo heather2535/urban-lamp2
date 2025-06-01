@@ -25,7 +25,7 @@ export const projects: Project[] = [
     date: "March 15, 2024",
     image: "/image4.png",
     videoUrl: "/video1.mov",
-    href: "/work/eco-branding",
+    href: "/work/dei-consulting",
     tags: ["All Projects","Graphic Design", "Branding"],
   },
  

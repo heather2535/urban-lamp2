@@ -34,16 +34,17 @@ const projectData: { [key: string]: { image: string; description: string; href: 
     description: "A comprehensive redesign of the user interface and experience for a leading mobile application, focusing on intuitive navigation and enhanced user engagement.",
     href: "/work/als-app"
   },
+  "DEI Consulting for Tech Companies": {
+    image: "/image4.png",
+    description: "Strategic DEI consulting services helping tech companies build more inclusive workplaces through data-driven insights and actionable recommendations.",
+    href: "/work/dei-consulting"
+  },
   "Website Redesign for Hariri Institute": {
     image: "/image10.png",
     description: "End-to-end product design process for a new SaaS platform, from initial concept to final implementation, emphasizing user-centered design principles.",
     href: "/work/hariri-institute"
   },
-  "Real-Time Cryptocurrency Tracking Dashboard": {
-    image: "/image1.png",
-    description: "Modern web application development using cutting-edge technologies, delivering responsive and performant solutions for complex business needs.",
-    href: "/work/crypto-dashboard"
-  }
+ 
 }
 
 const anton = Anton({ weight: '400', subsets: ['latin'] })
