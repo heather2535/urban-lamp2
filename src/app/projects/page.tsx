@@ -246,68 +246,69 @@ export default function ProjectsPage() {
               transition={{ duration: 0.6, delay: 0.1 * index }}
               className="group"
             >
-              <div className="relative">
-                <div
-                  className={`absolute -inset-3 bg-gradient-to-r ${project.color} rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500`}
-                ></div>
-                <div className="relative bg-white rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                  {/* Project Image */}
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <ArrowUpRight className="w-4 h-4 text-gray-700" />
+              <Link
+                href={`/work/${project.id === 1 ? 'hariri-institute' :
+                      project.id === 2 ? 'als-app' :
+                      project.id === 3 ? 'dei-consulting' :
+                      project.id === 4 ? 'generative-ai-dashboard' :
+                      project.id === 5 ? 'fuse-networking' :
+                      project.id === 6 ? 'crypto-dashboard' :
+                      project.id === 7 ? 'talentora' :
+                      project.id === 8 ? 'library-platform' :
+                      project.id === 9 ? 'healthcare-platform' :
+                      project.id === 10 ? 'aventura-rendering' :
+                      project.id === 11 ? 'chaos-order' : ''}`}
+                className="block"
+              >
+                <div className="relative">
+                  <div
+                    className={`absolute -inset-3 bg-gradient-to-r ${project.color} rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500`}
+                  ></div>
+                  <div className="relative bg-white rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                    {/* Project Image */}
+                    <div className="relative h-64 overflow-hidden">
+                      <Image
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <ArrowUpRight className="w-4 h-4 text-gray-700" />
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Project Content */}
-                  <div className="p-6">
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    {/* Project Content */}
+                    <div className="p-6">
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-xl font-bold mb-3 group-hover:text-pink-600 transition-colors duration-300">
+                        {project.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-gray-600 leading-relaxed mb-4">{project.description}</p>
+
+                      <div className="inline-flex items-center text-black font-medium group-hover:text-pink-600 transition-colors duration-300">
+                        View Project
+                        <ArrowUpRight className="ml-1 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                      </div>
                     </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-pink-600 transition-colors duration-300">
-                      {project.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-gray-600 leading-relaxed mb-4">{project.description}</p>
-
-                    {/* View Project Link */}
-                    <Link
-                      href={`/work/${project.id === 1 ? 'hariri-institute' :
-                            project.id === 2 ? 'als-app' :
-                            project.id === 3 ? 'dei-consulting' :
-                            project.id === 4 ? 'generative-ai-dashboard' :
-                            project.id === 5 ? 'fuse-networking' :
-                            project.id === 6 ? 'crypto-dashboard' :
-                            project.id === 7 ? 'talentora' :
-                            project.id === 8 ? 'library-platform' :
-                            project.id === 9 ? 'healthcare-platform' :
-                            project.id === 10 ? 'aventura-rendering' :
-                            project.id === 11 ? 'chaos-order' : ''}`}
-                      className="inline-flex items-center text-black font-medium group-hover:text-pink-600 transition-colors duration-300"
-                    >
-                      View Project
-                      <ArrowUpRight className="ml-1 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                    </Link>
                   </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

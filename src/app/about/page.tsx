@@ -66,7 +66,7 @@ export default function AboutPage() {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 80])
   const y3 = useTransform(scrollYProgress, [0, 1], [0, 100])
   const y4 = useTransform(scrollYProgress, [0, 1], [0, 60])
-
+    
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16" ref={containerRef}>
       {/* Floating geometric shapes */}
@@ -317,14 +317,14 @@ export default function AboutPage() {
                 >
                   <div className="relative">
                     <div className="absolute -inset-2 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl transform -rotate-3 opacity-50"></div>
-                    <Image
+          <Image
                       className="relative w-48 h-64 object-cover rounded-xl shadow-xl cursor-grab active:cursor-grabbing border-4 border-white"
                       src="/images/image18.jpg?height=256&width=192"
                       width="192"
                       height="256"
                       alt="Design collaboration"
-                    />
-                  </div>
+          />
+        </div>
                 </motion.div>
               </div>
             </div>
@@ -502,7 +502,7 @@ export default function AboutPage() {
             </div>
           </div>
         </motion.div>
-      </div>
+        </div>
     </div>
   )
 }

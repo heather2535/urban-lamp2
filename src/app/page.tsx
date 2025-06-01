@@ -194,9 +194,9 @@ export default function Portfolio() {
                         animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
                         transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY }}
                       />
-                    </span>
-                  </h1>
-
+                </span>                         
+</h1>
+        
                   {/* Decorative line */}
                   <motion.div
                     className="absolute -bottom-4 left-0 h-1 bg-gradient-to-r from-orange-400 to-transparent"
@@ -352,8 +352,8 @@ export default function Portfolio() {
               <span className="font-medium"> user-centered solutions</span>.
             </p>
           </motion.div>
-        </div>
-
+      </div>
+      
         {/* Projects Grid */}
         <div className="container mx-auto px-6 lg:px-8">
           <div className="space-y-24">
@@ -404,7 +404,7 @@ export default function Portfolio() {
                       {tag}
                     </span>
                   ))}
-                </div>
+      </div>
 
                 <Link
                   href="/work/als-app"
@@ -496,7 +496,7 @@ export default function Portfolio() {
                 </div>
               </motion.div>
             </div>
-          </div>
+      </div>
 
           {/* View All Projects CTA */}
           <motion.div
@@ -514,7 +514,7 @@ export default function Portfolio() {
               <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
             </Link>
           </motion.div>
-        </div>
+      </div>
       </section>
     </div>
   )

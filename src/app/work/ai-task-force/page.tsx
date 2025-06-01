@@ -18,25 +18,25 @@ const project = {
     <div className="max-w-3xl mx-auto">
       <div className="grid grid-cols-3 gap-4">
         <div></div>
-        <div className="mt-4">
-          <img
-            src="/images/image30.png"
-            alt="ALS Clinical Decision Tool"
+    <div className="mt-4">
+      <img
+        src="/images/image30.png"
+        alt="ALS Clinical Decision Tool"
             className="rounded-lg shadow-md w-full max-w-sm mx-auto"
             style={{ height: "auto" }}
-          />
+      />
           <h1 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1: This is the Topic Model view of my final dashboard design.</h1>
-        </div>
-        <br></br>
-        <div className="mt-4">
-          <img
+    </div>
+    <br></br>
+  <div className="mt-4">
+      <img
             src="/images/image31.png"
-            alt="ALS Clinical Decision Tool"
+        alt="ALS Clinical Decision Tool"
             className="rounded-lg shadow-md w-full max-w-3xl"
             style={{ height: "auto" }}
-          />
+      />
           <h1 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 2: And here's the Synopsis Graph view of my final design!</h1>
-        </div>
+    </div>
         <div></div>
       </div>
     </div>
@@ -164,35 +164,35 @@ export default function CryptoDashboardPage() {
             <div className="w-full order-2 md:order-1">
               <h1 className="font-bold text-2xl md:text-[32px] mb-3 md:mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
               <h2 className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</h2>
-              <div className="flex flex-wrap gap-2">
-                {filteredProjects.map((tag, index) => (
-                  <React.Fragment key={tag}>
-                    {tag === "UI/UX" && <div className="w-full" />}
-                    <Link 
-                      href={`/projects?tag=${encodeURIComponent(tag)}`}
-                      className="no-underline"
-                    >
-                      <Badge 
-                        variant="secondary" 
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+                <div className="flex flex-wrap gap-2">
+                  {filteredProjects.map((tag, index) => (
+                    <React.Fragment key={tag}>
+                      {tag === "UI/UX" && <div className="w-full" />}
+                      <Link 
+                        href={`/projects?tag=${encodeURIComponent(tag)}`}
+                        className="no-underline"
                       >
-                        {tagIcons[tag]}
-                        {tag}
-                      </Badge>
-                    </Link>
-                  </React.Fragment>
-                ))}
+                        <Badge 
+                          variant="secondary" 
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+                        >
+                          {tagIcons[tag]}
+                          {tag}
+                        </Badge>
+                      </Link>
+                    </React.Fragment>
+                  ))}
+                </div>
               </div>
-            </div>
 
             {/* Image - Second Column */}
             <div className="w-full order-1 md:order-2">
-              <img
-                src={project.image}
-                alt="ALS Clinical Decision Tool"
-                className="w-full h-auto object-contain rounded-lg"
-              />
-            </div>
+                <img
+                  src={project.image}
+                  alt="ALS Clinical Decision Tool"
+                  className="w-full h-auto object-contain rounded-lg"
+                />
+              </div>
           </div>
         </div>
       </div>
@@ -427,28 +427,28 @@ export default function CryptoDashboardPage() {
                 <div dangerouslySetInnerHTML={{ __html: project.content }} />
               </div>
             </div>
-
+                
             {/* Bottom Back Button */}
-            <div className="mt-16 flex justify-center">
-              <Link 
-                href="/projects" 
+                <div className="mt-16 flex justify-center">
+                  <Link 
+                    href="/projects" 
                 className="inline-flex items-center gap-2 text-xs text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
-              >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
                   width="14" 
                   height="14" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <path d="M19 12H5M12 19l-7-7 7-7"/>
-                </svg>
-                Back to Projects
-              </Link>
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    >
+                      <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Projects
+                  </Link>
             </div>
           </article>
         </main>

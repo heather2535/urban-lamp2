@@ -5,8 +5,10 @@ import { Badge } from "@/components/badge"
 import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
 import Link from "next/link"  // Ensure to import Link for routing
 import { createPortal } from 'react-dom'
-import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
+import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package, ArrowLeft, ArrowUpRight, Circle, Square, Triangle, ExternalLink, ChevronRight } from "lucide-react"
 import React from 'react'
+import Image from "next/image"
+import { motion } from "framer-motion"
 
 const project = {
   title: "ALS: App in Collaboration with Boston Children's Hospital",
@@ -81,417 +83,505 @@ function Slideshow({ images, id }: { images: string[], id: string }) {
   );
 }
 
-export default function CryptoDashboardPage() {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null)
-  const [searchQuery, setSearchQuery] = useState("")
+const projectData = {
+  id: "als-app",
+  title: "ALS App Design with Boston Children's Hospital",
+  date: "December 3, 2024",
+  tags: ["Web Development", "Product Design", "UI/UX"],
+  heroImage: "/images/image19.png",
+  role: "Design Strategist, UX Researcher, UI/UX",
+  team: ["Heather Davies", "Brian Zeng", "Avdeep Kaur", "Minyang Li"],
+  duration: "Sep. 2024 - Dec. 2024 (4 mo. total)",
+  goal: "The primary goal was to create a user-friendly platform that helps ALS patients and their caregivers navigate the complex landscape of treatment options. We aimed to bridge the gap between available clinical opportunities and patient awareness, ensuring that users could easily find and understand relevant resources based on their specific needs and circumstances.",
+  solution: "We developed an intuitive web application that uses a guided, question-based interface to recommend personalized resources. The solution features a clean, accessible design that accommodates both patients and generalist clinicians, with a scalable backend that allows for easy updates to treatment information and clinical pathways.",
+  prototypeUrl: "https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default",
+  overview: "A comprehensive web application designed to provide resources and support for individuals with ALS, focusing on improved user experience and personalized treatment recommendations.",
+}
 
-  const allTags = Array.from(new Set(project.tags))
-
-  const filteredProjects = project.tags.filter((tag) => {
-    const matchesTag = selectedTag ? tag === selectedTag : true
-    const matchesSearch =
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
-    return matchesTag && matchesSearch
-  })
-
+export default function ProjectDetailPage() {
   return (
-    <div className="min-h-screen bg-transparent">
-      <Navigation />
-      
-      {/* Hero Section */}
-      <div className="relative w-full bg-white dark:bg-gray-900">
-        {/* Back Button */}
-        <div className="absolute top-24 left-0 right-0 z-10">
-          <div className="container max-w-6xl mx-auto px-4">
-            <Link 
-              href="/projects" 
-              className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+    <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+      {/* Floating geometric shapes */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <motion.div
+          className="absolute top-32 left-16 text-orange-300 opacity-15"
+          animate={{ rotate: 360, scale: [1, 1.2, 1] }}
+          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+        >
+          <Circle size={80} />
+        </motion.div>
+        <motion.div
+          className="absolute top-1/2 right-24 text-purple-300 opacity-20"
+          animate={{ rotate: -360, y: [-20, 20, -20] }}
+          transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <Square size={60} />
+        </motion.div>
+        <motion.div
+          className="absolute bottom-32 left-1/3 text-pink-300 opacity-25"
+          animate={{ rotate: 180, x: [-10, 10, -10] }}
+          transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <Triangle size={45} />
+        </motion.div>
+      </div>
+
+      {/* Enhanced Hero Section */}
+      <div className="relative overflow-hidden bg-white text-gray-900 mb-20">
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          {/* Back to Projects Button */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="pt-8 mb-12"
+          >
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-800 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-                className="text-black sm:text-white dark:sm:text-black sm:hidden"
-              >
-                <path d="M15 18l-6-6 6-6"/>
-              </svg>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="14" 
-                height="14" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-                className="hidden sm:block text-white dark:text-black"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
-              <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
+              <ArrowLeft className="w-4 h-4" />
+              Back to Projects
             </Link>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-6 items-start pb-20">
+            {/* Project Info - Left Column */}
+            <motion.div
+              className="space-y-8"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <motion.h1
+                className="text-5xl lg:text-7xl font-black tracking-tight leading-none"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <span className="inline-block">ALS App</span>{" "}
+                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">
+                  Design
+                </span>
+                <br />
+                <span className="inline-block">with Boston Children's Hospital</span>
+              </motion.h1>
+
+              <motion.p
+                className="text-xl text-gray-600 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                {projectData.overview}
+              </motion.p>
+
+              <motion.div
+                className="flex items-center gap-3 text-gray-600"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <span className="text-sm">{projectData.date}</span>
+                <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                <span className="text-sm">{projectData.duration.split("(")[0]}</span>
+              </motion.div>
+
+              {/* Tags */}
+              <motion.div
+                className="flex flex-wrap gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+              >
+                {projectData.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            {/* Hero Image - Right Column */}
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <div className="relative max-w-[800px] mx-auto">
+                <Image
+                  src={projectData.heroImage}
+                  alt="ALS App Design"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto rounded-lg shadow-xl"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
 
-        {/* Two Column Layout */}
-        <div className="container max-w-6xl mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-16 md:mt-0">
-            {/* Left Column - Text */}
-            <div className="max-w-xl order-2 md:order-1 pl-4 md:pl-0">
-              <h1 className="font-bold text-2xl md:text-[32px] mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-              <h2 className="text-gray-700 dark:text-gray-300 mb-4">{project.date}</h2>
-              <div className="flex flex-wrap gap-2">
-                {filteredProjects.map((tag, index) => (
-                  <React.Fragment key={tag}>
-                    {tag === "UI/UX" && <div className="w-full" />}
-                    <Link 
-                      href={`/projects?tag=${encodeURIComponent(tag)}`}
-                      className="no-underline"
-                    >
-                      <Badge 
-                        variant="secondary" 
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
-                      >
-                        {tagIcons[tag]}
-                        {tag}
-                      </Badge>
-                    </Link>
-                  </React.Fragment>
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <span className="text-sm text-gray-500 mb-2">Scroll to explore</span>
+          <ChevronRight className="w-5 h-5 text-gray-500 rotate-90" />
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        {/* Project Details Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+        >
+          {/* Role, Team, Duration */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">Role</h3>
+              <p className="text-gray-600">{projectData.role}</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">Team</h3>
+              <div className="space-y-1">
+                {projectData.team.map((member) => (
+                  <p key={member} className="text-gray-600 text-sm">
+                    {member}
+                  </p>
                 ))}
               </div>
             </div>
-
-            {/* Right Column - Image */}
-            <div className="relative order-1 md:order-2">
-              <img
-                src={project.image}
-                alt="ALS Clinical Decision Tool"
-                className="w-full h-auto object-contain rounded-lg"
-              />
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">Duration</h3>
+              <p className="text-gray-600">{projectData.duration}</p>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div className="w-full bg-transparent">
-        <main className="w-full">
-          <article className="prose lg:prose-xl dark:prose-invert">
-            {/* Three Columns Section */}
-            <div className="container max-w-6xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Role</h3>
-                  <div className="flex flex-col items-center gap-1">
-                    <p className="text-sm text-muted-foreground">
-                      Design Strategist, UX
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Researcher, UI/UX
-                    </p>
-                  </div>
-                </div>
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Team</h3>
-                  <div className="flex flex-col items-center gap-1">
-                    <p className="text-sm text-muted-foreground">
-                      Heather Davies
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Brian Zeng
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Avdeep Kaur
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Minyang Li
-                    </p>
-                  </div>
-                </div>
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Duration</h3>
-                  <div className="flex flex-col items-center gap-1">
-                    <p className="text-sm text-muted-foreground">
-                      Sep. 2024 - Dec. 2024
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      4 mo. total
-                    </p>
-                  </div>
-                </div>
-              </div>
+          {/* Goal and Solution */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4">Goal:</h3>
+              <p className="text-gray-700 leading-relaxed">{projectData.goal}</p>
             </div>
-
-            {/* Two Columns Section */}
-            <div className="container max-w-6xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div>
-                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
-                  <h2 className="text-gray-700 text-sm md:text-md lg:text-md dark:text-gray-300">
-                    The primary goal was to create a user-friendly platform that helps ALS patients and their caregivers navigate the complex landscape of treatment options. We aimed to bridge the gap between available clinical opportunities and patient awareness, ensuring that users could easily find and understand relevant resources based on their specific needs and circumstances.
-                  </h2>
-                </div>
-                <div>
-                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Solution:</h2>
-                  <h2 className="text-gray-700 text-sm dark:text-gray-300">
-                    We developed an intuitive web application that uses a guided, question-based interface to recommend personalized resources. The solution features a clean, accessible design that accommodates both patients and generalist clinicians, with a scalable backend that allows for easy updates to treatment information and clinical pathways.
-                  </h2>
-                </div>
-              </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-4">Solution:</h3>
+              <p className="text-gray-700 leading-relaxed">{projectData.solution}</p>
             </div>
+          </div>
+      
+          {/* Working Prototype Button */}
+          <div className="text-center">
+            <Link
+              href={projectData.prototypeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-300"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Working Prototype
+            </Link>
+          </div>
+        </motion.div>
 
-            <div className="container max-w-6xl mx-auto px-4 mt-8 flex justify-center">
-              <Link 
-                href="https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200"
-              >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="16" 
-                  height="16" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/>
-                  <line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
-                Working Prototype
-              </Link>
-            </div>
-
-            <div className="w-full bg-white dark:bg-gray-900 mt-12">
-              <div className="container max-w-6xl mx-auto px-4 py-8">
-                <div dangerouslySetInnerHTML={{ __html: project.content }} />
-                
-             
-              <div className="max-w-3xl mx-auto">
-                <h2 className="text-lg font-bold">Introduction</h2>
-               
-                <h2 className="text-sm">
+        {/* Content Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+        >
+          <div className="max-w-3xl mx-auto space-y-12">
+            {/* Introduction */}
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
+              <p className="text-gray-700 leading-relaxed">
                 People with ALS (Amyotrophic Lateral Sclerosis) face a fragmented landscape of treatment options. While numerous clinical opportunities exist, most patients are presented with only a limited selection. This web application aims to bridge that gap by providing a guided platform that recommends resources based on user input—empowering patients and non-specialist clinicians to collaboratively explore the most relevant and up-to-date ALS treatments.
-                </h2>
-                <br></br>
-                <h2 className="text-lg font-bold">Goals</h2>
-                <div id="goals-slideshow"></div>
-                <Slideshow 
-                  images={[
-                    "/images/image22.png",
-                    "/images/image23.png",
-                    "/images/image22.png"
-                  ]} 
-                  id="goals-slideshow"
-                />
-                <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1-3: Bookmarking Frames</h2>
-                <br></br>
-                <ul className="list-disc pl-8 space-y-2 text-base">
-                  <li className="relative text-sm md:text-md">
-                    <h2><strong>Support Collaborative Decision-Making:</strong> Create a tool that facilitates conversations between patients and clinicians around available treatment paths.</h2>
+              </p>
+            </div>
+
+            {/* Goals */}
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Goals</h2>
+              <div className="space-y-6">
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                  <div className="relative bg-white rounded-lg overflow-hidden shadow-lg p-6">
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700">
+                          <strong>Support Collaborative Decision-Making:</strong> Create a tool that facilitates conversations between patients and clinicians around available treatment paths.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700">
+                          <strong>Deliver Personalized Information:</strong> Recommend resources tailored to the patient's stage, symptoms, and needs.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700">
+                          <strong>Ensure Accessibility and Ease of Use:</strong> Design an intuitive experience that accommodates both patients and generalist clinicians.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700">
+                          <strong>Enable Sustainable Content Updates:</strong> Equip admins and clinic staff with a scalable backend for managing the latest resources and questions.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Process */}
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Process</h2>
+              
+              {/* UX Research & Discovery */}
+              <div className="mb-12">
+                <h3 className="text-xl font-bold text-gray-800 mb-4">1. UX Research & Discovery</h3>
+                <div className="bg-gradient-to-br from-white via-blue-50 via-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    Through interviews with ALS patients and primary care physicians, several key challenges were identified:
+                  </p>
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Patients are overwhelmed by the volume and complexity of treatment information.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Clinicians need a streamlined way to stay current with ALS developments.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Both groups desire a system that is intuitive and light on cognitive load.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Personalization and clarity are essential to build trust and usability.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* User Personas & Journey Mapping */}
+              <div className="mb-12">
+                <h3 className="text-xl font-bold text-gray-800 mb-4">2. User Personas & Journey Mapping</h3>
+                <div className="bg-gradient-to-br from-white via-blue-50 via-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    I developed distinct personas representing:
+                  </p>
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">A patient navigating treatment stages</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">A generalist clinician unfamiliar with ALS-specific options</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">An admin updating resources</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Information Architecture & Flow Design */}
+              <div className="mb-12">
+                <h3 className="text-xl font-bold text-gray-800 mb-4">3. Information Architecture & Flow Design</h3>
+                <div className="bg-gradient-to-br from-white via-blue-50 via-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+                  <p className="text-gray-700 leading-relaxed">
+                    I created a guided, question-based interface that mimics a "choose-your-own-path" conversation. User inputs dynamically steer the experience, reducing information overload and surfacing relevant recommendations in real time.
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <div className="relative group">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                    <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
+                      <Image
+                        src="/images/image3.png"
+                        alt="User Flow Chart"
+                        width={800}
+                        height={600}
+                        className="w-full h-auto"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-center text-gray-600 mt-4">Figure 1: User Flow Chart</p>
+                </div>
+              </div>
+
+              {/* Prototyping */}
+              <div className="mb-12">
+                <h3 className="text-xl font-bold text-gray-800 mb-4">4. Prototyping</h3>
+                <div className="bg-gradient-to-br from-white via-blue-50 via-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Built low-to-high fidelity prototypes that translated complex clinical decision trees into clean, usable flows.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Prototypes were iteratively tested to ensure they scaled as more branches and content were introduced.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">I used tools like Figma and Typeform to simulate branching logic, with a future transition to a React-based system in mind.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Interaction Design & Developer Handoff */}
+              <div className="mb-12">
+                <h3 className="text-xl font-bold text-gray-800 mb-4">5. Interaction Design & Developer Handoff</h3>
+                <div className="bg-gradient-to-br from-white via-blue-50 via-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    Collaborated with developers to implement accessible UI patterns, including:
+                  </p>
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">A responsive hamburger menu for simple navigation</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Bookmark features using localStorage so users can save resources without creating an account</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Visual consistency for clear affordance and reduced friction</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700">Planned future compatibility with frameworks like ReactFlow for more robust logic management.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Scalability Planning */}
+              <div className="mb-12">
+                <h3 className="text-xl font-bold text-gray-800 mb-4">6. Scalability Planning</h3>
+                <div className="bg-gradient-to-br from-white via-blue-50 via-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+                  <p className="text-gray-700 leading-relaxed">
+                    Knowing the project would eventually outgrow Typeform, I designed the interface with modularity and future extensibility in mind—supporting multimedia content, deeper branching logic, and dynamic routing.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Results */}
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Results</h2>
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Delivered a prototype-ready, scalable interface tailored to ALS patients and generalist clinicians.</span>
                   </li>
-                  <li className="relative text-sm md:text-md">
-                    <h2><strong>Deliver Personalized Information:</strong> Recommend resources tailored to the patient's stage, symptoms, and needs.</h2>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Created a structure that supports ongoing clinical updates and collaborative patient-clinician discussions.</span>
                   </li>
-                  <li className="relative text-sm md:text-md">
-                    <h2><strong>Ensure Accessibility and Ease of Use:</strong> Design an intuitive experience that accommodates both patients and generalist clinicians.</h2>
-                  </li>
-                  <li className="relative text-sm md:text-md">
-                    <h2><strong>Enable Sustainable Content Updates:</strong> Equip admins and clinic staff with a scalable backend for managing the latest resources and questions.</h2>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">Implemented progress-saving features to reduce barriers to access, especially for first-time users.</span>
                   </li>
                 </ul>
-                <br></br>
-              <div className="mt-4">
-             
+              </div>
             </div>
-            <br></br>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-              </div>
-              <br></br>
-            <h2 className="text-lg font-bold">Process</h2>
-            <br></br>
-            <h2 className="text-lg font-bold">1. UX Research & Discovery</h2>
-            <h2 className="text-sm"> Through interviews with ALS patients and primary care physicians, several key challenges were identified:</h2>
-            <ul className="list-disc pl-20  text-base">
-              <li className="relative">
-                  <h2 className="text-sm">Patients are overwhelmed by the volume and complexity of treatment information.</h2>
-                  <li className="relative">
-                    <h2 className="text-sm">Clinicians need a streamlined way to stay current with ALS developments.</h2>
+
+            {/* Tools Used */}
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Tools Used</h2>
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700"><strong>Figma</strong> – Interface design & prototyping</span>
                   </li>
-                  <li className="relative">
-                    <h2 className="text-sm">Both groups desire a system that is intuitive and light on cognitive load.</h2>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700"><strong>Typeform</strong> – Early logic simulation</span>
                   </li>
-              </li>
-              <li className="relative">
-                <h2 className="text-sm">Personalization and clarity are essential to build trust and usability.</h2>
-                </li>
-            </ul>
-            <br></br>
-    <h2 className="text-sm">These insights shaped the app's design principles: clarity, accessibility, and progressive disclosure.</h2>
-
-    
-    <br></br>
-    <h2 className="text-lg font-bold">2. User Personas & Journey Mapping</h2>
-    <h2 className="text-sm">I developed distinct personas representing:</h2>
-    <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2 className="text-sm">A patient navigating treatment stages</h2>
-          <li className="relative">
-            <h2 className="text-sm">A generalist clinician unfamiliar with ALS-specific options</h2>
-          </li>
-          <li className="relative">
-            <h2 className="text-sm">An admin updating resources</h2>
-          </li>
-      </li>
-    </ul>
-
-    <br></br>
-    <h2 className="text-sm">Journey maps helped visualize each user's emotional and informational needs throughout the experience.</h2>
-    <br></br>
-
-    <h2 className="text-lg font-bold">3. Information Architecture & Flow Design</h2>
-    <h2 className="text-sm">I created a guided, question-based interface that mimics a "choose-your-own-path" conversation. User inputs dynamically steer the experience, reducing information overload and surfacing relevant recommendations in real time.
-    </h2>
-     
-
-    <br></br>
-    <br></br>
-    <div className="mt-4">
-      <img
-        src="/images/image3.png"
-        alt="User Flow Chart"
-        className="rounded-lg shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-    </div>
-    <h2 className="text-sm"> Figure 1: User Flow Chart</h2>
-    <br></br>
-    <h2 className="text-lg font-bold">4. Prototyping</h2>
-      <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2 className="text-sm">Built low-to-high fidelity prototypes that translated complex clinical decision trees into clean, usable flows.</h2>
-          <li className="relative">
-            <h2 className="text-sm">Prototypes were iteratively tested to ensure they scaled as more branches and content were introduced.</h2>
-          </li>
-          <li className="relative">
-            <h2 className="text-sm">An admin updating resources</h2>
-            <h2 className="text-sm">I used tools like Figma and Typeform to simulate branching logic, with a future transition to a React-based system in mind.</h2>
-          </li>
-      </li>
-    </ul>
-    <br></br>
-    <h2 className="text-lg font-bold">5. Interaction Design & Developer Handoff</h2>
-    <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2 className="text-sm">Collaborated with developers to implement accessible UI patterns, including:</h2>
-        
-      <li className="relative">
-            <h2 className="text-sm">A responsive hamburger menu for simple navigation</h2>
-          </li>
-          <li className="relative">
-            <h2 className="text-sm">Bookmark features using localStorage so users can save resources without creating an account</h2>
-          </li>
-          <li className="relative">
-            <h2 className="text-sm">Visual consistency for clear affordance and reduced friction</h2>
-          </li>
-           <li className="relative">
-            <h2 className="text-sm">Planned future compatibility with frameworks like ReactFlow for more robust logic management.</h2>
-          </li>
-        
-      </li>
-    </ul>
-   <br></br>
-   <h2 className="text-lg font-bold">6. Scalability Planning</h2>
-   <h2 className="text-sm">Knowing the project would eventually outgrow Typeform, I designed the interface with modularity and future extensibility in mind—supporting multimedia content, deeper branching logic, and dynamic routing.
-   </h2>
-   <br></br>
-  <h2 className="text-lg font-bold">Results</h2>
- <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2 className="text-sm">Delivered a prototype-ready, scalable interface tailored to ALS patients and generalist clinicians.</h2>
-          <li className="relative">
-            <h2 className="text-sm">Created a structure that supports ongoing clinical updates and collaborative patient-clinician discussions.</h2>
-          </li>
-          <li className="relative">
-            <h2 className="text-sm">Implemented progress-saving features to reduce barriers to access, especially for first-time users.</h2>
-          </li>
-                </li>
-    </ul>
-    <br></br>
-
-    <h2 className="text-lg font-bold">Tools Used</h2>
-     <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2><strong>Figma</strong> – Interface design & prototyping</h2>
-          <li className="relative">
-            <h2 className="text-sm"><strong>Typeform</strong> – Early logic simulation</h2>
-          </li>
-          <li className="relative">
-            <h2 className="text-sm"><strong>Next.js</strong> – Front-end framework (planned for dynamic routing)</h2>
-          </li>
-           <li className="relative">
-            <h2 className="text-sm"><strong>ReactFlow</strong> – Future tool for custom question logic (<a href="https://reactflow.dev/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">planned</a>)</h2>
-          </li>
-          <li className="relative">
-            <h2 className="text-sm"><strong>localStorage API</strong> – Bookmarking and progress saving without account creation</h2>
-          </li>
-                </li>
-    </ul>
-    <br></br>
-    <h2 className="text-lg font-bold">Recommended Next Steps</h2>
-
-    <ol className="list-decimal pl-8 space-y-4" style={{ fontSize: "1.5em" }}>
-  
-      <li className="relative">
-        <h2 className="text-lg font-bold "><strong>Custom Logic Builder for Admins</strong></h2>
-        <ul className="list-disc pl-8 mt-2 space-y-2 text-lg">
-          <h2 className="text-sm"><li>Replace Typeform with a visual editor that allows non-technical users to create and update logic flows easily.</li></h2>
-        </ul>
-      </li>
-      <li className="relative">
-        <h2 className="text-lg font-bold mb-4"><strong>Dynamic Routing for Personalization</strong></h2>
-        <ul className="list-disc pl-8 mt-2 space-y-2 text-lg">
-          <h2 className="text-sm"><li>Use Next.js dynamic routes (e.g., [id].tsx) to generate personalized URLs that improve continuity across sessions and devices.</li></h2>
-        </ul>
-      </li>
-    </ol>
-    <br></br>
-    <div id="als-slideshow-1"></div>
-    <br></br>
-    <div className="mt-4">
-        <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">Figure 4: Researched Design System</h2>
-
-        <img
-          src="/images/image25.png"
-          alt="Low to High Fidelity Prototypes"
-          className="rounded-lg"
-          style={{ maxWidth: "100%", height: "50%" }}
-        />
-      </div>
-    
-
-
-
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700"><strong>Next.js</strong> – Front-end framework (planned for dynamic routing)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700"><strong>ReactFlow</strong> – Future tool for custom question logic (<a href="https://reactflow.dev/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">planned</a>)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700"><strong>localStorage API</strong> – Bookmarking and progress saving without account creation</span>
+                  </li>
+                </ul>
               </div>
-                
-              </div>
-              
             </div>
-            
-          </article>
-        </main>
+
+            {/* Recommended Next Steps */}
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Recommended Next Steps</h2>
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <ol className="space-y-6">
+                  <li className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-800 mb-2">Custom Logic Builder for Admins</h3>
+                      <p className="text-gray-700">Replace Typeform with a visual editor that allows non-technical users to create and update logic flows easily.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-800 mb-2">Dynamic Routing for Personalization</h3>
+                      <p className="text-gray-700">Use Next.js dynamic routes (e.g., [id].tsx) to generate personalized URLs that improve continuity across sessions and devices.</p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Navigation */}
+        <div className="flex justify-between items-center">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Projects
+          </Link>
+
+          <Link
+            href="/work/dei-consulting"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
+          >
+            Next Project
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </div>
   )

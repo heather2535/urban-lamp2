@@ -71,31 +71,31 @@ export function ProjectFilter({ tags, selectedTag, onTagSelect, onSearch }: Proj
       <div className="flex flex-col items-center gap-3">
         <div className="flex flex-wrap justify-center gap-3">
           {sortedTags.slice(0, Math.ceil(sortedTags.length / 2)).map((tag) => (
-            <motion.button
-              key={tag}
-              onClick={() => onTagSelect(selectedTag === tag ? null : tag)}
-              className={cn(
-                "group flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 transition-all",
-                selectedTag === tag || (tag === "All Projects" && !selectedTag)
+          <motion.button
+            key={tag}
+            onClick={() => onTagSelect(selectedTag === tag ? null : tag)}
+            className={cn(
+              "group flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 transition-all",
+              selectedTag === tag || (tag === "All Projects" && !selectedTag)
                   ? "border-pink-500 bg-pink-500 text-white dark:bg-pink-600 dark:border-pink-600"
                   : "border-pink-500 bg-transparent hover:bg-pink-100 dark:border-pink-500 dark:hover:bg-pink-900/30",
-              )}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span
-                className={cn(
-                  "flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full transition-colors",
-                  selectedTag === tag || (tag === "All Projects" && !selectedTag)
+            )}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <span
+              className={cn(
+                "flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full transition-colors",
+                selectedTag === tag || (tag === "All Projects" && !selectedTag)
                     ? "border-pink-500 bg-pink-500 text-white dark:bg-pink-600 dark:border-pink-600"
                     : "border-pink-500 bg-transparent text-pink-500 dark:text-pink-500 dark:hover:bg-pink-900/30",
-                )}
-              >
-                {tagIcons[tag]}
-              </span>
-              <span className="text-xs font-medium">{tag}</span>
-            </motion.button>
-          ))}
+              )}
+            >
+              {tagIcons[tag]}
+            </span>
+            <span className="text-xs font-medium">{tag}</span>
+          </motion.button>
+        ))}
         </div>
         <div className="flex flex-wrap justify-center gap-3">
           {sortedTags.slice(Math.ceil(sortedTags.length / 2)).map((tag) => (

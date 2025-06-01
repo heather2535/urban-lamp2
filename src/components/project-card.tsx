@@ -30,12 +30,12 @@ export function ProjectCard({ project }: { project: Project }) {
       {/* Image Section */}
       <Link href={project.href} className="block">
         <div className="border border-input rounded-t-lg overflow-hidden h-[200px] flex items-center justify-center">
-          <img
-            src={project.image || "/placeholder.svg"}
-            alt={project.title}
+        <img
+          src={project.image || "/placeholder.svg"}
+          alt={project.title}
             className={`object-cover w-full h-full transition-transform duration-300 ${isHovered ? "scale-110" : "scale-100"}`}
-          />
-        </div>
+        />
+      </div>
       </Link>
 
       {/* Title and Description - Linkable Content */}
@@ -62,8 +62,8 @@ export function ProjectCard({ project }: { project: Project }) {
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border-pink-200 bg-pink-100 hover:border-pink-500 hover:bg-pink-200 dark:bg-pink-900/30 dark:border-pink-800/50 dark:hover:bg-pink-900/50 dark:hover:border-pink-700 text-pink-700 dark:text-pink-100 transition-colors cursor-pointer"
                   >
                     {tagIcons[tag]}
-                    {tag}
-                  </span>
+                  {tag}
+                </span>
                 </Link>
               ))}
           </div>
@@ -78,13 +78,13 @@ export function ProjectCard({ project }: { project: Project }) {
         onClick={(e) => {
           e.stopPropagation()
           if (navigator.share) {
-            navigator.share({
-              title: project.title,
-              text: project.description,
-              url: project.href,
-            }).catch((error) => console.error("Error sharing:", error))
+        navigator.share({
+          title: project.title,
+          text: project.description,
+          url: project.href,
+        }).catch((error) => console.error("Error sharing:", error))
           } else {
-            console.log("Web Share API not supported in this browser.")
+        console.log("Web Share API not supported in this browser.")
           }
         }}
       >

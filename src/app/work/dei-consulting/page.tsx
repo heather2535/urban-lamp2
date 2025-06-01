@@ -229,7 +229,7 @@ export default function DEIConsultingPage() {
       
       {/* Hero Section */}
       <div className="relative w-full bg-white dark:bg-gray-900">
-        {/* Back Button */}
+            {/* Back Button */}
         <div className="absolute top-8 left-0 right-0 z-10">
           <div className="container max-w-6xl mx-auto px-4">
             <Link 
@@ -268,7 +268,7 @@ export default function DEIConsultingPage() {
             </Link>
           </div>
         </div>
-
+        
         {/* Two Column Layout */}
         <div className="container max-w-6xl mx-auto px-4 py-8 md:py-16 mt-16">
           <div className="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 items-center">
@@ -293,7 +293,7 @@ export default function DEIConsultingPage() {
                   </Link>
                 ))}
               </div>
-            </div>
+              </div>
 
             {/* Image - Second Column */}
             <div className="w-full order-1 md:order-2 md:col-span-8">
@@ -305,35 +305,35 @@ export default function DEIConsultingPage() {
               />
             </div>
           </div>
-        </div>
-      </div>
+            </div>
+          </div>
 
       <div className="w-full bg-transparent">
         <main className="w-full">
           <article className="prose lg:prose-xl dark:prose-invert">
-            {/* Three Columns Section */}
+          {/* Three Columns Section */}
             <div className="container max-w-6xl mx-auto px-4 flex justify-center">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4 max-w-4xl">
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Role</h3>
+              <div className="p-4 rounded-lg text-center">
+                <h3 className="font-bold text-lg mb-2">Role</h3>
                   <h3 className="text-sm text-muted-foreground">
                     DEI Consultant
                   </h3>
                   <h3 className="text-sm text-muted-foreground">
                     Strategy Lead
                   </h3>
-                </div>
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Team</h3>
+              </div>
+              <div className="p-4 rounded-lg text-center">
+                <h3 className="font-bold text-lg mb-2">Team</h3>
                   <h3 className="text-sm text-muted-foreground">
                     Heather Davies
                   </h3>
                   <h3 className="text-sm text-muted-foreground">
                     Solo Project
                   </h3>
-                </div>
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Duration</h3>
+              </div>
+              <div className="p-4 rounded-lg text-center">
+                <h3 className="font-bold text-lg mb-2">Duration</h3>
                   <h3 className="text-sm text-muted-foreground">
                     Jan. 15 '24 - Present
                   </h3>
@@ -343,7 +343,7 @@ export default function DEIConsultingPage() {
                 </div>
               </div>
             </div>
-
+            
             {/* Two Columns Section */}
             <div className="container max-w-7xl mx-auto px-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
@@ -391,24 +391,24 @@ export default function DEIConsultingPage() {
 
             <div className="w-full bg-white dark:bg-gray-900 mt-12">
               <div className="container max-w-3xl mx-auto px-4 py-8">
-                <div dangerouslySetInnerHTML={{ __html: project.content }} />
-                
-                {/* Bottom Back Button */}
-                <div className="mt-16 flex justify-center">
-                  <Link 
-                    href="/projects" 
+          <div dangerouslySetInnerHTML={{ __html: project.content }} />
+
+          {/* Bottom Back Button */}
+          <div className="mt-16 flex justify-center">
+            <Link 
+              href="/projects" 
                     className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
-                  >
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      width="24" 
-                      height="24" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
                       className="text-black sm:text-white dark:sm:text-black sm:hidden"
                     >
                       <path d="M15 18l-6-6 6-6"/>
@@ -424,16 +424,16 @@ export default function DEIConsultingPage() {
                       strokeLinecap="round" 
                       strokeLinejoin="round"
                       className="hidden sm:block text-white dark:text-black"
-                    >
-                      <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
+              >
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
                     <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
-                  </Link>
+            </Link>
                 </div>
               </div>
-            </div>
-          </article>
-        </main>
+          </div>
+        </article>
+      </main>
       </div>
     </div>
   )

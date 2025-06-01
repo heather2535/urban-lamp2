@@ -1,575 +1,652 @@
-"use client";
-import * as React from "react"
-import { useState, useEffect } from "react"
-import Navigation from "@/components/navigation"
-import { Badge } from "@/components/badge"
-import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
-import Link from "next/link"  // Ensure to import Link for routing
-import { createPortal } from 'react-dom'
-import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
+"use client"
+import Image from "next/image"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { ArrowLeft, ArrowUpRight, Circle, Square, Triangle, ExternalLink, ChevronRight } from "lucide-react"
+import { useState } from "react"
 
-const project = {
-  title: "Website Redesign for\n Hariri Institute",
+// Mock project data - in a real app, this would come from a database or API
+const projectData = {
+  id: "hariri-institute",
+  title: "Website Redesign for Hariri Institute",
   date: "September 3, 2024",
-  image: "/image15.png",
-  content: `
-
-  
-  
-    
-   
-
-
-     
-
-      
-
- 
-    
-   
-    
-
-  
-
-    <br></br>
-    
-  `,
-  tags: [ "Web Development", "UX Research"],
-  }
-  
-
-function Slideshow({ images, id }: { images: string[], id: string }) {
-  const [index, setIndex] = useState(0);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const prev = () => setIndex((i) => (i === 0 ? images.length - 1 : i - 1));
-  const next = () => setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
-
-  if (!mounted) return null;
-
-  const container = document.getElementById(id);
-  if (!container) return null;
-
-  return createPortal(
-    <div className="mt-4 flex flex-col items-center">
-      <div className="w-full h-[400px] flex items-center justify-center">
-        <img
-          src={images[index]}
-          alt={`ALS Clinical Decision Tool Design ${index + 1}`}
-          className="rounded-lg object-contain max-h-full w-auto"
-          style={{ maxWidth: "100%" }}
-        />
-      </div>
-      <div className="mt-4 flex items-center gap-4">
-        <button 
-          onClick={prev} 
-          className="w-12 h-12 rounded-full bg-black hover:bg-gray-800 text-white flex items-center justify-center transition-all duration-200"
-        >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          >
-            <path d="M15 18l-6-6 6-6"/>
-          </svg>
-        </button>
-        <span className="text-sm text-gray-600 dark:text-gray-400">{index + 1} / {images.length}</span>
-        <button 
-          onClick={next} 
-          className="w-12 h-12 rounded-full bg-black hover:bg-gray-800 text-white flex items-center justify-center transition-all duration-200"
-        >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          >
-            <path d="M9 18l6-6-6-6"/>
-          </svg>
-        </button>
-      </div>
-    </div>,
-    container
-  );
+  tags: ["Web Development", "UX Research"],
+  heroImage: "/image15.png",
+  mobileImage: "/placeholder.svg?height=600&width=300",
+  tabletImage: "/placeholder.svg?height=500&width=400",
+  additionalImages: ["/images/image8.png", "/images/image9.png", "/images/image10.png"],
+  role: "Design Strategist, UX Researcher, UI/UX",
+  team: ["Heather Davies", "Brian Zeng", "Avdeep Kaur", "Minyang Li"],
+  duration: "Sep. 2024 - Dec. 2024 (4 mo. total)",
+  goal: "The primary goal was to modernize and simplify the Hariri Institute website while aligning with Boston University's Office of Research visual standards. We aimed to improve user experience for both internal and external audiences while ensuring the site could be easily maintained by non-technical staff.",
+  solution:
+    "We developed a modern, accessible website that balances institutional branding with Hariri's interdisciplinary identity. The solution features a clean design system with reusable components, improved content discoverability, and a streamlined CMS for easy content management.",
+  prototypeUrl: "https://www.bu.edu/hic/",
+  scopeImages: [
+    "/images/image11.png",
+    "/placeholder.svg?height=400&width=300",
+    "/placeholder.svg?height=400&width=300",
+  ],
+  architectureImage: "/image12.png",
+  clientLogo: "/placeholder.svg?height=100&width=200",
+  overview:
+    "A comprehensive redesign of the Hariri Institute's digital presence, focusing on improved user experience, content organization, and visual identity that reflects their position as a leader in computational research.",
 }
 
-// Define tagIcons with explicit typing for keys
-const tagIcons: Record<string, React.ReactElement> = {
-  "All Projects": <Folder className="h-3 w-3" />,
-  "3D Design": <Grid className="h-3 w-3" />,
-  "AI Integration": <Cpu className="h-3 w-3" />,
-  "Branding": <Tag className="h-3 w-3" />,
-  "Data Vis": <BarChart className="h-3 w-3" />,
-  "Graphic Design": <Palette className="h-3 w-3" />,
-  "UI/UX": <Layers className="h-3 w-3" />,
-  "UI/UX Design": <Layout className="h-3 w-3" />,
-  "Product Design": <Package className="h-3 w-3" />,
-  "Web Development": <Code className="h-3 w-3" />,
-}
-
-export default function CryptoDashboardPage() {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null)
-  const [searchQuery, setSearchQuery] = useState("")
-
-  const allTags = Array.from(new Set(project.tags))
-
-  const filteredProjects = project.tags.filter((tag) => {
-    const matchesTag = selectedTag ? tag === selectedTag : true
-    const matchesSearch =
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
-    return matchesTag && matchesSearch
-  })
+export default function ProjectDetailPage({ params }: { params: { id: string } }) {
+  const [activeImage, setActiveImage] = useState(0)
+  const images = [projectData.heroImage, ...projectData.additionalImages]
 
   return (
-    <div className="min-h-screen bg-transparent">
-      <Navigation />
-      
-      {/* Hero Section */}
-      <div className="relative w-full bg-white dark:bg-gray-900">
-        {/* Top Back Button */}
-        <div className="absolute top-24 left-0 right-0 z-10">
-          <div className="container max-w-6xl mx-auto px-4">
-            <Link 
-              href="/projects" 
-              className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+    <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+      {/* Floating geometric shapes */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <motion.div
+          className="absolute top-32 left-16 text-orange-300 opacity-15"
+          animate={{ rotate: 360, scale: [1, 1.2, 1] }}
+          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+        >
+          <Circle size={80} />
+        </motion.div>
+        <motion.div
+          className="absolute top-1/2 right-24 text-purple-300 opacity-20"
+          animate={{ rotate: -360, y: [-20, 20, -20] }}
+          transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <Square size={60} />
+        </motion.div>
+        <motion.div
+          className="absolute bottom-32 left-1/3 text-pink-300 opacity-25"
+          animate={{ rotate: 180, x: [-10, 10, -10] }}
+          transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <Triangle size={45} />
+        </motion.div>
+        </div>
+
+      {/* Enhanced Hero Section */}
+      <div className="relative overflow-hidden bg-white text-gray-900 mb-20">
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          {/* Back to Projects Button */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="pt-8 mb-12"
+          >
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-800 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-                className="text-black sm:text-white dark:sm:text-black sm:hidden"
-              >
-                <path d="M15 18l-6-6 6-6"/>
-              </svg>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="14" 
-                height="14" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-                className="hidden sm:block text-white dark:text-black"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
-              <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
+              <ArrowLeft className="w-4 h-4" />
+              Back to Projects
             </Link>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-6 items-start pb-20">
+            {/* Project Info - Left Column */}
+            <motion.div
+              className="space-y-8"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <motion.h1
+                className="text-5xl lg:text-7xl font-black tracking-tight leading-none"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <span className="inline-block">Website</span>{" "}
+                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">
+                  Redesign
+                </span>
+                <br />
+                <span className="inline-block">for Hariri Institute</span>
+              </motion.h1>
+
+              <motion.p
+                className="text-xl text-gray-600 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                {projectData.overview}
+              </motion.p>
+
+              <motion.div
+                className="flex items-center gap-3 text-gray-600"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <span className="text-sm">September 3, 2024</span>
+                <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                <span className="text-sm">{projectData.duration.split("(")[0]}</span>
+              </motion.div>
+
+              {/* Tags */}
+              <motion.div
+                className="flex flex-wrap gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+              >
+                {projectData.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            {/* Hero Image - Right Column */}
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <div className="relative max-w-[640px] mx-auto">
+                <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
+                <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
+                  <Image
+                    src="/images/image55.png"
+                    alt="Desktop preview"
+                    width={640}
+                    height={480}
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
 
-        {/* Three Column Layout */}
-        <div className="container max-w-7xl mx-auto px-4 py-24">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center mt-16 md:mt-0">
-            {/* Left Column - Text */}
-            <div className="md:col-span-1 order-2 md:order-1">
-              <Link href="https://se-bch-als-resource-app-y3wu-pmgqv0yae-cs519team.vercel.app/bookmarks/default" className="no-underline">
-                <div className="max-w-xl pl-4 md:pl-0">
-                <h1 className="font-bold text-2xl md:text-[40px] mb-6 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-                  <h2 className="text-gray-700 dark:text-gray-300 mb-6 text-lg">{project.date}</h2>
-                  <div className="flex flex-wrap gap-2">
-                    {filteredProjects.map((tag, index) => (
-                      <React.Fragment key={tag}>
-                        {tag === "UI/UX" && <div className="w-full" />}
-                        <Link 
-                          href={`/projects?tag=${encodeURIComponent(tag)}`}
-                          className="no-underline"
-                        >
-                          <Badge 
-                            variant="secondary" 
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border-pink-200 bg-pink-100 hover:border-pink-500 hover:bg-pink-200 dark:bg-pink-900/30 dark:border-pink-800/50 dark:hover:bg-pink-900/50 dark:hover:border-pink-700 text-pink-700 dark:text-pink-100 transition-colors cursor-pointer"
-                          >
-                            {tagIcons[tag]}
-                            {tag}
-                          </Badge>
-                        </Link>
-                      </React.Fragment>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            </div>
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <span className="text-sm text-gray-500 mb-2">Scroll to explore</span>
+          <ChevronRight className="w-5 h-5 text-gray-500 rotate-90" />
+        </motion.div>
+      </div>
 
-            {/* Right Column - Image */}
-            <div className="md:col-span-2 order-1 md:order-2">
-              <Link href="/work/als-app" className="no-underline">
-                <div className="relative">
-                  <img
-                    src={project.image}
-                    alt="ALS Clinical Decision Tool"
-                    className="w-full h-auto object-contain"
-                    style={{ maxWidth: "100%", height: "auto" }}
-                  />
-                </div>
-              </Link>
-            </div>
-          </div>
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        {/* Project Details Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+        >
+          {/* Role, Team, Duration */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">Role</h3>
+              <p className="text-gray-600">{projectData.role}</p>
+    </div>
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">Team</h3>
+              <div className="space-y-1">
+                {projectData.team.map((member) => (
+                  <p key={member} className="text-gray-600 text-sm">
+                    {member}
+                  </p>
+                ))}
+    </div>
+        </div>
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">Duration</h3>
+              <p className="text-gray-600">{projectData.duration}</p>
         </div>
       </div>
 
-      <div className="w-full bg-transparent">
-        <main className="w-full">
-          <article className="prose lg:prose-xl dark:prose-invert">
-            {/* Three Columns Section */}
-            <div className="container max-w-6xl mx-auto px-4 flex justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 max-w-4xl">
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Role</h3>
-                  <div className="flex flex-col items-center gap-1">
-                    <p className="text-sm text-muted-foreground">
-                      Design Strategist, UX
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Researcher, UI/UX
-                    </p>
-                  </div>
-                </div>
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Team</h3>
-                  <div className="flex flex-col items-center gap-1">
-                    <p className="text-sm text-muted-foreground">
-                      Heather Davies
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Brian Zeng
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Avdeep Kaur
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Minyang Li
-                    </p>
-                  </div>
-                </div>
-                <div className="p-4 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">Duration</h3>
-                  <div className="flex flex-col items-center gap-1">
-                    <p className="text-sm text-muted-foreground">
-                      Sep. 2024 - Dec. 2024
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      4 mo. total
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Two Columns Section */}
-            <div className="container max-w-6xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div>
-                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
-                  <h2 className="text-gray-700 text-sm dark:text-gray-300">
-                    The primary goal was to modernize and simplify the Hariri Institute website while aligning with Boston University's Office of Research visual standards. We aimed to improve user experience for both internal and external audiences while ensuring the site could be easily maintained by non-technical staff.
-                  </h2>
-                </div>
-                <div>
-                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Solution:</h2>
-                  <h2 className="text-gray-700 text-sm dark:text-gray-300">
-                    We developed a modern, accessible website that balances institutional branding with Hariri's interdisciplinary identity. The solution features a clean design system with reusable components, improved content discoverability, and a streamlined CMS for easy content management.
-                  </h2>
-                </div>
-              </div>
-
-              {/* Working Prototype Button */}
-              <div className="flex justify-center mt-12">
-                <a 
-                  href="https://www.bu.edu/hic/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200"
-                >
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    width="16" 
-                    height="16" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                    <polyline points="15 3 21 3 21 9"/>
-                    <line x1="10" y1="14" x2="21" y2="3"/>
-                  </svg>
-                  Working Prototype
-                </a>
-              </div>
-              
-            </div>
-            
-
-            <div className="w-full bg-white dark:bg-gray-900 mt-12">
-              <div className="container max-w-3xl mx-auto px-4 py-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">Project Scope</h2>
-              <h2 className="text-left text-sm md:text-md lg:text-md">
-              To redesign and redevelop the website for the Boston University Hariri Institute an organization comprised of BU faculty and graduate students across disciplines to study and design intelligent systems. Hariri Institute researchers develop solutions in the areas of Automation, Robotics & Control, Computational Biology & Medicine, Cyber-Physical Systems, Data Analytics, Energy Systems, Information Sources, and Networks.
-              </h2>
-          <br></br>
-          <h2 className="text-left text-sm md:text-md lg:text-md">
-          The goals of the website redesign are to: 
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          {/* Goal and Solution */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-8">
             <div>
-              <ul className="list-disc pl-20 space-y-2 text-base">
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Develop a holistic architecture and modern UX experience that showcases the Hariri Institute's mission, research, collaborations, news, events, and facult profiles.</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Develop a new Events Calendar that better showcases important events, enables event categoriszation, and provides for a more streamlined editing process.</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Highlight and promote Hariri Institute's interdiscplinary research, collaboration, and events such as the Tsai Seminars that bring exposure from outside BU.</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Create a visual design for the website that focuses on engagement and education and is more in-line stylistically with the institute's new branding identity.</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Create landing page and other specialty page designs that automate the display of cross-promotional content.</h2>  
-                </li>
-              </ul>
-            </div>
+              <h3 className="text-2xl font-bold mb-4">Goal:</h3>
+              <p className="text-gray-700 leading-relaxed">{projectData.goal}</p>
+    </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-4">Solution:</h3>
+              <p className="text-gray-700 leading-relaxed">{projectData.solution}</p>
+    </div>
+    </div>
+      
+          {/* Working Prototype Button */}
+          <div className="text-center">
+            <Link
+              href={projectData.prototypeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-300"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Working Prototype
+            </Link>
+          </div>
+        </motion.div>
 
-            <div className="flex items-center justify-center">
-              <img
-                src="/images/image11.png"
-                alt="Hariri Institute Website Overview"
-                className="rounded-lg w-3/4 h-auto object-contain"
-                style={{ maxWidth: "300px", height: "auto" }}
-              />
+        {/* Project Scope Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">Project Scope</h2>
+
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-8 space-y-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                To redesign and redevelop the website for the Boston University Hariri Institute an organization
+                comprised of BU faculty and graduate students across disciplines to study and design intelligent
+                systems. Hariri Institute researchers develop solutions in the areas of Automation, Robotics & Control,
+                Computational Biology & Medicine, Cyber-Physical Systems, Data Analytics, Energy Systems, Information
+                Sources, and Networks.
+              </p>
+
+              <div className="space-y-6">
+                <h3 className="text-xl font-bold">The goals of the website redesign were to:</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">
+                      Develop a holistic architecture and modern UX experience that showcases the Hariri Institute's
+                      mission, research, collaborations, news, events, and faculty profiles.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">
+                      Develop a new Events Calendar that better showcases important events, enables event
+                      categorization, and provides for a more streamlined editing process.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">
+                      Highlight and promote Hariri Institute's interdisciplinary research, collaboration, and events
+                      such as the Tsai Seminars that bring exposure from outside BU.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">
+                      Create a visual design for the website that focuses on engagement and education and is more
+                      in-line stylistically with the institute's new branding identity.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700">
+                      Create landing page and other specialty page designs that automate the display of
+                      cross-promotional content.
+                    </span>
+                  </li>
+                </ul>
+      </div>
+          </div>
+
+            <div className="lg:col-span-4">
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/image11.png"
+                    alt="Hariri Institute Website Overview"
+                    width={300}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-          <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Process</h2>
-            <h2 className="text-1xl font-bold mb-2 text-gray-900 dark:text-white">Website Design and Development</h2>
-            <h2 className="text-left text-sm md:text-md lg:text-md">All website design projects undertaken are divided into five stages: 1. Assess 2. Design 3. Develop 4. Produce and 5. Refine.</h2>  
-          <br></br>
-          <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Assess</h2>
-          <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
-            <h2 className="text-left text-sm md:text-md lg:text-md">During the Assessment stage, I collaborated with the Hariri Institute to identity project goals and organize new and existing information. User experience, business rules, functional requirements, and information architecture are then defined, documented, and submitted to the client for review.</h2>  
+        </motion.div>
+
+        {/* Process Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+        >
+          <h2 className="text-3xl lg:text-4xl font-bold mb-8">Process</h2>
+
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">Website Design and Development</h3>
+              <p className="text-gray-700 leading-relaxed">
+                All website design projects undertaken are divided into five stages: 1. Assess 2. Design 3. Develop 4.
+                Produce and 5. Refine.
+              </p>
+            </div>
           </div>
-            <br></br>
-            <h2 className="text-1xl font-bold mb-2 text-gray-900 dark:text-white">Site and User Exeperience Review</h2>
-            <h2 className="text-left text-sm md:text-md lg:text-md">An initial review of the Hariri Institute website was conducted to identity issues relating to the current user experience. I then analyzed available site traffic data to determine how current users navigate the site and identify any technological or user interface roadblocks. Additionally, I reviewed site structure to identify where layout changes could benefit the target user experience.</h2>  
-            <br></br>
-            <h2 className="text-1xl font-bold mb-2 text-gray-900 dark:text-white">Target-User Experience Development</h2>
-            <h2 className="text-left text-sm md:text-md lg:text-md">I worked with the Hariri Institute to define the user audiences it seeked to retain and attract, which informs website user scenarios that are key to developing the site's architecture and content flows. This will include a review of Hariri's social media channels and how best to leverage them on the website.</h2>  
-            <br></br>
-            <h2 className="text-1xl font-bold mb-2 text-gray-900 dark:text-white">Functional and Technical Requirements</h2>
-            <h2 className="text-left text-sm md:text-md lg:text-md">I define any new requirements for the WordPress content management system (CMS) and plugins and work within BU's Information Technology department for the implementation/approval of new plugins. Options for specialty pages or any content that requires additional design or programming, will also be defined. After specific content types and pages are defined, I created wireframes of the site's architecture and content flows. Key engagements or complicated user interactions may be prototyped to ensure usability. </h2>  
-            <br></br>
-            <h2 className="text-left text-sm md:text-md lg:text-md">The results of this stage inform Design, Development, and Production, and provide an outline for content development and technology selection.</h2>  
-            <br></br>
-            <div className="mt-4">
-            <img
-              src="/image12.png"
-              alt="User Flow Chart"
-              className="rounded-sm "
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-            </div>
-            <h2 className="text-center text-sm md:text-md lg:text-md"> Figure 1: Site Architecture</h2>
-            <br></br>
-            
-            <h2 className="text-1xl font-bold mb-2 text-gray-900 font-bold">1. Research & Discovery</h2>
-            <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
-              <ul className="list-disc pl-20 space-y-2 text-base">
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Conducted a full audit of the existing site to identify UX bottlenecks.</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Held stakeholder interviews with the Communications Manager, Director of Operations, and faculty to understand communication priorities.</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Mapped current pain points: difficulty navigating archived content, manual updates, and low visibility of research.</h2>
-                </li>
-              </ul>
-            </div>
-            <br></br>
+        </motion.div>
 
-            <h2 className="text-1xl mb-2 text-gray-900 font-bold">2. UX & Information Architecture</h2>
-            <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
-              <ul className="list-disc pl-20 space-y-4 text-base">
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Developed new site architecture and user flows prioritizing simplicity and clarity.</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Created personas for key audiences (faculty, students, donors, external partners).</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Conducted informal usability testing using click-through Figma prototypes to validate navigation patterns and hierarchy.</h2>
-                </li>
-              </ul>
-            </div>
-            <br></br>
+        {/* Assessment Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <h2 className="text-3xl lg:text-4xl font-bold mb-8">Assess</h2>
 
-            <h2 className="text-1xl mb-2 text-gray-900 font-bold">3. Design System & Prototyping</h2>
-            <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
-              <ul className="list-disc pl-20 text-base">
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Created low-to-high fidelity prototypes in Figma.</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Designed reusable components (expandable bios, research highlights, event cards, FAQ accordions).</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Focused on mobile responsiveness and accessibility from the outset.</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Designed scalable, modular components to support various content types and future growth.</h2>
-                </li>
-              </ul>
+          <div className="space-y-8">
+            <div className="bg-gradient-to-br from-white via-blue-50 via-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+              <p className="text-gray-700 leading-relaxed mb-6">
+                During the Assessment stage, I collaborated with the Hariri Institute to identify project goals and
+                organize new and existing information. User experience, business rules, functional requirements, and
+                information architecture are then defined, documented, and submitted to the client for review.
+              </p>
             </div>
-            <br></br>
 
-            <h2 className="text-1xl mb-2 text-gray-900 font-bold">4. Visual Identity & Customization</h2>
-            <div className="bg-gradient-to-br from-white via-[#e6f0ff] via-[#d4e4ff] via-[#f0e6ff] to-[#f5f0ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:via-[#1a2a3a] dark:to-[#1a1a2e] p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
-              <ul className="list-disc pl-20 space-y-4 text-base">
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Used BU's Office of Research theme as a foundation.</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Introduced visual patterns unique to Hariri (custom hero modules, grid layouts, dynamic galleries).</h2>
-                </li>
-                <li className="relative">
-                  <h2 className="text-left text-sm md:text-md lg:text-md">Balanced institutional branding with Hariri's interdisciplinary identity.</h2>
-                </li>
-              </ul>
+            <div className="grid lg:grid-cols-2 gap-8">
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 className="text-xl font-bold mb-4">Site and User Experience Review</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  An initial review of the Hariri Institute website was conducted to identify issues relating to the
+                  current user experience. I then analyzed available site traffic data to determine how current users
+                  navigate the site and identify any technological or user interface roadblocks. Additionally, I
+                  reviewed site structure to identify where layout changes could benefit the target user experience.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 className="text-xl font-bold mb-4">Target-User Experience Development</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  I worked with the Hariri Institute to define the user audiences it seeked to retain and attract, which
+                  informs website user scenarios that are key to developing the site's architecture and content flows.
+                  This will include a review of Hariri's social media channels and how best to leverage them on the
+                  website.
+                </p>
+              </div>
             </div>
-            
-            <div id="visual-identity-slideshow" className="mt-4">
-              <Slideshow 
-                images={[
-                  "/images/image8.png",
-                  "/images/image9.png",
-                  "/images/image10.png"
-                ]} 
-                id="visual-identity-slideshow"
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-xl font-bold mb-4">Functional and Technical Requirements</h3>
+              <p className="text-gray-700 leading-relaxed">
+                I define any new requirements for the WordPress content management system (CMS) and plugins and work
+                within BU's Information Technology department for the implementation/approval of new plugins. Options
+                for specialty pages or any content that requires additional design or programming, will also be defined.
+                After specific content types and pages are defined, I created wireframes of the site's architecture and
+                content flows. Key engagements or complicated user interactions may be prototyped to ensure usability.
+              </p>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                The results of this stage inform Design, Development, and Production, and provide an outline for content
+                development and technology selection.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Site Architecture */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">Site Architecture</h2>
+
+          <div className="relative group">
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-100 to-purple-100 rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500"></div>
+            <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl p-8">
+              <Image
+                src={projectData.architectureImage || "/placeholder.svg"}
+                alt="Site Architecture Diagram"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover"
               />
+              <p className="text-center text-gray-600 mt-4 font-medium">Figure 1: Site Architecture</p>
             </div>
-            <h2 className="text-center text-sm md:text-md lg:text-md">Figure 3: Design System and Visual Identity Concepts</h2>
-            <br></br>
-            <div className="mt-4">
-         
-        </div>
+          </div>
+        </motion.div>
 
-        <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Results</h2> 
-          <ul className="list-disc pl-20  text-base">
-              <li className="relative">
-                <h2 className="text-left text-sm md:text-md lg:text-md">Successfully launched a redesigned, responsive website with improved UX and content discoverability.</h2>
-                  </li>
-                  <li className="relative">
-                    <h2 className="text-left text-sm md:text-md lg:text-md">Internal teams now have tools to maintain up-to-date, relevant content with ease.</h2>
-                  </li>
-                  <li className="relative">
-                    <h2 className="text-left text-sm md:text-md lg:text-md">External users can explore Hariri's projects, events, and people more intuitively.</h2>
+        {/* Design Process Sections */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="space-y-12 mb-20"
+        >
+          {/* Research & Discovery */}
+          <div>
+            <h2 className="text-2xl font-bold mb-6">1. Research & Discovery</h2>
+            <div className="bg-gradient-to-br from-white via-blue-50 via-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">
+                    Conducted a full audit of the existing site to identify UX bottlenecks.
+                  </span>
                 </li>
-                <li className="relative">
-                    <h2 className="text-left text-sm md:text-md lg:text-md">The design reflects Hariri's leadership in computational research while remaining accessible to a general audience.</h2>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">
+                    Held stakeholder interviews with the Communications Manager, Director of Operations, and faculty to
+                    understand communication priorities.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">
+                    Mapped current pain points: difficulty navigating archived content, manual updates, and low
+                    visibility of research.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* UX & Information Architecture */}
+          <div>
+            <h2 className="text-2xl font-bold mb-6">2. UX & Information Architecture</h2>
+            <div className="bg-gradient-to-br from-white via-blue-50 via-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">
+                    Developed new site architecture and user flows prioritizing simplicity and clarity.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">
+                    Created personas for key audiences (faculty, students, donors, external partners).
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">
+                    Conducted informal usability testing using click-through Figma prototypes to validate navigation
+                    patterns and hierarchy.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Design System & Prototyping */}
+          <div>
+            <h2 className="text-2xl font-bold mb-6">3. Design System & Prototyping</h2>
+            <div className="bg-gradient-to-br from-white via-blue-50 via-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Created low-to-high fidelity prototypes in Figma.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">
+                    Designed reusable components (expandable bios, research highlights, event cards, FAQ accordions).
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">
+                    Focused on mobile responsiveness and accessibility from the outset.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">
+                    Designed scalable, modular components to support various content types and future growth.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Visual Identity & Customization */}
+          <div>
+            <h2 className="text-2xl font-bold mb-6">4. Visual Identity & Customization</h2>
+            <div className="bg-gradient-to-br from-white via-blue-50 via-indigo-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">Used BU's Office of Research theme as a foundation.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">
+                    Introduced visual patterns unique to Hariri (custom hero modules, grid layouts, dynamic galleries).
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700">
+                    Balanced institutional branding with Hariri's interdisciplinary identity.
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Design System Images */}
+            <div className="mt-8 grid md:grid-cols-3 gap-6">
+              {["/images/image8.png", "/images/image9.png", "/images/image10.png"].map((image, index) => (
+                <div key={index} className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                  <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
+                    <Image
+                      src={image || "/placeholder.svg"}
+                      alt={`Design System Concept ${index + 1}`}
+                      width={300}
+                      height={200}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-center text-gray-600 mt-4 font-medium">
+              Figure 3: Design System and Visual Identity Concepts
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Results & Tools */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="grid lg:grid-cols-2 gap-12 mb-20"
+        >
+          {/* Results */}
+          <div className="bg-white rounded-3xl p-8 shadow-lg">
+            <h2 className="text-3xl font-bold mb-8">Results</h2>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700">
+                  Successfully launched a redesigned, responsive website with improved UX and content discoverability.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700">
+                  Internal teams now have tools to maintain up-to-date, relevant content with ease.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700">
+                  External users can explore Hariri's projects, events, and people more intuitively.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700">
+                  The design reflects Hariri's leadership in computational research while remaining accessible to a
+                  general audience.
+                </span>
               </li>
             </ul>
-            <br></br>
-
-            <h2 className="text-2xl 2em; font-bold">Tools Used</h2>
-        <ul className="list-disc pl-20 space-y-4 text-base">
-          <li className="relative">
-            <h2 className="text-left text-sm md:text-md lg:text-md">Figma</h2>
-              <li className="relative">
-                <h2 className="text-left text-sm md:text-md lg:text-md">Miro</h2>
-                <h2 className="text-left text-sm md:text-md lg:text-md">Site mapping and user journey diagrams</h2>
-              </li>
-              <li className="relative">
-                <h2 className="text-left text-sm md:text-md lg:text-md">Zoom & Google Meet</h2>
-                <h2 className="text-left text-sm md:text-md lg:text-md">Stakeholder interviews and feedback sessions</h2>
-              </li>
-               <li className="relative">
-                <h2 className="text-left text-sm md:text-md lg:text-md">Google Drive</h2>
-                <h2 className="text-left text-sm md:text-md lg:text-md">Collaborative documentation and UI handoff</h2>
-              </li>
-              <li className="relative">
-                <h2 className="text-left text-sm md:text-md lg:text-md">Boston University CMS</h2>
-                <h2 className="text-left text-sm md:text-md lg:text-md">Implementation with developer guidance</h2>
-              </li>
-              
-        </li>
-      </ul>
-
-
-            
-            <br></br>
-
-          
-            
-                    <div dangerouslySetInnerHTML={{ __html: project.content }} />
-                    
-                    {/* Bottom Back Button */}
-                    <div className="mt-16 flex justify-center">
-                      <Link 
-                        href="/projects" 
-                        className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
-                      >
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          width="24" 
-                          height="24" 
-                          viewBox="0 0 24 24" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          strokeWidth="2" 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round"
-                          className="text-black sm:text-white dark:sm:text-black sm:hidden"
-                        >
-                          <path d="M15 18l-6-6 6-6"/>
-                        </svg>
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          width="14" 
-                          height="14" 
-                          viewBox="0 0 24 24" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          strokeWidth="2" 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round"
-                          className="hidden sm:block text-white dark:text-black"
-                        >
-                          <path d="M19 12H5M12 19l-7-7 7-7"/>
-                        </svg>
-                        <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </main>
           </div>
+
+          {/* Tools Used */}
+          <div className="bg-white rounded-3xl p-8 shadow-lg">
+            <h2 className="text-3xl font-bold mb-8">Tools Used</h2>
+            <div className="space-y-6">
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Figma</h4>
+                <p className="text-sm text-gray-600">Design and prototyping</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Miro</h4>
+                <p className="text-sm text-gray-600">Site mapping and user journey diagrams</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Zoom & Google Meet</h4>
+                <p className="text-sm text-gray-600">Stakeholder interviews and feedback sessions</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Google Drive</h4>
+                <p className="text-sm text-gray-600">Collaborative documentation and UI handoff</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Boston University CMS</h4>
+                <p className="text-sm text-gray-600">Implementation with developer guidance</p>
+            </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Navigation */}
+        <div className="flex justify-between items-center">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Projects
+          </Link>
+
+          <Link
+            href="/work/als-app"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
+          >
+            Next Project
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
         </div>
-      )
-    }
+      </div>
+    </div>
+  )
+}
