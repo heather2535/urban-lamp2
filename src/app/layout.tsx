@@ -8,16 +8,16 @@ import type { Metadata } from 'next'
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: 'Heather Davies',
-  description: 'Multidisciplinary Designer & Researcher',
+  title: "Heather Davies - Portfolio",
+  description: "Multidisciplinary designer passionate about creating purposeful, research-driven products.",
   icons: {
     icon: [
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/favicon.png',
+        type: 'image/png',
       }
-    ]
-  }
+    ],
+  },
 }
 
 export default function RootLayout({
