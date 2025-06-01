@@ -33,7 +33,14 @@ const projectData = {
     "A comprehensive redesign of the Hariri Institute's digital presence, focusing on improved user experience, content organization, and visual identity that reflects their position as a leader in computational research.",
 }
 
-export default function ProjectDetailPage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default function HaririInstitutePage({ params, searchParams }: PageProps) {
   const [activeImage, setActiveImage] = useState(0)
   const images = [projectData.heroImage, ...projectData.additionalImages]
 
