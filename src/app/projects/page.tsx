@@ -107,24 +107,21 @@ export default function ProjectsPage() {
                     Designing interfaces that connect, guide, and delight. 
                   </h3>
                 </div>
-
-                <div className="mt-12 animate-slide-up-delayed">
-                  <ProjectFilter
-                    tags={allTags}
-                    selectedTag={selectedTag}
-                    onTagSelect={setSelectedTag}
-                    onSearch={setSearchQuery}
-                  />
-                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Projects Section */}
-        <section ref={projectsRef} className="bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a1f2e] dark:to-[#2a2f3e] flex mx-auto w-full min-h-screen px-4 sm:px-12 pt-22 pb-32">
-          <div className="container mx-auto max-w-7xl">
-            <div className="mt-4 flex items-center justify-center space-x-2">
+        <section ref={projectsRef} className="w-full bg-white dark:bg-gray-900">
+          <div className="container mx-auto max-w-7xl px-4 sm:px-12 py-16">
+            <div className="max-w-5xl mx-auto mb-12">
+              <ProjectFilter
+                tags={allTags}
+                selectedTag={selectedTag}
+                onTagSelect={setSelectedTag}
+                onSearch={setSearchQuery}
+              />
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">

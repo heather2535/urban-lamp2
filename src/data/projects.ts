@@ -31,7 +31,7 @@ export const projects: Project[] = [
  
   {
     title: "Generative AI Task Force Advice Dashboard",
-    description: "A web application designed to provide resources and support for individuals with ALS.",
+    description: "A dashboard that provides advice to the Generative AI Task Force",
     date: "December 28, 2024",
     image: "/images/image29.png",
     videoUrl: "/video2.mov",
@@ -42,7 +42,7 @@ export const projects: Project[] = [
  
   {
     title: "Fuse Networking App",
-    description: "A web application designed to provide resources and support for individuals with ALS.",
+    description: " A tool that simplifies the internship application process and enhances your job search experiences",
     date: "December 28, 2024",
     image: "/images/image37.png",
     videoUrl: "/video2.mov",

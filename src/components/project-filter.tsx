@@ -39,15 +39,32 @@ const tagIcons: Record<string, JSX.Element> = {
   "Web Development": <Code className="h-4 w-4 sm:h-5 sm:w-5" />,
 }
 export function ProjectFilter({ tags, selectedTag, onTagSelect, onSearch }: ProjectFilterProps) {
-  // Move "All Projects" to the start of the tags array if it exists
+  const [searchValue, setSearchValue] = useState("")
   const sortedTags = ["All Projects", ...tags.filter((tag) => tag !== "All Projects")]
 
-  // Set "All Projects" as default when no tag is selected
   useEffect(() => {
     if (!selectedTag) {
       onTagSelect("All Projects")
     }
   }, [selectedTag, onTagSelect])
+
+  const handleSearch = () => {
+    onSearch(searchValue)
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
+  }
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setSearchValue(value)
+    if (value === '') {
+      onSearch('')
+    }
+  }
 
   return (
     <div className="mb-8">
@@ -107,6 +124,26 @@ export function ProjectFilter({ tags, selectedTag, onTagSelect, onSearch }: Proj
               <span className="text-xs font-medium">{tag}</span>
             </motion.button>
           ))}
+        </div>
+        <div className="w-full max-w-md mt-4">
+          <div className="relative flex items-center">
+            <Input
+              type="text"
+              placeholder="Search projects..."
+              value={searchValue}
+              onChange={handleSearchChange}
+              onKeyPress={handleKeyPress}
+              className="pr-12 rounded-full border-pink-500 focus:border-pink-500 focus:ring-pink-500 text-sm font-medium text-gray-700 dark:text-gray-200 placeholder:text-gray-400 dark:placeholder:text-gray-500"
+            />
+            <motion.button
+              onClick={handleSearch}
+              className="absolute right-2 p-2 rounded-full bg-pink-500 text-white hover:bg-pink-600 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Search className="h-4 w-4" />
+            </motion.button>
+          </div>
         </div>
       </div>
     </div>
