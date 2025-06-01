@@ -3,21 +3,14 @@
 import * as React from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "@/components/navigation-menu"
-import { Menu, Palette, Linkedin, FileText, Mail } from 'lucide-react'
+import { Menu, Linkedin, FileText, Mail } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-
-import { ModeToggle } from "./mode-toggle"
+import { motion } from "framer-motion"
 import { usePathname } from "next/navigation"
 
 export function Navigation() {
   const [scrolled, setScrolled] = React.useState(false)
-  const pathname = usePathname() // Get current route
+  const pathname = usePathname()
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -29,191 +22,126 @@ export function Navigation() {
     }
 
     window.addEventListener("scroll", handleScroll)
-
-    // Cleanup the event listener
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
-    <div
-      className={cn(
-        "fixed top-0 left-0 w-full border-b border-white/10 z-50 transition-all duration-300",
-        scrolled ? "bg-white/20 supports-[backdrop-filter]:bg-background/30 backdrop-blur-md" : "bg-transparent"
-      )}
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled ? "bg-white/80 backdrop-blur-xl shadow-sm py-4 border-b border-gray-100" : "bg-transparent py-6"
+      }`}
     >
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-end">
-         
+      <div className="container mx-auto px-6 lg:px-8 flex items-center justify-between">
+        <Link href="/" className="relative group">
+          <span className="text-2xl font-light tracking-wider">
+            heather
+            <span className="inline-block w-2 h-2 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full ml-1 group-hover:scale-150 transition-transform duration-300"></span>
+          </span>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-4 flex-1 justify-center">
-            <NavigationMenu>
-              <NavigationMenuList className="flex gap-8">
-                <NavigationMenuItem>
-                  <Link href="/" legacyBehavior passHref>
-                    <NavigationMenuLink 
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        pathname === "/" && "text-pink-500 border-b-2 border-pink-500 font-bold"
-                      )}
-                    >
-                      <h3>Home</h3>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/projects" legacyBehavior passHref>
-                    <NavigationMenuLink 
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        (pathname === "/projects" || pathname.startsWith("/work/")) && "text-pink-500 border-b-2 border-pink-500 font-bold"
-                      )}
-                    >
-                      <h3>Projects</h3>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/graphics" legacyBehavior passHref>
-                    <NavigationMenuLink 
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        pathname === "/graphics" && "text-pink-500 border-b-2 border-pink-500 font-bold"
-                      )}
-                    >
-                      <h3>Graphics</h3>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/about" legacyBehavior passHref>
-                    <NavigationMenuLink 
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        pathname === "/about" && "text-pink-500 border-b-2 border-pink-500 font-bold"
-                      )}
-                    >
-                      <h3>About</h3>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <a 
-                    href="mailto:daviesheather518@gmail.com"
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center space-x-12">
+          {["Home", "Projects", "Graphics", "About", "Contact"].map((item, index) => (
+            <Link
+              key={item}
+              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+              className={`relative text-sm font-medium tracking-wide transition-all duration-300 group ${
+                pathname === (item === "Home" ? "/" : `/${item.toLowerCase()}`) ? "text-black" : "text-gray-500 hover:text-black"
+              }`}
+            >
+              {item}
+              {pathname === (item === "Home" ? "/" : `/${item.toLowerCase()}`) && (
+                <motion.div
+                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-orange-400 to-pink-500"
+                  initial={{ width: 0 }}
+                  animate={{ width: "100%" }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                />
+              )}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-pink-500 group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          ))}
+        </nav>
+
+        {/* Social Icons */}
+        <div className="hidden lg:flex items-center gap-6">
+          <a 
+            href="https://www.linkedin.com/in/heatherrdavies/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-pink-500 transition-colors"
+          >
+            <Linkedin className="h-6 w-6" />
+          </a>
+          <a 
+            href="mailto:daviesheather518@gmail.com"
+            className="text-gray-600 hover:text-pink-500 transition-colors"
+          >
+            <Mail className="h-6 w-6" />
+          </a>
+          <a 
+            href="/resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-pink-500 transition-colors"
+          >
+            <FileText className="h-6 w-6" />
+          </a>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className="lg:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <button className="p-2">
+                <Menu className="h-6 w-6" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[200px] pt-12">
+              <nav className="flex flex-col gap-4">
+                {["Home", "Projects", "Graphics", "About", "Contact"].map((item) => (
+                  <Link
+                    key={item}
+                    href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                     className={cn(
-                      navigationMenuTriggerStyle(),
-                      "hover:text-pink-500"
+                      "text-sm transition-colors hover:text-pink-500",
+                      pathname === (item === "Home" ? "/" : `/${item.toLowerCase()}`) && "text-pink-500"
                     )}
                   >
-                    <h3>Contact</h3>
-                  </a>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-          <div className="hidden md:flex items-center gap-6">
-            <a 
-              href="https://www.linkedin.com/in/heatherrdavies/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-pink-500 transition-colors"
-            >
-              <Linkedin className="h-6 w-6" />
-            </a>
-            <a 
-              href="mailto:daviesheather518@gmail.com"
-              className="text-gray-600 hover:text-pink-500 transition-colors"
-            >
-              <Mail className="h-6 w-6" />
-            </a>
-            <a 
-              href="/resume.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-pink-500 transition-colors"
-            >
-              <FileText className="h-6 w-6" />
-            </a>
-            {/* <ModeToggle /> */}
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center gap-4">
-            {/* <ModeToggle /> */}
-            <Sheet>
-              <SheetTrigger asChild>
-                <button className="p-2">
-                  <Menu className="h-6 w-6" />
-                </button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[200px] pt-12">
-                <nav className="flex flex-col gap-4">
-                  <Link href="/" className={cn("text-sm transition-colors hover:text-pink-500",
-                    pathname === "/" && "text-pink-500"
-                  )}>
-                    Home
+                    {item}
                   </Link>
-                  <Link href="/projects" className={cn("text-sm transition-colors hover:text-pink-500",
-                    pathname === "/projects" && "text-pink-500"
-                  )}>
-                    Projects
-                  </Link>
-                  <Link href="/graphics" className={cn("text-sm transition-colors hover:text-pink-500",
-                    pathname === "/graphics" && "text-pink-500"
-                  )}>
-                    Graphics
-                  </Link>
-                  <Link href="/about" className={cn("text-sm transition-colors hover:text-pink-500",
-                    pathname === "/about" && "text-pink-500"
-                  )}>
-                    About
-                  </Link>
-                  <a 
-                    href="mailto:daviesheather518@gmail.com"
-                    className="text-sm transition-colors hover:text-pink-500"
-                  >
-                    Contact
-                  </a>
-                  <div className="border-t border-gray-200 dark:border-gray-700 my-2"></div>
-                  <a 
-                    href="https://www.linkedin.com/in/heatherrdavies/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                    LinkedIn
-                  </a>
-                  <a 
-                    href="mailto:daviesheather518@gmail.com"
-                    className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
-                  >
-                    <Mail className="h-4 w-4" />
-                    Email
-                  </a>
-                  <a 
-                    href="/resume.pdf" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
-                  >
-                    <FileText className="h-4 w-4" />
-                    Resume
-                  </a>
-                </nav>
-              </SheetContent>
-            </Sheet>
-          </div>
+                ))}
+                <div className="border-t border-gray-200 dark:border-gray-700 my-2"></div>
+                <a 
+                  href="https://www.linkedin.com/in/heatherrdavies/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
+                >
+                  <Linkedin className="h-4 w-4" />
+                  LinkedIn
+                </a>
+                <a 
+                  href="mailto:daviesheather518@gmail.com"
+                  className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
+                >
+                  <Mail className="h-4 w-4" />
+                  Email
+                </a>
+                <a 
+                  href="/resume.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
+                >
+                  <FileText className="h-4 w-4" />
+                  Resume
+                </a>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-    </div>
-  )
-}
-
-const navigationMenuTriggerStyle = () => {
-  return cn(
-    "group inline-flex h-10 w-max items-center justify-center bg-transparent px-4 py-2 text-sm font-normal transition-colors hover:text-pink-500 focus:text-pink-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:text-white data-[inactive]:text-white/70"
+    </header>
   )
 }
