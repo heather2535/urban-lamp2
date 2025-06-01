@@ -4,7 +4,7 @@ import { Badge } from "@/components/badge"
 import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
 import Link from "next/link"  // Ensure to import Link for routing
 import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
-import { Navigation } from "@/components/navigation"
+import Navigation from "@/components/navigation"
 
 // Define tagIcons with explicit typing for keys
 const tagIcons: Record<string, React.ReactElement> = {

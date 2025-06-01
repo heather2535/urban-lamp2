@@ -1,29 +1,32 @@
 "use client"
 
-import * as React from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { Menu, Linkedin, FileText, Mail } from 'lucide-react'
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { motion } from "framer-motion"
 import { usePathname } from "next/navigation"
+import { motion } from "framer-motion"
+import { Linkedin, Mail, FileText } from "lucide-react"
 
-export function Navigation() {
-  const [scrolled, setScrolled] = React.useState(false)
+export default function Navigation() {
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
+      setScrolled(window.scrollY > 50)
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "Projects", href: "/projects" },
+    { name: "Graphics", href: "/graphics" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+  ]
 
   return (
     <header
@@ -41,16 +44,16 @@ export function Navigation() {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-12">
-          {["Home", "Projects", "Graphics", "About", "Contact"].map((item, index) => (
+          {navItems.map((item, index) => (
             <Link
-              key={item}
-              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+              key={item.name}
+              href={item.href}
               className={`relative text-sm font-medium tracking-wide transition-all duration-300 group ${
-                pathname === (item === "Home" ? "/" : `/${item.toLowerCase()}`) ? "text-black" : "text-gray-500 hover:text-black"
+                pathname === item.href ? "text-black" : "text-gray-500 hover:text-black"
               }`}
             >
-              {item}
-              {pathname === (item === "Home" ? "/" : `/${item.toLowerCase()}`) && (
+              {item.name}
+              {pathname === item.href && (
                 <motion.div
                   className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-orange-400 to-pink-500"
                   initial={{ width: 0 }}
@@ -64,84 +67,78 @@ export function Navigation() {
         </nav>
 
         {/* Social Icons */}
-        <div className="hidden lg:flex items-center gap-6">
-          <a 
-            href="https://www.linkedin.com/in/heatherrdavies/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-pink-500 transition-colors"
-          >
-            <Linkedin className="h-6 w-6" />
-          </a>
-          <a 
-            href="mailto:daviesheather518@gmail.com"
-            className="text-gray-600 hover:text-pink-500 transition-colors"
-          >
-            <Mail className="h-6 w-6" />
-          </a>
-          <a 
-            href="/resume.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-pink-500 transition-colors"
-          >
-            <FileText className="h-6 w-6" />
-          </a>
+        <div className="hidden lg:flex items-center space-x-6">
+          {[
+            { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+            { icon: Mail, href: "mailto:hello@heather.design", label: "Email" },
+            { icon: FileText, href: "/resume.pdf", label: "Resume" },
+          ].map(({ icon: Icon, href, label }) => (
+            <Link
+              key={label}
+              href={href}
+              aria-label={label}
+              className="relative p-2 text-gray-400 hover:text-black transition-all duration-300 group"
+            >
+              <Icon size={18} />
+              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+            </Link>
+          ))}
         </div>
 
-        {/* Mobile Navigation */}
-        <div className="lg:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <button className="p-2">
-                <Menu className="h-6 w-6" />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[200px] pt-12">
-              <nav className="flex flex-col gap-4">
-                {["Home", "Projects", "Graphics", "About", "Contact"].map((item) => (
-                  <Link
-                    key={item}
-                    href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                    className={cn(
-                      "text-sm transition-colors hover:text-pink-500",
-                      pathname === (item === "Home" ? "/" : `/${item.toLowerCase()}`) && "text-pink-500"
-                    )}
-                  >
-                    {item}
-                  </Link>
-                ))}
-                <div className="border-t border-gray-200 dark:border-gray-700 my-2"></div>
-                <a 
-                  href="https://www.linkedin.com/in/heatherrdavies/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
-                >
-                  <Linkedin className="h-4 w-4" />
-                  LinkedIn
-                </a>
-                <a 
-                  href="mailto:daviesheather518@gmail.com"
-                  className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
-                >
-                  <Mail className="h-4 w-4" />
-                  Email
-                </a>
-                <a 
-                  href="/resume.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm transition-colors hover:text-pink-500 flex items-center gap-2"
-                >
-                  <FileText className="h-4 w-4" />
-                  Resume
-                </a>
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden relative z-10 p-2"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <div className="w-6 h-6 relative">
+            <motion.span
+              className="absolute top-1 left-0 w-6 h-0.5 bg-black origin-left"
+              animate={mobileMenuOpen ? { rotate: 45, y: 2 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.span
+              className="absolute top-3 left-0 w-6 h-0.5 bg-black"
+              animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.span
+              className="absolute top-5 left-0 w-6 h-0.5 bg-black origin-left"
+              animate={mobileMenuOpen ? { rotate: -45, y: -2 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.3 }}
+            />
+          </div>
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      <motion.div
+        initial={{ opacity: 0, height: 0 }}
+        animate={mobileMenuOpen ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
+        transition={{ duration: 0.3 }}
+        className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-gray-100"
+      >
+        <div className="container mx-auto px-6 py-8">
+          <div className="space-y-6">
+            {navItems.map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, x: -20 }}
+                animate={mobileMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Link
+                  href={item.href}
+                  className={`block text-lg font-medium ${pathname === item.href ? "text-black" : "text-gray-600"}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
     </header>
   )
 }

@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/providers"
-import { Navigation } from "@/components/navigation"
+import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"  // Import Footer component
 import "./globals.css"
 import type { Metadata } from 'next'
