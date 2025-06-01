@@ -49,17 +49,19 @@ const project = {
       <li className="relative">
         <h2><strong>• Live Cryptocurrency Tracking:</strong> Real-time monitoring of the top 10 cryptocurrencies, including Bitcoin and Ethereum.</h2>
         <ul className="list-disc pl-20 mt-2 space-y-2">
-           <div className="relative max-w-[640px] mx-auto my-8">
-             <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
-             <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
-               <video
-                 className="rounded-lg w-full h-auto"
-                 controls
-                 style={{ maxWidth: "100%", height: "auto" }}
-               >
-                 <source src="/videos/video1.mov" type="video/mp4" />
-                 Your browser does not support the video tag.
-               </video>
+           <div className="col-span-1">
+             <div className="relative max-w-[640px] mx-auto my-8">
+               <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
+               <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
+                 <video
+                   className="rounded-2xl w-full h-auto"
+                   controls
+                   style={{ maxWidth: "100%", height: "auto" }}
+                 >
+                   <source src="/videos/video1.mov" type="video/mp4" />
+                   Your browser does not support the video tag.
+                 </video>
+               </div>
              </div>
            </div>
            <h2 className="text-center text-gray-600 mt-4 font-medium">Figure 2: A cropped section of my app showing real-time price updates for top cryptocurrencies (e.g., BTC, ETH).</h2>
@@ -70,17 +72,19 @@ const project = {
 
           </li>
 
-          <div className="relative max-w-[640px] mx-auto my-8">
-            <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
-            <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
-              <video
-                className="rounded-lg w-full h-auto"
-                controls
-                style={{ maxWidth: "100%", height: "auto" }}
-              >
-                <source src="/videos/video2.mov" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          <div className="col-span-1">
+            <div className="relative max-w-[640px] mx-auto my-8">
+              <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
+              <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
+                <video
+                  className="rounded-2xl w-full h-auto"
+                  controls
+                  style={{ maxWidth: "100%", height: "auto" }}
+                >
+                  <source src="/videos/video2.mov" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
 
@@ -90,17 +94,19 @@ const project = {
             <h2><strong>• News Integration:</strong> A curated feed of crypto-related news to inform users of market trends.</h2>
           </li>
 
-          <div className="relative max-w-[640px] mx-auto my-8">
-            <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
-            <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
-              <video
-                className="rounded-lg w-full h-auto"
-                controls
-                style={{ maxWidth: "100%", height: "auto" }}
-              >
-                <source src="/videos/video3.mov" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          <div className="col-span-1">
+            <div className="relative max-w-[640px] mx-auto my-8">
+              <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
+              <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
+                <video
+                  className="rounded-2xl w-full h-auto"
+                  controls
+                  style={{ maxWidth: "100%", height: "auto" }}
+                >
+                  <source src="/videos/video3.mov" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
         <br>
@@ -301,7 +307,7 @@ export default function CryptoDashboardPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center mt-10 mb-16"
+            className="grid grid-cols-1 md:grid-cols-5 gap-12 items-start mt-10 mb-16"
           >
             {/* Right Column - Image */}
             <motion.div
@@ -310,13 +316,13 @@ export default function CryptoDashboardPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="relative max-w-[640px] mx-auto">
+              <div className="relative max-w-[640px] mx-auto mt-8 md:mt-0">
                 <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
                 <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
                   <img
                     src="/images/image12.png"
                     alt="Crypto Dashboard Overview"
-                    className="rounded-lg w-full h-auto object-cover"
+                    className="rounded-2xl w-full h-auto object-cover"
                     style={{ maxHeight: "500px" }}
                   />
                 </div>
@@ -338,7 +344,7 @@ export default function CryptoDashboardPage() {
               >
                 <span className="inline-block">Real-Time</span>{" "}
                 <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">
-                  Cryptocurrency
+                  Crypto-<br />currency
                 </span>
               </motion.h1>
 

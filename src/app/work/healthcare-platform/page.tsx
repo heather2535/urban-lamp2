@@ -2,9 +2,11 @@
 import { useState } from "react"
 import Navigation from "@/components/navigation"
 import { Badge } from "@/components/badge"
-import { SearchBar } from "@/components/search-bar"  // Assuming the SearchBar component is available
-import Link from "next/link"  // Ensure to import Link for routing
-import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package } from "lucide-react"
+import { SearchBar } from "@/components/search-bar"
+import Link from "next/link"
+import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Package, ArrowLeft, ArrowUpRight, Circle, Square, Triangle, ChevronRight } from "lucide-react"
+import { motion } from "framer-motion"
+import Image from "next/image"
 
 // Define tagIcons with explicit typing for keys
 const tagIcons: Record<string, React.ReactElement> = {
@@ -63,7 +65,7 @@ const project = {
   }
   
 
-export default function CryptoDashboardPage() {
+export default function HealthcarePlatformPage() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
 
@@ -79,88 +81,207 @@ export default function CryptoDashboardPage() {
   })
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+      {/* Floating geometric shapes */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <motion.div
+          className="absolute top-32 left-16 text-orange-300 opacity-15"
+          animate={{ rotate: 360, scale: [1, 1.2, 1] }}
+          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+        >
+          <Circle size={80} />
+        </motion.div>
+        <motion.div
+          className="absolute top-1/2 right-24 text-purple-300 opacity-20"
+          animate={{ rotate: -360, y: [-20, 20, -20] }}
+          transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <Square size={60} />
+        </motion.div>
+        <motion.div
+          className="absolute bottom-32 left-1/3 text-pink-300 opacity-25"
+          animate={{ rotate: 180, x: [-10, 10, -10] }}
+          transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <Triangle size={45} />
+        </motion.div>
+      </div>
+
       <Navigation />
-      <main className="container max-w-2xl mx-auto px-4 mt-8 py-8">
-        <article className="prose lg:prose-xl dark:prose-invert mx-auto">
-          {/* Top Back Button */}
-          <Link 
-            href="/projects" 
-            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 mt-8 mb-8"
+      <main className="container mx-auto px-6 lg:px-8 relative z-10">
+        <article className="prose lg:prose-xl dark:prose-invert">
+          {/* Back Button */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="pt-8 mb-12"
           >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="16" 
-              height="16" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-800 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
             >
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            Back to Projects
-          </Link>
-
-          <h1 className="font-bold text-[40px] mt-4 mb-4">{project.title}</h1>
-          <p className="text-muted-foreground mb-4">{project.date}</p>
-
-          
-
-          {/* Filtered Tags */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {filteredProjects.map((tag) => (
-              <Link 
-                key={tag} 
-                href={`/projects?tag=${encodeURIComponent(tag)}`}
-                className="no-underline"
-              >
-                <span 
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
-                >
-                  {tagIcons[tag]}
-                  {tag}
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          {/* Video section */}
-          <div className="relative mt-6 mb-6">
-            <video controls width="100%" height="auto" className="object-cover rounded-lg">
-              <source src={project.video} type="video/mp4" />
-              {/* Fallback text for unsupported browsers */}
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
-          <p className="lead">{project.description}</p>
-          <div dangerouslySetInnerHTML={{ __html: project.content }} />
-
-         
-
-          {/* Bottom Back Button */}
-          <div className="mt-16 flex justify-center">
-            <Link 
-              href="/projects" 
-              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
-            >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
+              <ArrowLeft className="w-4 h-4" />
               Back to Projects
+            </Link>
+          </motion.div>
+
+          {/* Hero Section - Two Column Layout */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-5 gap-16 items-start mt-10 mb-16"
+          >
+            {/* Right Column - Video */}
+            <motion.div
+              className="md:col-span-3 relative order-first md:order-last"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <div className="relative max-w-[640px] mx-auto mt-8 md:mt-0">
+                <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
+                <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
+                  <video 
+                    controls 
+                    width="100%" 
+                    height="auto" 
+                    className="object-cover rounded-lg"
+                  >
+                    <source src={project.video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Left Column - Text Content */}
+            <motion.div
+              className="md:col-span-2 space-y-6"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <motion.h1
+                className="text-5xl lg:text-7xl font-black tracking-tight leading-none"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">Patient</span>{" "}
+                <span className="text-black">Healthcare Management Platform</span>
+              </motion.h1>
+
+              <motion.p
+                className="text-xl text-gray-600 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                {project.description}
+              </motion.p>
+
+              <motion.div
+                className="flex items-center gap-3 text-gray-600"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <span className="text-sm">{project.date}</span>
+              </motion.div>
+
+              {/* Tags */}
+              <motion.div
+                className="flex flex-wrap gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+              >
+                {filteredProjects.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
+          {/* Scroll to Explore */}
+          <motion.div
+            className="flex flex-col items-center justify-center gap-2 text-gray-500 mt-8 mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <span className="text-sm">Scroll to explore</span>
+            <ChevronRight className="w-4 h-4 rotate-90" />
+          </motion.div>
+
+          {/* Three Columns Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">Role</h3>
+                <div className="space-y-1">
+                  <p className="text-gray-600">Design Strategist, UX</p>
+                  <p className="text-gray-600">Researcher, UI/UX</p>
+                </div>
+              </div>
+              <div className="text-center">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">Team</h3>
+                <div className="space-y-1">
+                  <p className="text-gray-600">Heather Davies</p>
+                  <p className="text-gray-600">Solo Project</p>
+                </div>
+              </div>
+              <div className="text-center">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">Duration</h3>
+                <div className="space-y-1">
+                  <p className="text-gray-600">April 2024</p>
+                  <p className="text-gray-600">1 month</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Content Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+          >
+            <div dangerouslySetInnerHTML={{ __html: project.content }} />
+          </motion.div>
+
+          {/* Navigation */}
+          <div className="flex justify-between items-center">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Projects
+            </Link>
+
+            <Link
+              href="/work/virtual-gallery"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
+            >
+              Next Project
+              <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </article>

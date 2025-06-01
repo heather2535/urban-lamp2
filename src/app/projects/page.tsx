@@ -253,8 +253,8 @@ export default function ProjectsPage() {
                       project.id === 4 ? 'ai-task-force' :
                       project.id === 5 ? 'fuse' :
                       project.id === 6 ? 'crypto-dashboard' :
-                      project.id === 7 ? 'talentora' :
-                      project.id === 8 ? 'library-platform' :
+                      project.id === 7 ? 'ai-task-manager' :
+                      project.id === 8 ? 'virtual-gallery' :
                       project.id === 9 ? 'healthcare-platform' :
                       project.id === 10 ? 'aventura-rendering' :
                       project.id === 11 ? 'chaos-order' : ''}`}

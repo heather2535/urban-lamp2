@@ -78,7 +78,7 @@ export default function Portfolio() {
     },
     {
       id: 7,
-      title: "Talentora: A Conversational AI Interview Platform",
+      title: "Talentora A Conversational AI Interview Platform",
       description: "Designing a platform that uses AI to evaluate job applicants.",
       image: "/image5.png?height=400&width=600",
       categories: ["uiux", "web", "branding"],
@@ -446,7 +446,7 @@ export default function Portfolio() {
                         data-driven insights.
                       </p>
                       <Link
-                        href="/projects/dei-consulting"
+                        href="/work/dei-consulting"
                         className="inline-flex items-center text-black font-medium group-hover:text-purple-600 transition-colors duration-300"
                       >
                         View Project
