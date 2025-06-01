@@ -287,6 +287,43 @@ export default function CryptoDashboardPage() {
             </div>
           </div>
 
+          {/* Key Features Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 pb-16">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Key Features</h3>
+              <h2 className="text-sm md:text-md lg:text-md mb-4">Based on our user research and journey maps, we identified several key features that would enhance the user experience and meet the needs of our different user archetypes.</h2>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Community Engagement</h3>
+                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Users can join and participate in DEI-focused communities, share resources, and engage in meaningful discussions with like-minded individuals.
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Appointment Scheduling</h3>
+                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Flexible scheduling system for one-on-one consultations, group sessions, and workshops, with automated reminders and follow-ups.
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Resource Library</h3>
+                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Comprehensive collection of DEI resources, including articles, guides, and downloadable content for continuous learning.
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Event Management</h3>
+                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Calendar integration for upcoming events, workshops, and training sessions, with easy registration and participation tracking.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Wireframes Section */}
           <div className="w-full bg-white dark:bg-gray-900">
             <div className="container max-w-3xl mx-auto px-4 py-16">

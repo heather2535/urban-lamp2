@@ -286,21 +286,16 @@ export default function CryptoDashboardPage() {
                 </h2>
                 <br></br>
                 <h2 className="text-lg font-bold">Goals</h2>
-              <div className="mt-4">
-                  <img
-                    src="/images/image21.png"
-                    alt="ALS Clinical Decision Tool"
-                    className="rounded-lg shadow-md"
-                    style={{ maxWidth: "100%", height: "auto" }}
-                  />
-                   <img
-                    src="/images/image54.png"
-                    alt="ALS Clinical Decision Tool"
-                    className="rounded-lg shadow-md"
-                    style={{ maxWidth: "100%", height: "auto" }}
-                  />
-                  <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1: Bookmarking Frames</h2>
-                </div>
+                <div id="goals-slideshow"></div>
+                <Slideshow 
+                  images={[
+                    "/images/image22.png",
+                    "/images/image23.png",
+                    "/images/image22.png"
+                  ]} 
+                  id="goals-slideshow"
+                />
+                <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1-3: Bookmarking Frames</h2>
                 <br></br>
                 <ul className="list-disc pl-8 space-y-2 text-base">
                   <li className="relative text-sm md:text-md">
@@ -318,24 +313,11 @@ export default function CryptoDashboardPage() {
                 </ul>
                 <br></br>
               <div className="mt-4">
-              <img
-                src="/images/image22.png"
-                alt="ALS Clinical Decision Tool"
-                className="rounded-lg shadow-md"
-                style={{ maxWidth: "100%", height: "auto" }}
-              />
-              <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 2: Bookmarking Frames</h2>
+             
             </div>
             <br></br>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="mt-4">
-                <img
-                  src="/images/image23.png"
-                  alt="ALS Clinical Decision Tool"
-                  className="rounded-lg shadow-md"
-                  style={{ maxWidth: "200%", height: "auto" }}
-                />
-              </div>
+            
               </div>
               <br></br>
             <h2 className="text-lg font-bold">Process</h2>
@@ -489,12 +471,12 @@ export default function CryptoDashboardPage() {
     <div id="als-slideshow-1"></div>
     <br></br>
     <div className="mt-4">
-        <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">Figure 2-4: Researched Design System</h2>
+        <h2 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">Figure 4: Researched Design System</h2>
 
         <img
           src="/images/image25.png"
           alt="Low to High Fidelity Prototypes"
-          className="rounded-lg shadow-md"
+          className="rounded-lg"
           style={{ maxWidth: "100%", height: "50%" }}
         />
       </div>
