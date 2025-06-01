@@ -485,7 +485,7 @@ export default function Portfolio() {
                         principles.
                       </p>
                       <Link
-                        href="/projects/hariri-institute"
+                        href="/work/hariri-institute"
                         className="inline-flex items-center text-black font-medium group-hover:text-orange-600 transition-colors duration-300"
                       >
                         View Project

@@ -289,7 +289,17 @@ export default function ProjectsPage() {
 
                     {/* View Project Link */}
                     <Link
-                      href={`/projects/${project.id}`}
+                      href={`/work/${project.id === 1 ? 'hariri-institute' :
+                            project.id === 2 ? 'als-app' :
+                            project.id === 3 ? 'dei-consulting' :
+                            project.id === 4 ? 'generative-ai-dashboard' :
+                            project.id === 5 ? 'fuse-networking' :
+                            project.id === 6 ? 'crypto-dashboard' :
+                            project.id === 7 ? 'talentora' :
+                            project.id === 8 ? 'library-platform' :
+                            project.id === 9 ? 'healthcare-platform' :
+                            project.id === 10 ? 'aventura-rendering' :
+                            project.id === 11 ? 'chaos-order' : ''}`}
                       className="inline-flex items-center text-black font-medium group-hover:text-pink-600 transition-colors duration-300"
                     >
                       View Project
