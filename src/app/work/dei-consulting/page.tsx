@@ -23,193 +23,16 @@ const tagIcons: Record<string, React.ReactElement> = {
 }
 
 const project = {
-    title: "DEI Consulting for\nTech Companies",
-    date: "January 15, 2024",
-    image: "/images/image14.png",
-    content: `
-      <br></br>
-      <br>      
-      <br>
-      <h2 style="font-size: 2em; font-weight: bold;">Introduction</h2>
-      <br>
-        <h2 className="text-gray-700 dark:text-gray-300 text-sm md:text-md lg:text-md">
-          As diversity, equity, and inclusion (DEI) become increasingly crucial in the tech industry, I developed a comprehensive DEI consulting framework to help companies build more inclusive workplaces. This project involved creating data-driven assessment tools, developing strategic recommendations, and implementing measurable action plans for tech companies of various sizes.
-        </h2>
-      <br>
-
-      <h2 style="font-size: 2em; font-weight: bold;">Goals</h2>
-      <br>
-      
-      <ul className="list-disc pl-20 space-y-4 text-base">
-        <li className="relative">
-          <h2><strong>• Comprehensive Assessment:</strong> Develop tools to evaluate current DEI practices and identify areas for improvement.</h2>
-          <div className="col-span-1">
-            <img
-              src="/images/image15.png"
-              alt="DEI Assessment Framework"
-              className="rounded-lg w-full h-auto mx-auto"
-              style={{ maxWidth: "48rem", height: "auto" }}
-            />
-          </div>
-          <h2>Figure 1: DEI Assessment Framework showing key evaluation areas</h2>
-          <br>
-
-          <li className="relative">
-            <h2><strong>• Data-Driven Insights:</strong> Create methodologies for collecting and analyzing DEI metrics.</h2>
-          </li>
-
-          <div className="col-span-1">
-            <img
-              src="/images/image16.png"
-              alt="DEI Metrics Dashboard"
-              className="rounded-lg shadow-md w-3/4 h-auto mx-auto"
-              style={{ maxWidth: "400px", height: "auto" }}
-            />
-          </div>
-          <br>
-
-          <li className="relative">
-            <h2><strong>• Actionable Recommendations:</strong> Develop clear, implementable strategies for improving workplace inclusivity.</h2>
-          </li>
-
-          <div className="col-span-1">
-            <img
-              src="/images/image17.png"
-              alt="DEI Implementation Plan"
-              className="rounded-lg shadow-md w-3/4 h-auto mx-auto"
-              style={{ maxWidth: "400px", height: "auto" }}
-            />
-          </div>
-          <br>
-
-          <li className="relative">
-            <h2><strong>• Measurable Outcomes:</strong> Establish KPIs and tracking mechanisms for DEI initiatives.</h2>
-          </li>
-        </ul>
-      </li>
-      </ul>
-      <br></br>
-
-      <h2 style="font-size: 2em; font-weight: bold;">Tools & Methodologies</h2>
-      <h2 style="font-size: 1.5em; font-weight: bold;">Research & Analysis</h2>
-      <ul className="list-disc pl-20 space-y-4 text-base">
-        <li className="relative">
-          <h2><strong>• Survey Design:</strong> Customized employee surveys to gather DEI insights.</h2>
-          <ul className="list-disc pl-20 mt-2 space-y-2">
-            <li className="relative">
-              <h2><strong>• Data Analysis:</strong> Statistical analysis of survey results and company metrics.</h2>
-            </li>   
-          </ul>
-        </li>
-      </ul>
-      <br>
-
-      <h2 style="font-size: 1.5em; font-weight: bold;">Strategy Development</h2>
-      <ul className="list-disc pl-20 space-y-4 text-base">
-        <li className="relative">
-          <h2><strong>• Framework Design:</strong> Custom DEI frameworks based on company size and industry.</h2>
-          <ul className="list-disc pl-20 mt-2 space-y-2">
-            <li className="relative">
-              <h2><strong>• Implementation Planning:</strong> Detailed roadmaps for DEI initiatives.</h2>
-            </li>   
-            <li className="relative">
-              <h2><strong>• Training Programs:</strong> Customized DEI training and workshops.</h2>
-            </li>
-            <li className="relative">
-              <h2><strong>• Policy Review:</strong> Assessment and recommendations for company policies.</h2>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <br>
-
-      <h2 style="font-size: 1.5em; font-weight: bold;">Measurement & Evaluation</h2>
-      <ul className="list-disc pl-20 space-y-4 text-base">
-        <li className="relative">
-          <h2><strong>• KPI Development:</strong> Custom metrics for tracking DEI progress.</h2>
-        </li>
-      </ul>
-      <br></br>
-
-      <h2 style="font-size: 2em; font-weight: bold;">Process</h2>
-      <br>
-      <div className="col-span-1">
-        <img
-          src="/images/image18.png"
-          alt="DEI Consulting Process"
-          className="rounded-lg shadow-md w-full h-auto object-cover"
-          style={{ maxWidth: "100%", height: "auto" }}
-        />
-      </div>
-      <h2>Figure 4: Overview of the DEI consulting process and methodology</h2>
-      <br></br>
-
-      <h2 style="font-size: 1.5em; font-weight: bold;">1. Assessment Phase</h2>
-      <h2>
-        The process began with a comprehensive assessment of the client's current DEI practices, including employee surveys, policy reviews, and data analysis. This helped identify strengths, weaknesses, and opportunities for improvement.
-      </h2>
-      <br>
-
-      <h2 style="font-size: 1.5em; font-weight: bold;">2. Strategy Development</h2>
-      <h2>
-        Based on the assessment findings, I developed customized DEI strategies tailored to each client's specific needs and challenges. This included creating detailed implementation plans, training programs, and policy recommendations.
-      </h2>
-      <br>
-
-      <h2 style="font-size: 1.5em; font-weight: bold;">3. Implementation Support</h2>
-      <h2>
-        Working closely with client teams to implement the recommended changes, providing guidance, training, and support throughout the process. This included facilitating workshops, reviewing policies, and helping establish new practices.
-      </h2>
-      <br>
-
-      <h2 style="font-size: 1.5em; font-weight: bold;">4. Measurement & Evaluation</h2>
-      <h2>
-        Established clear metrics and KPIs to track progress and measure the impact of DEI initiatives. Regular assessments and adjustments ensured continuous improvement and alignment with goals.
-      </h2>
-      <br>
-
-      <h2 style="font-size: 1.5em; font-weight: bold;">5. Long-term Support</h2>
-      <h2>
-        Provided ongoing support and guidance to help clients maintain momentum and continue making progress in their DEI journey. This included regular check-ins, progress reviews, and strategy adjustments as needed.
-      </h2>
-      <br></br>
-
-      <h2 style="font-size: 2em; font-weight: bold;">Results</h2>
-      <br>
-      <h2>
-        The DEI consulting framework has helped multiple tech companies:
-      </h2>
-      <ul className="list-disc pl-20 space-y-4 text-base">
-        <li className="relative">
-          <span className="absolute -left-4">•</span>
-          Increase diversity in leadership positions by 25% on average
-          <ul className="list-disc pl-20 mt-2 space-y-2">
-            <li className="relative">
-              <span className="absolute -left-8">•</span>
-              Improve employee satisfaction scores by 30%
-            </li>   
-            <li className="relative">
-              <span className="absolute -left-8">•</span>
-              Reduce turnover rates by 20%
-            </li>
-            <li className="relative">
-              <span className="absolute -left-8">•</span>
-              Implement more inclusive hiring practices
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <br>
-      <p>
-        Companies have reported significant improvements in workplace culture, employee engagement, and overall organizational performance.
-      </p>
-      <br>
-    `,
-    tags: ["Product Design", "UI/UX Design"],
+    title: "Designing a DEI Consulting Web Application",
+    description: "Brand identity design for a line of sustainable, eco-friendly products.",
+    date: "March 15, 2024",
+    video: "/video4.mov?height=450&width=800", 
+    content: ``,
+    tags: ["Graphic Design", "Branding"],
   }
   
 
-export default function DEIConsultingPage() {
+export default function CryptoDashboardPage() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
 
@@ -219,19 +42,19 @@ export default function DEIConsultingPage() {
     const matchesTag = selectedTag ? tag === selectedTag : true
     const matchesSearch =
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
     return matchesTag && matchesSearch
   })
 
   return (
-    <div className="min-h-screen bg-transparent">
+    <div className="min-h-screen bg-background">
       <Navigation />
-      
-      {/* Hero Section */}
-      <div className="relative w-full bg-white dark:bg-gray-900">
+      <main className="container max-w-full mx-auto px-4 py-16">
+        <article className="prose lg:prose-xl dark:prose-invert mx-auto">
             {/* Back Button */}
-        <div className="absolute top-8 left-0 right-0 z-10">
-          <div className="container max-w-6xl mx-auto px-4">
+            <div className="absolute top-24 left-0 right-0 z-10">
+          <div className="container max-w-full mx-auto px-4">
             <Link 
               href="/projects" 
               className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
@@ -269,13 +92,28 @@ export default function DEIConsultingPage() {
           </div>
         </div>
         
-        {/* Two Column Layout */}
-        <div className="container max-w-6xl mx-auto px-4 py-8 md:py-16 mt-16">
-          <div className="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 items-center">
-            {/* Text Content - First Column */}
-            <div className="w-full order-2 md:order-1 md:col-span-4">
-              <h1 className="font-bold text-2xl md:text-[32px] mb-3 md:mb-4 text-gray-900 dark:text-white whitespace-pre-line">{project.title}</h1>
-              <h2 className="text-gray-700 dark:text-gray-300 mb-3 md:mb-4">{project.date}</h2>
+          {/* Hero Section - Two Column Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center mt-10 mb-16">
+            {/* Right Column - Video (now first on mobile) */}
+            <div className="md:col-span-3 relative order-first md:order-last">
+              <video 
+                controls 
+                width="100%" 
+                height="auto" 
+                className="object-cover rounded-lg"
+                poster="/image4.png"
+              >
+                <source src={project.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            {/* Left Column - Text Content */}
+            <div className="md:col-span-2 space-y-6">
+              <h1 className="font-bold text-3xl sm:text-4xl md:text-[40px]">{project.title}</h1>
+              <h2 className="text-muted-foreground">{project.date}</h2>
+              
+              {/* Tags */}
               <div className="flex flex-wrap gap-2">
                 {filteredProjects.map((tag) => (
                   <Link 
@@ -283,121 +121,235 @@ export default function DEIConsultingPage() {
                     href={`/projects?tag=${encodeURIComponent(tag)}`}
                     className="no-underline"
                   >
-                    <Badge 
-                      variant="secondary" 
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-100 hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors cursor-pointer"
+                    <span 
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 transition-colors cursor-pointer"
                     >
                       {tagIcons[tag]}
                       {tag}
-                    </Badge>
+                    </span>
                   </Link>
                 ))}
               </div>
-              </div>
 
-            {/* Image - Second Column */}
-            <div className="w-full order-1 md:order-2 md:col-span-8">
-              <img
-                src={project.image}
-                alt="DEI Consulting Overview"
-                className="rounded-lg w-full h-auto object-cover"
-                style={{ maxHeight: "500px" }}
-              />
-            </div>
-          </div>
             </div>
           </div>
 
-      <div className="w-full bg-transparent">
-        <main className="w-full">
-          <article className="prose lg:prose-xl dark:prose-invert">
           {/* Three Columns Section */}
-            <div className="container max-w-6xl mx-auto px-4 flex justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4 max-w-4xl">
+          <div className="bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:to-[#1a2a3a] container max-w-full mx-auto px-4 flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 max-w-4xl">
               <div className="p-4 rounded-lg text-center">
                 <h3 className="font-bold text-lg mb-2">Role</h3>
-                  <h3 className="text-sm text-muted-foreground">
-                    DEI Consultant
-                  </h3>
-                  <h3 className="text-sm text-muted-foreground">
-                    Strategy Lead
-                  </h3>
+                <div className="flex flex-col items-center gap-1">
+                  <p className="text-sm text-muted-foreground">
+                    Design Strategist, UX
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Researcher, UI/UX
+                  </p>
+                </div>
               </div>
               <div className="p-4 rounded-lg text-center">
                 <h3 className="font-bold text-lg mb-2">Team</h3>
-                  <h3 className="text-sm text-muted-foreground">
+                <div className="flex flex-col items-center gap-1">
+                  <p className="text-sm text-muted-foreground">
                     Heather Davies
-                  </h3>
-                  <h3 className="text-sm text-muted-foreground">
-                    Solo Project
-                  </h3>
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Ruby Chen
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Avdeep Kaur
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    David Lee
+                  </p>
+                  
+                </div>
               </div>
               <div className="p-4 rounded-lg text-center">
                 <h3 className="font-bold text-lg mb-2">Duration</h3>
-                  <h3 className="text-sm text-muted-foreground">
-                    Jan. 15 '24 - Present
-                  </h3>
-                  <h3 className="text-sm text-muted-foreground">
-                    Ongoing
-                  </h3>
+                <div className="flex flex-col items-center gap-1">
+                  <p className="text-sm text-muted-foreground">
+                    Sept. 09 '24 - Feb. 30 '25
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    6 months total
+                  </p>
                 </div>
               </div>
+              
             </div>
             
-            {/* Two Columns Section */}
-            <div className="container max-w-7xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div>
-                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Goal:</h2>
-                  <h2 className="text-gray-700 dark:text-gray-300 text-sm md:text-md lg:text-md">
-                    The primary goal was to develop a comprehensive DEI consulting framework that helps tech companies build more inclusive workplaces through data-driven insights and actionable recommendations.
-                  </h2>
-                </div>
-                <div>
-                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Solution:</h2>
-                  <h2 className="text-gray-700 dark:text-gray-300 text-sm md:text-md lg:text-md">
-                    I created a structured approach to DEI consulting that combines thorough assessment, strategic planning, and measurable outcomes, helping companies implement effective diversity and inclusion initiatives.
-                  </h2>
-                </div>
-              </div>
+          </div>
 
-              {/* Working Prototype Button */}
-              <div className="flex justify-center mt-12">
-                <a 
-                  href="https://talentora.io" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-white bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200"
-                >
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    width="16" 
-                    height="16" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                    <polyline points="15 3 21 3 21 9"/>
-                    <line x1="10" y1="14" x2="21" y2="3"/>
-                  </svg>
-                  View Case Studies
-                </a>
+          {/* Full Width Text Section */}
+          <div className="w-full bg-background fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-[#0a0a0a] dark:via-[#1a1a2e] dark:to-[#1a2a3a]">
+            <div className="container max-w-3xl mx-auto px-4 py-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                <h3 className="font-bold text-lg mb-2">Problem Statement</h3>
+                  <h2 className="text-left text-sm md:text-md lg:text-md">
+                    A comprehensive web application designed to facilitate DEI consulting services, enabling organizations to create more inclusive and equitable workplaces. The platform combines user-friendly interfaces with powerful tools for assessment, training, and progress tracking.
+                  </h2>
+                </div>
+                <div>
+                <h3 className="font-bold text-lg mb-2">Goal</h3>
+                  <h2 className="text-left text-sm md:text-md lg:text-md leading-relaxed">
+                    Through extensive research and user testing, we developed a solution that addresses the unique needs of both consultants and organizations, making DEI initiatives more accessible and effective.
+                  </h2>
+                </div>
               </div>
             </div>
+          </div>
+          
+          {/* User Archetypes Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 py-16">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">User Archetypes</h3>
+              <h2 className="text-sm md:text-md lg:text-md">The people using this platform as discussed in previous meetings fall into three archtypes and we are trying to tailor the website to help people from all these different archetypes, like activists, and say intellectuals who want to join discussions and businesses who want to be sociall consciouss, our goal was to cater to all three archetypes and provide features that would create an experience for all types of people who are using this website.</h2>
+              <br></br>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Research Card */}
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Activists</h3>
+                  <h2 className="text-gray-700 dark:text-gray-300 text-sm md:text-md lg:text-md">
+                    Activists who are working on the ground level to enact social justice change.
+                  </h2>
+                </div>
 
-            <div className="w-full bg-white dark:bg-gray-900 mt-12">
-              <div className="container max-w-3xl mx-auto px-4 py-8">
+                {/* Design Card */}
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Intellectuals</h3>
+                  <h2 className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-md lg:text-md">
+                    People in academia who want to join discussions around social justice.
+                  </h2>
+                </div>
+
+                {/* Development Card */}
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Businesses</h3>
+                  <h2 className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-md lg:text-md">
+                    People who want their business to be more socially conscious.
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* User Personas Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 pb-16">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">User Research</h3>
+              <h2 className="text-sm md:text-md lg:text-md mb-4">Now I'll just briefly dive into some of the user research that we made before we started the process of designing this app.</h2>
+              <h2 className="text-sm md:text-md lg:text-md mb-4">I made two user personas and jourey maps that kind of talk through essentially what a user would try to do on this application.</h2>
+              <div className="mb-4">
+                <img 
+                  src="/image17.png" 
+                  alt="User journey maps showing the experience flow" 
+                  className="w-full h-auto rounded-lg shadow-lg object-cover"
+                />
+              </div>
+              <h2 className="text-sm md:text-md lg:text-md">For example, we have one where Brandon Jones is a Federal Agenecy Director which is part of one of our Archetypes that we came up with. What this user journey walks through is his expectations of creating a discussion and then being able to join that discussion and talk in it. So, I created these five steps essentially, that go with that. So he creates his account to engage with our platform, and then he navigates to the communities, joins, it, and then tries to look through all the posts that are there. And from that, I had the idea of what he would be able to do afterwards if he wanted to make posts or not and then be able to have recommended discussion groups come up onto his feed, based on what he likes and what he's actually joined, and that would kind of continue that cycle of engagement that was created within just the discussions part of it. </h2>
+            </div>
+          </div>
+
+          {/* Journey Maps Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 pb-16">
+              <div className="space-y-8">
+                <img 
+                  src="/image18.png" 
+                  alt="User journey maps showing the experience flow" 
+                  className="w-full h-auto rounded-lg shadow-lg object-cover"
+                />
+                <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
+                  User journey maps illustrating the key touchpoints and experience flow
+                </p>
+              </div>
+              <br></br>
+              <h2 className="text-sm md:text-md lg:text-md">For a second persona, we created Marie Academic which is part ofthe academic archetype and she wants to essentially schedule appoints with you, and so we have that same five step process with that for our journey, and essentially it's that she creates an account on our website, schedules an appointment with you, selects timeslots, and then we have some follow-up actions, that kind of keep that engagement going, of learning to stand up for herself if that's what she wanted to do, and be able to check back in with you and make follow-up apointments, to keep that user coming back to our website in some way. </h2>
+            </div>
+          </div>
+
+          {/* User Flow Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 pb-16">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">User Flow</h3>
+              <h2 className="text-sm md:text-md lg:text-md mb-4">This is essentially a visual representation of how the user is going to navigate through the app once they sign in.</h2>
+              <div className="mb-4">
+                <img 
+                  src="/image21.png" 
+                  alt="User flow diagram showing the main interaction paths" 
+                  className="w-full h-auto rounded-lg shadow-lg object-cover"
+                />
+              </div>
+              <h2 className="text-sm md:text-md lg:text-md">So, the user begins at the dashboard, and this is where they can quickly make appointments, cathc up the added course content, or browse through any of their diversity communities. On scheduling appointments, they can choose what type of appointment they want to scheudle – one on one vs. group. And in event calendar, they can see all upcoming events and register for open events, and then in coaching, they can request a workshop with the client, or they can also browse coaching packages or download free content. Next in the communities, individuals will be able to see groups recommended to them based on their user archetype, and then finally all of these features are building off of the goal that we have for this app, which is to get people to interact with community coontent regarding DEI and also purchase the client's coaching packages.</h2>
+            </div>
+          </div>
+
+          {/* Key Features Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 pb-16">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Key Features</h3>
+              <h2 className="text-sm md:text-md lg:text-md mb-4">Based on our user research and journey maps, we identified several key features that would enhance the user experience and meet the needs of our different user archetypes.</h2>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Community Engagement</h3>
+                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Users can join and participate in DEI-focused communities, share resources, and engage in meaningful discussions with like-minded individuals.
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Appointment Scheduling</h3>
+                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Flexible scheduling system for one-on-one consultations, group sessions, and workshops, with automated reminders and follow-ups.
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Resource Library</h3>
+                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Comprehensive collection of DEI resources, including articles, guides, and downloadable content for continuous learning.
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">Event Management</h3>
+                  <p className="text-sm md:text-md lg:text-md text-gray-700 dark:text-gray-300">
+                    Calendar integration for upcoming events, workshops, and training sessions, with easy registration and participation tracking.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Wireframes Section */}
+          <div className="w-full bg-white dark:bg-gray-900">
+            <div className="container max-w-3xl mx-auto px-4 py-16">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Wireframes</h3>
+              <div className="space-y-4">
+                <img 
+                  src="/image20.png" 
+                  alt="Initial wireframes showing the user interface layout" 
+                  className="w-full h-auto rounded-lg shadow-lg object-cover"
+                />
+                <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
+                  Initial wireframes exploring the user interface and interaction patterns
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div dangerouslySetInnerHTML={{ __html: project.content }} />
+              
+          
 
           {/* Bottom Back Button */}
           <div className="mt-16 flex justify-center">
             <Link 
               href="/projects" 
-                    className="inline-flex items-center gap-2 text-xs bg-transparent sm:bg-black sm:hover:bg-gray-800 dark:sm:bg-white dark:sm:text-black dark:sm:hover:bg-gray-200 px-6 py-3 rounded-lg transition-all duration-200 font-medium"
+              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 group"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -409,32 +361,15 @@ export default function DEIConsultingPage() {
                 strokeWidth="2" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"
-                      className="text-black sm:text-white dark:sm:text-black sm:hidden"
-                    >
-                      <path d="M15 18l-6-6 6-6"/>
-                    </svg>
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      width="14" 
-                      height="14" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                      className="hidden sm:block text-white dark:text-black"
+                className="transition-transform group-hover:-translate-x-1"
               >
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
               </svg>
-                    <span className="hidden sm:inline text-white dark:text-black">Back to Projects</span>
+              <span className="hidden sm:inline">Back to Projects</span>
             </Link>
-                </div>
-              </div>
           </div>
         </article>
       </main>
-      </div>
     </div>
   )
 }
