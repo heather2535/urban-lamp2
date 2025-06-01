@@ -262,7 +262,7 @@ export default function Portfolio() {
                     />
                   </Link>
                   <Link
-                    href="/contact"
+                    href="mailto:daviesheather518@gmail.com"
                     className="group px-8 py-4 border-2 border-gray-300 text-black rounded-full hover:border-black transition-all duration-300 relative overflow-hidden"
                   >
                     <span className="relative z-10 font-medium">Get in Touch</span>
