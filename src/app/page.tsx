@@ -96,7 +96,7 @@ export default function Portfolio() {
             </h1>
           </div>
           {/* Projects Grid */}
-          <div className="space-y-24 md:space-y-32 lg:space-y-24">
+          <div className="mt-10 space-y-24 md:space-y-32 lg:space-y-24">
             {/* Cliiimate Project */}
             <div className="grid lg:grid-cols-12 gap-12 items-center">
               <Link href="/work/climate-app" className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
