@@ -6,6 +6,12 @@ import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import { Linkedin, Mail } from "lucide-react"
 import { ModeToggle } from "@/components/mode-toggle"
+import { Playfair_Display } from "next/font/google"
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: "400",
+})
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -41,7 +47,7 @@ export default function Navigation() {
             <Link
               key={item.name}
               href={item.href}
-              className={`relative text-sm font-medium tracking-wide transition-all duration-300 group
+              className={`relative text-sm tracking-wide transition-all duration-300 group  font-extralight
                 ${pathname === item.href ? "text-gray-900 dark:text-white" : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"}`}
             >
               {item.name}
@@ -129,7 +135,7 @@ export default function Navigation() {
               >
                 <Link
                   href={item.href}
-                  className={`block text-lg font-medium ${pathname === item.href ? "text-gray-900 dark:text-white" : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+                  className={`block text-lg ${playfair.className} font-extralight ${pathname === item.href ? "text-gray-900 dark:text-white" : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}

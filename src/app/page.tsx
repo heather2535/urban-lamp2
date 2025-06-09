@@ -85,21 +85,23 @@ export default function Portfolio() {
       </main>
 
       {/* Featured Projects Section */}
-      <section id="projects" className={`py-20 ${theme === "dark" ? "bg-[#18181b]" : "bg-white"}`}>
+      <section id="projects" className="py-20">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-              <Layers className="w-8 h-8 text-primary" />
+            <div className="flex items-center gap-4 mb-16">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Layers className="w-8 h-8 text-primary" />
+              </div>
+              <h1 className={`text-zinc-800 dark:text-white text-5xl sm:text-5xl lg:text-6xl font-normal tracking-tight ${playfair.className}`}>
+                <span className="text-primary">Projects.</span>
+              </h1>
             </div>
-            <h1 className={`text-zinc-800 dark:text-white text-5xl sm:text-5xl lg:text-6xl font-normal tracking-tight mb-0 ${playfair.className}`}>
-              <span className="text-primary">Projects.</span>
-            </h1>
           </div>
           {/* Projects Grid */}
-          <div className="mt-10 space-y-24 md:space-y-32 lg:space-y-24">
+          <div className="max-w-7xl mx-auto space-y-24 md:space-y-32 lg:space-y-24">
             {/* Cliiimate Project */}
             <div className="grid lg:grid-cols-12 gap-12 items-center">
-              <Link href="/work/climate-app" className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
+              <Link href="/work/climate-app" className="lg:col-span-6 space-y-6 hover:opacity-90 transition-opacity">
                 <div>
                   <div className="flex items-center gap-4 mb-3">
                     <div className="w-8 h-8 flex items-center justify-center">
@@ -136,7 +138,7 @@ export default function Portfolio() {
             </div>
             {/* Plant Care AI Project */}
             <div className="grid lg:grid-cols-12 gap-12 items-center">
-              <Link href="/work/plant-care" className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
+              <Link href="/work/plant-care" className="lg:col-span-6 space-y-6 hover:opacity-90 transition-opacity">
                 <div>
                   <div className="flex items-center gap-4 mb-3">
                     <div className="w-8 h-8 flex items-center justify-center">
@@ -175,7 +177,7 @@ export default function Portfolio() {
 
             {projects.map((project, index) => (
               <div key={project.title} className="grid lg:grid-cols-12 gap-12 items-center">
-                <Link href={project.href} className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
+                <Link href={project.href} className="lg:col-span-6 space-y-6 hover:opacity-90 transition-opacity">
                   <div>
                     <div className="flex items-center gap-4 mb-3">
                       <div className="w-8 h-8 flex items-center justify-center">

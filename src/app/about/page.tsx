@@ -108,7 +108,7 @@ export default function AboutPage() {
           className="mb-32 pt-48 pb-24 px-6 md:px-8 lg:px-12"
         >
           <div className="flex flex-col md:flex-row gap-4">
-            <div className="md:w-3/5">
+            <div className="md:w-2/3">
               <div className="relative inline-block">
                 <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center mb-6">
                   <svg
@@ -127,22 +127,14 @@ export default function AboutPage() {
                     <circle cx="12" cy="7" r="4" />
                   </svg>
                 </div>
-                <h1 className={`${playfair.className} text-3xl md:text-4xl font-normal mb-2 tracking-wide text-gray-900 dark:text-white`}>About me.</h1>
+                <h1 className={`${playfair.className} text-3xl md:text-6xl font-normal mb-2 tracking-wide text-gray-900 dark:text-white`}>About me.</h1>
 
                 {/* Decorative elements */}
-                <motion.div
-                  className="absolute -top-8 -left-10 w-6 h-6 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full"
-                  animate={{ scale: [1, 1.5, 1] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                />
-                <motion.div
-                  className="absolute -bottom-4 -right-8 w-4 h-4 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full opacity-60"
-                  animate={{ scale: [1.5, 1, 1.5] }}
-                  transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-                />
+                {/* Removing the orange dots */}
+
               </div>
 
-              <h1 className={`${playfair.className} text-3xl md:text-4xl font-normal mb-12 tracking-wide text-gray-600 dark:text-gray-400 max-w-xl`}>
+              <h1 className={`${playfair.className} text-3xl md:text-5xl font-normal mb-12 tracking-wide text-gray-600 dark:text-gray-400`}>
                 Product designer crafting meaningful experiences through research, empathy, and creativity.
               </h1>
 
@@ -316,40 +308,8 @@ export default function AboutPage() {
           </div>
         </motion.div>
 
-        {/* Main Content Section */}
-        <section className="bg-white dark:bg-[#18181b] rounded-3xl p-8 lg:p-12 shadow-lg mb-20">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              
-
-
-             
-            </motion.div>
-          </div>
-        </section>
-
        
-
-    
-
-    
-
-        {/* About Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-20"
-        >
-          
-        </motion.div>
+      
         </div>
     </div>
   )
