@@ -9,6 +9,9 @@ import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Packag
 import { motion } from "framer-motion"
 import Image from "next/image"
 import React from 'react'
+import { Playfair_Display } from 'next/font/google'
+
+const playfair = Playfair_Display({ subsets: ['latin'] })
 
 const project = {
   title: "Fuse Networking App",
@@ -147,7 +150,7 @@ export default function FusePage() {
   })
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+    <div className="min-h-screen bg-transparent">
       {/* Floating geometric shapes */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <motion.div
@@ -173,109 +176,108 @@ export default function FusePage() {
         </motion.div>
       </div>
 
-      <Navigation />
-      <main className="container mx-auto px-6 lg:px-8 relative z-10">
+      <main className="relative">
         <article className="prose lg:prose-xl dark:prose-invert">
           {/* Back Button */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="pt-8 mb-12"
+            className="absolute top-32 left-8 z-20"
           >
             <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-800 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
+              href="/#projects"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm text-gray-900 dark:text-white rounded-full text-sm font-medium hover:bg-gray-900/20 dark:hover:bg-white/20 transition-colors duration-300"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-3 h-3" />
               Back to Projects
             </Link>
           </motion.div>
 
-          {/* Hero Section - Two Column Layout */}
+          {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center mt-10 mb-16"
+            className="relative w-full"
           >
-            {/* Right Column - Video */}
+            {/* Text Content */}
             <motion.div
-              className="md:col-span-3 relative order-first md:order-last"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative z-10 pt-60 pb-20 w-screen"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="relative max-w-[640px] mx-auto">
-                <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
-                <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
-                  <div style={{padding: "62.5% 0 0 0", position: "relative"}}>
-                    <iframe 
-                      src="https://player.vimeo.com/video/1000863799?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                      frameBorder="0" 
-                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                      style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}} 
-                      title="FUSE Final Demo"
-                    />
-                  </div>
+              <div className="px-16">
+                <div className="max-w-7xl mx-auto space-y-8">
+                  <motion.h1
+                    className={`${playfair.className} text-3xl md:text-5xl font-normal tracking-wide`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                  >
+                    <span className="text-gray-900 dark:text-white">
+                      {project.title}
+                    </span>
+                  </motion.h1>
+
+                  <motion.p
+                    className={`${playfair.className} text-3xl md:text-5xl max-w-2xl font-normal leading-relaxed text-gray-800 dark:text-white/90`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    {project.description}
+                  </motion.p>
+
+                  <motion.div
+                    className="flex items-center gap-3 text-gray-800 dark:text-white/90"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                  >
+                    <span className="text-sm font-medium">{project.date}</span>
+                  </motion.div>
+
+                  {/* Tags */}
+                  <motion.div
+                    className="flex flex-wrap justify-end gap-2 max-w-xl ml-auto"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                  >
+                    {filteredProjects.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1.5 bg-gray-900/10 dark:bg-white/20 backdrop-blur-md text-gray-900 dark:text-white rounded-full text-xs font-extralight hover:bg-gray-900/20 dark:hover:bg-white/30 transition-colors duration-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Left Column - Text Content */}
+            {/* Hero Video */}
             <motion.div
-              className="md:col-span-2 space-y-6"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative w-full h-[600px]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <motion.h1
-                className="text-5xl lg:text-7xl font-black tracking-tight leading-none"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <span className="inline-block">Networking App</span>{" "}
-                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">
-                  Fuse
-                </span>
-              </motion.h1>
-
-              <motion.p
-                className="text-xl text-gray-600 leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                {project.description}
-              </motion.p>
-
-              <motion.div
-                className="flex items-center gap-3 text-gray-600"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                <span className="text-sm">{project.date}</span>
-              </motion.div>
-
-              {/* Tags */}
-              <motion.div
-                className="flex flex-wrap gap-3"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-              >
-                {filteredProjects.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </motion.div>
+              <div className="relative w-full">
+                <div style={{padding: "62.5% 0 0 0", position: "relative"}}>
+                  <iframe 
+                    src="https://player.vimeo.com/video/1000863799?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                    frameBorder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}} 
+                    title="FUSE Final Demo"
+                  />
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 
@@ -290,59 +292,70 @@ export default function FusePage() {
             <ChevronRight className="w-4 h-4 rotate-90" />
           </motion.div>
 
-          {/* Three Columns Section */}
+          {/* Project Details Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+            className="mb-20 px-16 pt-40"
           >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Role</h3>
-                <div className="space-y-1">
-                  <p className="text-gray-600">Design Strategist, UX</p>
-                  <p className="text-gray-600">Researcher, UI/UX</p>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+              {/* Title */}
+              <div className="md:col-span-4">
+                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>Project Details</h3>
+              </div>
+
+              {/* Labels */}
+              <div className="md:col-span-4 space-y-12">
+                <div>
+                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">DURATION</h3>
+                </div>
+                <div>
+                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">ROLE</h3>
+                </div>
+                <div>
+                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">TEAM</h3>
                 </div>
               </div>
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Team</h3>
-                <div className="space-y-1">
-                  <p className="text-gray-600">Heather Davies</p>
-                  <p className="text-gray-600">Solo Project</p>
+
+              {/* Content */}
+              <div className="md:col-span-4 space-y-12">
+                <div>
+                  <p className="text-sm font-extralight text-gray-400">Jan. 2024 - May 2024 (4 mo. total)</p>
                 </div>
-              </div>
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Duration</h3>
-                <div className="space-y-1">
-                  <p className="text-gray-600">Jan. 2024 - May 2024</p>
-                  <p className="text-gray-600">4 mo. total</p>
+                <div>
+                  <p className="text-sm font-extralight text-gray-400">Design Strategist, UX Researcher, UI/UX</p>
+                </div>
+                <div>
+                  <p className="text-sm font-extralight text-gray-400">Heather Davies</p>
+                  <p className="text-sm font-extralight text-gray-400">Solo Project</p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Problem Statement and Goal Section */}
+          {/* Problem & Goal Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+            className="mb-20 px-16"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-2xl font-bold mb-4">Problem Statement</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Navigating the internship application process can be frustrating for students. Many encounter outdated listings, disorganization, and a lack of transparency about qualifications and salaries. The frustration is compounded by poor follow-ups and difficulty in finding updated information. Students also struggle with complex, non-intuitive applications and wish for clearer filters. Additionally, there is a strong desire for easier connections with people who can provide referrals and resume support.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold mb-4">Solution</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Imagine having a tool that simplifies the internship application process and enhances your job search experience. That tool is Fuse. It's a comprehensive application designed to keep you informed and connected. Fuse features a live application tracker and quick ways to connect with recruiters. Companies are required to list detailed job descriptions, requirements, and company statistics, with reviews available for each job listing. The app includes active/new listing sections, an easy apply feature, and a filtered search option. Additionally, Fuse offers chatrooms tailored to your occupational interests and seamless access to recruiters and mentors, making it an ideal platform for streamlining your job search and networking efforts.
-                </p>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-8">
+                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Problem & Goal</h3>
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">Problem Statement</h4>
+                    <p className="text-gray-400">Navigating the internship application process can be frustrating for students. Many encounter outdated listings, disorganization, and a lack of transparency about qualifications and salaries. The frustration is compounded by poor follow-ups and difficulty in finding updated information. Students also struggle with complex, non-intuitive applications and wish for clearer filters. Additionally, there is a strong desire for easier connections with people who can provide referrals and resume support.</p>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">Solution</h4>
+                    <p className="text-gray-400">Imagine having a tool that simplifies the internship application process and enhances your job search experience. That tool is Fuse. It's a comprehensive application designed to keep you informed and connected. Fuse features a live application tracker and quick ways to connect with recruiters. Companies are required to list detailed job descriptions, requirements, and company statistics, with reviews available for each job listing. The app includes active/new listing sections, an easy apply feature, and a filtered search option. Additionally, Fuse offers chatrooms tailored to your occupational interests and seamless access to recruiters and mentors, making it an ideal platform for streamlining your job search and networking efforts.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -353,23 +366,24 @@ export default function FusePage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+            className="mb-20 px-16"
           >
-            <h3 className="text-2xl font-bold mb-6">Discovery</h3>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              Before the meeting, our team conducted a comprehensive SWOT analysis to evaluate existing internship application platforms and identify gaps and opportunities. We also carried out customer interviews to develop detailed personas, capturing students' frustrations and needs. Additionally, we mapped out user journeys to understand their tasks, goals, and pain points. As we analyzed these findings, we identified areas where user needs and design requirements were unclear or misaligned. This prompted us to prepare a set of follow-up questions to refine our approach.
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              During our meeting, we reviewed the insights from our research, including the SWOT analysis results, user personas, and journey maps. This collaborative discussion allowed us to address critical aspects of the app design, ensuring that Fuse effectively simplifies the internship application process, improves transparency, and enhances user connectivity with recruiters and mentors.
-            </p>
-
-            <div className="bg-gradient-to-r from-orange-50 to-pink-50 rounded-xl p-6 mt-6">
-              <ul className="list-disc pl-6 space-y-2">
-                <li className="text-gray-700">Search and Networking</li>
-                <li className="text-gray-700">Applicant portal setup</li>
-                <li className="text-gray-700">Job Listing Management</li>
-                <li className="text-gray-700">Allow applicants to send acceptances and schedule interview times through the app and email.</li>
-              </ul>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-8">
+                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Discovery</h3>
+                <div className="space-y-6">
+                  <p className="text-gray-400">Before the meeting, our team conducted a comprehensive SWOT analysis to evaluate existing internship application platforms and identify gaps and opportunities. We also carried out customer interviews to develop detailed personas, capturing students' frustrations and needs. Additionally, we mapped out user journeys to understand their tasks, goals, and pain points. As we analyzed these findings, we identified areas where user needs and design requirements were unclear or misaligned. This prompted us to prepare a set of follow-up questions to refine our approach.</p>
+                  <p className="text-gray-400">During our meeting, we reviewed the insights from our research, including the SWOT analysis results, user personas, and journey maps. This collaborative discussion allowed us to address critical aspects of the app design, ensuring that Fuse effectively simplifies the internship application process, improves transparency, and enhances user connectivity with recruiters and mentors.</p>
+                  <div className="bg-gradient-to-r from-orange-50 to-pink-50 rounded-xl p-6 mt-6">
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li className="text-gray-700">Search and Networking</li>
+                      <li className="text-gray-700">Applicant portal setup</li>
+                      <li className="text-gray-700">Job Listing Management</li>
+                      <li className="text-gray-700">Allow applicants to send acceptances and schedule interview times through the app and email.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
 
@@ -379,65 +393,63 @@ export default function FusePage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+            className="mb-20 px-16"
           >
-            <h3 className="text-3xl font-bold mb-8 text-center">Ideation</h3>
-            
-            <h4 className="text-xl font-bold mb-4">User Stories</h4>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              The client provided three thorough user stories that addressed the entire user journey, involving tasks such as template form creation, sharing, editing, duplicating, and attaching a template to a post for others to complete.
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-8">
+                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Ideation</h3>
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">User Stories</h4>
+                    <p className="text-gray-400 mb-6">The client provided three thorough user stories that addressed the entire user journey, involving tasks such as template form creation, sharing, editing, duplicating, and attaching a template to a post for others to complete.</p>
+                    <div className="bg-gradient-to-r from-orange-50 to-pink-50 rounded-xl p-6">
+                      <ol className="list-decimal pl-6 space-y-3">
+                        <li className="text-gray-700">As a student, I want to create and save a template form so that I can easily apply to multiple internships with similar requirements.</li>
+                        <li className="text-gray-700">As a student, I want to share my template with other students so that they can use it for their applications.</li>
+                        <li className="text-gray-700">As a student, I want to edit and duplicate existing templates so that I can customize them for different applications.</li>
+                        <li className="text-gray-700">As a student, I want to attach my template to a job posting so that other applicants can use it.</li>
+                      </ol>
+                    </div>
+                  </div>
 
-            <div className="bg-gradient-to-r from-orange-50 to-pink-50 rounded-xl p-6 mt-6">
-              <ol className="list-decimal pl-6 space-y-3">
-                <li className="text-gray-700">As a student, I want to create and save a template form so that I can easily apply to multiple internships with similar requirements.</li>
-                <li className="text-gray-700">As a student, I want to share my template with other students so that they can use it for their applications.</li>
-                <li className="text-gray-700">As a student, I want to edit and duplicate existing templates so that I can customize them for different applications.</li>
-                <li className="text-gray-700">As a student, I want to attach my template to a job posting so that other applicants can use it.</li>
-              </ol>
-            </div>
+                  <div>
+                    <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">User Flows</h4>
+                    <p className="text-gray-400 mb-6">For effective management, we divided the flows. I worked in collaboration with another designer on user flow three—a pivotal flow that shapes the template experience within the CRM, and a prominent feature of the product. Initially, I tackled its complexity independently. After completing my version of the flow, I presented the design to my teammate, and together, we refined and improved the aspects that required attention. This approach allowed me to apply my design thinking skills to create a streamlined form creation flow.</p>
+                    <div className="relative group mb-8">
+                      <div className="absolute -inset-4 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                      <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
+                        <Image
+                          src="/images/image44.png"
+                          alt="User Flow Diagram"
+                          width={1200}
+                          height={800}
+                          className="w-full h-auto object-cover"
+                        />
+                      </div>
+                    </div>
+                    <p className="text-right text-gray-600 mt-4 font-medium">User Flow 3: Template Creation and Management</p>
+                  </div>
 
-            <h4 className="text-xl font-bold mb-4 mt-8">User Flows</h4>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              For effective management, we divided the flows. I worked in collaboration with another designer on user flow three—a pivotal flow that shapes the template experience within the CRM, and a prominent feature of the product. Initially, I tackled its complexity independently. After completing my version of the flow, I presented the design to my teammate, and together, we refined and improved the aspects that required attention. This approach allowed me to apply my design thinking skills to create a streamlined form creation flow.
-            </p>
-
-            <div className="relative group mb-8">
-              <div className="absolute -inset-4 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
-              <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/image44.png"
-                  alt="User Flow Diagram"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto object-cover"
-                />
+                  <div>
+                    <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">Sitemap</h4>
+                    <p className="text-gray-400 mb-6">The sitemap was created to address three main opportunities. It should provide a way for users to easily connect with recruiters and employees from similar roles to expand users network. Next, it provides a way for users to gain transparency on company information and on their application processes. Finally, providing a filtering system for active jobs and specialized roles with up to date information.</p>
+                    <div className="relative group mb-8">
+                      <div className="absolute -inset-4 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                      <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
+                        <Image
+                          src="/images/image45.png"
+                          alt="Sitemap Diagram"
+                          width={1200}
+                          height={800}
+                          className="w-full h-auto object-cover"
+                        />
+                      </div>
+                    </div>
+                    <p className="text-right text-gray-600 mt-4 font-medium">Sitemap: Navigation Structure and Information Architecture</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <p className="text-right text-gray-600 mt-4 font-medium">
-              User Flow 3: Template Creation and Management
-            </p>
-
-            <h4 className="text-xl font-bold mb-4 mt-8">Sitemap</h4>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              The sitemap was created to address three main opportunities. It should provide a way for users to easily connect with recruiters and employees from similar roles to expand users network. Next, it provides a way for users to gain transparency on company information and on their application processes. Finally, providing a filtering system for active jobs and specialized roles with up to date information.
-            </p>
-
-            <div className="relative group mb-8">
-              <div className="absolute -inset-4 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
-              <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/image45.png"
-                  alt="Sitemap Diagram"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-            <p className="text-right text-gray-600 mt-4 font-medium">
-              Sitemap: Navigation Structure and Information Architecture
-            </p>
           </motion.div>
 
           {/* Design Section */}
@@ -446,33 +458,35 @@ export default function FusePage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+            className="mb-20 px-16"
           >
-            <h3 className="text-3xl font-bold mb-8 text-center">Design</h3>
-            
-            <h4 className="text-xl font-bold mb-4">Wireframes</h4>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              In our design session, we decided to start all user flows from the Submissions page. Our intent was to enhance clarity with precise language. To achieve this, we made a deliberate change, renaming 'My Applications' to 'Submissions,' making it clear that all types of submissions (applications, surveys, registrations, and more) would be conveniently accessible in one place. This strategic move to centralize submissions, along with features like individual submissions, a template overview tab, and a quick template creation button in the top-right corner, streamlined user interactions for a more cohesive and seamless experience.
-            </p>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-              {[46, 47, 48, 49, 50, 51, 52, 53].map((num) => (
-                <div key={num} className="relative">
-                  <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                    <Image
-                      src={`/images/image${num}.png`}
-                      alt={`Wireframe ${num - 45}`}
-                      width={600}
-                      height={400}
-                      className="w-full h-auto object-cover"
-                    />
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-8">
+                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Design</h3>
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">Wireframes</h4>
+                    <p className="text-gray-400 mb-6">In our design session, we decided to start all user flows from the Submissions page. Our intent was to enhance clarity with precise language. To achieve this, we made a deliberate change, renaming 'My Applications' to 'Submissions,' making it clear that all types of submissions (applications, surveys, registrations, and more) would be conveniently accessible in one place. This strategic move to centralize submissions, along with features like individual submissions, a template overview tab, and a quick template creation button in the top-right corner, streamlined user interactions for a more cohesive and seamless experience.</p>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                      {[46, 47, 48, 49, 50, 51, 52, 53].map((num) => (
+                        <div key={num} className="relative">
+                          <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                            <Image
+                              src={`/images/image${num}.png`}
+                              alt={`Wireframe ${num - 45}`}
+                              width={600}
+                              height={400}
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-center text-gray-600 mt-4 font-medium">Initial wireframes showing the submission flow and template management</p>
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
-            <p className="text-center text-gray-600 mt-4 font-medium">
-              Initial wireframes showing the submission flow and template management
-            </p>
           </motion.div>
 
           {/* Reflection Section */}
@@ -481,36 +495,26 @@ export default function FusePage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+            className="mb-20 px-16"
           >
-            <h3 className="text-2xl font-bold mb-6 text-center">Reflection</h3>
-            <div className="space-y-6">
-              <p className="text-gray-700 leading-relaxed">
-                Presenting my prototype with the aim to help users find jobs and internships easily and apply to them quickly.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                The first change I made to my prototype based on user feedback was with visuals. The initial version was looking to bland and old fashioned, so I switched to a visually more appeal look for all changes that you'll see in my prototype.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                The second change I made was with the job filters. Initially users were having trouble finding specific filters so I incorporated a search bar and a filter system that relies on tags or keywords to find relevant job offers.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                A third change I made related to the quick apply feature. Before there was no immediate feedback to the user that the application was submitted, so I added a confirmation page as well as a page where the user can view their pending or past applications.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Now moving on to my clickable prototype, first you'll be taken to the login and registration pages, where you would enter a new or existing username and password in order to get into the app.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Once registering or logging in, the next ideal step would be to go to the account page and fill out the information fields that appear, including uploading your resume in order for the quick apply feature to work. So let's go to the filters page and try looking for a job relating to relevant fields. So you would pick the filters you wanted and press 'apply filters' to see job offerings related to your entered fields.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Next, you should be able to see some job offerings, and be able to click on them to start your application. You will then be able to verify the information entered into you account is correct before hitting the 'quick apply' feature that will automatically fill the application out for you.
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-8">
+                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Reflection</h3>
+                <div className="space-y-6">
+                  <p className="text-gray-400">Presenting my prototype with the aim to help users find jobs and internships easily and apply to them quickly.</p>
+                  <p className="text-gray-400">The first change I made to my prototype based on user feedback was with visuals. The initial version was looking to bland and old fashioned, so I switched to a visually more appeal look for all changes that you'll see in my prototype.</p>
+                  <p className="text-gray-400">The second change I made was with the job filters. Initially users were having trouble finding specific filters so I incorporated a search bar and a filter system that relies on tags or keywords to find relevant job offers.</p>
+                  <p className="text-gray-400">A third change I made related to the quick apply feature. Before there was no immediate feedback to the user that the application was submitted, so I added a confirmation page as well as a page where the user can view their pending or past applications.</p>
+                  <p className="text-gray-400">Now moving on to my clickable prototype, first you'll be taken to the login and registration pages, where you would enter a new or existing username and password in order to get into the app.</p>
+                  <p className="text-gray-400">Once registering or logging in, the next ideal step would be to go to the account page and fill out the information fields that appear, including uploading your resume in order for the quick apply feature to work. So let's go to the filters page and try looking for a job relating to relevant fields. So you would pick the filters you wanted and press 'apply filters' to see job offerings related to your entered fields.</p>
+                  <p className="text-gray-400">Next, you should be able to see some job offerings, and be able to click on them to start your application. You will then be able to verify the information entered into you account is correct before hitting the 'quick apply' feature that will automatically fill the application out for you.</p>
+                </div>
+              </div>
             </div>
           </motion.div>
 
           {/* Navigation */}
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center px-16 mb-20">
             <Link
               href="/projects"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300"

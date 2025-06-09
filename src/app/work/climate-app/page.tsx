@@ -99,7 +99,8 @@ export default function CryptoDashboardPage() {
         </motion.div>
       </div>
 
-      <Navigation />
+    
+
       <main className="relative">
         <article className="prose lg:prose-xl dark:prose-invert">
           {/* Back Button */}
@@ -504,25 +505,6 @@ export default function CryptoDashboardPage() {
                   priority
                 />
                 <div className="absolute inset-0 bg-black/50"></div>
-              </div>
-
-              {/* Navigation */}
-              <div className="flex justify-between items-center">
-                <Link
-                  href="/#projects"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm text-gray-900 dark:text-white rounded-full text-sm font-medium hover:bg-gray-900/20 dark:hover:bg-white/20 transition-colors duration-300"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  Back to Projects
-                </Link>
-
-                <Link
-                  href="/work/fuse"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
-                >
-                  Next Project
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
               </div>
             </div>
           </motion.div>

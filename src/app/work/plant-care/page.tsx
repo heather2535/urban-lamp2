@@ -99,7 +99,7 @@ export default function CryptoDashboardPage() {
         </motion.div>
       </div>
 
-      <Navigation />
+     
       <main className="relative">
         <article className="prose lg:prose-xl dark:prose-invert">
           {/* Back Button */}
@@ -306,7 +306,7 @@ export default function CryptoDashboardPage() {
                   <div className="w-full max-w-[1400px] px-4">
                     <div className="bg-gray-100 dark:bg-[#18181b] rounded-xl p-16 overflow-hidden relative">
                       <p className="absolute top-6 left-6 text-sm text-gray-600 dark:text-gray-400 font-extralight tracking-wider uppercase">
-                        Mobile app screenshots
+                        Preview of final mobile screens
                       </p>
                       <div className="flex gap-0 animate-scroll mt-8">
                         <div className="flex gap-0">

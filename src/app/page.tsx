@@ -96,13 +96,15 @@ export default function Portfolio() {
             </h1>
           </div>
           {/* Projects Grid */}
-          <div className="space-y-24">
+          <div className="space-y-24 md:space-y-32 lg:space-y-24">
             {/* Cliiimate Project */}
             <div className="grid lg:grid-cols-12 gap-12 items-center">
               <Link href="/work/climate-app" className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
                 <div>
                   <div className="flex items-center gap-4 mb-3">
-                    <Cloud className="w-8 h-8 text-primary" />
+                    <div className="w-8 h-8 flex items-center justify-center">
+                      <Cloud className="w-8 h-8 text-primary" />
+                    </div>
                     <h3 className={`text-4xl font-normal ${theme === "dark" ? "text-white" : "text-gray-900"} ${playfair.className}`}>Cliimate</h3>
                   </div>
                   <p className="text-md max-w-2xl mx-auto mb-4 font-extralight leading-relaxed text-gray-400">
@@ -137,7 +139,9 @@ export default function Portfolio() {
               <Link href="/work/plant-care" className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
                 <div>
                   <div className="flex items-center gap-4 mb-3">
-                    <Cloud className="w-8 h-8 text-primary" />
+                    <div className="w-8 h-8 flex items-center justify-center">
+                      <Cloud className="w-8 h-8 text-primary" />
+                    </div>
                     <h3 className={`text-4xl font-normal ${theme === "dark" ? "text-white" : "text-gray-900"} ${playfair.className}`}>Plant Care AI</h3>
                   </div>
                   <p className="text-md max-w-2xl mx-auto mb-4 font-extralight leading-relaxed text-gray-400">
@@ -167,16 +171,16 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
+            
 
             {projects.map((project, index) => (
               <div key={project.title} className="grid lg:grid-cols-12 gap-12 items-center">
                 <Link href={project.href} className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
                   <div>
                     <div className="flex items-center gap-4 mb-3">
-                      {index === 0 && <Cloud className="w-8 h-8 text-primary" />}
-                      {index === 1 && <Stethoscope className="w-8 h-8 text-primary" />}
-                      {index === 2 && <Users className="w-8 h-8 text-primary" />}
-                      {index > 2 && <Layers className="w-8 h-8 text-primary" />}
+                      <div className="w-8 h-8 flex items-center justify-center">
+                        <Cloud className="w-8 h-8 text-primary" />
+                      </div>
                       <h3 className={`text-4xl font-normal ${theme === "dark" ? "text-white" : "text-gray-900"} ${playfair.className}`}>{project.title}</h3>
                     </div>
                     <p className="text-md max-w-2xl mx-auto mb-4 font-extralight leading-relaxed text-gray-400">

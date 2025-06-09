@@ -8,6 +8,9 @@ import Navigation from "@/components/navigation"
 import { motion } from "framer-motion"
 import { ArrowLeft, ChevronRight, ExternalLink, ArrowUpRight } from "lucide-react"
 import { Circle, Square, Triangle } from "lucide-react"
+import { Playfair_Display } from 'next/font/google'
+
+const playfair = Playfair_Display({ subsets: ['latin'] })
 
 // Define tagIcons with explicit typing for keys
 const tagIcons: Record<string, React.ReactElement> = {
@@ -256,7 +259,7 @@ export default function CryptoDashboardPage() {
   })
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+    <div className="min-h-screen bg-transparent">
       {/* Floating geometric shapes */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <motion.div
@@ -283,105 +286,107 @@ export default function CryptoDashboardPage() {
       </div>
 
       <Navigation />
-      <main className="container mx-auto px-6 lg:px-8 relative z-10">
+      <main className="relative">
         <article className="prose lg:prose-xl dark:prose-invert">
           {/* Back Button */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="pt-8 mb-12"
+            className="absolute top-32 left-8 z-20"
           >
             <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-800 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
+              href="/#projects"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm text-gray-900 dark:text-white rounded-full text-sm font-medium hover:bg-gray-900/20 dark:hover:bg-white/20 transition-colors duration-300"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-3 h-3" />
               Back to Projects
             </Link>
           </motion.div>
 
-          {/* Hero Section - Two Column Layout */}
+          {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-5 gap-12 items-start mt-10 mb-16"
+            className="relative w-full"
           >
-            {/* Right Column - Image */}
+            {/* Text Content */}
             <motion.div
-              className="md:col-span-3 relative order-first md:order-last"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative z-10 pt-60 pb-20 w-screen"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="relative max-w-[640px] mx-auto mt-8 md:mt-0">
-                <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
-                <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
-                  <img
-                    src="/images/image12.png"
-                    alt="Crypto Dashboard Overview"
-                    className="rounded-2xl w-full h-auto object-cover"
-                    style={{ maxHeight: "500px" }}
-                  />
+              <div className="px-16">
+                <div className="max-w-7xl mx-auto space-y-8">
+                  <motion.h1
+                    className={`${playfair.className} text-3xl md:text-5xl font-normal tracking-wide`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                  >
+                    <span className="text-gray-900 dark:text-white">
+                      {project.title}
+                    </span>
+                  </motion.h1>
+
+                  <motion.p
+                    className={`${playfair.className} text-3xl md:text-5xl max-w-2xl font-normal leading-relaxed text-gray-800 dark:text-white/90`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    {project.description}
+                  </motion.p>
+
+                  <motion.div
+                    className="flex items-center gap-3 text-gray-800 dark:text-white/90"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                  >
+                    <span className="text-sm font-medium">{project.date}</span>
+                  </motion.div>
+
+                  {/* Tags */}
+                  <motion.div
+                    className="flex flex-wrap justify-end gap-2 max-w-xl ml-auto"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                  >
+                    {filteredProjects.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1.5 bg-gray-900/10 dark:bg-white/20 backdrop-blur-md text-gray-900 dark:text-white rounded-full text-xs font-extralight hover:bg-gray-900/20 dark:hover:bg-white/30 transition-colors duration-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Left Column - Text Content */}
+            {/* Video */}
             <motion.div
-              className="md:col-span-2 space-y-6"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative w-full h-[600px]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <motion.h1
-                className="text-5xl lg:text-7xl font-black tracking-tight leading-none"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <span className="inline-block">Real-Time</span>{" "}
-                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">
-                  Crypto-<br />currency
-                </span>
-              </motion.h1>
-
-              <motion.p
-                className="text-xl text-gray-600 leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                {project.description}
-              </motion.p>
-
-              <motion.div
-                className="flex items-center gap-3 text-gray-600"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                <span className="text-sm">{project.date}</span>
-              </motion.div>
-
-              {/* Tags */}
-              <motion.div
-                className="flex flex-wrap gap-3"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-              >
-                {filteredProjects.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </motion.div>
+              <video
+                src={project.video}
+                className="w-full h-full object-cover rounded-3xl"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-black/50 rounded-3xl"></div>
             </motion.div>
           </motion.div>
 
@@ -396,80 +401,46 @@ export default function CryptoDashboardPage() {
             <ChevronRight className="w-4 h-4 rotate-90" />
           </motion.div>
 
-          {/* Three Columns Section */}
+          {/* Project Details Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+            className="mb-20 px-16"
           >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Role</h3>
-                <div className="space-y-1">
-                  <p className="text-gray-600">Full Stack Developer</p>
-                  <p className="text-gray-600">UX Designer</p>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              {/* Title */}
+              <div className="md:col-span-4">
+                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>Project Details</h3>
+              </div>
+
+              {/* Labels */}
+              <div className="md:col-span-4 space-y-8">
+                <div>
+                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">DURATION</h3>
+                </div>
+                <div>
+                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">ROLE</h3>
+                </div>
+                <div>
+                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">TEAM</h3>
                 </div>
               </div>
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Team</h3>
-                <div className="space-y-1">
-                  <p className="text-gray-600">Heather Davies</p>
-                  <p className="text-gray-600">Solo Project</p>
+
+              {/* Content */}
+              <div className="md:col-span-4 space-y-8">
+                <div>
+                  <p className="text-sm font-extralight text-gray-400">Dec. 24 '24 - Dec. 28 '24 (4 days total)</p>
                 </div>
-              </div>
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Duration</h3>
-                <div className="space-y-1">
-                  <p className="text-gray-600">Dec. 24 '24 - Dec. 28 '24</p>
-                  <p className="text-gray-600">4 days total</p>
+                <div>
+                  <p className="text-sm font-extralight text-gray-400">Full Stack Developer, UX Designer</p>
+                </div>
+                <div>
+                  <p className="text-sm font-extralight text-gray-400">Heather Davies (Solo Project)</p>
                 </div>
               </div>
             </div>
-          </motion.div>
-
-          {/* Problem Statement and Goal Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-2xl font-bold mb-4">Goal</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  The primary goal was to create a real-time cryptocurrency tracking dashboard that provides users with live price data, sentiment analysis, and news integration. We aimed to help investors make informed decisions by combining multiple data sources into a single, intuitive interface.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold mb-4">Solution</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  I developed a full-stack web application that aggregates real-time price data from CoinMarketCap, analyzes news sentiment using Google Cloud NLP, and provides a clean, responsive interface for monitoring market trends and receiving price alerts.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Working Prototype Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex justify-center mb-20"
-          >
-            <a 
-              href="https://talentora.io" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
-            >
-              <ExternalLink className="w-4 h-4" />
-              Working Prototype
-            </a>
           </motion.div>
 
           {/* Content Section */}
@@ -478,29 +449,29 @@ export default function CryptoDashboardPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+            className="mb-20 px-16"
           >
             <div dangerouslySetInnerHTML={{ __html: project.content }} />
           </motion.div>
 
-          {/* Navigation */}
-          <div className="flex justify-between items-center">
+          {/* Working Prototype Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-20 px-16 text-center"
+          >
             <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300"
+              href="https://talentora.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-300"
             >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Projects
+              <ExternalLink className="w-4 h-4" />
+              Working Prototype
             </Link>
-
-            <Link
-              href="/work/fuse"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
-            >
-              Next Project
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
+          </motion.div>
         </article>
       </main>
     </div>
