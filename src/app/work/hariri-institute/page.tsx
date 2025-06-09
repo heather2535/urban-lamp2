@@ -10,7 +10,7 @@ const projectData = {
   id: "hariri-institute",
   title: "Website Redesign for Hariri Institute",
   date: "September 3, 2024",
-  tags: ["Web Development", "UX Research"],
+  tags: ["Web Development", "UX Research", "Information Architecture", "CMS", "Design System", "Accessibility", "User Research", "Prototyping"],
   heroImage: "/image15.png",
   mobileImage: "/placeholder.svg?height=600&width=300",
   tabletImage: "/placeholder.svg?height=500&width=400",
@@ -82,7 +82,7 @@ export default function HaririInstitutePage({ params, searchParams }: PageProps)
             className="pt-8 mb-12"
           >
             <Link
-              href="/projects"
+              href="/#projects"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-800 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -90,10 +90,10 @@ export default function HaririInstitutePage({ params, searchParams }: PageProps)
             </Link>
           </motion.div>
 
-          <div className="grid lg:grid-cols-5 gap-12 items-start pb-20">
+          <div className="grid lg:grid-cols-12 gap-12 items-start pb-20">
             {/* Project Info - Left Column */}
             <motion.div
-              className="space-y-8 lg:col-span-2"
+              className="space-y-8 lg:col-span-5"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -152,7 +152,7 @@ export default function HaririInstitutePage({ params, searchParams }: PageProps)
 
             {/* Hero Image - Right Column */}
             <motion.div
-              className="relative lg:col-span-3"
+              className="relative lg:col-span-7"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}

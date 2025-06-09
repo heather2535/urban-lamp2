@@ -132,7 +132,7 @@ export default function ProjectsPage() {
   })
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#18181b] pt-24 pb-16">
       {/* Floating geometric shapes */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <motion.div
@@ -185,7 +185,7 @@ export default function ProjectsPage() {
             />
           </div>
 
-          <p className="text-xl text-gray-600 font-light max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
             Designing interfaces that connect, guide, and delight.
           </p>
         </motion.div>
@@ -204,7 +204,7 @@ export default function ProjectsPage() {
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 activeCategory === category.id
                   ? `bg-gradient-to-r ${category.color} text-white shadow-lg scale-105`
-                  : "bg-white text-gray-600 hover:text-black hover:shadow-md border border-gray-200"
+                  : "bg-card text-muted-foreground hover:text-foreground hover:shadow-md border border-border"
               }`}
             >
               {category.label}
@@ -220,13 +220,13 @@ export default function ProjectsPage() {
           className="max-w-md mx-auto mb-12"
         >
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <input
               type="text"
               placeholder="Search projects..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 bg-white rounded-full border border-gray-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition-all duration-300 outline-none"
+              className="w-full pl-12 pr-4 py-4 bg-card rounded-full border border-border focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition-all duration-300 outline-none text-foreground placeholder:text-muted-foreground"
             />
           </div>
         </motion.div>
@@ -264,7 +264,7 @@ export default function ProjectsPage() {
                   <div
                     className={`absolute -inset-3 bg-gradient-to-r ${project.color} rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500`}
                   ></div>
-                  <div className="relative bg-white rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                  <div className="relative bg-card rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                     {/* Project Image */}
                     <div className="relative h-64 overflow-hidden">
                       <Image
@@ -274,8 +274,8 @@ export default function ProjectsPage() {
                         height={400}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <ArrowUpRight className="w-4 h-4 text-gray-700" />
+                      <div className="absolute top-4 right-4 bg-card/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <ArrowUpRight className="w-4 h-4 text-foreground" />
                       </div>
                     </div>
 
@@ -286,7 +286,7 @@ export default function ProjectsPage() {
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
+                            className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm font-medium"
                           >
                             {tag}
                           </span>
@@ -294,14 +294,14 @@ export default function ProjectsPage() {
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-xl font-bold mb-3 group-hover:text-pink-600 transition-colors duration-300">
+                      <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-pink-600 transition-colors duration-300">
                         {project.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-gray-600 leading-relaxed mb-4">{project.description}</p>
+                      <p className="text-muted-foreground leading-relaxed mb-4">{project.description}</p>
 
-                      <div className="inline-flex items-center text-black font-medium group-hover:text-pink-600 transition-colors duration-300">
+                      <div className="inline-flex items-center text-foreground font-medium group-hover:text-pink-600 transition-colors duration-300">
                         View Project
                         <ArrowUpRight className="ml-1 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                       </div>
@@ -317,8 +317,8 @@ export default function ProjectsPage() {
         {filteredProjects.length === 0 && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-16">
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">No projects found</h3>
-            <p className="text-gray-600">Try adjusting your search or filter criteria.</p>
+            <h3 className="text-2xl font-bold text-foreground mb-2">No projects found</h3>
+            <p className="text-muted-foreground">Try adjusting your search or filter criteria.</p>
           </motion.div>
         )}
       </div>

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import { Linkedin, Mail, FileText } from "lucide-react"
+import { ModeToggle } from "@/components/mode-toggle"
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -31,12 +32,12 @@ export default function Navigation() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        scrolled ? "bg-white/80 backdrop-blur-xl shadow-sm py-4 border-b border-gray-100" : "bg-transparent py-6"
+        scrolled ? "bg-white/80 dark:bg-[#18181b]/90 backdrop-blur-xl shadow-sm py-4 border-b border-gray-100 dark:border-gray-800" : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-8 flex items-center justify-between">
         <Link href="/" className="relative group">
-          <span className="text-2xl font-light tracking-wider">
+          <span className="text-2xl font-light tracking-wider text-white">
             heather
             <span className="inline-block w-2 h-2 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full ml-1 group-hover:scale-150 transition-transform duration-300"></span>
           </span>
@@ -48,9 +49,8 @@ export default function Navigation() {
             <Link
               key={item.name}
               href={item.href}
-              className={`relative text-sm font-medium tracking-wide transition-all duration-300 group ${
-                pathname === item.href ? "text-black" : "text-gray-500 hover:text-black"
-              }`}
+              className={`relative text-sm font-medium tracking-wide transition-all duration-300 group
+                ${pathname === item.href ? "text-black dark:text-white" : "text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"}`}
             >
               {item.name}
               {pathname === item.href && (
@@ -77,12 +77,13 @@ export default function Navigation() {
               key={label}
               href={href}
               aria-label={label}
-              className="relative p-2 text-gray-400 hover:text-black transition-all duration-300 group"
+              className="relative p-2 text-gray-400 hover:text-white transition-all duration-300 group"
             >
               <Icon size={18} />
               <span className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
             </Link>
           ))}
+          <ModeToggle />
         </div>
 
         {/* Mobile Menu Button */}
@@ -93,17 +94,17 @@ export default function Navigation() {
         >
           <div className="w-6 h-6 relative">
             <motion.span
-              className="absolute top-1 left-0 w-6 h-0.5 bg-black origin-left"
+              className="absolute top-1 left-0 w-6 h-0.5 bg-white origin-left"
               animate={mobileMenuOpen ? { rotate: 45, y: 2 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3 }}
             />
             <motion.span
-              className="absolute top-3 left-0 w-6 h-0.5 bg-black"
+              className="absolute top-3 left-0 w-6 h-0.5 bg-white"
               animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
               transition={{ duration: 0.3 }}
             />
             <motion.span
-              className="absolute top-5 left-0 w-6 h-0.5 bg-black origin-left"
+              className="absolute top-5 left-0 w-6 h-0.5 bg-white origin-left"
               animate={mobileMenuOpen ? { rotate: -45, y: -2 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3 }}
             />
@@ -116,7 +117,7 @@ export default function Navigation() {
         initial={{ opacity: 0, height: 0 }}
         animate={mobileMenuOpen ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
         transition={{ duration: 0.3 }}
-        className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-gray-100"
+        className="lg:hidden overflow-hidden bg-[#18181b] border-t border-gray-800"
       >
         <div className="container mx-auto px-6 py-8">
           <div className="space-y-6">
@@ -129,7 +130,7 @@ export default function Navigation() {
               >
                 <Link
                   href={item.href}
-                  className={`block text-lg font-medium ${pathname === item.href ? "text-black" : "text-gray-600"}`}
+                  className={`block text-lg font-medium ${pathname === item.href ? "text-white" : "text-gray-400 hover:text-white"}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}

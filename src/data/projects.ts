@@ -8,7 +8,7 @@ export const projects: Project[] = [
     image: "/image15.png",
     videoUrl: "/video1.mov",
     href: "/work/hariri-institute",
-    tags: ["All Projects", "Web Development"],
+    tags: ["All Projects", "Web Development", "UI/UX Design", "Research", "Information Architecture", "Content Strategy"],
   }, 
   {
     title: "ALS App Design with Boston Children's Hospital",
@@ -17,7 +17,7 @@ export const projects: Project[] = [
     image: "/images/image1.jpg",
     videoUrl: "/video2.mov",
     href: "/work/als-app",
-    tags: ["All Projects", "UI/UX Design", "Product Design"],
+    tags: ["All Projects", "UI/UX Design", "Product Design", "Healthcare", "Accessibility", "User Research", "Medical Design"],
   },
   {
     title: "Designing a DEI Consulting Web Application",
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     image: "/image4.png",
     videoUrl: "/video1.mov",
     href: "/work/dei-consulting",
-    tags: ["All Projects","Graphic Design", "Branding"],
+    tags: ["All Projects", "Graphic Design", "Branding", "Strategy", "Research", "Data Analysis", "Inclusion"],
   },
  
   {
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     image: "/images/image29.png",
     videoUrl: "/video2.mov",
     href: "/work/ai-task-force",
-    tags: ["All Projects", "UI/UX Design", "Product Design"],
+    tags: ["All Projects", "UI/UX Design", "Product Design", "Data Visualization", "AI/ML", "Dashboard Design", "User Research"],
   },
  
  
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     image: "/images/image37.png",
     videoUrl: "/video2.mov",
     href: "/work/fuse",
-    tags: ["All Projects", "UI/UX Design", "Branding"],
+    tags: ["All Projects", "UI/UX Design", "Branding", "Mobile Design", "User Research", "Career Tech", "Social Platform"],
   },
   
    
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     image: "/image1.png",
     videoUrl: "/video2.mov",
     href: "/work/crypto-dashboard",
-    tags: ["All Projects", "Web Development", "Product Design"],
+    tags: ["All Projects", "Web Development", "Product Design", "Data Visualization", "FinTech", "Real-time Data", "Dashboard Design"],
   },
  
 
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     image: "/image5.png",
     videoUrl: "/video1.mov",
     href: "/work/ai-task-manager",
-    tags: ["All Projects", "Web Development", "Branding", "UI/UX Design"],
+    tags: ["All Projects", "Web Development", "Branding", "UI/UX Design", "AI/ML", "HR Tech", "User Research", "Conversational Design"],
   },
 
   
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     image: "/image14.png",
     videoUrl: "/video1.mov",
     href: "/work/virtual-gallery",
-    tags: ["All Projects", "Web Development"],
+    tags: ["All Projects", "Web Development", "UI/UX Design", "Education", "Information Architecture", "Content Strategy", "User Research"],
   },
   {
     title: "Healthcare Management Platform",
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     image: "/image3.png",
     videoUrl: "/video1.mov",
     href: "/work/healthcare-platform",
-    tags: ["All Projects", "Web Development"],
+    tags: ["All Projects", "Web Development", "UI/UX Design", "Healthcare", "Product Design", "User Research", "Medical Design"],
   },
 
 
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     image: "/gallery/image36.png",
     videoUrl: "/video1.mov",
     href: "/work/chaosthesis",
-    tags: ["All Projects", "Graphic Design", "Branding"],
+    tags: ["All Projects", "Graphic Design", "Branding", "Visual Design", "Typography", "Print Design", "Art Direction"],
   },
 
   {
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     image: "/gallery/image1.jpg",
     videoUrl: "/video7.mp4",
     href: "/work/architectural-vis",
-    tags: ["All Projects", "Graphic Design", "3D Design"],
+    tags: ["All Projects", "Graphic Design", "3D Design", "Architecture", "Visualization", "Rendering", "Technical Design"],
   },
 
   {
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     image: "/gallery/image5.png",
     videoUrl: "/video7.mp4",
     href: "/work/marketing-campaign",
-    tags: ["All Projects", "Graphic Design", "Branding"],
+    tags: ["All Projects", "Graphic Design", "Branding", "Marketing", "Motion Design", "3D Animation", "Visual Storytelling"],
   },
 ]
 

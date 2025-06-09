@@ -1,23 +1,15 @@
 import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/providers"
-import Navigation from "@/components/navigation"
-import Footer from "@/components/footer"  // Import Footer component
 import "./globals.css"
 import type { Metadata } from 'next'
+import { ThemeProvider } from "next-themes"
+import Navigation from "@/components/navigation"
+import Footer from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Heather Davies - Portfolio",
-  description: "Multidisciplinary designer passionate about creating purposeful, research-driven products.",
-  icons: {
-    icon: [
-      {
-        url: '/favicon.png',
-        type: 'image/png',
-      }
-    ],
-  },
+  title: 'Heather Davies',
+  description: 'Multidisciplinary Designer',
 }
 
 export default function RootLayout({
@@ -27,14 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body 
-        className={`${inter.className} fade-in bg-gradient-to-r from-white via-[#e6f0ff] to-[#f0e6ff] dark:from-black dark:via-[#1a2a3a] dark:to-[#6a4e92]`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light" enableSystem={false}>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex flex-col min-h-screen">
             <Navigation />
-            <main>{children}</main> {/* Main content area */}
-            <Footer /> {/* Footer added here */}
+            <main>{children}</main>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
