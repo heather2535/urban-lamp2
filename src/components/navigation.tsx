@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Linkedin, Mail, FileText } from "lucide-react"
+import { Linkedin, Mail } from "lucide-react"
 import { ModeToggle } from "@/components/mode-toggle"
 
 export default function Navigation() {
@@ -23,9 +23,8 @@ export default function Navigation() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Projects", href: "/projects" },
-    { name: "Graphics", href: "/graphics" },
     { name: "About", href: "/about" },
+    { name: "Resume", href: "/resume" },
     { name: "Contact", href: "/contact" },
   ]
 
@@ -71,7 +70,6 @@ export default function Navigation() {
           {[
             { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
             { icon: Mail, href: "mailto:hello@heather.design", label: "Email" },
-            { icon: FileText, href: "/resume.pdf", label: "Resume" },
           ].map(({ icon: Icon, href, label }) => (
             <Link
               key={label}
