@@ -174,8 +174,7 @@ export default function Portfolio() {
               </div>
             </div>
             
-
-            {projects.map((project, index) => (
+            {projects.filter(p => p.title !== "Hariri Institute Website").map((project, index) => (
               <div key={project.title} className="grid lg:grid-cols-12 gap-12 items-center">
                 <Link href={project.href} className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
                   <div>
