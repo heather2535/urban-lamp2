@@ -30,7 +30,7 @@ export default function Navigation() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Resume", href: "/resume" },
+    { name: "Resume", href: "/resume.pdf" },
     { name: "Contact", href: "/contact" },
   ]
 
@@ -47,8 +47,8 @@ export default function Navigation() {
             <Link
               key={item.name}
               href={item.href}
-              className={`relative text-sm tracking-wide transition-all duration-300 group  font-extralight
-                ${pathname === item.href ? "text-gray-900 dark:text-white" : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"}`}
+              className={`relative text-sm tracking-wide transition-all duration-300 group font-extralight
+                ${pathname === item.href ? "text-gray-900 dark:text-white font-normal" : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"}`}
             >
               {item.name}
               {pathname === item.href && (
@@ -135,7 +135,7 @@ export default function Navigation() {
               >
                 <Link
                   href={item.href}
-                  className={`block text-lg ${playfair.className} font-extralight ${pathname === item.href ? "text-gray-900 dark:text-white" : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+                  className={`block text-lg ${playfair.className} font-extralight ${pathname === item.href ? "text-gray-900 dark:text-white font-normal" : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}

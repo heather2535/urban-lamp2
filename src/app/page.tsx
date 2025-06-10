@@ -101,7 +101,7 @@ export default function Portfolio() {
           <div className="max-w-7xl mx-auto space-y-24 md:space-y-32 lg:space-y-24">
             {/* Cliiimate Project */}
             <div className="grid lg:grid-cols-12 gap-12 items-center">
-              <Link href="/work/climate-app" className="lg:col-span-6 space-y-6 hover:opacity-90 transition-opacity">
+              <Link href="/work/climate-app" className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
                 <div>
                   <div className="flex items-center gap-4 mb-3">
                     <div className="w-8 h-8 flex items-center justify-center">
@@ -138,7 +138,7 @@ export default function Portfolio() {
             </div>
             {/* Plant Care AI Project */}
             <div className="grid lg:grid-cols-12 gap-12 items-center">
-              <Link href="/work/plant-care" className="lg:col-span-6 space-y-6 hover:opacity-90 transition-opacity">
+              <Link href="/work/plant-care" className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
                 <div>
                   <div className="flex items-center gap-4 mb-3">
                     <div className="w-8 h-8 flex items-center justify-center">
@@ -177,7 +177,7 @@ export default function Portfolio() {
 
             {projects.map((project, index) => (
               <div key={project.title} className="grid lg:grid-cols-12 gap-12 items-center">
-                <Link href={project.href} className="lg:col-span-6 space-y-6 hover:opacity-90 transition-opacity">
+                <Link href={project.href} className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
                   <div>
                     <div className="flex items-center gap-4 mb-3">
                       <div className="w-8 h-8 flex items-center justify-center">
