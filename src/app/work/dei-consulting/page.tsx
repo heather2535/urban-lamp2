@@ -28,8 +28,8 @@ const tagIcons: Record<string, React.ReactElement> = {
 }
 
 const project = {
-  title: "Designing a DEI Consulting Web Application",
-  description: "A comprehensive web application designed to facilitate DEI consulting services, enabling organizations to create more inclusive and equitable workplaces.",
+  title: "BCS & Associates",
+  description: "A web app facilitating DEI consulting services, enabling organizations to create more inclusive and equitable workplaces.",
   date: "March 15, 2024",
   video: "/video4.mov?height=450&width=800",
   tags: ["All Projects", "Graphic Design", "Branding", "Strategy", "Research", "Data Analysis", "Inclusion"],
@@ -182,7 +182,7 @@ export default function ProjectDetailPage() {
                     className={`${playfair.className} text-3xl md:text-5xl max-w-2xl font-normal leading-relaxed text-gray-800 dark:text-white/90`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
                   >
                     {project.description}
                   </motion.p>
@@ -218,25 +218,25 @@ export default function ProjectDetailPage() {
 
             {/* Video */}
             <motion.div
-              className="relative w-full h-[600px]"
+              className="relative w-full flex justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="relative max-w-[640px] mx-auto">
-                <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
-                <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
-                  <video 
-                    controls 
-                    width="100%" 
-                    height="auto" 
-                    className="object-cover rounded-lg"
-                    poster="/image4.png"
-                  >
-                    <source src={project.video} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
+              <div className="w-full max-w-5xl">
+                <video 
+                  width="100%" 
+                  height="auto" 
+                  className="w-full"
+                  poster="/image4.png"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source src={project.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </motion.div>
           </motion.div>
@@ -312,11 +312,11 @@ export default function ProjectDetailPage() {
                 <div className="space-y-8">
                   <div>
                     <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">Problem Statement</h4>
-                    <p className="text-gray-400">{project.problem}</p>
+                    <p className="text-gray-400 font-extralight">{project.problem}</p>
                   </div>
                   <div>
                     <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">Goal</h4>
-                    <p className="text-gray-400">{project.goal}</p>
+                    <p className="text-gray-400 font-extralight">{project.goal}</p>
                   </div>
                 </div>
               </div>
@@ -334,14 +334,14 @@ export default function ProjectDetailPage() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
                 <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>User Archetypes</h3>
-                <p className="text-gray-400 mb-8">
+                <p className="text-gray-400 font-extralight mb-8">
                   The people using this platform as discussed in previous meetings fall into three archtypes and we are trying to tailor the website to help people from all these different archetypes, like activists, and say intellectuals who want to join discussions and businesses who want to be sociall consciouss, our goal was to cater to all three archetypes and provide features that would create an experience for all types of people who are using this website.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {project.archetypes.map((archetype, index) => (
                     <div key={index} className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
                       <h4 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">{archetype.title}</h4>
-                      <p className="text-gray-400">{archetype.description}</p>
+                      <p className="text-gray-400 font-extralight">{archetype.description}</p>
                     </div>
                   ))}
                 </div>
@@ -360,8 +360,8 @@ export default function ProjectDetailPage() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
                 <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>User Research</h3>
-                <p className="text-gray-400 mb-4">{project.research.overview}</p>
-                <p className="text-gray-400 mb-8">{project.research.details}</p>
+                <p className="text-gray-400 font-extralight mb-4">{project.research.overview}</p>
+                <p className="text-gray-400 font-extralight mb-8">{project.research.details}</p>
 
                 {/* Persona 1 */}
                 <div className="mb-12">
@@ -378,7 +378,7 @@ export default function ProjectDetailPage() {
                       />
                     </div>
                   </div>
-                  <p className="text-gray-400">{project.research.persona1.journey}</p>
+                  <p className="text-gray-400 font-extralight">{project.research.persona1.journey}</p>
                 </div>
 
                 {/* Persona 2 */}
@@ -396,7 +396,7 @@ export default function ProjectDetailPage() {
                       />
                     </div>
                   </div>
-                  <p className="text-gray-400">{project.research.persona2.journey}</p>
+                  <p className="text-gray-400 font-extralight">{project.research.persona2.journey}</p>
                 </div>
               </div>
             </div>
@@ -413,7 +413,7 @@ export default function ProjectDetailPage() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
                 <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>User Flow</h3>
-                <p className="text-gray-400 mb-4">{project.userFlow.description}</p>
+                <p className="text-gray-400 font-extralight mb-4">{project.userFlow.description}</p>
                 <div className="relative group mb-8">
                   <div className="absolute -inset-4 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
                   <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
@@ -426,7 +426,7 @@ export default function ProjectDetailPage() {
                     />
                   </div>
                 </div>
-                <p className="text-gray-400">{project.userFlow.details}</p>
+                <p className="text-gray-400 font-extralight">{project.userFlow.details}</p>
               </div>
             </div>
           </motion.div>
@@ -442,14 +442,14 @@ export default function ProjectDetailPage() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
                 <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Key Features</h3>
-                <p className="text-gray-400 mb-8">
+                <p className="text-gray-400 font-extralight mb-8">
                   Based on our user research and journey maps, we identified several key features that would enhance the user experience and meet the needs of our different user archetypes.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {project.features.map((feature, index) => (
                     <div key={index} className="bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-gray-700">
                       <h4 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">{feature.title}</h4>
-                      <p className="text-gray-400">{feature.description}</p>
+                      <p className="text-gray-400 font-extralight">{feature.description}</p>
                     </div>
                   ))}
                 </div>
@@ -480,7 +480,7 @@ export default function ProjectDetailPage() {
                     />
                   </div>
                 </div>
-                <p className="text-center text-gray-400 mt-4 font-medium">
+                <p className="text-center text-gray-400 mt-4 font-extralight">
                   Initial wireframes exploring the user interface and interaction patterns
                 </p>
               </div>

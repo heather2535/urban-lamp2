@@ -17,16 +17,16 @@ export const projects: Project[] = [
     image: "/images/image1.jpg",
     videoUrl: "/video2.mov",
     href: "/work/als-app",
-    tags: ["All Projects", "UI/UX Design", "Product Design"],
+    tags: ["All Projects", "UI/UX Design", "Product Design", "Healthcare", "User Research", "Accessibility"],
   },
   {
     title: "Designing a DEI Consulting Web Application",
-    description: "Brand identity design for a line of sustainable, eco-friendly products.",
+    description: "Designed to facilitate DEI consulting services, enabling organizations to create more inclusive and equitable workplaces.",
     date: "March 15, 2024",
     image: "/image4.png",
     videoUrl: "/video1.mov",
     href: "/work/dei-consulting",
-    tags: ["All Projects","Graphic Design", "Branding"],
+    tags: ["All Projects", "Graphic Design", "Branding", "Web Development", "User Research", "UI/UX Design"],
   },
  
   {
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     image: "/images/image29.png",
     videoUrl: "/video2.mov",
     href: "/work/ai-task-force",
-    tags: ["All Projects", "UI/UX Design", "Product Design"],
+    tags: ["All Projects", "UI/UX Design", "Product Design", "Data Visualization", "AI/ML", "User Research"],
   },
  
  
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     image: "/images/image37.png",
     videoUrl: "/video2.mov",
     href: "/work/fuse",
-    tags: ["All Projects", "UI/UX Design", "Branding"],
+    tags: ["All Projects", "UI/UX Design", "Branding", "Mobile App", "User Research", "Product Design"],
   },
   
    
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     image: "/image1.png",
     videoUrl: "/video2.mov",
     href: "/work/crypto-dashboard",
-    tags: ["All Projects", "Web Development", "Product Design"],
+    tags: ["All Projects", "Web Development", "Product Design", "Data Visualization", "Real-time", "UI/UX Design"],
   },
  
 
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     image: "/image14.png",
     videoUrl: "/video1.mov",
     href: "/work/virtual-gallery",
-    tags: ["All Projects", "Web Development"],
+    tags: ["All Projects", "Web Development", "UI/UX Design", "E-Learning", "User Research", "Product Design"],
   },
   {
     title: "Healthcare Management Platform",
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     image: "/image3.png",
     videoUrl: "/video1.mov",
     href: "/work/healthcare-platform",
-    tags: ["All Projects", "Web Development"],
+    tags: ["All Projects", "Web Development", "Healthcare", "UI/UX Design", "User Research", "Product Design"],
   },
 
 

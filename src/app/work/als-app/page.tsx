@@ -13,10 +13,10 @@ const playfair = Playfair_Display({ subsets: ['latin'] })
 
 const project = {
   title: "ALS App Design with Boston Children's Hospital",
-  description: "A comprehensive web application designed to provide resources and support for individuals with ALS, focusing on improved user experience and personalized treatment recommendations.",
+  description: "A comprehensive web application designed to offer personalized treatment recommendations and support for individuals with ALS. ",
   date: "December 3, 2024",
   image: "/images/image19.png",
-  tags: ["Web Development", "Product Design", "UI/UX"],
+  tags: ["All Projects", "UI/UX Design", "Product Design", "Healthcare", "User Research", "Accessibility"],
   role: "Design Strategist, UX Researcher, UI/UX",
   team: ["Heather Davies", "Brian Zeng", "Avdeep Kaur", "Minyang Li"],
   duration: "Sep. 2024 - Dec. 2024 (4 mo. total)",
@@ -157,25 +157,27 @@ export default function ProjectDetailPage() {
             >
               <div className="px-16">
                 <div className="max-w-7xl mx-auto space-y-8">
-                  <motion.h1
-                    className={`${playfair.className} text-3xl md:text-5xl font-normal tracking-wide`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                  >
-                    <span className="text-gray-900 dark:text-white">
-                      {project.title}
-                    </span>
-                  </motion.h1>
+                  <div className="max-w-2xl">
+                    <motion.h1
+                      className={`${playfair.className} text-3xl md:text-5xl font-normal tracking-wide mb-8`}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                      <span className="text-gray-900 dark:text-white">
+                        {project.title}
+                      </span>
+                    </motion.h1>
 
-                  <motion.p
-                    className={`${playfair.className} text-3xl md:text-5xl max-w-2xl font-normal leading-relaxed text-gray-800 dark:text-white/90`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                  >
-                    {project.description}
-                  </motion.p>
+                    <motion.p
+                      className={`${playfair.className} text-3xl md:text-5xl font-normal leading-relaxed text-gray-800 dark:text-white/90`}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                      {project.description}
+                    </motion.p>
+                  </div>
 
                   <motion.div
                     className="flex items-center gap-3 text-gray-800 dark:text-white/90"
@@ -303,7 +305,7 @@ export default function ProjectDetailPage() {
                     {project.goals.map((goal, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-400">{goal}</span>
+                        <span className="text-gray-400 font-extralight">{goal}</span>
                       </li>
                     ))}
                   </ul>
@@ -331,7 +333,7 @@ export default function ProjectDetailPage() {
                     {project.process.research.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-400">{item}</span>
+                        <span className="text-gray-400 font-extralight">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -344,7 +346,7 @@ export default function ProjectDetailPage() {
                     {project.process.personas.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-400">{item}</span>
+                        <span className="text-gray-400 font-extralight">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -353,7 +355,7 @@ export default function ProjectDetailPage() {
                 {/* Information Architecture */}
                 <div className="mb-12">
                   <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">3. Information Architecture</h4>
-                  <p className="text-gray-400 mb-8">{project.process.architecture}</p>
+                  <p className="text-gray-400 font-extralight mb-8">{project.process.architecture}</p>
                   <div className="relative group">
                     <div className="absolute -inset-4 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
                     <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
@@ -375,7 +377,7 @@ export default function ProjectDetailPage() {
                     {project.process.prototyping.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-400">{item}</span>
+                        <span className="text-gray-400 font-extralight">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -388,7 +390,7 @@ export default function ProjectDetailPage() {
                     {project.process.interaction.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-400">{item}</span>
+                        <span className="text-gray-400 font-extralight">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -397,7 +399,7 @@ export default function ProjectDetailPage() {
                 {/* Scalability */}
                 <div className="mb-12">
                   <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">6. Scalability Planning</h4>
-                  <p className="text-gray-400">{project.process.scalability}</p>
+                  <p className="text-gray-400 font-extralight">{project.process.scalability}</p>
                 </div>
               </div>
             </div>
@@ -419,7 +421,7 @@ export default function ProjectDetailPage() {
                   {project.results.map((result, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-400">{result}</span>
+                      <span className="text-gray-400 font-extralight">{result}</span>
                     </li>
                   ))}
                 </ul>
@@ -432,7 +434,7 @@ export default function ProjectDetailPage() {
                   {project.tools.map((tool, index) => (
                     <div key={index}>
                       <h4 className="font-medium text-gray-900 dark:text-white mb-2">{tool.name}</h4>
-                      <p className="text-sm text-gray-400">{tool.description}</p>
+                      <p className="text-sm text-gray-400 font-extralight">{tool.description}</p>
                     </div>
                   ))}
                 </div>
@@ -459,7 +461,7 @@ export default function ProjectDetailPage() {
                       </div>
                       <div>
                         <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2">{step.title}</h4>
-                        <p className="text-gray-400">{step.description}</p>
+                        <p className="text-gray-400 font-extralight">{step.description}</p>
                       </div>
                     </div>
                   ))}

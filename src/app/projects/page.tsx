@@ -38,7 +38,7 @@ const projects = [
   {
     id: 3,
     title: "Designing a DEI Consulting Web Application",
-    description: "Brand identity design for a line of sustainable, eco-friendly products.",
+    description: "Designed to facilitate DEI consulting services, enabling organizations to create more inclusive and equitable workplaces.",
     image: "/image4.png?height=400&width=600",
     categories: ["graphic", "branding"],
     tags: ["Graphic Design", "Branding"],
