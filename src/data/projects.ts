@@ -11,8 +11,8 @@ export const projects: Project[] = [
   //   tags: ["All Projects", "Web Development"],
   // }, 
   {
-    title: "ALS App Design with Boston Children's Hospital",
-    description: "A web application designed to provide resources and support for individuals with ALS.",
+    title: "ALS App Design",
+    description: "A web application with Boston Children's Hospital",
     date: "December 28, 2024",
     image: "/images/image1.jpg",
     videoUrl: "/video2.mov",
@@ -20,8 +20,8 @@ export const projects: Project[] = [
     tags: ["All Projects", "UI/UX Design", "Product Design", "Healthcare", "User Research", "Accessibility"],
   },
   {
-    title: "Designing a DEI Consulting Web Application",
-    description: "Designed to facilitate DEI consulting services, enabling organizations to create more inclusive and equitable workplaces.",
+    title: "A DEI Consulting Web App",
+    description: "Enabling more equitable workplaces",
     date: "March 15, 2024",
     image: "/image4.png",
     videoUrl: "/video1.mov",
@@ -30,8 +30,8 @@ export const projects: Project[] = [
   },
  
   {
-    title: "Generative AI Task Force Advice Dashboard",
-    description: "A dashboard that provides advice to the Generative AI Task Force",
+    title: "Generative AI Task Force Dashboard",
+    description: "Provides advice to the Generative AI Task Force",
     date: "December 28, 2024",
     image: "/images/image29.png",
     videoUrl: "/video2.mov",
@@ -42,7 +42,7 @@ export const projects: Project[] = [
  
   {
     title: "Fuse Networking App",
-    description: " A tool that simplifies the internship application process and enhances your job search experiences",
+    description: " Simplifies the internship application process",
     date: "December 28, 2024",
     image: "/images/image37.png",
     videoUrl: "/video2.mov",
@@ -54,8 +54,8 @@ export const projects: Project[] = [
  
 
   {
-    title: "Real-Time Cryptocurrency Tracking Dashboard",
-    description: "Real-time cryptocurrency tracking dashboard with news integration and price alerts.",
+    title: "Real-Time Crypto Tracking",
+    description: "Dashboard with news integration and price alerts",
     date: "December 28, 2024",
     image: "/image1.png",
     videoUrl: "/video2.mov",
@@ -65,8 +65,8 @@ export const projects: Project[] = [
  
 
   {
-    title: "Talentora: A Conversational AI Interview Platform",
-    description: "Designing a platform that uses AI to evaluate job applicants.",
+    title: "Talentora",
+    description: "A Conversational AI Interview Platform",
     date: "February 3, 2025",
     image: "/image5.png",
     videoUrl: "/video1.mov",
@@ -76,8 +76,8 @@ export const projects: Project[] = [
 
   
   {
-    title: "Library Database E-Learning Platform ",
-    description: "Interactive virtual space for students to showcase their reads in an environment.",
+    title: "Journalink",
+    description: "Library Database E-Learning Platform",
     date: "January 10, 2024",
     image: "/image14.png",
     videoUrl: "/video1.mov",

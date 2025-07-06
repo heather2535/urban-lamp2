@@ -4,8 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Linkedin, Mail } from "lucide-react"
-import { ModeToggle } from "@/components/mode-toggle"
+import { Linkedin, Mail, GithubIcon } from "lucide-react"
 import { Playfair_Display } from "next/font/google"
 
 const playfair = Playfair_Display({
@@ -37,59 +36,53 @@ export default function Navigation() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/80 dark:bg-[#18181b]/90 backdrop-blur-xl shadow-sm py-4 border-b border-gray-100 dark:border-gray-800" : "bg-transparent py-6"
+        scrolled ? "bg-white/80 dark:bg-[#18181b]/90 backdrop-blur-xl shadow-sm pt-6 pb-4 border-b border-gray-100 dark:border-gray-800" : "bg-transparent pt-8 pb-6"
       }`}
     >
-      <div className="container mx-auto px-6 lg:px-8 flex items-center justify-between">
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-12 mx-auto">
+      <div className="w-full px-6 lg:px-8 flex items-center justify-between">
+        {/* Name on the left */}
+        <div className="font-sans text-3xl font-thin text-violet-600">
+          <span className="monospace-200 header-name">
+            Heather Davies
+          </span>
+        </div>
+
+        {/* Desktop Navigation - aligned to the right */}
+        <nav className="hidden lg:flex items-center space-x-12">
           {navItems.map((item, index) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`relative text-sm tracking-wide transition-all duration-300 group font-extralight
-                ${pathname === item.href ? "text-gray-900 dark:text-white font-normal" : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"}`}
+              className={`relative text-sm tracking-wide transition-all duration-300 group font-thin font-mono
+                ${pathname === item.href ? "text-gray-900 dark:text-white font-medium" : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"}`}
             >
               {item.name}
-              {pathname === item.href && (
-                <motion.div
-                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-orange-400 to-pink-500"
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ delay: 0.5 + index * 0.1 }}
-                />
-              )}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-pink-500 group-hover:w-full transition-all duration-300"></span>
             </Link>
           ))}
+
+          {/* Social Icons */}
+          <div className="flex items-center space-x-4 ml-8">
+            {[
+              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+              { icon: Mail, href: "mailto:hello@heather.design", label: "Email" },
+              { icon: GithubIcon, href: "https://github.com", label: "GitHub" },
+            ].map(({ icon: Icon, href, label }) => (
+              <Link
+                key={label}
+                href={href}
+                aria-label={label}
+                className="relative p-2 text-violet-600 hover:text-gray-900 dark:hover:text-white transition-all duration-300 group"
+              >
+                <Icon size={label === "Email" ? 22 : 18} fill="currentColor" stroke={label === "Email" ? "white" : "currentColor"} />
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+              </Link>
+            ))}
+          </div>
         </nav>
 
-        {/* Social Icons */}
-        <div className="hidden lg:flex items-center space-x-6">
-          {[
-            { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-            { icon: Mail, href: "mailto:hello@heather.design", label: "Email" },
-          ].map(({ icon: Icon, href, label }) => (
-            <Link
-              key={label}
-              href={href}
-              aria-label={label}
-              className="relative p-2 text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 group"
-            >
-              <Icon size={18} />
-              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-            </Link>
-          ))}
-          <div className="w-[34px] h-[34px] flex items-center justify-center">
-            <ModeToggle />
-          </div>
-        </div>
-
         {/* Mobile Menu Button and Mode Toggle */}
-        <div className="lg:hidden flex items-center space-x-4 ml-auto">
-          <div className="w-[34px] h-[34px] flex items-center justify-center">
-            <ModeToggle />
-          </div>
+        <div className="lg:hidden flex items-center space-x-4">
           <button
             className="relative z-10 p-2 group"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

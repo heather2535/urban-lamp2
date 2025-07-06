@@ -11,6 +11,56 @@ import { projects } from "@/data/projects"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
+// Typing Animation Component
+const TypingAnimation = ({ text, className }: { text: string; className: string }) => {
+  const [displayText, setDisplayText] = useState("")
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex])
+        setCurrentIndex(prev => prev + 1)
+      }, 30) // Even faster typing speed (reduced from 50ms to 30ms)
+
+      return () => clearTimeout(timeout)
+    }
+  }, [currentIndex, text])
+
+  // Function to render text with highlighted words
+  const renderTextWithHighlight = (text: string) => {
+    const words = text.split(' ')
+    return words.map((word, index) => {
+      const cleanWord = word.replace(/[.,!?]/g, '').toLowerCase()
+      if (['designer', 'builder', 'storyteller'].includes(cleanWord)) {
+        return (
+          <span key={index}>
+            <span className="text-violet-600">{word}</span>
+            {index < words.length - 1 ? ' ' : ''}
+          </span>
+        )
+      }
+      if (cleanWord === 'alix') {
+        return (
+          <span key={index} className="relative inline-block">
+            <div className="absolute -bottom-1 left-0 w-full h-3 bg-violet-600/60 rounded-sm transform -rotate-1 z-0"></div>
+            <span className="relative z-10">{word}</span>
+            {index < words.length - 1 ? ' ' : ''}
+          </span>
+        )
+      }
+      return word + (index < words.length - 1 ? ' ' : '')
+    })
+  }
+
+  return (
+    <span className={className}>
+      {renderTextWithHighlight(displayText)}
+      <span className="animate-pulse">|</span>
+    </span>
+  )
+}
+
 export default function Portfolio() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [time, setTime] = useState(new Date())
@@ -73,142 +123,200 @@ export default function Portfolio() {
       </div>
 
       {/* Hero Section */}
-      <main className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-        <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-gray-700 mx-auto mb-12 shadow-lg">
-          <Image src="/images/profile.png" alt="Heather's portrait" width={128} height={128} />
+      <main className="min-h-screen flex items-center justify-center px-8 lg:px-40">
+        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-2 items-center">
+          {/* Left side - Text content */}
+          <div className="lg:col-span-2 space-y-8">
+            <TypingAnimation 
+              text="Hi! I'm Heather. I'm a designer by instinct, builder by practice, and storyteller at heart. I believe in crafting experiences that not only solve real problems but spark joy." 
+              className="font-mono text-xl md:text-2xl lg:text-3xl font-normal tracking-wide leading-relaxed"
+            />
+            <p className="font-mono italic text-gray-400 text-lg">Recently graduated from Boston University</p>
+            
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Link
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-3 bg-violet-600 text-white rounded-lg font-mono text-sm font-medium hover:bg-violet-700 transition-colors duration-300"
+              >
+                Resume
+              </Link>
+              <button
+                onClick={() => {
+                  document.getElementById('projects')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  })
+                }}
+                className="inline-flex items-center justify-center px-8 py-3 border border-violet-600 text-violet-600 rounded-lg font-mono text-sm font-medium hover:bg-violet-600 hover:text-white transition-colors duration-300"
+              >
+                View Work
+              </button>
+            </div>
+          </div>
+          
+          {/* Right side - Image */}
+          <div className="lg:col-span-1 flex justify-center lg:justify-end">
+            <div className="relative">
+              {/* Purple tape on top */}
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-violet-600/50 rounded-none transform -rotate-1 z-20"></div>
+              
+              <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg pt-12 pb-8 pl-8 pr-8 bg-white/5 backdrop-blur-sm">
+                <div className="w-64 h-80 overflow-hidden shadow-lg">
+                  <Image 
+                    src="/images/profile.png" 
+                    alt="Heather's portrait" 
+                    width={256} 
+                    height={320}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="font-mono text-sm text-gray-600 dark:text-gray-400 mt-4 text-center">
+                  UX dreamer, matcha sipper,<br />
+                  & proud plant parent 🌿✨
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 className={`${playfair.className} text-5xl md:text-7xl font-normal mb-8 tracking-wide`}>Heather Davies</h1>
-        <p className="text-lg max-w-2xl mx-auto mb-4 font-extralight leading-relaxed text-gray-400">
-          Product Designer with a strong foundation in human-centered design. Experienced in leading research studies and leveraging both qualitative and quantitative methods to generate actionable insights. Skilled at translating research findings into product strategies that enhance quality, usability, and simplicity across design solutions.
-        </p>
-        <p className="italic text-gray-400 mb-4">Recently graduated from Boston University</p>
       </main>
 
       {/* Featured Projects Section */}
-      <section id="projects" className="py-20">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-center gap-4 mb-16">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <Layers className="w-8 h-8 text-primary" />
-              </div>
-              <h1 className={`text-zinc-800 dark:text-white text-5xl sm:text-5xl lg:text-6xl font-normal tracking-tight ${playfair.className}`}>
-                <span className="text-primary">Projects.</span>
-              </h1>
-            </div>
-          </div>
+      <section id="projects" className="pt-8 pb-20">
+        <div className="container mx-auto px-16 lg:px-32">
           {/* Projects Grid */}
-          <div className="max-w-7xl mx-auto space-y-24 md:space-y-32 lg:space-y-24">
-            {/* Cliiimate Project */}
-            <div className="grid lg:grid-cols-12 gap-12 items-center">
-              <Link href="/work/climate-app" className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
-                <div>
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-8 h-8 flex items-center justify-center">
-                      <Cloud className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className={`text-4xl font-normal ${theme === "dark" ? "text-white" : "text-gray-900"} ${playfair.className}`}>Cliimate</h3>
-                  </div>
-                  <p className="text-md max-w-2xl mx-auto mb-4 font-extralight leading-relaxed text-gray-400">
-                    Provides users with seamless access to accurate, personalized weather insights across multiple locations, including a detailed 5-day forecast.
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    {["Weather API", "Mobile Design", "UI/UX", "User Research", "Prototyping", "Accessibility"].map((tag) => (
-                      <span key={tag} className={`px-3 py-1 ${theme === "dark" ? "bg-gray-800 text-gray-300" : "bg-gray-100 text-gray-700"} rounded-full text-sm`}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-
-              <div className="lg:col-span-7">
-                <div className="relative">
-                  <div className={`relative ${theme === "dark" ? "bg-gray-900" : "bg-white"} rounded-sm overflow-hidden shadow-xl`}>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Cliiimate Project - Temporarily Removed */}
+            {/* <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg p-6 bg-white/5 backdrop-blur-sm">
+              <div className="space-y-6">
+                <div className="relative my-6">
+                  <div className={`relative ${theme === "dark" ? "bg-gray-900" : "bg-white"} rounded-sm overflow-hidden`}>
                     <Image
                       src="/images/image56.png"
                       alt="Climate App Design"
-                      width={700}
-                      height={500}
-                      className="w-full h-80 lg:h-96 object-cover transition-transform duration-500 hover:scale-110"
+                      width={400}
+                      height={300}
+                      className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
                     />
                   </div>
                 </div>
-              </div>
-            </div>
-            {/* Plant Care AI Project */}
-            <div className="grid lg:grid-cols-12 gap-12 items-center">
-              <Link href="/work/plant-care" className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
-                <div>
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-8 h-8 flex items-center justify-center">
-                      <Cloud className="w-8 h-8 text-primary" />
+                <Link href="/work/climate-app" className="hover:opacity-90 transition-opacity">
+                  <div>
+                    <div className="mb-3">
+                      <h3 className={`text-2xl font-normal font-mono ${theme === "dark" ? "text-white" : "text-gray-900"}`}>Cliimate</h3>
                     </div>
-                    <h3 className={`text-4xl font-normal ${theme === "dark" ? "text-white" : "text-gray-900"} ${playfair.className}`}>Plant Care AI</h3>
+                    <p className="font-mono text-sm mb-4 font-extralight leading-relaxed text-black dark:text-white">
+                      Seamless access to personalized weather insights
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      {["Weather API", "Mobile Design", "UI/UX", "User Research", "Prototyping", "Accessibility"].map((tag, index) => {
+                        const colors = [
+                          "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+                          "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+                          "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+                          "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
+                          "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200",
+                          "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200"
+                        ]
+                        return (
+                          <span key={tag} className={`font-mono px-3 py-1 rounded-full text-sm ${colors[index % colors.length]}`}>
+                            {tag}
+                          </span>
+                        )
+                      })}
+                    </div>
                   </div>
-                  <p className="text-md max-w-2xl mx-auto mb-4 font-extralight leading-relaxed text-gray-400">
-                  A platform designed to help urban dwellers nurture healthy indoor plants effortlessly. By leveraging AI-driven plant health diagnostics and empowers users to keep their green companions thriving.
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    {["AI Diagnostics", "Plant Care", "Mobile App", "User Research", "UI/UX Design", "Accessibility"].map((tag) => (
-                      <span key={tag} className={`px-3 py-1 ${theme === "dark" ? "bg-gray-800 text-gray-300" : "bg-gray-100 text-gray-700"} rounded-full text-sm`}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
+            </div> */}
 
-              <div className="lg:col-span-7">
-                <div className="relative">
-                  <div className={`relative ${theme === "dark" ? "bg-gray-900" : "bg-white"} rounded-sm overflow-hidden shadow-xl`}>
+            {/* Plant Care AI Project */}
+            <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg p-6 bg-white/5 backdrop-blur-sm">
+              <div className="space-y-6">
+                <div className="relative my-6">
+                  <div className={`relative ${theme === "dark" ? "bg-gray-900" : "bg-white"} rounded-sm overflow-hidden`}>
                     <Image
                       src="/images/image58.png"
-                      alt="Climate App Design"
-                      width={700}
-                      height={500}
-                      className="w-full h-80 lg:h-96 object-cover transition-transform duration-500 hover:scale-110"
+                      alt="Plant Care AI Design"
+                      width={400}
+                      height={300}
+                      className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
                     />
                   </div>
                 </div>
+                <Link href="/work/plant-care" className="hover:opacity-90 transition-opacity">
+                  <div>
+                    <div className="mb-3">
+                      <h3 className={`text-2xl font-normal font-mono ${theme === "dark" ? "text-white" : "text-gray-900"}`}>Plant Care AI</h3>
+                    </div>
+                    <p className="font-mono text-sm mb-4 font-extralight leading-relaxed text-black dark:text-white">
+                   Help urban dwellers nurture healthy indoor plants effortlessly
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      {["AI Diagnostics", "Plant Care", "Mobile App", "User Research", "UI/UX Design", "Accessibility"].map((tag, index) => {
+                        const colors = [
+                          "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+                          "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+                          "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+                          "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
+                          "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200",
+                          "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200"
+                        ]
+                        return (
+                          <span key={tag} className={`font-mono px-3 py-1 rounded-full text-sm ${colors[index % colors.length]}`}>
+                            {tag}
+                          </span>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </Link>
               </div>
             </div>
             
             {projects.filter(p => p.title !== "Hariri Institute Website").map((project, index) => (
-              <div key={project.title} className="grid lg:grid-cols-12 gap-12 items-center">
-                <Link href={project.href} className="lg:col-span-5 space-y-6 hover:opacity-90 transition-opacity">
-                  <div>
-                    <div className="flex items-center gap-4 mb-3">
-                      <div className="w-8 h-8 flex items-center justify-center">
-                        <Cloud className="w-8 h-8 text-primary" />
-                      </div>
-                      <h3 className={`text-4xl font-normal ${theme === "dark" ? "text-white" : "text-gray-900"} ${playfair.className}`}>{project.title}</h3>
-                    </div>
-                    <p className="text-md max-w-2xl mx-auto mb-4 font-extralight leading-relaxed text-gray-400">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-3">
-                      {project.tags.filter(tag => tag !== "All Projects").map((tag) => (
-                        <span key={tag} className={`px-3 py-1 ${theme === "dark" ? "bg-gray-800 text-gray-300" : "bg-gray-100 text-gray-700"} rounded-full text-sm`}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-
-                <div className="lg:col-span-7">
-                  <div className="relative">
-                    <div className={`relative ${theme === "dark" ? "bg-gray-900" : "bg-white"} rounded-sm overflow-hidden shadow-xl`}>
+              <div key={project.title} className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg p-6 bg-white/5 backdrop-blur-sm">
+                <div className="space-y-6">
+                  <div className="relative my-6">
+                    <div className={`relative ${theme === "dark" ? "bg-gray-900" : "bg-white"} rounded-sm overflow-hidden`}>
                       <Image
                         src={project.image}
                         alt={project.title}
-                        width={700}
-                        height={500}
-                        className="w-full h-80 lg:h-96 object-cover transition-transform duration-500 hover:scale-110"
+                        width={400}
+                        height={300}
+                        className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
                       />
                     </div>
                   </div>
+                  <Link href={project.href} className="hover:opacity-90 transition-opacity">
+                    <div>
+                      <div className="mb-3">
+                        <h3 className={`text-2xl font-normal font-mono ${theme === "dark" ? "text-white" : "text-gray-900"}`}>{project.title}</h3>
+                      </div>
+                      <p className="font-mono text-sm mb-4 font-extralight leading-relaxed text-black dark:text-white">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-3">
+                        {project.tags.filter(tag => tag !== "All Projects").map((tag, index) => {
+                          const colors = [
+                            "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+                            "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+                            "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+                            "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
+                            "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200",
+                            "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200"
+                          ]
+                          return (
+                            <span key={tag} className={`font-mono px-3 py-1 rounded-full text-sm ${colors[index % colors.length]}`}>
+                              {tag}
+                            </span>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             ))}
