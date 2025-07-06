@@ -85,8 +85,8 @@ export default function Portfolio() {
 
   return (
     <div className={theme === "dark" ? "bg-[#18181b] text-white min-h-screen flex flex-col" : "bg-gray-50 text-black min-h-screen flex flex-col"}>
-      {/* Floating geometric shapes */}
-      <div className="fixed inset-0 pointer-events-none z-0">
+      {/* Floating geometric shapes - Hidden on mobile to prevent interference */}
+      <div className="fixed inset-0 pointer-events-none z-0 hidden md:block">
         <motion.div
           className="absolute top-20 left-10 text-orange-300 opacity-20"
           animate={{
@@ -123,15 +123,15 @@ export default function Portfolio() {
       </div>
 
       {/* Hero Section */}
-      <main className="min-h-screen flex items-center justify-center px-8 lg:px-40">
-        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-2 items-center">
+      <main className="min-h-screen flex items-center justify-center px-4 sm:px-8 lg:px-40 py-8 sm:py-0">
+        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-2 items-center">
           {/* Left side - Text content */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-6 sm:space-y-8 order-2 lg:order-1">
             <TypingAnimation 
               text="Hi! I'm Heather. I'm a designer by instinct, builder by practice, and storyteller at heart. I believe in crafting experiences that not only solve real problems but spark joy." 
-              className="font-mono text-xl md:text-2xl lg:text-3xl font-normal tracking-wide leading-relaxed"
+              className="font-mono text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal tracking-wide leading-relaxed"
             />
-            <p className="font-mono italic text-gray-400 text-lg">Recently graduated from Boston University</p>
+            <p className="font-mono italic text-gray-400 text-base sm:text-lg">Recently graduated from Boston University</p>
             
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -139,7 +139,7 @@ export default function Portfolio() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3 bg-violet-600 text-white rounded-lg font-mono text-sm font-medium hover:bg-violet-700 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-violet-600 text-white rounded-lg font-mono text-sm font-medium hover:bg-violet-700 transition-colors duration-300"
               >
                 Resume
               </Link>
@@ -150,7 +150,7 @@ export default function Portfolio() {
                     block: 'start'
                   })
                 }}
-                className="inline-flex items-center justify-center px-8 py-3 border border-violet-600 text-violet-600 rounded-lg font-mono text-sm font-medium hover:bg-violet-600 hover:text-white transition-colors duration-300"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-violet-600 text-violet-600 rounded-lg font-mono text-sm font-medium hover:bg-violet-600 hover:text-white transition-colors duration-300"
               >
                 View Work
               </button>
@@ -158,13 +158,13 @@ export default function Portfolio() {
           </div>
           
           {/* Right side - Image */}
-          <div className="lg:col-span-1 flex justify-center lg:justify-end">
+          <div className="lg:col-span-1 flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative">
               {/* Purple tape on top */}
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-violet-600/50 rounded-none transform -rotate-1 z-20"></div>
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 h-6 sm:h-8 bg-violet-600/50 rounded-none transform -rotate-1 z-20"></div>
               
-              <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg pt-12 pb-8 pl-8 pr-8 bg-white/5 backdrop-blur-sm">
-                <div className="w-64 h-80 overflow-hidden shadow-lg">
+              <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg pt-8 sm:pt-12 pb-6 sm:pb-8 pl-4 sm:pl-8 pr-4 sm:pr-8 bg-white/5 backdrop-blur-sm">
+                <div className="w-48 sm:w-64 h-60 sm:h-80 overflow-hidden shadow-lg">
                   <Image 
                     src="/images/profile.png" 
                     alt="Heather's portrait" 
@@ -173,7 +173,7 @@ export default function Portfolio() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="font-mono text-sm text-gray-600 dark:text-gray-400 mt-4 text-center">
+                <p className="font-mono text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-3 sm:mt-4 text-center">
                   UX dreamer, matcha sipper,<br />
                   & proud plant parent 🌿✨
                 </p>
@@ -185,76 +185,32 @@ export default function Portfolio() {
 
       {/* Featured Projects Section */}
       <section id="projects" className="pt-8 pb-20">
-        <div className="container mx-auto px-16 lg:px-32">
+        <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-32">
           {/* Projects Grid */}
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Cliiimate Project - Temporarily Removed */}
-            {/* <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg p-6 bg-white/5 backdrop-blur-sm">
-              <div className="space-y-6">
-                <div className="relative my-6">
-                  <div className={`relative ${theme === "dark" ? "bg-gray-900" : "bg-white"} rounded-sm overflow-hidden`}>
-                    <Image
-                      src="/images/image56.png"
-                      alt="Climate App Design"
-                      width={400}
-                      height={300}
-                      className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                  </div>
-                </div>
-                <Link href="/work/climate-app" className="hover:opacity-90 transition-opacity">
-                  <div>
-                    <div className="mb-3">
-                      <h3 className={`text-2xl font-normal font-mono ${theme === "dark" ? "text-white" : "text-gray-900"}`}>Cliimate</h3>
-                    </div>
-                    <p className="font-mono text-sm mb-4 font-extralight leading-relaxed text-black dark:text-white">
-                      Seamless access to personalized weather insights
-                    </p>
-                    <div className="flex flex-wrap gap-3">
-                      {["Weather API", "Mobile Design", "UI/UX", "User Research", "Prototyping", "Accessibility"].map((tag, index) => {
-                        const colors = [
-                          "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-                          "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-                          "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
-                          "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
-                          "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200",
-                          "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200"
-                        ]
-                        return (
-                          <span key={tag} className={`font-mono px-3 py-1 rounded-full text-sm ${colors[index % colors.length]}`}>
-                            {tag}
-                          </span>
-                        )
-                      })}
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div> */}
-
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Plant Care AI Project */}
-            <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg p-6 bg-white/5 backdrop-blur-sm">
-              <div className="space-y-6">
-                <div className="relative my-6">
+            <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg p-4 sm:p-6 bg-white/5 backdrop-blur-sm">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="relative my-4 sm:my-6">
                   <div className={`relative ${theme === "dark" ? "bg-gray-900" : "bg-white"} rounded-sm overflow-hidden`}>
                     <Image
                       src="/images/image58.png"
                       alt="Plant Care AI Design"
                       width={400}
                       height={300}
-                      className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
+                      className="w-full h-48 sm:h-64 object-cover transition-transform duration-500 hover:scale-110"
                     />
                   </div>
                 </div>
                 <Link href="/work/plant-care" className="hover:opacity-90 transition-opacity">
                   <div>
                     <div className="mb-3">
-                      <h3 className={`text-2xl font-normal font-mono ${theme === "dark" ? "text-white" : "text-gray-900"}`}>Plant Care AI</h3>
+                      <h3 className={`text-xl sm:text-2xl font-normal font-mono ${theme === "dark" ? "text-white" : "text-gray-900"}`}>Plant Care AI</h3>
                     </div>
                     <p className="font-mono text-sm mb-4 font-extralight leading-relaxed text-black dark:text-white">
                    Help urban dwellers nurture healthy indoor plants effortlessly
                     </p>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
                       {["AI Diagnostics", "Plant Care", "Mobile App", "User Research", "UI/UX Design", "Accessibility"].map((tag, index) => {
                         const colors = [
                           "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
@@ -265,7 +221,7 @@ export default function Portfolio() {
                           "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200"
                         ]
                         return (
-                          <span key={tag} className={`font-mono px-3 py-1 rounded-full text-sm ${colors[index % colors.length]}`}>
+                          <span key={tag} className={`font-mono px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm ${colors[index % colors.length]}`}>
                             {tag}
                           </span>
                         )
@@ -277,28 +233,28 @@ export default function Portfolio() {
             </div>
             
             {projects.filter(p => p.title !== "Hariri Institute Website").map((project, index) => (
-              <div key={project.title} className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg p-6 bg-white/5 backdrop-blur-sm">
-                <div className="space-y-6">
-                  <div className="relative my-6">
+              <div key={project.title} className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg p-4 sm:p-6 bg-white/5 backdrop-blur-sm">
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="relative my-4 sm:my-6">
                     <div className={`relative ${theme === "dark" ? "bg-gray-900" : "bg-white"} rounded-sm overflow-hidden`}>
                       <Image
                         src={project.image}
                         alt={project.title}
                         width={400}
                         height={300}
-                        className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
+                        className="w-full h-48 sm:h-64 object-cover transition-transform duration-500 hover:scale-110"
                       />
                     </div>
                   </div>
                   <Link href={project.href} className="hover:opacity-90 transition-opacity">
                     <div>
                       <div className="mb-3">
-                        <h3 className={`text-2xl font-normal font-mono ${theme === "dark" ? "text-white" : "text-gray-900"}`}>{project.title}</h3>
+                        <h3 className={`text-xl sm:text-2xl font-normal font-mono ${theme === "dark" ? "text-white" : "text-gray-900"}`}>{project.title}</h3>
                       </div>
                       <p className="font-mono text-sm mb-4 font-extralight leading-relaxed text-black dark:text-white">
                         {project.description}
                       </p>
-                      <div className="flex flex-wrap gap-3">
+                      <div className="flex flex-wrap gap-2 sm:gap-3">
                         {project.tags.filter(tag => tag !== "All Projects").map((tag, index) => {
                           const colors = [
                             "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
@@ -309,7 +265,7 @@ export default function Portfolio() {
                             "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200"
                           ]
                           return (
-                            <span key={tag} className={`font-mono px-3 py-1 rounded-full text-sm ${colors[index % colors.length]}`}>
+                            <span key={tag} className={`font-mono px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm ${colors[index % colors.length]}`}>
                               {tag}
                             </span>
                           )
@@ -323,20 +279,20 @@ export default function Portfolio() {
           </div>
 
           {/* View All Projects CTA */}
-          <div className="text-center mt-20">
+          <div className="text-center mt-12 sm:mt-20">
             <Link
               href="/projects"
-              className="group inline-flex items-center px-12 py-4 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium text-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              className="group inline-flex items-center px-8 sm:px-12 py-3 sm:py-4 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium text-base sm:text-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
               View All Projects
-              <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+              <ArrowUpRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="w-full flex justify-between items-center px-8 py-4 text-xs text-gray-400">
+      <footer className="w-full flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8 py-4 text-xs text-gray-400 gap-2 sm:gap-0">
         <span>SANTA CLARA, CALIFORNIA</span>
         <span>{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true, timeZoneName: 'short' })}</span>
       </footer>
