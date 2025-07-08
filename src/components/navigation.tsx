@@ -41,7 +41,7 @@ export default function Navigation() {
     >
       <div className="w-full px-6 lg:px-8 flex items-center justify-between">
         {/* Name on the left */}
-        <div className="font-sans text-3xl font-thin text-violet-600">
+        <div className="font-sans text-3xl font-thin text-orange-500">
           <span className="monospace-200 header-name">
             Heather Davies
           </span>
@@ -72,7 +72,7 @@ export default function Navigation() {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="relative p-2 text-violet-600 hover:text-gray-900 dark:hover:text-white transition-all duration-300 group"
+                className="relative p-2 text-orange-500 hover:text-gray-900 dark:hover:text-white transition-all duration-300 group"
               >
                 <Icon size={label === "Email" ? 22 : 18} fill="currentColor" stroke={label === "Email" ? "white" : "currentColor"} />
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>

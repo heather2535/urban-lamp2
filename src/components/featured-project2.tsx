@@ -30,7 +30,7 @@ export function AutomationSection() {
     return (
       <section className="mx-auto max-w-6xl mt-12 -mb-10 py-20 relative z-30">
         <div className="flex justify-center items-center h-full mb-12">
-          <Palette className="h-12 w-8 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
+          <Palette className="h-12 w-8 text-pink-500 text-gradient-to-r from-pink-500 via-orange-500 to-indigo-500 animate-gradient-x" />
         </div>
   
         <h2 className="text-5xl lg:text-6xl font-bold mb-8 text-center text-zinc-800 dark:text-white">Design & Development</h2>
@@ -45,7 +45,7 @@ export function AutomationSection() {
 {/* Parent Card with radial gradient behind and backdrop blur */}
 <div className="relative z-30">
   {/* Rainbow Gradient Background */}
-  <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-blue-500 to-green-500 opacity-50 rounded-lg blur-xl" />
+  <div className="absolute inset-0 bg-gradient-to-br from-orange-600 via-blue-500 to-green-500 opacity-50 rounded-lg blur-xl" />
   
   {/* Card with image */}
   <Card className="relative px-4 pb-40 pt-10 bg-white/5 backdrop-blur-sm border-white/10 transition-colors rounded-b-[0px] z-30">

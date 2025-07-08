@@ -124,7 +124,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
             <div key={index} className="grid lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-5 space-y-6">
                 <div>
-                  <span className={`inline-block px-4 py-2 ${theme === "dark" ? "bg-gray-800 text-gray-300" : "bg-purple-100 text-purple-800"} rounded-full text-sm font-medium mb-4`}>
+                  <span className={`inline-block px-4 py-2 ${theme === "dark" ? "bg-gray-800 text-gray-300" : "bg-orange-100 text-orange-800"} rounded-full text-sm font-medium mb-4`}>
                     Strategy & Research
                   </span>
                   <h3 className={`text-3xl lg:text-4xl font-bold mb-4 leading-tight ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
@@ -154,7 +154,7 @@ export function FeaturedProject({ projects }: FeaturedProjectProps) {
 
               <div className="lg:col-span-7">
                 <div className="relative group">
-                  <div className={`absolute -inset-4 ${theme === "dark" ? "bg-gray-800" : "bg-purple-100"} rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500`}></div>
+                  <div className={`absolute -inset-4 ${theme === "dark" ? "bg-gray-800" : "bg-orange-100"} rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500`}></div>
                   <div className={`relative ${theme === "dark" ? "bg-gray-900" : "bg-white"} rounded-2xl overflow-hidden shadow-xl`}>
                     <img
                       src={data.image}

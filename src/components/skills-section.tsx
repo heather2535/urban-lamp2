@@ -30,7 +30,7 @@ export function SkillsSection() {
     return (
       <section className="mx-auto max-w-6xl mt-12 py-2">
         <div className="flex justify-center items-center h-full mb-12">
-          <Palette className="h-12 w-12 text-pink-500 text-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-gradient-x" />
+          <Palette className="h-12 w-12 text-pink-500 text-gradient-to-r from-pink-500 via-orange-500 to-indigo-500 animate-gradient-x" />
         </div>
   
         <h2 className="text-6xl font-bold mb-8 text-center text-zinc-800 dark:text-white">Skills & Technologies</h2>
@@ -45,7 +45,7 @@ export function SkillsSection() {
         {/* Parent Card with radial gradient behind and backdrop blur */}
         <div className="relative">
           <div
-            className="absolute inset-0 bg-gradient-to-br from-purple-600 via-blue-500 to-green-500 opacity-50 max-h-[800px]  rounded-lg blur-xl"
+            className="absolute inset-0 bg-gradient-to-br from-orange-600 via-blue-500 to-green-500 opacity-50 max-h-[800px]  rounded-lg blur-xl"
           />
           <Card className="relative px-10 pb-80 pt-10 bg-white/5 backdrop-blur-sm border-white/10 transition-colors  max-h-[800px] rounded-b-[0px] z-10">
             {/* Skills Grid */}

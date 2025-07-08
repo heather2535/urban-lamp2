@@ -7,11 +7,11 @@ import { motion } from "framer-motion"
 import { ArrowUpRight, Search, Circle, Square, Triangle } from "lucide-react"
 
 const projectCategories = [
-  { id: "all", label: "All Projects", color: "from-pink-400 to-purple-500" },
+  { id: "all", label: "All Projects", color: "from-pink-400 to-orange-500" },
   { id: "3d", label: "3D Design", color: "from-blue-400 to-cyan-500" },
   { id: "branding", label: "Branding", color: "from-orange-400 to-red-500" },
   { id: "graphic", label: "Graphic Design", color: "from-green-400 to-emerald-500" },
-  { id: "product", label: "Product Design", color: "from-purple-400 to-pink-500" },
+  { id: "product", label: "Product Design", color: "from-orange-400 to-pink-500" },
   { id: "uiux", label: "UI/UX Design", color: "from-indigo-400 to-blue-500" },
   { id: "web", label: "Web Development", color: "from-yellow-400 to-orange-500" },
 ]
@@ -143,7 +143,7 @@ export default function ProjectsPage() {
           <Circle size={80} />
         </motion.div>
         <motion.div
-          className="absolute top-1/2 right-24 text-purple-300 opacity-20"
+          className="absolute top-1/2 right-24 text-orange-400 opacity-20"
           animate={{ rotate: -360, y: [-20, 20, -20] }}
           transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         >

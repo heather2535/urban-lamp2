@@ -8,6 +8,7 @@ import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Packag
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Playfair_Display } from 'next/font/google'
+import { ProjectNavigation } from "@/components/project-navigation"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
@@ -507,6 +508,9 @@ export default function ProjectDetailPage() {
           </div>
         </article>
       </main>
+
+      {/* Project Navigation */}
+      <ProjectNavigation currentProjectHref="/work/dei-consulting" />
     </div>
   )
 }

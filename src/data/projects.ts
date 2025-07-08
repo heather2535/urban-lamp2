@@ -11,6 +11,15 @@ export const projects: Project[] = [
   //   tags: ["All Projects", "Web Development"],
   // }, 
   {
+    title: "Plant Care AI",
+    description: "A mobile app designed to help urban dwellers nurture healthy indoor plants effortlessly",
+    date: "December 3, 2024",
+    image: "/images/image58.png",
+    videoUrl: "/video10.mov",
+    href: "/work/plant-care",
+    tags: ["All Projects", "AI Diagnostics", "Plant Care", "Mobile App", "User Research", "UI/UX Design", "Accessibility"],
+  },
+  {
     title: "ALS App Design",
     description: "A web application with Boston Children's Hospital",
     date: "December 28, 2024",

@@ -8,14 +8,16 @@ import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Packag
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Playfair_Display } from 'next/font/google'
+import { ProjectNavigation } from "@/components/project-navigation"
+import ProjectVerticalNavigation from "@/components/project-vertical-navigation"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
 const project = {
-  title: "ALS App Design with Boston Children's Hospital",
-  description: "A comprehensive web application designed to offer personalized treatment recommendations and support for individuals with ALS. ",
-  date: "December 3, 2024",
-  image: "/images/image19.png",
+  title: "Offering personalized treatment recommendations and support for individuals with ALS. ",
+  description: "ALS App Design with ngBoston Children's Hospital",
+  date: "In collaboration with Boston Children's Hospital",
+  image: "/images/image1.jpg",
   tags: ["All Projects", "UI/UX Design", "Product Design", "Healthcare", "User Research", "Accessibility"],
   role: "Design Strategist, UX Researcher, UI/UX",
   team: ["Heather Davies", "Brian Zeng", "Avdeep Kaur", "Minyang Li"],
@@ -122,62 +124,42 @@ export default function ProjectDetailPage() {
         </motion.div>
       </div>
 
-      <main className="relative">
+      {/* Project Vertical Navigation */}
+      <ProjectVerticalNavigation />
+
+      <main className="relative ml-64">
         <article className="prose lg:prose-xl dark:prose-invert">
           {/* Back Button */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="absolute top-32 left-8 z-20"
-          >
-            <Link
-              href="/#projects"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm text-gray-900 dark:text-white rounded-full text-sm font-medium hover:bg-gray-900/20 dark:hover:bg-white/20 transition-colors duration-300"
-            >
-              <ArrowLeft className="w-3 h-3" />
-              Back to Projects
-            </Link>
-          </motion.div>
+         
 
           {/* Hero Section */}
           <motion.div
+            id="hero"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative w-full"
+            className="relative w-full scroll-mt-32"
           >
             {/* Text Content */}
             <motion.div
-              className="relative z-10 pt-60 pb-20 w-screen"
+              className="relative z-10 pt-40 pb-20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="px-16">
-                <div className="max-w-7xl mx-auto space-y-8">
-                  <div className="max-w-2xl">
-                    <motion.h1
-                      className={`${playfair.className} text-3xl md:text-5xl font-normal tracking-wide mb-8`}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                      <span className="text-gray-900 dark:text-white">
-                        {project.title}
-                      </span>
-                    </motion.h1>
-
-                    <motion.p
-                      className={`${playfair.className} text-3xl md:text-5xl font-normal leading-relaxed text-gray-800 dark:text-white/90`}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                    >
-                      {project.description}
-                    </motion.p>
-                  </div>
+              <div className="px-16 pr-32">
+                <div className="max-w-7xl mx-auto space-y-4">
+                  <motion.h1
+                    className="font-mono text-3xl md:text-5xl font-normal tracking-wide leading-relaxed"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                  >
+                    <span className="text-gray-900 dark:text-white">
+                      {project.title}
+                    </span>
+                  </motion.h1>
 
                   <motion.div
                     className="flex items-center gap-3 text-gray-800 dark:text-white/90"
@@ -185,24 +167,7 @@ export default function ProjectDetailPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                   >
-                    <span className="text-sm font-medium">{project.date}</span>
-                  </motion.div>
-
-                  {/* Tags */}
-                  <motion.div
-                    className="flex flex-wrap justify-end gap-2 max-w-xl ml-auto"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.7 }}
-                  >
-                    {filteredProjects.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1.5 bg-gray-900/10 dark:bg-white/20 backdrop-blur-md text-gray-900 dark:text-white rounded-full text-xs font-extralight hover:bg-gray-900/20 dark:hover:bg-white/30 transition-colors duration-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <span className="text-lg font-extralight">{project.date}</span>
                   </motion.div>
                 </div>
               </div>
@@ -210,7 +175,7 @@ export default function ProjectDetailPage() {
 
             {/* Image */}
             <motion.div
-              className="relative w-full h-[600px]"
+              className="relative w-full pl-16 pr-32"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -220,82 +185,74 @@ export default function ProjectDetailPage() {
                 alt={project.title}
                 width={1920}
                 height={1080}
-                className="w-full h-full object-cover rounded-3xl"
+                className="w-full h-auto object-cover rounded-3xl"
                 priority
               />
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black/50 rounded-3xl"></div>
             </motion.div>
-          </motion.div>
-
-          {/* Scroll to Explore */}
-          <motion.div
-            className="flex flex-col items-center justify-center gap-2 text-gray-500 mt-8 mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <span className="text-sm">Scroll to explore</span>
-            <ChevronRight className="w-4 h-4 rotate-90" />
           </motion.div>
 
           {/* Project Details Section */}
           <motion.div
+            id="project-details"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="py-16 px-16"
           >
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              {/* Title */}
-              <div className="md:col-span-4">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>Project Details</h3>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {/* Role */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">role</h3>
+                <p className="text-sm font-extralight text-gray-400">{project.role}</p>
               </div>
 
-              {/* Labels */}
-              <div className="md:col-span-4 space-y-8">
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">DURATION</h3>
-                </div>
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">ROLE</h3>
-                </div>
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">TEAM</h3>
-                </div>
+              {/* Team */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">team</h3>
+                {project.team.map((member) => (
+                  <p key={member} className="text-sm font-extralight text-gray-400">
+                    {member}
+                  </p>
+                ))}
               </div>
 
-              {/* Content */}
-              <div className="md:col-span-4 space-y-8">
-                <div>
-                  <p className="text-sm font-extralight text-gray-400">{project.duration}</p>
-                </div>
-                <div>
-                  <p className="text-sm font-extralight text-gray-400">{project.role}</p>
-                </div>
-                <div>
-                  {project.team.map((member) => (
-                    <p key={member} className="text-sm font-extralight text-gray-400">
-                      {member}
-                    </p>
-                  ))}
-                </div>
+              {/* Tools */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">tools</h3>
+                {project.tools.map((tool) => (
+                  <p key={tool.name} className="text-sm font-extralight text-gray-400">
+                    {tool.name}
+                  </p>
+                ))}
+              </div>
+
+              {/* Skills */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">skills</h3>
+                {project.tags.filter(tag => tag !== "All Projects").map((tag) => (
+                  <p key={tag} className="text-sm font-extralight text-gray-400">
+                    {tag}
+                  </p>
+                ))}
               </div>
             </div>
           </motion.div>
 
+          {/* Scroll to Explore */}
+
           {/* Project Overview Section */}
           <motion.div
+            id="problem"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="mb-20 px-16 scroll-mt-32"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Project Overview</h3>
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8">Problem</h3>
                 <p className="text-md font-extralight leading-relaxed text-gray-400 mb-8">
                   {project.overview}
                 </p>
@@ -314,109 +271,133 @@ export default function ProjectDetailPage() {
             </div>
           </motion.div>
 
-          {/* Process Section */}
+          {/* Research Section */}
           <motion.div
+            id="research"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="mb-20 px-16 scroll-mt-32"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Process</h3>
-                
-                {/* Research & Discovery */}
-                <div className="mb-12">
-                  <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">1. Research & Discovery</h4>
-                  <ul className="space-y-4">
-                    {project.process.research.map((item, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-400 font-extralight">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8">Research</h3>
+                <p className="text-md font-extralight leading-relaxed text-gray-400 mb-8">
+                  Understanding the needs and challenges of ALS patients and their caregivers.
+                </p>
+              </div>
+            </div>
+          </motion.div>
 
-                {/* User Personas */}
-                <div className="mb-12">
-                  <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">2. User Personas</h4>
-                  <ul className="space-y-4">
-                    {project.process.personas.map((item, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-400 font-extralight">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          {/* Competitive Analysis Section */}
+          <motion.div
+            id="competitive-analysis"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-20 px-16 scroll-mt-32"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-8">
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8">Competitive Analysis</h3>
+                <p className="text-md font-extralight leading-relaxed text-gray-400 mb-8">
+                  Analyzing existing solutions and identifying opportunities for improvement.
+                </p>
+              </div>
+            </div>
+          </motion.div>
 
-                {/* Information Architecture */}
-                <div className="mb-12">
-                  <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">3. Information Architecture</h4>
-                  <p className="text-gray-400 font-extralight mb-8">{project.process.architecture}</p>
-                  <div className="relative group">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-orange-100 to-pink-100 rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
-                    <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
-                      <Image
-                        src="/images/image3.png"
-                        alt="User Flow Chart"
-                        width={800}
-                        height={600}
-                        className="w-full h-auto"
-                      />
-                    </div>
-                  </div>
-                </div>
+          {/* Sketching Section */}
+          <motion.div
+            id="sketching"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-20 px-16 scroll-mt-32"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-8">
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8">Sketching</h3>
+                <p className="text-md font-extralight leading-relaxed text-gray-400 mb-8">
+                  Initial ideation and concept development through hand-drawn sketches.
+                </p>
+              </div>
+            </div>
+          </motion.div>
 
-                {/* Prototyping */}
-                <div className="mb-12">
-                  <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">4. Prototyping</h4>
-                  <ul className="space-y-4">
-                    {project.process.prototyping.map((item, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-400 font-extralight">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          {/* LoFi Wireframing Section */}
+          <motion.div
+            id="lofi-wireframing"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-20 px-16 scroll-mt-32"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-8">
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8">LoFi Wireframing</h3>
+                <p className="text-md font-extralight leading-relaxed text-gray-400 mb-8">
+                  Creating low-fidelity wireframes to establish information architecture and user flows.
+                </p>
+              </div>
+            </div>
+          </motion.div>
 
-                {/* Interaction Design */}
-                <div className="mb-12">
-                  <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">5. Interaction Design</h4>
-                  <ul className="space-y-4">
-                    {project.process.interaction.map((item, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-400 font-extralight">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          {/* Refining & Prototyping Section */}
+          <motion.div
+            id="refining-prototyping"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-20 px-16 scroll-mt-32"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-8">
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8">Refining & Prototyping</h3>
+                <p className="text-md font-extralight leading-relaxed text-gray-400 mb-8">
+                  Iterative refinement and high-fidelity prototyping based on user feedback.
+                </p>
+              </div>
+            </div>
+          </motion.div>
 
-                {/* Scalability */}
-                <div className="mb-12">
-                  <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-4">6. Scalability Planning</h4>
-                  <p className="text-gray-400 font-extralight">{project.process.scalability}</p>
-                </div>
+          {/* Reflections Section */}
+          <motion.div
+            id="reflections"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-20 px-16 scroll-mt-32"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-8">
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8">Reflections</h3>
+                <p className="text-md font-extralight leading-relaxed text-gray-400 mb-8">
+                  Key learnings and insights from the design process.
+                </p>
               </div>
             </div>
           </motion.div>
 
           {/* Results & Tools Section */}
           <motion.div
+            id="features"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="mb-20 px-16 scroll-mt-32"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               {/* Results */}
               <div className="md:col-span-6">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Results</h3>
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8">Results</h3>
                 <ul className="space-y-4">
                   {project.results.map((result, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -429,7 +410,7 @@ export default function ProjectDetailPage() {
 
               {/* Tools */}
               <div className="md:col-span-6">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Tools Used</h3>
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8">Tools Used</h3>
                 <div className="space-y-6">
                   {project.tools.map((tool, index) => (
                     <div key={index}>
@@ -452,7 +433,7 @@ export default function ProjectDetailPage() {
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Recommended Next Steps</h3>
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8">Recommended Next Steps</h3>
                 <div className="space-y-8">
                   {project.nextSteps.map((step, index) => (
                     <div key={index} className="flex items-start gap-4">
@@ -490,6 +471,10 @@ export default function ProjectDetailPage() {
           </motion.div>
         </article>
       </main>
+
+      {/* Project Navigation */}
+      <ProjectNavigation currentProjectHref="/work/als-app" />
     </div>
   )
 }
+

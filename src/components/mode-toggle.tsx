@@ -10,7 +10,7 @@ export function ModeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative p-2 text-violet-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 group"
+      className="relative p-2 text-orange-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 group"
       aria-label="Toggle theme"
     >
       <div className="relative w-5 h-5">

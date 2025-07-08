@@ -8,13 +8,15 @@ import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Packag
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Playfair_Display } from 'next/font/google'
+import { ProjectNavigation } from "@/components/project-navigation"
+import ProjectVerticalNavigation from "@/components/project-vertical-navigation"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
 const project = {
-  title: "Plant Care AI",
+  title: "Helping urban dwellers nurture healthy indoor plants effortlessly.",
   description: "Provides users with seamless access to accurate, personalized weather insights across multiple locations, including a detailed 5-day forecast.",
-  date: "December 3, 2024",
+  date: "Your leafy roommates just got an upgrade.",
   image: "/images/image58.png",
   content: `
     <div className="max-w-3xl mx-auto">
@@ -27,7 +29,7 @@ const project = {
             className="rounded-lg shadow-md w-full max-w-sm mx-auto"
             style={{ height: "auto" }}
           />
-          <h1 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 1: This is the Topic Model view of my final dashboard design.</h1>
+          <h1 className="text-center text-sm text-gray-600 mt-2">Figure 1: This is the Topic Model view of my final dashboard design.</h1>
         </div>
         <br></br>
         <div className="mt-4">
@@ -37,13 +39,13 @@ const project = {
             className="rounded-lg shadow-md w-full max-w-3xl"
             style={{ height: "auto" }}
           />
-          <h1 className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">Figure 2: And here's the Synopsis Graph view of my final design!</h1>
+          <h1 className="text-center text-sm text-gray-600 mt-2">Figure 2: And here's the Synopsis Graph view of my final design!</h1>
         </div>
         <div></div>
       </div>
     </div>
     <br></br>
-    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">V3 — Motion and Animation</h3>
+    <h3 className="text-3xl font-bold text-gray-900 mb-6">V3 — Motion and Animation</h3>
     <p className="text-gray-700 leading-relaxed mb-6">
       Learning about and utilizing animation was very compelling to me because although I had worked with visual design in the past, I'd never really had an opportunity to implement animation and motion in a design before. I knew I wanted my animations to supplement the welcoming nature of my dashboard, so it was crucial that my animations enhanced my UX, and didn't sabotage it.
     </p>
@@ -73,7 +75,7 @@ export default function CryptoDashboardPage() {
   })
 
   return (
-    <div className="min-h-screen bg-transparent">
+    <div className="min-h-screen bg-gray-50">
       {/* Floating geometric shapes */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <motion.div
@@ -99,27 +101,18 @@ export default function CryptoDashboardPage() {
         </motion.div>
       </div>
 
-     
-      <main className="relative">
-        <article className="prose lg:prose-xl dark:prose-invert">
+      {/* Project Vertical Navigation */}
+      <ProjectVerticalNavigation />
+
+      <main className="relative ml-64">
+        <article className="prose lg:prose-xl">
           {/* Back Button */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="absolute top-32 left-8 z-20"
-          >
-            <Link
-              href="/#projects"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm text-gray-900 dark:text-white rounded-full text-sm font-medium hover:bg-gray-900/20 dark:hover:bg-white/20 transition-colors duration-300"
-            >
-              <ArrowLeft className="w-3 h-3" />
-              Back to Projects
-            </Link>
-          </motion.div>
+         
+
 
           {/* Hero Section */}
           <motion.div
+            id="hero"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -128,57 +121,39 @@ export default function CryptoDashboardPage() {
           >
             {/* Text Content */}
             <motion.div
-              className="relative z-10 pt-60 pb-20 w-screen"
+              className="relative z-10 pt-40 pb-20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="px-16">
-                <div className="max-w-7xl mx-auto space-y-8">
+              <div className="px-16 pr-32">
+                <div className="max-w-7xl mx-auto space-y-4">
                   <motion.h1
-                    className={`${playfair.className} text-3xl md:text-5xl font-normal tracking-wide`}
+                    className="font-mono text-3xl md:text-5xl font-normal tracking-wide leading-relaxed"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                   >
-                    <span className="text-gray-900 dark:text-white">
+                    <span className="text-gray-900">
                       {project.title}
                     </span>
                   </motion.h1>
 
                   <motion.p
-                    className={`${playfair.className} text-3xl md:text-5xl max-w-2xl font-normal leading-relaxed text-gray-800 dark:text-white/90`}
+                    className={`${playfair.className} text-3xl md:text-5xl max-w-2xl font-normal leading-relaxed text-gray-800`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                   >
-                     A mobile app designed to help urban dwellers nurture healthy indoor plants effortlessly.
                   </motion.p>
 
                   <motion.div
-                    className="flex items-center gap-3 text-gray-800 dark:text-white/90"
+                    className="flex items-center gap-3 text-gray-800"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                   >
-                    <span className="text-sm font-medium">{project.date}</span>
-                  </motion.div>
-
-                  {/* Tags */}
-                  <motion.div
-                    className="flex flex-wrap justify-end gap-2 max-w-xl ml-auto"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.7 }}
-                  >
-                    {filteredProjects.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1.5 bg-gray-900/10 dark:bg-white/20 backdrop-blur-md text-gray-900 dark:text-white rounded-full text-xs font-extralight hover:bg-gray-900/20 dark:hover:bg-white/30 transition-colors duration-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <span className="text-lg font-extralight">{project.date}</span>
                   </motion.div>
                 </div>
               </div>
@@ -186,7 +161,7 @@ export default function CryptoDashboardPage() {
 
             {/* Image */}
             <motion.div
-              className="relative w-full h-[600px]"
+              className="relative w-full h-[500px]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -199,8 +174,6 @@ export default function CryptoDashboardPage() {
                 className="w-full h-full object-cover rounded-3xl"
                 priority
               />
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black/50 rounded-3xl"></div>
             </motion.div>
           </motion.div>
 
@@ -217,6 +190,7 @@ export default function CryptoDashboardPage() {
 
           {/* Three Columns Section */}
           <motion.div
+            id="project-details"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -226,7 +200,7 @@ export default function CryptoDashboardPage() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               {/* Title */}
               <div className="md:col-span-4">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>Project Details</h3>
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Project Details</h3>
               </div>
 
               {/* Labels */}
@@ -262,7 +236,7 @@ export default function CryptoDashboardPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20">
               <div className="md:col-span-8">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>Project Overview</h3>
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Project Overview</h3>
                 <div className="mt-8">
                   <p className="text-md font-extralight leading-relaxed text-gray-400">
                   PlantCare AI began as a simple question: what if your houseplants had their own AI caretaker? In an era where people are more invested in their indoor greenery than ever before—especially in dense urban environments—many are discovering that keeping plants alive and thriving is harder than it looks. Whether it's remembering to water on time, diagnosing mysterious leaf spots, or figuring out the best light placement in a small apartment, the responsibilities of plant care can quickly overwhelm even the most enthusiastic plant parent.                  
@@ -274,9 +248,9 @@ export default function CryptoDashboardPage() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20">
+            <div id="problem" className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20">
               <div className="md:col-span-8">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>Problem</h3>
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Problem</h3>
                 <div className="mt-8">
                   <p className="text-md font-extralight leading-relaxed text-gray-400">
                   The core problem I wanted to address was the feeling of helplessness many users experience when their plants start to decline. Most plant care apps offer either generic tips or static watering reminders, but they don't account for the actual condition of the plant in real time. Worse still, users often don't know what they're doing wrong until it's too late. This leads to discouragement, disengagement, and sometimes, giving up on plant care altogether. Many of these users live in cities, often with unpredictable light conditions, busy schedules, and little access to expert guidance.
@@ -285,16 +259,16 @@ export default function CryptoDashboardPage() {
                   <p className="text-md font-extralight leading-relaxed text-gray-400">
                   That insight became the starting point for my design challenge:
                   </p>
-                  <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>How might we help indoor plant owners diagnose, care for, and feel confident about their plants through a personalized, proactive experience?</h3>
+                  <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">How might we help indoor plant owners diagnose, care for, and feel confident about their plants through a personalized, proactive experience?</h3>
 
 
                 </div>
                 
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20">
+            <div id="solution" className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20">
               <div className="md:col-span-12">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>Solution</h3>
+                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Solution</h3>
                 <div className="mt-8">
                 <p className="text-md font-extralight leading-relaxed text-gray-400">
                 The solution was PlantCare AI—a mobile app that leverages the power of AI to scan, diagnose, and recommend care strategies based on an actual photo of your plant. Users simply take a snapshot of a leaf or stem using their phone camera, and the AI instantly detects common problems such as overwatering, underwatering, pests, nutrient deficiencies, or fungal infections. Each diagnosis comes with clear, actionable treatment steps, making it easy to address issues before they spiral out of control.
@@ -304,8 +278,8 @@ export default function CryptoDashboardPage() {
 
                 <div className="flex justify-center">
                   <div className="w-full max-w-[1400px] px-4">
-                    <div className="bg-gray-100 dark:bg-[#18181b] rounded-xl p-16 overflow-hidden relative">
-                      <p className="absolute top-6 left-6 text-sm text-gray-600 dark:text-gray-400 font-extralight tracking-wider uppercase">
+                    <div className="bg-gray-100 rounded-xl p-16 overflow-hidden relative">
+                      <p className="absolute top-6 left-6 text-sm text-gray-600 font-extralight tracking-wider uppercase">
                         Preview of final mobile screens
                       </p>
                       <div className="flex gap-0 animate-scroll mt-8">
@@ -416,13 +390,13 @@ export default function CryptoDashboardPage() {
                 </div>
 
                   {/* Video Section */}
-                  <div className="my-8 max-w-4xl mx-auto">
+                  <div id="features" className="my-8 max-w-4xl mx-auto">
                     <div className="grid lg:grid-cols-12 gap-4 items-start">
                       <div className="lg:col-span-4">
                         <div className="relative w-[280px] h-[500px]">
                           <video
                             src="/video10.mov"
-                            className="absolute inset-0 w-full h-full rounded-lg mix-blend-multiply dark:mix-blend-screen"
+                            className="absolute inset-0 w-full h-full rounded-lg mix-blend-multiply"
                             autoPlay
                             muted
                             loop
@@ -431,7 +405,7 @@ export default function CryptoDashboardPage() {
                         </div>
                       </div>
                       <div className="lg:col-span-8 pt-32">
-                        <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>Growth Tracking & Insights</h3>
+                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Growth Tracking & Insights</h3>
                         <ul className="text-md font-extralight leading-relaxed text-gray-400">
                         <br></br>
                         <li>• By uploading weekly photos, users allow the AI to detect small shifts in the plant's appearance—like early leaf yellowing or hidden pest damage. </li>
@@ -446,7 +420,7 @@ export default function CryptoDashboardPage() {
                   <div className="my-8 max-w-4xl mx-auto">
                     <div className="grid lg:grid-cols-12 gap-4 items-start ">
                       <div className="lg:col-span-8 pt-32">
-                        <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>AI Plant Health Scanner</h3>
+                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">AI Plant Health Scanner</h3>
                       <br></br>
                         <ul className="text-md font-extralight leading-relaxed text-gray-400">
                           <li className="flex items-start">
@@ -464,7 +438,7 @@ export default function CryptoDashboardPage() {
                         <div className="relative w-[280px] h-[500px]">
                           <video
                             src="/video11.mov"
-                            className="absolute inset-0 w-full h-full rounded-lg mix-blend-multiply dark:mix-blend-screen"
+                            className="absolute inset-0 w-full h-full rounded-lg mix-blend-multiply"
                             autoPlay
                             muted
                             loop
@@ -482,7 +456,7 @@ export default function CryptoDashboardPage() {
                         <div className="relative w-[280px] h-[500px]">
                           <video
                             src="/video12.mov"
-                            className="absolute inset-0 w-full h-full rounded-lg mix-blend-multiply dark:mix-blend-screen"
+                            className="absolute inset-0 w-full h-full rounded-lg mix-blend-multiply"
                             autoPlay
                             muted
                             loop
@@ -491,7 +465,7 @@ export default function CryptoDashboardPage() {
                         </div>
                       </div>
                       <div className="lg:col-span-8 pt-32">
-                        <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>Community & Expert Chat</h3>
+                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Community & Expert Chat</h3>
                         <ul className="text-md font-extralight leading-relaxed text-gray-400">
                         <br></br>
                         <li>• PlantCare AI compiles recent health data and translates it into suggested questions or topics for community discussion. </li>
@@ -517,13 +491,16 @@ export default function CryptoDashboardPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white dark:bg-[#18181b] rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
+            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
           >
              
            
           </motion.div>
         </article>
       </main>
+
+      {/* Project Navigation */}
+      <ProjectNavigation currentProjectHref="/work/plant-care" />
     </div>
   )
 }
