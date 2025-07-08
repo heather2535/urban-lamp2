@@ -31,7 +31,8 @@ const tagIcons: Record<string, React.ReactElement> = {
 
 const project = {
   title: "Enabling organizations to create more inclusive and equitable workplaces",
-  date: "In collaboration with BCS & Associates",
+  description: "In collaboration with BCS & Associates",
+  date: "March 15, 2024",
   video: "/video4.mov?height=450&width=800",
   tags: ["All Projects", "Graphic Design", "Branding", "Strategy", "Research", "Data Analysis", "Inclusion"],
   role: "Design Strategist, UX Researcher, UI/UX",
