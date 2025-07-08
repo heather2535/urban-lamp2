@@ -157,7 +157,7 @@ export default function Portfolio() {
       <VerticalNavigation />
 
       {/* Hero Section */}
-      <main id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-8 lg:px-40 py-8 sm:py-0">
+      <main id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-8 lg:px-40 py-8 sm:py-0 lg:ml-0">
         <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-2 items-center">
           {/* Left side - Text content */}
           <div className="lg:col-span-2 space-y-6 sm:space-y-8 order-2 lg:order-1">
@@ -170,7 +170,7 @@ export default function Portfolio() {
             </div>
             
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-56">
+            <div className="flex flex-col sm:flex-row gap-4 pt-24 sm:pt-32 lg:pt-56">
               <Link
                 href="/resume.pdf"
                 target="_blank"
@@ -220,7 +220,7 @@ export default function Portfolio() {
       </main>
 
       {/* Location and Time - Full Width */}
-      <div className="-pt-20 -mt-20 w-full flex flex-col sm:flex-row justify-between items-center px-6 lg:px-8 py-4 text-xs text-gray-400 gap-2 sm:gap-0">
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center px-6 lg:px-8 py-4 text-xs text-gray-400 gap-2 sm:gap-0">
         <span>SANTA CLARA, CALIFORNIA</span>
         <span>{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true, timeZoneName: 'short' })}</span>
       </div>
@@ -232,7 +232,6 @@ export default function Portfolio() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {projects.filter(p => 
               p.title !== "Hariri Institute Website" && 
-              p.href !== "/work/virtual-gallery" &&
               p.href !== "/work/healthcare-platform" &&
               p.href !== "/work/chaosthesis" &&
               p.href !== "/work/ai-task-manager" &&

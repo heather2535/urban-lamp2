@@ -13,29 +13,9 @@ export function ProjectNavigation({ currentProjectHref }: ProjectNavigationProps
   // Find current project index
   const currentIndex = projects.findIndex(project => project.href === currentProjectHref)
   
-  // If current project is not found in the array, show only "Back to Projects"
+  // If current project is not found in the array, don't show navigation
   if (currentIndex === -1) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="border-t border-gray-200 bg-white py-12 px-16"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-center">
-            <Link
-              href="/#projects"
-              className="group inline-flex items-center gap-3 px-6 py-3 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
-            >
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
-              Back to Projects
-            </Link>
-          </div>
-        </div>
-      </motion.div>
-    )
+    return null
   }
   
   // Get next project (cycle back to first if at end)
@@ -53,16 +33,7 @@ export function ProjectNavigation({ currentProjectHref }: ProjectNavigationProps
       className="border-t border-gray-200 bg-white py-12 px-16"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-8">
-          {/* Back to Projects */}
-          <Link
-            href="/#projects"
-            className="group inline-flex items-center gap-3 px-6 py-3 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
-            Back to Projects
-          </Link>
-
+        <div className="flex justify-center">
           {/* Project Navigation */}
           <div className="flex items-center gap-4">
             {/* Previous Project */}

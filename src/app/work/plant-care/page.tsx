@@ -17,7 +17,7 @@ const project = {
   title: "Helping urban dwellers nurture healthy indoor plants effortlessly.",
   description: "Provides users with seamless access to accurate, personalized weather insights across multiple locations, including a detailed 5-day forecast.",
   date: "Your leafy roommates just got an upgrade.",
-  image: "/images/image58.png",
+  image: "/images/image60.png",
   content: `
     <div className="max-w-3xl mx-auto">
       <div className="grid grid-cols-3 gap-4">
@@ -104,7 +104,7 @@ export default function CryptoDashboardPage() {
       {/* Project Vertical Navigation */}
       <ProjectVerticalNavigation />
 
-      <main className="relative ml-64">
+      <main className="relative lg:ml-64">
         <article className="prose lg:prose-xl">
           {/* Back Button */}
          
@@ -121,7 +121,7 @@ export default function CryptoDashboardPage() {
           >
             {/* Text Content */}
             <motion.div
-              className="relative z-10 pt-40 pb-20"
+              className="relative z-10 pt-40 pb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -161,7 +161,7 @@ export default function CryptoDashboardPage() {
 
             {/* Image */}
             <motion.div
-              className="relative w-full h-[500px]"
+              className="relative w-full h-[600px] overflow-hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -177,16 +177,53 @@ export default function CryptoDashboardPage() {
             </motion.div>
           </motion.div>
 
-          {/* Scroll to Explore */}
+          {/* Project Details Section */}
           <motion.div
-            className="flex flex-col items-center justify-center gap-2 text-gray-500 mt-8 mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            id="project-details"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="py-16 px-16"
           >
-            <span className="text-sm">Scroll to explore</span>
-            <ChevronRight className="w-4 h-4 rotate-90" />
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {/* Role */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">role</h3>
+                <p className="text-sm font-extralight text-gray-400">Design Strategist, UX Researcher, UI/UX</p>
+              </div>
+
+              {/* Team */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">team</h3>
+                <p className="text-sm font-extralight text-gray-400">Heather Davies</p>
+                <p className="text-sm font-extralight text-gray-400">Jason Huang</p>
+                <p className="text-sm font-extralight text-gray-400">Wesley Wildman</p>
+              </div>
+
+              {/* Tools */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">tools</h3>
+                <p className="text-sm font-extralight text-gray-400">Figma</p>
+                <p className="text-sm font-extralight text-gray-400">Adobe XD</p>
+                <p className="text-sm font-extralight text-gray-400">Protopie</p>
+                <p className="text-sm font-extralight text-gray-400">Miro</p>
+              </div>
+
+              {/* Skills */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">skills</h3>
+                <p className="text-sm font-extralight text-gray-400">AI Diagnostics</p>
+                <p className="text-sm font-extralight text-gray-400">Plant Care</p>
+                <p className="text-sm font-extralight text-gray-400">Mobile App</p>
+                <p className="text-sm font-extralight text-gray-400">User Research</p>
+                <p className="text-sm font-extralight text-gray-400">UI/UX Design</p>
+                <p className="text-sm font-extralight text-gray-400">Accessibility</p>
+              </div>
+            </div>
           </motion.div>
+
+        
 
           {/* Three Columns Section */}
           <motion.div
@@ -197,42 +234,7 @@ export default function CryptoDashboardPage() {
             viewport={{ once: true }}
             className="mb-20 px-16"
           >
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              {/* Title */}
-              <div className="md:col-span-4">
-                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Project Details</h3>
-              </div>
-
-              {/* Labels */}
-              <div className="md:col-span-4 space-y-8">
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">DURATION</h3>
-                </div>
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">ROLE</h3>
-                </div>
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">TEAM</h3>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="md:col-span-4 space-y-8">
-                <div>
-                  <p className="text-sm font-extralight text-gray-400">Sep. 2024 - Dec. 2024</p>
-                  <p className="text-sm font-extralight text-gray-400">4 mo. total</p>
-                </div>
-                <div>
-                  <p className="text-sm font-extralight text-gray-400">Design Strategist, UX</p>
-                  <p className="text-sm font-extralight text-gray-400">Researcher, UI/UX</p>
-                </div>
-                <div>
-                  <p className="text-sm font-extralight text-gray-400">Heather Davies</p>
-                  <p className="text-sm font-extralight text-gray-400">Jason Huang</p>
-                  <p className="text-sm font-extralight text-gray-400">Wesley Wildman</p>
-                </div>
-              </div>
-            </div>
+           
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20">
               <div className="md:col-span-8">

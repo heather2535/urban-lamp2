@@ -9,6 +9,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Playfair_Display } from 'next/font/google'
 import { ProjectNavigation } from "@/components/project-navigation"
+import ProjectVerticalNavigation from "@/components/project-vertical-navigation"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
@@ -29,9 +30,8 @@ const tagIcons: Record<string, React.ReactElement> = {
 }
 
 const project = {
-  title: "BCS & Associates",
-  description: "A web app facilitating DEI consulting services, enabling organizations to create more inclusive and equitable workplaces.",
-  date: "March 15, 2024",
+  title: "Enabling organizations to create more inclusive and equitable workplaces",
+  date: "In collaboration with BCS & Associates",
   video: "/video4.mov?height=450&width=800",
   tags: ["All Projects", "Graphic Design", "Branding", "Strategy", "Research", "Data Analysis", "Inclusion"],
   role: "Design Strategist, UX Researcher, UI/UX",
@@ -101,7 +101,6 @@ export default function ProjectDetailPage() {
     const matchesTag = selectedTag ? tag === selectedTag : true
     const matchesSearch =
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
     return matchesTag && matchesSearch
   })
@@ -133,26 +132,17 @@ export default function ProjectDetailPage() {
         </motion.div>
       </div>
 
-      <main className="relative">
+      {/* Project Vertical Navigation */}
+      <ProjectVerticalNavigation />
+
+      <main className="relative lg:ml-64">
         <article className="prose lg:prose-xl dark:prose-invert">
           {/* Back Button */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="absolute top-32 left-8 z-20"
-          >
-            <Link
-              href="/#projects"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm text-gray-900 dark:text-white rounded-full text-sm font-medium hover:bg-gray-900/20 dark:hover:bg-white/20 transition-colors duration-300"
-            >
-              <ArrowLeft className="w-3 h-3" />
-              Back to Projects
-            </Link>
-          </motion.div>
+         
 
           {/* Hero Section */}
           <motion.div
+            id="hero"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -161,15 +151,15 @@ export default function ProjectDetailPage() {
           >
             {/* Text Content */}
             <motion.div
-              className="relative z-10 pt-60 pb-20 w-screen"
+              className="relative z-10 pt-40 pb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="px-16">
-                <div className="max-w-7xl mx-auto space-y-8">
+              <div className="px-16 pr-32">
+                <div className="max-w-7xl mx-auto space-y-4">
                   <motion.h1
-                    className={`${playfair.className} text-3xl md:text-5xl font-normal tracking-wide`}
+                    className="font-mono text-3xl md:text-5xl font-normal tracking-wide leading-relaxed"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
@@ -180,7 +170,7 @@ export default function ProjectDetailPage() {
                   </motion.h1>
 
                   <motion.p
-                    className={`${playfair.className} text-3xl md:text-5xl max-w-2xl font-normal leading-relaxed text-gray-800 dark:text-white/90`}
+                    className="text-xl md:text-2xl max-w-2xl font-extralight leading-relaxed text-gray-800 dark:text-white/90"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
@@ -194,24 +184,7 @@ export default function ProjectDetailPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                   >
-                    <span className="text-sm font-medium">{project.date}</span>
-                  </motion.div>
-
-                  {/* Tags */}
-                  <motion.div
-                    className="flex flex-wrap justify-end gap-2 max-w-xl ml-auto"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.7 }}
-                  >
-                    {filteredProjects.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1.5 bg-gray-900/10 dark:bg-white/20 backdrop-blur-md text-gray-900 dark:text-white rounded-full text-xs font-extralight hover:bg-gray-900/20 dark:hover:bg-white/30 transition-colors duration-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <span className="text-lg font-extralight">{project.date}</span>
                   </motion.div>
                 </div>
               </div>
@@ -219,82 +192,72 @@ export default function ProjectDetailPage() {
 
             {/* Video */}
             <motion.div
-              className="relative w-full flex justify-center"
+              className="relative w-full flex justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="w-full max-w-5xl">
-                <video 
-                  width="100%" 
-                  height="auto" 
-                  className="w-full"
-                  poster="/image4.png"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                >
-                  <source src={project.video} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+              <div className="w-full max-w-4xl px-16 pr-32">
+                <div className="w-full">
+                  <video 
+                    width="100%" 
+                    height="auto" 
+                    className="w-full h-auto object-contain rounded-lg"
+                    poster="/image4.png"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src={project.video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Scroll to Explore */}
+          {/* Project Details Section - 4 columns like Plant Care */}
           <motion.div
-            className="flex flex-col items-center justify-center gap-2 text-gray-500 mt-8 mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <span className="text-sm">Scroll to explore</span>
-            <ChevronRight className="w-4 h-4 rotate-90" />
-          </motion.div>
-
-          {/* Project Details Section */}
-          <motion.div
+            id="project-details"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="py-16 px-16"
           >
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              {/* Title */}
-              <div className="md:col-span-4">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>Project Details</h3>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {/* Role */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">role</h3>
+                <p className="text-sm font-extralight text-gray-400">{project.role}</p>
               </div>
 
-              {/* Labels */}
-              <div className="md:col-span-4 space-y-8">
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">DURATION</h3>
-                </div>
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">ROLE</h3>
-                </div>
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">TEAM</h3>
-                </div>
+              {/* Team */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">team</h3>
+                {project.team.map((member) => (
+                  <p key={member} className="text-sm font-extralight text-gray-400">{member}</p>
+                ))}
               </div>
 
-              {/* Content */}
-              <div className="md:col-span-4 space-y-8">
-                <div>
-                  <p className="text-sm font-extralight text-gray-400">{project.duration}</p>
-                </div>
-                <div>
-                  <p className="text-sm font-extralight text-gray-400">{project.role}</p>
-                </div>
-                <div>
-                  {project.team.map((member) => (
-                    <p key={member} className="text-sm font-extralight text-gray-400">
-                      {member}
-                    </p>
-                  ))}
-                </div>
+              {/* Tools */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">tools</h3>
+                <p className="text-sm font-extralight text-gray-400">Figma</p>
+                <p className="text-sm font-extralight text-gray-400">Adobe XD</p>
+                <p className="text-sm font-extralight text-gray-400">Miro</p>
+              </div>
+
+              {/* Skills */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">skills</h3>
+                <p className="text-sm font-extralight text-gray-400">Graphic Design</p>
+                <p className="text-sm font-extralight text-gray-400">Branding</p>
+                <p className="text-sm font-extralight text-gray-400">Strategy</p>
+                <p className="text-sm font-extralight text-gray-400">Research</p>
+                <p className="text-sm font-extralight text-gray-400">Data Analysis</p>
+                <p className="text-sm font-extralight text-gray-400">Inclusion</p>
               </div>
             </div>
           </motion.div>
@@ -488,24 +451,7 @@ export default function ProjectDetailPage() {
             </div>
           </motion.div>
 
-          {/* Navigation */}
-          <div className="flex justify-between items-center px-16 mb-20">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Projects
-            </Link>
-
-            <Link
-              href="/work/ai-task-force"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
-            >
-              Next Project
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
+      
         </article>
       </main>
 

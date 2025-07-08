@@ -14,7 +14,7 @@ import ProjectVerticalNavigation from "@/components/project-vertical-navigation"
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
 const project = {
-  title: "Offering personalized treatment recommendations and support for individuals with ALS. ",
+  title: "Offering personalized treatment and support for individuals with ALS. ",
   description: "ALS App Design with ngBoston Children's Hospital",
   date: "In collaboration with Boston Children's Hospital",
   image: "/images/image1.jpg",
@@ -127,7 +127,7 @@ export default function ProjectDetailPage() {
       {/* Project Vertical Navigation */}
       <ProjectVerticalNavigation />
 
-      <main className="relative ml-64">
+      <main className="relative lg:ml-64">
         <article className="prose lg:prose-xl dark:prose-invert">
           {/* Back Button */}
          
