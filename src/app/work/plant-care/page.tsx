@@ -10,6 +10,7 @@ import Image from "next/image"
 import { Playfair_Display } from 'next/font/google'
 import { ProjectNavigation } from "@/components/project-navigation"
 import ProjectVerticalNavigation from "@/components/project-vertical-navigation"
+import SectionTitle from "@/components/SectionTitle"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
@@ -75,40 +76,21 @@ export default function CryptoDashboardPage() {
   })
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Floating geometric shapes */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <motion.div
-          className="absolute top-32 left-16 text-orange-300 opacity-15"
-          animate={{ rotate: 360, scale: [1, 1.2, 1] }}
-          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        >
-          <Circle size={80} />
-        </motion.div>
-        <motion.div
-          className="absolute top-1/2 right-24 text-purple-300 opacity-20"
-          animate={{ rotate: -360, y: [-20, 20, -20] }}
-          transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-        >
-          <Square size={60} />
-        </motion.div>
-        <motion.div
-          className="absolute bottom-32 left-1/3 text-pink-300 opacity-25"
-          animate={{ rotate: 180, x: [-10, 10, -10] }}
-          transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-        >
-          <Triangle size={45} />
-        </motion.div>
-      </div>
+    <div className="min-h-screen bg-white">
+
+
+
 
       {/* Project Vertical Navigation */}
       <ProjectVerticalNavigation />
 
+      {/* Top Navigation for Sections */}
+      {/* Removed Overview and Problem nav bar as requested */}
+
       <main className="relative lg:ml-64">
         <article className="prose lg:prose-xl">
           {/* Back Button */}
-         
-
+          
 
           {/* Hero Section */}
           <motion.div
@@ -121,7 +103,7 @@ export default function CryptoDashboardPage() {
           >
             {/* Text Content */}
             <motion.div
-              className="relative z-10 pt-40 pb-8"
+              className="relative z-10 pt-36 pb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -161,19 +143,21 @@ export default function CryptoDashboardPage() {
 
             {/* Image */}
             <motion.div
-              className="relative w-full h-[600px] overflow-hidden"
+              className="relative w-full h-[600px] overflow-hidden -mt-32"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={1920}
-                height={1080}
-                className="w-full h-full object-cover rounded-3xl"
-                priority
-              />
+              <div className="flex justify-start">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={1920}
+                  height={1080}
+                  className="w-full max-w-6xl h-full object-contain rounded-3xl"
+                  priority
+                />
+              </div>
             </motion.div>
           </motion.div>
 
@@ -190,89 +174,325 @@ export default function CryptoDashboardPage() {
               {/* Role */}
               <div>
                 <h3 className="text-lg font-bold tracking-wide text-black mb-4">role</h3>
-                <p className="text-sm font-extralight text-gray-400">Design Strategist, UX Researcher, UI/UX</p>
+                <p className="text-sm font-extralight text-gray-600">Design Strategist, UX Researcher, UI/UX</p>
               </div>
 
               {/* Team */}
               <div>
                 <h3 className="text-lg font-bold tracking-wide text-black mb-4">team</h3>
-                <p className="text-sm font-extralight text-gray-400">Heather Davies</p>
-                <p className="text-sm font-extralight text-gray-400">Jason Huang</p>
-                <p className="text-sm font-extralight text-gray-400">Wesley Wildman</p>
+                <p className="text-sm font-extralight text-gray-600">Individual</p>
+
               </div>
 
               {/* Tools */}
               <div>
                 <h3 className="text-lg font-bold tracking-wide text-black mb-4">tools</h3>
-                <p className="text-sm font-extralight text-gray-400">Figma</p>
-                <p className="text-sm font-extralight text-gray-400">Adobe XD</p>
-                <p className="text-sm font-extralight text-gray-400">Protopie</p>
-                <p className="text-sm font-extralight text-gray-400">Miro</p>
+                <p className="text-sm font-extralight text-gray-600">Figma</p>
+                <p className="text-sm font-extralight text-gray-600">Adobe XD</p>
+                <p className="text-sm font-extralight text-gray-600">Protopie</p>
+                <p className="text-sm font-extralight text-gray-600">Miro</p>
               </div>
 
               {/* Skills */}
               <div>
                 <h3 className="text-lg font-bold tracking-wide text-black mb-4">skills</h3>
-                <p className="text-sm font-extralight text-gray-400">AI Diagnostics</p>
-                <p className="text-sm font-extralight text-gray-400">Plant Care</p>
-                <p className="text-sm font-extralight text-gray-400">Mobile App</p>
-                <p className="text-sm font-extralight text-gray-400">User Research</p>
-                <p className="text-sm font-extralight text-gray-400">UI/UX Design</p>
-                <p className="text-sm font-extralight text-gray-400">Accessibility</p>
+                <p className="text-sm font-extralight text-gray-600">AI Diagnostics</p>
+                <p className="text-sm font-extralight text-gray-600">Plant Care</p>
+                <p className="text-sm font-extralight text-gray-600">Mobile App</p>
+                <p className="text-sm font-extralight text-gray-600">User Research</p>
+                <p className="text-sm font-extralight text-gray-600">UI/UX Design</p>
+                <p className="text-sm font-extralight text-gray-600">Accessibility</p>
               </div>
             </div>
           </motion.div>
 
-        
+          {/* Diagonal Line Divider */}
+          <div className="flex justify-center -py-4 -mt-10">
+            <div className="flex space-x-3">
+              {[...Array(10)].map((_, i) => (
+                <div
+                  key={i}
+                  className="w-1 h-8 bg-orange-300 transform rotate-45"
+                />
+              ))}
+            </div>
+          </div>
 
-          {/* Three Columns Section */}
+         
+
           <motion.div
-            id="project-details"
+            id="project-overview"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="mb-20 px-16 scroll-mt-24"
+            onMouseEnter={() => {
+              const event = new CustomEvent('sectionHover', { detail: 'inspiration' })
+              window.dispatchEvent(event)
+            }}
+            onMouseLeave={() => {
+              const event = new CustomEvent('sectionHover', { detail: null })
+              window.dispatchEvent(event)
+            }}
           >
-           
+                {/* Section Title Example */}
+                <SectionTitle>Inspiration</SectionTitle>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20">
-              <div className="md:col-span-8">
-                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Project Overview</h3>
-                <div className="mt-8">
-                  <p className="text-md font-extralight leading-relaxed text-gray-400">
+          
+                <div className="mt-2">
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
                   PlantCare AI began as a simple question: what if your houseplants had their own AI caretaker? In an era where people are more invested in their indoor greenery than ever before—especially in dense urban environments—many are discovering that keeping plants alive and thriving is harder than it looks. Whether it's remembering to water on time, diagnosing mysterious leaf spots, or figuring out the best light placement in a small apartment, the responsibilities of plant care can quickly overwhelm even the most enthusiastic plant parent.                  
                   </p>
                   <br></br>
-                  <p className="text-md font-extralight leading-relaxed text-gray-400">
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
                   I designed PlantCare AI as a mobile-first experience that brings together AI-driven diagnostics, personalized care scheduling, and community support into one seamless interface. It's not just a plant care app; it's a full-time, photo-based plant companion that lives in your pocket.
                   </p>
                 </div>
-              </div>
-            </div>
-            <div id="problem" className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20">
-              <div className="md:col-span-8">
-                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Problem</h3>
-                <div className="mt-8">
-                  <p className="text-md font-extralight leading-relaxed text-gray-400">
+              
+            
+            <div 
+              id="problem" 
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20 scroll-mt-24"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'problem' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            >
+              <div className="md:col-span-12">
+                {/* Section Title Example */}
+                <SectionTitle>Problem</SectionTitle>
+                <div className="mt-2">
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
                   The core problem I wanted to address was the feeling of helplessness many users experience when their plants start to decline. Most plant care apps offer either generic tips or static watering reminders, but they don't account for the actual condition of the plant in real time. Worse still, users often don't know what they're doing wrong until it's too late. This leads to discouragement, disengagement, and sometimes, giving up on plant care altogether. Many of these users live in cities, often with unpredictable light conditions, busy schedules, and little access to expert guidance.
                   </p>
+                  
                   <br></br>
-                  <p className="text-md font-extralight leading-relaxed text-gray-400">
-                  That insight became the starting point for my design challenge:
+                  
+                  {/* Image before design challenge */}
+                  <div className="flex justify-start my-8">
+                    <div className="relative w-full max-w-7xl">
+                      <Image
+                        src="/images/plant-care7.png"
+                        alt="Plant Care App Interface"
+                        width={1600}
+                        height={1200}
+                        className="rounded-lg"
+                      />
+                      <p className="text-sm font-extralight leading-relaxed text-gray-600 mt-2 text-center">
+                        User feedback annotations highlighting key usability pain points during early testing.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                  Thus I explored:
                   </p>
-                  <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">How might we help indoor plant owners diagnose, care for, and feel confident about their plants through a personalized, proactive experience?</h3>
+                                      <h3 className="font-sans text-3xl font-normal tracking-wide text-orange-500 border-l-4 border-orange-300 pl-6 py-4">How might we help indoor plant owners diagnose, care for, and feel confident about their plants through a personalized, proactive experience?</h3>
 
-
+                </div>
+                
+                <div 
+                  id="research" 
+                  className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-12 scroll-mt-22"
+                  onMouseEnter={() => {
+                    const event = new CustomEvent('sectionHover', { detail: 'research' })
+                    window.dispatchEvent(event)
+                  }}
+                  onMouseLeave={() => {
+                    const event = new CustomEvent('sectionHover', { detail: null })
+                    window.dispatchEvent(event)
+                  }}
+                >
+                  <div className="md:col-span-12">
+                    <SectionTitle>Research</SectionTitle>
+                    <div className="mt-2">
+                      <p className="text-md font-extralight leading-relaxed text-gray-600">
+                        As <strong>indoor gardening surged in popularity</strong>—especially among <strong>urban dwellers seeking connection, calm, or cleaner air</strong>—many new plant owners found themselves frustrated by the <strong>complexity of plant care</strong>. What starts as joy often turns to <strong>uncertainty when symptoms like yellowing leaves or drooping stems appear without explanation</strong>. Through <strong>surveys, interviews, and contextual inquiry with 8 plant owners living in small apartments</strong>, I explored this <strong>emotional journey and the knowledge gaps that prevent confident plant care</strong>.
+                      </p>
+                      <br></br>
+                                                                    <p className="text-md font-extralight leading-relaxed text-gray-600">
+                        Many of these users shared a <strong>common experience</strong>: they <strong>cared deeply about their plants</strong>, but lacked the <strong>time, expertise, or guidance to nurture them effectively</strong>. They expressed a desire for <strong>reassurance, structure, and quick help</strong>—especially when <strong>noticing early signs of distress in their plants</strong>.
+                       </p>
+                       
+                       <div className="mt-6">
+                         <p className="text-md font-extralight leading-relaxed text-gray-600 mb-4">
+                           Some notable user insights included:
+                         </p>
+                         <ul className="text-md font-extralight leading-relaxed text-gray-600 space-y-2 mb-6">
+                           <li>• "I can tell something's wrong, but I don't know what to search for."</li>
+                           <li>• "I downloaded a plant app but forgot to open it again."</li>
+                           <li>• "Sometimes I'm watering too much, sometimes not enough—I can't tell."</li>
+                           <li>• "I wish someone could just look at my plant and tell me what to do."</li>
+                           <li>• "I love my plants, but I feel guilty when they start dying."</li>
+                         </ul>
+                         
+               
+                       </div>
+                       
+                       {/* Image after key opportunity areas */}
+                       <div className="flex justify-start my-8 -ml-8">
+                         <div className="relative w-full max-w-7xl">
+                           <Image
+                             src="/images/plant-care8.png"
+                             alt="Plant Care Research Insights"
+                             width={1600}
+                             height={1200}
+                             className="rounded-lg object-cover object-center"
+                             style={{ objectPosition: 'center 45%' }}
+                           />
+                           <p className="text-sm font-extralight leading-relaxed text-gray-600 mt-2 text-center">
+                             Research insights and user journey mapping from early interviews and surveys.
+                           </p>
+                         </div>
+                
+                       </div>
+                       <p className="text-md font-extralight leading-relaxed text-gray-600 mb-4">
+                           Through thematic coding and affinity mapping, I identified several key opportunity areas:
+                         </p>
+                         <ul className="text-md font-extralight leading-relaxed text-gray-600 space-y-2">
+                           <li>• Users need real-time, image-based diagnostics they can trust.</li>
+                           <li>• Care advice must be simple, personalized, and actionable—not generic.</li>
+                           <li>• Motivation increases when users can track progress and see improvement.</li>
+                           <li>• Many feel alone in their plant care struggles and seek community validation or support.</li>
+                         </ul>
+                        
+                      </div>
+                  </div>
                 </div>
                 
               </div>
             </div>
-            <div id="solution" className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20">
+            
+            {/* Competitive Analysis Section */}
+            <div 
+              id="competitive-analysis" 
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20 scroll-mt-24"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'competitive-analysis' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            >
               <div className="md:col-span-12">
-                <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Solution</h3>
-                <div className="mt-8">
-                <p className="text-md font-extralight leading-relaxed text-gray-400">
+                <SectionTitle>Competitive Analysis</SectionTitle>
+                <div className="mt-2">
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                    Competitive analysis content will go here. This section will contain detailed analysis of existing plant care apps and their features, identifying gaps and opportunities in the market.
+                  </p>
+                  <br></br>
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                    Additional content to make this section more detectable for scroll navigation.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Sketching Section */}
+            <div 
+              id="sketching" 
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20 scroll-mt-24"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'sketching' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            >
+              <div className="md:col-span-12">
+                <SectionTitle>Sketching</SectionTitle>
+                <div className="mt-2">
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                    Sketching content will go here. This section will showcase the initial ideation and sketching process, including early concepts and design explorations.
+                  </p>
+                  <br></br>
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                    Additional content to make this section more detectable for scroll navigation.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/* LoFi Wireframing Section */}
+            <div 
+              id="lofi-wireframing" 
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20 scroll-mt-24"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'lofi-wireframing' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            >
+              <div className="md:col-span-12">
+                <SectionTitle>LoFi Wireframing</SectionTitle>
+                <div className="mt-2">
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                    LoFi wireframing content will go here. This section will display low-fidelity wireframes and early interface designs, showing the evolution from sketches to digital mockups.
+                  </p>
+                  <br></br>
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                    Additional content to make this section more detectable for scroll navigation.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Refining & Prototyping Section */}
+            <div 
+              id="refining-prototyping" 
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20 scroll-mt-24"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'refining-prototyping' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            >
+              <div className="md:col-span-12">
+                <SectionTitle>Refining & Prototyping</SectionTitle>
+                <div className="mt-2">
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                    Refining & prototyping content will go here. This section will show the iterative refinement process and high-fidelity prototyping, including user testing insights and design iterations.
+                  </p>
+                  <br></br>
+                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                    Additional content to make this section more detectable for scroll navigation.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div 
+              id="solution" 
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'solution' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            >
+              <div className="md:col-span-12">
+                {/* Section Title Example */}
+                <SectionTitle>Solution</SectionTitle>
+                <div className="mt-2">
+                <p className="text-md font-extralight leading-relaxed text-gray-600">
                 The solution was PlantCare AI—a mobile app that leverages the power of AI to scan, diagnose, and recommend care strategies based on an actual photo of your plant. Users simply take a snapshot of a leaf or stem using their phone camera, and the AI instantly detects common problems such as overwatering, underwatering, pests, nutrient deficiencies, or fungal infections. Each diagnosis comes with clear, actionable treatment steps, making it easy to address issues before they spiral out of control.
                 </p>
                 <br></br>
@@ -408,7 +628,7 @@ export default function CryptoDashboardPage() {
                       </div>
                       <div className="lg:col-span-8 pt-32">
                         <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Growth Tracking & Insights</h3>
-                        <ul className="text-md font-extralight leading-relaxed text-gray-400">
+                        <ul className="text-md font-extralight leading-relaxed text-gray-600">
                         <br></br>
                         <li>• By uploading weekly photos, users allow the AI to detect small shifts in the plant's appearance—like early leaf yellowing or hidden pest damage. </li>
                         <li>• These insights help users respond to problems before they escalate.</li>
@@ -424,7 +644,7 @@ export default function CryptoDashboardPage() {
                       <div className="lg:col-span-8 pt-32">
                         <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">AI Plant Health Scanner</h3>
                       <br></br>
-                        <ul className="text-md font-extralight leading-relaxed text-gray-400">
+                        <ul className="text-md font-extralight leading-relaxed text-gray-600">
                           <li className="flex items-start">
                             <span className="mr-2">•</span>
                             <span>Users can take a photo of a leaf or stem, and the app immediately identifies issues such as overwatering, underwatering, pests, nutrient deficiencies, or diseases. </span>
@@ -468,7 +688,7 @@ export default function CryptoDashboardPage() {
                       </div>
                       <div className="lg:col-span-8 pt-32">
                         <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Community & Expert Chat</h3>
-                        <ul className="text-md font-extralight leading-relaxed text-gray-400">
+                        <ul className="text-md font-extralight leading-relaxed text-gray-600">
                         <br></br>
                         <li>• PlantCare AI compiles recent health data and translates it into suggested questions or topics for community discussion. </li>
                         <li>• Users can engage with plant experts or share experiences with other plant lovers in an Instagram-style feed, making the experience social and supportive.</li>

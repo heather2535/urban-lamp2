@@ -1,56 +1,89 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { Home, Briefcase, Target, Lightbulb, Users, ArrowLeft } from "lucide-react"
+import { ArrowLeft, ArrowUp } from "lucide-react"
 import Link from "next/link"
 
 interface NavItem {
   id: string
   label: string
-  icon: React.ComponentType<{ className?: string }>
 }
 
 const navItems: NavItem[] = [
-  { id: "hero", label: "Overview", icon: Home },
-  { id: "project-details", label: "Details", icon: Briefcase },
-  { id: "problem", label: "Problem", icon: Target },
-  { id: "research", label: "Research", icon: Lightbulb },
-  { id: "competitive-analysis", label: "Competitive Analysis", icon: Users },
-  { id: "sketching", label: "Sketching", icon: Home },
-  { id: "lofi-wireframing", label: "LoFi Wireframing", icon: Briefcase },
-  { id: "refining-prototyping", label: "Refining & Prototyping", icon: Target },
-  { id: "reflections", label: "Reflections", icon: Users },
+  { id: "project-overview", label: "Inspiration" },
+  { id: "problem", label: "Problem" },
+  { id: "research", label: "Research" },
+  { id: "competitive-analysis", label: "Competitive Analysis" },
+  { id: "sketching", label: "Sketching" },
+  { id: "lofi-wireframing", label: "LoFi Wireframing" },
+  { id: "refining-prototyping", label: "Refining & Prototyping" },
+  { id: "solution", label: "Solution" },
 ]
 
 export default function ProjectVerticalNavigation() {
-  const [activeSection, setActiveSection] = useState("hero")
+  const [activeSection, setActiveSection] = useState("project-overview")
+  const [scrolled, setScrolled] = useState(false)
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
+      setActiveSection(sectionId)
     }
+  }
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'project-details', 'problem', 'solution', 'features']
+      setScrolled(window.scrollY > 100)
       
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(sectionId)
-            break
+      // Clear any existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+      
+      // Debounce the scroll detection
+      scrollTimeoutRef.current = setTimeout(() => {
+        const scrollPosition = window.scrollY + 250
+        
+        // Find the current section
+        let currentSection = navItems[0].id
+        
+        for (let i = navItems.length - 1; i >= 0; i--) {
+          const sectionId = navItems[i].id
+          const element = document.getElementById(sectionId)
+          
+          if (element) {
+            const rect = element.getBoundingClientRect()
+            const elementTop = rect.top + window.scrollY
+            
+            if (scrollPosition >= elementTop) {
+              currentSection = sectionId
+              break
+            }
           }
         }
-      }
+        
+        setActiveSection(currentSection)
+      }, 50) // 50ms debounce
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    
+    // Initial call
+    handleScroll()
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+    }
   }, [])
 
   return (
@@ -62,39 +95,54 @@ export default function ProjectVerticalNavigation() {
     >
       <nav className="bg-white/80 backdrop-blur-md rounded-lg p-6 shadow-lg min-w-[200px]">
         <ul className="space-y-4">
-          {/* Return Home Button */}
+          {/* Return Home or Scroll to Top Button */}
           <li className="flex items-center gap-3 group">
-            <Link
-              href="/#projects"
-              className="flex items-center gap-3 group"
-            >
-              <ArrowLeft className="w-3 h-3 text-gray-600 group-hover:text-orange-500 transition-all duration-300" />
-              <span className="text-sm text-gray-600 opacity-60 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap font-mono">
-                Return Home
-              </span>
-            </Link>
+            {scrolled ? (
+              <button
+                onClick={handleScrollToTop}
+                className="flex items-center gap-3 group"
+                aria-label="Scroll to Top"
+              >
+                <ArrowUp className="w-4 h-4 text-gray-600 group-hover:text-orange-300 transition-all duration-300" />
+                <span className="text-sm text-gray-600 opacity-60 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap font-mono">
+                  Scroll to Top
+                </span>
+              </button>
+            ) : (
+              <Link
+                href="/#projects"
+                className="flex items-center gap-3 group"
+              >
+                <ArrowLeft className="w-3 h-3 text-gray-600 group-hover:text-orange-300 transition-all duration-300" />
+                <span className="text-sm text-gray-600 opacity-60 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap font-mono">
+                  Return Home
+                </span>
+              </Link>
+            )}
           </li>
           
           {/* Spacer */}
           <li className="h-8"></li>
           
           {navItems.map((item) => {
-            const Icon = item.icon
+            const isActive = activeSection === item.id
             return (
               <li key={item.id} className="flex items-center group">
                 <button
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left"
+                  className="text-left w-full"
                 >
                   <span
                     className={`text-sm transition-all duration-300 whitespace-nowrap font-mono relative ${
-                      activeSection === item.id
-                        ? 'text-orange-500 opacity-100'
-                        : 'text-gray-600 opacity-60 group-hover:opacity-100'
+                      isActive 
+                        ? 'text-orange-500 font-bold' 
+                        : 'text-gray-600 opacity-60 group-hover:opacity-100 group-hover:text-orange-300'
                     }`}
                   >
                     {item.label}
-                    <span className="absolute bottom-0 left-0 w-0 h-4 bg-orange-300 transition-all duration-300 group-hover:w-full -z-10"></span>
+                    {isActive && (
+                      <span className="absolute bottom-0 left-0 w-full h-4 bg-orange-300 rounded opacity-20"></span>
+                    )}
                   </span>
                 </button>
               </li>
