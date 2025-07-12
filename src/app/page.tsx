@@ -108,7 +108,7 @@ export default function Portfolio() {
 
       {/* Hero Section */}
       <main id="hero" className="w-full min-h-[85vh] flex items-center justify-center px-4 sm:px-8 md:px-12 lg:px-48 py-8 sm:py-0">
-        <div className="w-full max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+        <div className="w-full max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
           {/* Title/text: full width on mobile, 2/3 width on md+ */}
           <div className="order-2 md:order-1 md:col-span-2 space-y-6 sm:space-y-8">
             <div className="mb-10">
@@ -143,7 +143,7 @@ export default function Portfolio() {
             </div>
           </div>
           {/* Image: full width on mobile, 1/3 width on md+ */}
-          <div className="order-1 md:order-2 flex justify-center md:justify-end mt-8 md:mt-16 lg:mt-24 xl:mt-32">
+          <div className="order-1 md:order-2 flex justify-center md:justify-end">
             <div className="relative">
               {/* Coral orange tape on top */}
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 h-6 sm:h-8 bg-orange-500/50 rounded-none transform -rotate-1 z-20"></div>
