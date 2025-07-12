@@ -26,7 +26,7 @@ const funSections: {
       {
         video: "/videos/video9.mov",
         alt: "Vector art exploration",
-        caption: "Vector art exploration in Adobe Illustrator",
+        caption: "Vector vortex exploration in Adobe Illustrator",
       },
     ],
   },
