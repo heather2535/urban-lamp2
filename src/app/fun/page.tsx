@@ -15,21 +15,22 @@ const funSections: {
   items: FunItem[];
 }[] = [
   {
-    title: "touch designer",
-    subtitle: "exploring creativity through pixels and vectors.",
+    title: "Off-World Architecture",
+    subtitle: "realtime sci-fi rendering.",
     items: [
       {
-        src: "/images/image68.png",
-        alt: "From RGB noise, each operator maps signal flow into motion",
-        caption: "From RGB noise, each operator maps signal flow into motion",
+        src: "/gallery/image53.png",
+        alt: "psychedelic space station",
+        caption: "psychedelic space station 👾",
       },
       {
-        video: "/videos/video9.mov",
-        alt: "Vector art exploration",
-        caption: "Vector vortex exploration in Adobe Illustrator",
+        video: "/videos/video6.mov",
+        alt: "my latte art journey",
+        caption: "sci-fi particle simulation in blender",
       },
     ],
   },
+ 
   {
     title: "building structures",
     subtitle: "Boston Unviersity's 808 lab was my crafting space",
@@ -79,46 +80,47 @@ const funSections: {
     ],
   },
   {
-    title: "Off-World Architecture",
-    subtitle: "realtime sci-fi rendering.",
+    title: "touch designer",
+    subtitle: "exploring creativity through pixels and vectors.",
     items: [
       {
-        src: "/gallery/image53.png",
-        alt: "psychedelic space station",
-        caption: "psychedelic space station 👾",
+        src: "/images/image68.png",
+        alt: "From RGB noise, each operator maps signal flow into motion",
+        caption: "From RGB noise, each operator maps signal flow into motion",
       },
       {
-        video: "/videos/video6.mov",
-        alt: "my latte art journey",
-        caption: "sci-fi particle simulation in blender",
+        video: "/videos/video9.mov",
+        alt: "Vector art exploration",
+        caption: "Vector vortex exploration in Adobe Illustrator",
       },
     ],
   },
+
 ]
 
 export default function FunPage() {
   return (
-    <div className="min-h-screen bg-white py-12 px-2 sm:px-6 lg:px-16 pt-36">
-      <div className="max-w-6xl mx-auto space-y-24">
+    <div className="min-h-screen bg-white py-12 px-2 sm:px-6 lg:pr-40 lg:pl-16 pt-36">
+      <div className="max-w-7xl mx-auto space-y-24">
         {funSections.map((section, idx) => (
-          <div key={section.title} className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+          <div key={section.title} className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center ">
             {/* Section Title and Subtitle */}
-            <div className="md:col-span-1 flex flex-col items-start md:items-end md:pr-8">
-              <h2 className="text-4xl sm:text-5xl font-mono font-bold text-[#4B2E19] lowercase mb-2 whitespace-pre-line text-left md:text-right leading-tight">
+            <div className="md:col-span-1 flex flex-col items-center md:pr-8">
+              <h2 className="text-4xl sm:text-5xl font-mono font-bold text-[#4B2E19] lowercase mb-2 whitespace-pre-line text-center leading-tight">
                 {section.title}
               </h2>
-              <p className="text-md sm:text-lg text-gray-600 font-light mb-4 md:mb-0 text-left md:text-right max-w-xs">
+              <p className="text-md sm:text-lg text-gray-600 font-light mb-4 md:mb-0 text-center max-w-xs">
                 {section.subtitle}
               </p>
             </div>
             {/* Images Grid */}
-            <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 justify-items-center ">
               {section.items.map((item, i) => (
-                <div key={item.alt} className="relative bg-white rounded-xl shadow-lg p-6 flex flex-col items-center polaroid-card">
+                <div key={item.alt} className="relative bg-white rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.1)] pt-10 p-4 flex flex-col items-center polaroid-card min-w-[24rem] max-w-[24rem] mx-auto">
                   {/* Tape accent */}
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-4 bg-orange-500/50 z-10"></div>
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-36 h-12 bg-orange-500/50 z-10"></div>
                   {item.video ? (
-                    <div className="w-full aspect-square overflow-hidden mb-8">
+                    <div className="pt-10 w-full aspect-square overflow-hidden mb-16">
                       <video
                         src={item.video}
                         autoPlay
@@ -129,12 +131,12 @@ export default function FunPage() {
                       />
                     </div>
                   ) : (
-                    <div className="w-full aspect-square overflow-hidden mb-8">
+                    <div className="w-full aspect-square overflow-hidden mb-16">
                       <Image
                         src={item.src!}
                         alt={item.alt}
-                        width={400}
-                        height={400}
+                        width={900}
+                        height={900}
                         className="object-cover w-full h-full"
                       />
                     </div>

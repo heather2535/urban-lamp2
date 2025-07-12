@@ -65,7 +65,7 @@ const TypingAnimation = ({ text, subText, className, subTextClassName }: { text:
       if (cleanWord === 'alix') {
         return (
           <span key={index} className="relative inline-block">
-            <div className="absolute -bottom-1 left-0 w-full h-3 bg-orange-500/60 rounded-sm transform -rotate-1 z-0"></div>
+            <div className="absolute -bottom-1 left-0 w-full  bg-orange-500/60 rounded-sm transform -rotate-1 z-0"></div>
             <span className="relative z-10 text-gray-900">{word}</span>
             {index < words.length - 1 ? ' ' : ''}
           </span>
@@ -107,7 +107,7 @@ export default function Portfolio() {
       <VerticalNavigation />
 
       {/* Hero Section */}
-      <main id="hero" className="w-full max-w-7xl mx-auto min-h-[85vh] flex items-center justify-center  px-8 py-8 sm:py-20">
+      <main id="hero" className="w-full max-w-6xl mx-auto min-h-[75vh] flex items-center justify-center px-8 py-8 sm:py-20">
         <div className="w-full max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8 items-start">
           {/* Title/text: full width on mobile, 2/3 width on md+ */}
           <div className="order-2 md:order-1 space-y-4 sm:space-y-6">
@@ -120,14 +120,14 @@ export default function Portfolio() {
               />
             </div>
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row pt-24 gap-4">
               <Link
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-12 sm:px-16 py-3 border border-orange-500 text-orange-500 rounded-lg font-mono text-sm font-medium hover:bg-orange-500 hover:text-white transition-colors duration-300"
+                className="inline-flex items-center justify-center px-12 sm:px-16 py-3 border border-orange-500 text-orange-500 rounded-lg font-mono text-sm font-medium hover:outline hover:outline-2 hover:outline-orange-500 transition-all "
               >
-                Resume
+                Resumé
               </Link>
               <button
                 onClick={() => {
@@ -143,10 +143,15 @@ export default function Portfolio() {
             </div>
           </div>
           {/* Image: full width on mobile, 1/3 width on md+ */}
-          <div className="order-1 md:order-2 flex justify-center md:justify-end w-full md:w-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="order-1 md:order-2 flex justify-center md:justify-end w-full md:w-auto"
+          >
             <div className="relative">
-              {/* Coral orange tape on top */}
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 h-6 sm:h-8 bg-orange-500/50 rounded-none transform -rotate-1 z-20"></div>
+              {/* Orange Rectangle Divider */}
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-orange-400 rounded-none z-20 opacity-50"></div>
               <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg pt-10 sm:pt-14 pb-8 sm:pb-10 pl-2 sm:pl-4 pr-2 sm:pr-4 bg-white/5 backdrop-blur-sm flex flex-col items-center">
                 <div className="w-48 sm:w-64 h-48 sm:h-64 overflow-hidden shadow-lg flex justify-center items-center">
                   <Image 
@@ -163,18 +168,14 @@ export default function Portfolio() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </main>
 
-      {/* Location and Time - Full Width */}
-      <div className="w-full flex flex-col sm:flex-row justify-between items-center px-6 lg:px-8 py-4 text-xs text-gray-400 gap-2 sm:gap-0">
-        <span>SANTA CLARA, CALIFORNIA</span>
-        <span>{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true, timeZoneName: 'short' })}</span>
-      </div>
+    
 
       {/* Featured Projects Section */}
-      <section id="projects" className="w-full max-w-7xl mx-auto px-4 sm:px-8  pt-10 pb-20">
+      <section id="projects" className="w-full max-w-6xl mx-auto px-4 sm:px-8 pb-20 scroll-mt-24">
         <div className="w-full mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-8 sm:gap-12">
             {projects.filter(p => 
@@ -185,48 +186,57 @@ export default function Portfolio() {
               p.href !== "/work/architectural-vis" &&
               p.href !== "/work/marketing-campaign"
             ).map((project, index) => (
-              <Link key={project.title} href={project.href} className="hover:opacity-90 transition-opacity">
-                <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg p-4 sm:p-6 bg-white/5 backdrop-blur-sm hover:rotate-2 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out">
-                  <div className="space-y-4 sm:space-y-6">
-                    <div className="relative my-4 sm:my-6">
-                      <div className="relative bg-white rounded-none overflow-hidden">
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          width={400}
-                          height={300}
-                          className="w-full h-48 sm:h-64 object-cover transition-transform duration-500"
-                        />
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 * index }}
+              >
+                <Link href={project.href} className="hover:opacity-90 transition-opacity">
+                  <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg p-4 sm:p-6 bg-white/5 backdrop-blur-sm hover:rotate-2 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out">
+                    {/* Orange Rectangle Divider */}
+                    <div className="-mt-10 w-48 h-8 bg-orange-400 rounded-none mx-auto z-20 opacity-50"></div>
+                    <div className="space-y-4 sm:space-y-6">
+                      <div className="relative my-4 sm:my-6">
+                        <div className="relative bg-white rounded-none overflow-hidden">
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            width={400}
+                            height={300}
+                            className="w-full h-48 sm:h-64 object-cover transition-transform duration-500"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <div className="mb-3">
-                        <h3 className="text-xl sm:text-2xl font-mono font-semibold text-gray-900 text-center">{project.title}</h3>
-                      </div>
-                      <p className="font-mono text-sm mb-4 font-extralight leading-relaxed text-black">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 sm:gap-3">
-                        {project.tags.filter(tag => tag !== "All Projects").slice(0, 3).map((tag, index) => {
-                          const colors = [
-                            "bg-blue-100 text-blue-800",
-                            "bg-green-100 text-green-800",
-                            "bg-purple-100 text-purple-800",
-                            "bg-orange-100 text-orange-800",
-                            "bg-pink-100 text-pink-800",
-                            "bg-indigo-100 text-indigo-800"
-                          ]
-                          return (
-                            <span key={tag} className={`font-mono px-2 sm:px-3 py-1 rounded-full text-xs ${colors[index % colors.length]}`}>
-                              {tag}
-                            </span>
-                          )
-                        })}
+                      <div>
+                        <div className="mb-3">
+                          <h3 className="text-xl sm:text-2xl font-mono font-semibold text-gray-900 text-center">{project.title}</h3>
+                        </div>
+                        <p className="font-mono text-sm mb-4 font-extralight leading-relaxed text-black">
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
+                          {project.tags.filter(tag => tag !== "All Projects").slice(0, 3).map((tag, index) => {
+                            const colors = [
+                              "bg-blue-100 text-blue-800",
+                              "bg-green-100 text-green-800",
+                              "bg-purple-100 text-purple-800",
+                              "bg-orange-100 text-orange-800",
+                              "bg-pink-100 text-pink-800",
+                              "bg-indigo-100 text-indigo-800"
+                            ]
+                            return (
+                              <span key={tag} className={`font-mono px-2 sm:px-3 py-1 rounded-full text-xs ${colors[index % colors.length]}`}>
+                                {tag}
+                              </span>
+                            )
+                          })}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>

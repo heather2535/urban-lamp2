@@ -29,18 +29,18 @@ export default function Navigation() {
   const navItems = [
     { name: "Work", href: "/#projects" },
     { name: "Fun", href: "/fun" },
-    { name: "Resume", href: "/resume.pdf" },
     { name: "About", href: "/about" },
+    { name: "Resumé", href: "/resume.pdf" },
 
   ]
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      className={`w-full transition-all duration-300 ${
         scrolled ? "bg-white/80 backdrop-blur-xl shadow-sm pt-6 pb-4" : "bg-transparent pt-8 pb-6"
       }`}
     >
-      <div className="w-full px-6 lg:px-40 flex items-center justify-between">
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-4 flex items-center justify-between">
         {/* Name on the left */}
         <div className="font-mono text-3xl font-light text-orange-500">
           <Link href="/" className="hover:text-orange-600 transition-colors duration-300">
@@ -56,11 +56,21 @@ export default function Navigation() {
             <Link
               key={item.name}
               href={item.href}
-              className={`relative text-sm tracking-wide transition-all duration-300 group font-thin font-mono
-                ${pathname === item.href ? "text-gray-900 font-medium" : "text-gray-600 hover:text-gray-900"}`}
+              className={`relative text-md tracking-wide transition-all duration-300 group font-thin font-mono
+                ${
+                  (item.name === "Work" && (pathname === "/" || pathname === "/#projects")) || pathname === item.href
+                    ? "text-gray-900 font-medium"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
             >
-              {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-pink-500 group-hover:w-full transition-all duration-300"></span>
+              <span className="relative z-10 px-2">
+                {item.name}
+              </span>
+              {/* Orange rectangle background only on hover, wipe left to right */}
+              <span
+                className="absolute inset-1 bg-orange-400 opacity-30 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"
+                aria-hidden="true"
+              ></span>
             </Link>
           ))}
 
