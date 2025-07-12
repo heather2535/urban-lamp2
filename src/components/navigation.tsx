@@ -40,7 +40,7 @@ export default function Navigation() {
         scrolled ? "bg-white/80 backdrop-blur-xl shadow-sm pt-6 pb-4" : "bg-transparent pt-8 pb-6"
       }`}
     >
-      <div className="w-full px-6 lg:px-8 flex items-center justify-between">
+      <div className="w-full px-6 lg:px-40 flex items-center justify-between">
         {/* Name on the left */}
         <div className="font-mono text-3xl font-light text-orange-500">
           <Link href="/" className="hover:text-orange-600 transition-colors duration-300">
@@ -51,7 +51,7 @@ export default function Navigation() {
         </div>
 
         {/* Desktop Navigation - aligned to the right */}
-        <nav className="hidden lg:flex items-center space-x-12">
+        <nav className="hidden md:flex items-center space-x-12">
           {navItems.map((item, index) => (
             <Link
               key={item.name}
@@ -85,7 +85,7 @@ export default function Navigation() {
         </nav>
 
         {/* Mobile Menu Button and Mode Toggle */}
-        <div className="lg:hidden flex items-center space-x-4">
+        <div className="md:hidden flex items-center space-x-4">
           <button
             className="relative z-10 p-2 group"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

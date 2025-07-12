@@ -69,8 +69,8 @@ export default {
     },
     screens: {
       sm: '640px',
-      md: '768px',
-      lg: '1728px', // 16-inch MacBook Pro
+      md: '900px',
+      lg: '1280px', // 16-inch MacBook Pro
       xl: '1920px',
       '2xl': '2234px',
     },

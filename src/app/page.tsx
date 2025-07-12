@@ -107,7 +107,7 @@ export default function Portfolio() {
       <VerticalNavigation />
 
       {/* Hero Section */}
-      <main id="hero" className="w-full min-h-[85vh] flex items-center justify-center px-8 sm:px-12 md:px-48 lg:px-48 py-8 sm:py-20">
+      <main id="hero" className="w-full max-w-7xl mx-auto min-h-[85vh] flex items-center justify-center  px-8 py-8 sm:py-20">
         <div className="w-full max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8 items-start">
           {/* Title/text: full width on mobile, 2/3 width on md+ */}
           <div className="order-2 md:order-1 space-y-4 sm:space-y-6">
@@ -174,7 +174,7 @@ export default function Portfolio() {
       </div>
 
       {/* Featured Projects Section */}
-      <section id="projects" className="w-full px-4 sm:px-8 md:px-12 lg:px-48 pt-10 pb-20">
+      <section id="projects" className="w-full max-w-7xl mx-auto px-4 sm:px-8  pt-10 pb-20">
         <div className="w-full mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-8 sm:gap-12">
             {projects.filter(p => 
