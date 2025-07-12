@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Linkedin, Mail, GithubIcon } from "lucide-react"
+import { Linkedin, Mail, GithubIcon, X as LucideX } from "lucide-react"
 import { Playfair_Display } from "next/font/google"
 
 const playfair = Playfair_Display({
@@ -27,24 +27,27 @@ export default function Navigation() {
   }, [])
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
+    { name: "Work", href: "/#projects" },
+    { name: "Fun", href: "/fun" },
     { name: "Resume", href: "/resume.pdf" },
-    { name: "Contact", href: "/contact" },
+    { name: "About", href: "/about" },
+
   ]
 
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/80 dark:bg-[#18181b]/90 backdrop-blur-xl shadow-sm pt-6 pb-4 border-b border-gray-100 dark:border-gray-800" : "bg-transparent pt-8 pb-6"
+        scrolled ? "bg-white/80 backdrop-blur-xl shadow-sm pt-6 pb-4" : "bg-transparent pt-8 pb-6"
       }`}
     >
       <div className="w-full px-6 lg:px-8 flex items-center justify-between">
         {/* Name on the left */}
-        <div className="font-sans text-3xl font-thin text-orange-500">
-          <span className="monospace-200 header-name">
-            Heather Davies
-          </span>
+        <div className="font-mono text-3xl font-thin text-orange-500">
+          <Link href="/" className="hover:text-orange-600 transition-colors duration-300">
+            <span className="monospace-200 header-name">
+              Heather Davies
+            </span>
+          </Link>
         </div>
 
         {/* Desktop Navigation - aligned to the right */}
@@ -54,7 +57,7 @@ export default function Navigation() {
               key={item.name}
               href={item.href}
               className={`relative text-sm tracking-wide transition-all duration-300 group font-thin font-mono
-                ${pathname === item.href ? "text-gray-900 dark:text-white font-medium" : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"}`}
+                ${pathname === item.href ? "text-gray-900 font-medium" : "text-gray-600 hover:text-gray-900"}`}
             >
               {item.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-pink-500 group-hover:w-full transition-all duration-300"></span>
@@ -72,7 +75,7 @@ export default function Navigation() {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="relative p-2 text-orange-500 hover:text-gray-900 dark:hover:text-white transition-all duration-300 group"
+                className="relative p-2 text-orange-500 hover:text-gray-900 transition-all duration-300 group"
               >
                 <Icon size={label === "Email" ? 22 : 18} fill="currentColor" stroke={label === "Email" ? "white" : "currentColor"} />
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
@@ -91,17 +94,17 @@ export default function Navigation() {
             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
             <div className="w-5 h-5 relative">
               <motion.span
-                className={`absolute top-0.5 left-0 w-5 h-0.5 bg-gray-900 dark:bg-white origin-left`}
+                className={`absolute top-0.5 left-0 w-5 h-0.5 bg-gray-900 origin-left`}
                 animate={mobileMenuOpen ? { rotate: 45, y: 2 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3 }}
               />
               <motion.span
-                className={`absolute top-2 left-0 w-5 h-0.5 bg-gray-900 dark:bg-white`}
+                className={`absolute top-2 left-0 w-5 h-0.5 bg-gray-900`}
                 animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
               <motion.span
-                className={`absolute top-3.5 left-0 w-5 h-0.5 bg-gray-900 dark:bg-white origin-left`}
+                className={`absolute top-3.5 left-0 w-5 h-0.5 bg-gray-900 origin-left`}
                 animate={mobileMenuOpen ? { rotate: -45, y: -2 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3 }}
               />
@@ -113,12 +116,25 @@ export default function Navigation() {
       {/* Mobile Menu */}
       <motion.div
         initial={{ opacity: 0, height: 0 }}
-        animate={mobileMenuOpen ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
+        animate={mobileMenuOpen ? { opacity: 1, height: "100vh" } : { opacity: 0, height: 0 }}
         transition={{ duration: 0.3 }}
-        className="lg:hidden overflow-hidden bg-white/80 dark:bg-[#18181b]/90 backdrop-blur-xl border-t border-gray-100 dark:border-gray-800"
+        className={`fixed inset-0 z-50 bg-[#FFB085] flex flex-col justify-between items-center ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
       >
-        <div className="container mx-auto px-6 py-8">
-          <div className="space-y-6">
+        {/* Name and Close X at the top */}
+        <div className="w-full flex items-center justify-between px-8 pt-8">
+          <span className="w-10" />
+          <span className="font-mono text-3xl font-thin text-white text-center flex-1">Heather Davies</span>
+          <button
+            className="text-white z-50"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            <LucideX size={44} strokeWidth={1.5} strokeLinecap="round" />
+          </button>
+        </div>
+        {/* Navlinks center */}
+        <div className="flex flex-col w-full -mt-12">
+          <div className="space-y-8 w-full flex flex-col ">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -128,12 +144,35 @@ export default function Navigation() {
               >
                 <Link
                   href={item.href}
-                  className={`block text-lg ${playfair.className} font-extralight ${pathname === item.href ? "text-gray-900 dark:text-white font-normal" : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+                  className={`block text-3xl font-mono text-white text-center tracking-wide hover:font-bold ${pathname === item.href ? "font-bold" : "font-normal"}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               </motion.div>
+            ))}
+          </div>
+        </div>
+        {/* Social icons at the bottom */}
+        <div className="w-full pb-10 flex justify-center">
+          <div className="flex items-center space-x-6">
+            {[
+              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+              { icon: Mail, href: "mailto:hello@heather.design", label: "Email", mail: true },
+              { icon: GithubIcon, href: "https://github.com", label: "GitHub" },
+            ].map(({ icon: Icon, href, label, mail }) => (
+              <Link
+                key={label}
+                href={href}
+                aria-label={label}
+                className="p-2 text-white hover:text-gray-900 transition-all duration-300 group"
+              >
+                {mail ? (
+                  <Icon size={28} fill="white" stroke="#FFB085" />
+                ) : (
+                  <Icon size={28} fill="currentColor" stroke="currentColor" />
+                )}
+              </Link>
             ))}
           </div>
         </div>

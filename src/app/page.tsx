@@ -94,20 +94,7 @@ const TypingAnimation = ({ text, subText, className }: { text: string; subText?:
 }
 
 export default function Portfolio() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [time, setTime] = useState(new Date())
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-
-    window.addEventListener("mousemove", handleMouseMove)
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-    }
-  }, [])
 
   useEffect(() => {
     const interval = setInterval(() => setTime(new Date()), 1000)
@@ -115,62 +102,25 @@ export default function Portfolio() {
   }, [])
 
   return (
-    <div className="bg-gray-50 text-black min-h-screen flex flex-col">
-      {/* Floating geometric shapes - Hidden on mobile to prevent interference */}
-      <div className="fixed inset-0 pointer-events-none z-0 hidden md:block">
-        <motion.div
-          className="absolute top-20 left-10 text-orange-300 opacity-20"
-          animate={{
-            x: mousePosition.x * 0.02,
-            y: mousePosition.y * 0.02,
-            rotate: 360,
-          }}
-          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        >
-          <Circle size={60} />
-        </motion.div>
-        <motion.div
-          className="absolute top-1/3 right-20 text-orange-400 opacity-15"
-          animate={{
-            x: mousePosition.x * -0.03,
-            y: mousePosition.y * 0.01,
-            rotate: -360,
-          }}
-          transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        >
-          <Square size={40} />
-        </motion.div>
-        <motion.div
-          className="absolute bottom-1/4 left-1/4 text-pink-300 opacity-25"
-          animate={{
-            x: mousePosition.x * 0.01,
-            y: mousePosition.y * -0.02,
-            rotate: 180,
-          }}
-          transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        >
-          <Triangle size={35} />
-        </motion.div>
-      </div>
-
+    <div className="bg-white text-black min-h-screen flex flex-col">
       {/* Vertical Navigation */}
       <VerticalNavigation />
 
       {/* Hero Section */}
-      <main id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-8 lg:px-40 py-8 sm:py-0 lg:ml-0">
-        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-2 items-center">
-          {/* Left side - Text content */}
-          <div className="lg:col-span-2 space-y-6 sm:space-y-8 order-2 lg:order-1">
-            <div className="h-32 sm:h-40">
+      <main id="hero" className="w-full min-h-[85vh] flex items-center justify-center px-4 sm:px-8 md:px-12 lg:px-48 py-8 sm:py-0">
+        <div className="w-full max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+          {/* Title/text: full width on mobile, 2/3 width on md+ */}
+          <div className="order-2 md:order-1 md:col-span-2 space-y-6 sm:space-y-8">
+            <div className="mb-10">
               <TypingAnimation 
                 text="Hi! I'm Heather. I'm a designer by instinct, builder by practice, and storyteller at heart. I believe in crafting experiences that not only solve real problems but spark joy." 
                 subText="Recently graduated from Boston University"
-                className="font-mono text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal tracking-wide leading-relaxed text-left"
+                className="font-mono text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal tracking-wide leading-relaxed text-left mb-8"
               />
             </div>
             
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-24 sm:pt-32 lg:pt-56">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 sm:pt-6">
               <Link
                 href="/resume.pdf"
                 target="_blank"
@@ -192,15 +142,13 @@ export default function Portfolio() {
               </button>
             </div>
           </div>
-          
-          {/* Right side - Image */}
-          <div className="lg:col-span-1 flex justify-center lg:justify-end order-1 lg:order-2">
+          {/* Image: full width on mobile, 1/3 width on md+ */}
+          <div className="order-1 md:order-2 flex justify-center md:justify-end mt-8 md:mt-16 lg:mt-24 xl:mt-32">
             <div className="relative">
               {/* Coral orange tape on top */}
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 h-6 sm:h-8 bg-orange-500/50 rounded-none transform -rotate-1 z-20"></div>
-              
-              <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg pt-10 sm:pt-14 pb-8 sm:pb-10 pl-2 sm:pl-4 pr-2 sm:pr-4 bg-white/5 backdrop-blur-sm">
-                <div className="w-48 sm:w-64 h-48 sm:h-64 overflow-hidden shadow-lg">
+              <div className="shadow-[0_0_20px_rgba(0,0,0,0.1)] rounded-lg pt-10 sm:pt-14 pb-8 sm:pb-10 pl-2 sm:pl-4 pr-2 sm:pr-4 bg-white/5 backdrop-blur-sm flex flex-col items-center">
+                <div className="w-48 sm:w-64 h-48 sm:h-64 overflow-hidden shadow-lg flex justify-center items-center">
                   <Image 
                     src="/images/profile.png" 
                     alt="Heather's portrait" 
@@ -209,9 +157,9 @@ export default function Portfolio() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="font-mono text-xs sm:text-sm text-gray-600 mt-3 sm:mt-4 text-center">
-                  UX dreamer, matcha sipper,<br />
-                  & proud plant parent 🌿✨
+                <p className="font-mono text-xs sm:text-xs text-gray-600 mt-3 sm:mt-4 text-center">
+                  Bringing cozy vibes to digital spaces —<br />
+                  with a matcha habit and 37 open tabs 🍵 
                 </p>
               </div>
             </div>
@@ -226,10 +174,9 @@ export default function Portfolio() {
       </div>
 
       {/* Featured Projects Section */}
-      <section id="projects" className="pt-10 pb-20">
-        <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-32">
-          {/* Projects Grid */}
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+      <section id="projects" className="w-full px-4 sm:px-8 md:px-12 lg:px-48 pt-10 pb-20">
+        <div className="w-full mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {projects.filter(p => 
               p.title !== "Hariri Institute Website" && 
               p.href !== "/work/healthcare-platform" &&
