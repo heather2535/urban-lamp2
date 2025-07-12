@@ -66,7 +66,14 @@ export default {
 	  fontFamily: {
         marcellus: ['Marcellus', 'serif'], // Make sure this matches the font you imported
       },
-    }
+    },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1728px', // 16-inch MacBook Pro
+      xl: '1920px',
+      '2xl': '2234px',
+    },
   },
   plugins: [require("tailwindcss-animate")], // Add any tailwind plugins here
 } satisfies Config;

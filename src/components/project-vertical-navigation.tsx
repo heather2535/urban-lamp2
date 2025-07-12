@@ -135,13 +135,13 @@ export default function ProjectVerticalNavigation() {
                   <span
                     className={`text-sm transition-all duration-300 whitespace-nowrap font-mono relative ${
                       isActive 
-                        ? 'text-orange-500 font-bold' 
+                        ? 'text-gray-900 font-bold' 
                         : 'text-gray-600 opacity-60 group-hover:opacity-100 group-hover:text-orange-300'
                     }`}
                   >
                     {item.label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 w-full h-4 bg-orange-300 rounded opacity-20"></span>
+                      <span className="absolute bottom-0 left-0 w-full h-4 bg-orange-500 rounded opacity-20"></span>
                     )}
                   </span>
                 </button>

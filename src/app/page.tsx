@@ -13,7 +13,7 @@ import VerticalNavigation from "@/components/vertical-navigation"
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
 // Typing Animation Component
-const TypingAnimation = ({ text, subText, className }: { text: string; subText?: string; className: string }) => {
+const TypingAnimation = ({ text, subText, className, subTextClassName }: { text: string; subText?: string; className: string; subTextClassName?: string }) => {
   const [displayText, setDisplayText] = useState("")
   const [displaySubText, setDisplaySubText] = useState("")
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -66,12 +66,12 @@ const TypingAnimation = ({ text, subText, className }: { text: string; subText?:
         return (
           <span key={index} className="relative inline-block">
             <div className="absolute -bottom-1 left-0 w-full h-3 bg-orange-500/60 rounded-sm transform -rotate-1 z-0"></div>
-            <span className="relative z-10">{word}</span>
+            <span className="relative z-10 text-gray-900">{word}</span>
             {index < words.length - 1 ? ' ' : ''}
           </span>
         )
       }
-      return word + (index < words.length - 1 ? ' ' : '')
+      return <span key={index} className="text-gray-900">{word + (index < words.length - 1 ? ' ' : '')}</span>
     })
   }
 
@@ -83,7 +83,7 @@ const TypingAnimation = ({ text, subText, className }: { text: string; subText?:
       </div>
       {showSubText && (
         <div className="mt-8">
-          <p className="font-mono italic text-gray-400 text-sm sm:text-base">
+          <p className={`font-mono italic text-gray-400 text-sm sm:text-base ${subTextClassName}`}>
             {displaySubText}
             {subTextIndex < (subText?.length || 0) && <span className="animate-pulse">|</span>}
           </p>
@@ -107,20 +107,20 @@ export default function Portfolio() {
       <VerticalNavigation />
 
       {/* Hero Section */}
-      <main id="hero" className="w-full min-h-[85vh] flex items-center justify-center px-4 sm:px-8 md:px-12 lg:px-48 py-8 sm:py-0">
-        <div className="w-full max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+      <main id="hero" className="w-full min-h-[85vh] flex items-center justify-center px-8 sm:px-12 md:px-48 lg:px-48 py-8 sm:py-20">
+        <div className="w-full max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8 items-start">
           {/* Title/text: full width on mobile, 2/3 width on md+ */}
-          <div className="order-2 md:order-1 md:col-span-2 space-y-6 sm:space-y-8">
-            <div className="mb-10">
+          <div className="order-2 md:order-1 space-y-4 sm:space-y-6">
+            <div className="min-h-[7.5rem] sm:min-h-[9rem] md:min-h-[11rem] lg:min-h-[13rem] flex flex-col justify-start">
               <TypingAnimation 
                 text="Hi! I'm Heather. I'm a designer by instinct, builder by practice, and storyteller at heart. I believe in crafting experiences that not only solve real problems but spark joy." 
                 subText="Recently graduated from Boston University"
-                className="font-mono text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal tracking-wide leading-relaxed text-left mb-8"
+                className="font-mono text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal tracking-wide leading-relaxed text-left mb-2 text-gray-900"
+                subTextClassName="font-mono text-xs sm:text-sm text-gray-900 mt-4"
               />
             </div>
-            
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 sm:pt-6">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/resume.pdf"
                 target="_blank"
@@ -136,14 +136,14 @@ export default function Portfolio() {
                     block: 'start'
                   })
                 }}
-                className="inline-flex items-center justify-center px-12 sm:px-16 py-3 bg-orange-500 text-white rounded-lg font-mono text-sm font-medium hover:bg-orange-600 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-12 sm:px-12 py-3 bg-orange-500 text-white rounded-lg font-mono text-sm font-medium hover:bg-orange-600 transition-colors duration-300"
               >
                 View Work <ChevronDown className="ml-2 h-4 w-4" />
               </button>
             </div>
           </div>
           {/* Image: full width on mobile, 1/3 width on md+ */}
-          <div className="order-1 md:order-2 flex justify-center md:justify-end">
+          <div className="order-1 md:order-2 flex justify-center md:justify-end w-full md:w-auto">
             <div className="relative">
               {/* Coral orange tape on top */}
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 h-6 sm:h-8 bg-orange-500/50 rounded-none transform -rotate-1 z-20"></div>
@@ -157,9 +157,9 @@ export default function Portfolio() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="font-mono text-xs sm:text-xs text-gray-600 mt-3 sm:mt-4 text-center">
-                  Bringing cozy vibes to digital spaces —<br />
-                  with a matcha habit and 37 open tabs 🍵 
+                <p className="font-mono text-md sm:text-md text-gray-600 mt-3 sm:mt-4 text-center">
+                Venice, matcha, tabs,  —<br />
+                creative vibes 🍵 
                 </p>
               </div>
             </div>
@@ -174,7 +174,7 @@ export default function Portfolio() {
       </div>
 
       {/* Featured Projects Section */}
-      <section id="projects" className="w-full px-4 sm:px-8 md:px-12 lg:px-48 pt-10 pb-20">
+      <section id="projects" className="w-full px-4 sm:px-8 md:px-12 lg:px-12 pt-10 pb-20">
         <div className="w-full mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {projects.filter(p => 

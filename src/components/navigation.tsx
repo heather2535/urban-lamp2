@@ -42,7 +42,7 @@ export default function Navigation() {
     >
       <div className="w-full px-6 lg:px-8 flex items-center justify-between">
         {/* Name on the left */}
-        <div className="font-mono text-3xl font-thin text-orange-500">
+        <div className="font-mono text-3xl font-light text-orange-500">
           <Link href="/" className="hover:text-orange-600 transition-colors duration-300">
             <span className="monospace-200 header-name">
               Heather Davies

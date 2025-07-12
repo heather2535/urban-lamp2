@@ -77,7 +77,7 @@ export default function VerticalNavigation() {
                     }`}
                   >
                     {item.label}
-                    <span className="absolute bottom-0 left-0 w-0 h-4 bg-orange-300 transition-all duration-300 group-hover:w-full -z-10"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-4 bg-orange-900 transition-all duration-300 group-hover:w-full -z-10"></span>
                   </span>
                 </button>
               </li>
@@ -87,4 +87,4 @@ export default function VerticalNavigation() {
       </nav>
     </motion.div>
   )
-} 
+}
