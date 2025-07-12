@@ -46,7 +46,7 @@ const project = {
       </div>
     </div>
     <br></br>
-    <h3 className="text-3xl font-bold text-gray-900 mb-6">V3 — Motion and Animation</h3>
+    <h3 className="text-3xl font-bold text-gray-600 mb-6">V3 — Motion and Animation</h3>
     <p className="text-gray-700 leading-relaxed mb-6">
       Learning about and utilizing animation was very compelling to me because although I had worked with visual design in the past, I'd never really had an opportunity to implement animation and motion in a design before. I knew I wanted my animations to supplement the welcoming nature of my dashboard, so it was crucial that my animations enhanced my UX, and didn't sabotage it.
     </p>
@@ -103,7 +103,7 @@ export default function CryptoDashboardPage() {
           >
             {/* Text Content */}
             <motion.div
-              className="relative z-10 pt-36 pb-8"
+              className="relative z-10 pt-10 pb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -116,7 +116,7 @@ export default function CryptoDashboardPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                   >
-                    <span className="text-gray-900">
+                    <span className="text-gray-600">
                       {project.title}
                     </span>
                   </motion.h1>
@@ -130,12 +130,12 @@ export default function CryptoDashboardPage() {
                   </motion.p>
 
                   <motion.div
-                    className="flex items-center gap-3 text-gray-800"
+                    className="flex items-center gap-3 text-gray-600"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                   >
-                    <span className="text-lg font-extralight">{project.date}</span>
+                    <span className="text-xl font-extralight">{project.date}</span>
                   </motion.div>
                 </div>
               </div>
@@ -143,7 +143,7 @@ export default function CryptoDashboardPage() {
 
             {/* Image */}
             <motion.div
-              className="relative w-full h-[600px] overflow-hidden -mt-32"
+              className="relative w-full h-[600px] overflow-hidden -mt-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -196,12 +196,14 @@ export default function CryptoDashboardPage() {
               {/* Skills */}
               <div>
                 <h3 className="text-lg font-bold tracking-wide text-black mb-4">skills</h3>
-                <p className="text-sm font-extralight text-gray-600">AI Diagnostics</p>
-                <p className="text-sm font-extralight text-gray-600">Plant Care</p>
-                <p className="text-sm font-extralight text-gray-600">Mobile App</p>
-                <p className="text-sm font-extralight text-gray-600">User Research</p>
-                <p className="text-sm font-extralight text-gray-600">UI/UX Design</p>
-                <p className="text-sm font-extralight text-gray-600">Accessibility</p>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                  <p className="text-sm font-extralight text-gray-600">AI Diagnostics</p>
+                  <p className="text-sm font-extralight text-gray-600">User Research</p>
+                  <p className="text-sm font-extralight text-gray-600">Plant Care</p>
+                  <p className="text-sm font-extralight text-gray-600">UI/UX Design</p>
+                  <p className="text-sm font-extralight text-gray-600">Mobile App</p>
+                  <p className="text-sm font-extralight text-gray-600">Accessibility</p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -240,20 +242,20 @@ export default function CryptoDashboardPage() {
                 <SectionTitle>Inspiration</SectionTitle>
 
           
-                <div className="mt-2">
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
-                  PlantCare AI began as a simple question: what if your houseplants had their own AI caretaker? In an era where people are more invested in their indoor greenery than ever before—especially in dense urban environments—many are discovering that keeping plants alive and thriving is harder than it looks. Whether it's remembering to water on time, diagnosing mysterious leaf spots, or figuring out the best light placement in a small apartment, the responsibilities of plant care can quickly overwhelm even the most enthusiastic plant parent.                  
+                <div className="-mt-2">
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  PlantCare AI began as a simple question: what if your houseplants had their own AI caretaker? In an era where <strong>people are more invested in their indoor greenery</strong> than ever before—especially in dense urban environments—many are discovering that keeping plants alive and <strong>thriving is harder than it looks</strong>. Whether it's remembering to water on time, diagnosing mysterious leaf spots, or figuring out the best light placement in a small apartment, the responsibilities of plant care can quickly overwhelm even the most enthusiastic plant parent.                  
                   </p>
                   <br></br>
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
-                  I designed PlantCare AI as a mobile-first experience that brings together AI-driven diagnostics, personalized care scheduling, and community support into one seamless interface. It's not just a plant care app; it's a full-time, photo-based plant companion that lives in your pocket.
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  I designed PlantCare AI as a mobile-first experience that brings together <strong>AI-driven diagnostics, personalized care scheduling, and community support</strong> into one seamless interface. It's not just a plant care app; it's a full-time, photo-based plant companion that lives <strong>in your pocket</strong>.
                   </p>
                 </div>
               
             
             <div 
               id="problem" 
-              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20 scroll-mt-24"
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-4 scroll-mt-24"
               onMouseEnter={() => {
                 const event = new CustomEvent('sectionHover', { detail: 'problem' })
                 window.dispatchEvent(event)
@@ -266,15 +268,15 @@ export default function CryptoDashboardPage() {
               <div className="md:col-span-12">
                 {/* Section Title Example */}
                 <SectionTitle>Problem</SectionTitle>
-                <div className="mt-2">
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
-                  The core problem I wanted to address was the feeling of helplessness many users experience when their plants start to decline. Most plant care apps offer either generic tips or static watering reminders, but they don't account for the actual condition of the plant in real time. Worse still, users often don't know what they're doing wrong until it's too late. This leads to discouragement, disengagement, and sometimes, giving up on plant care altogether. Many of these users live in cities, often with unpredictable light conditions, busy schedules, and little access to expert guidance.
+                <div className="-mt-2">
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  The core problem I wanted to address was the feeling of helplessness many users experience when <strong>their plants start to decline</strong>. Most plant care apps offer either generic tips or static watering reminders, <strong>but they don't account for </strong>the actual condition of the plant in real time. Worse still, <strong>users often don't know what they're doing wrong</strong> until it's too late. This leads to discouragement and <strong>disengagement</strong>. Many of these users live in cities, often with unpredictable light conditions, busy schedules, and little access to expert guidance.
                   </p>
                   
                   <br></br>
                   
                   {/* Image before design challenge */}
-                  <div className="flex justify-start my-8">
+                  <div className="-mt-8 flex justify-start ">
                     <div className="relative w-full max-w-7xl">
                       <Image
                         src="/images/plant-care7.png"
@@ -289,10 +291,10 @@ export default function CryptoDashboardPage() {
                     </div>
                   </div>
                   
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                  <p className="mt-6 text-lg font-extralight leading-tight text-gray-600">
                   Thus I explored:
                   </p>
-                                      <h3 className="font-sans text-3xl font-normal tracking-wide text-orange-500 border-l-4 border-orange-300 pl-6 py-4">How might we help indoor plant owners diagnose, care for, and feel confident about their plants through a personalized, proactive experience?</h3>
+                                      <h3 className="mt-4 font-sans text-3xl font-normal tracking-wide text-orange-500 border-l-4 border-orange-300 pl-6">How might we help indoor plant owners diagnose, care for, and feel confident about their plants through a personalized, proactive experience?</h3>
 
                 </div>
                 
@@ -310,32 +312,35 @@ export default function CryptoDashboardPage() {
                 >
                   <div className="md:col-span-12">
                     <SectionTitle>Research</SectionTitle>
-                    <div className="mt-2">
-                      <p className="text-md font-extralight leading-relaxed text-gray-600">
-                        As <strong>indoor gardening surged in popularity</strong>—especially among <strong>urban dwellers seeking connection, calm, or cleaner air</strong>—many new plant owners found themselves frustrated by the <strong>complexity of plant care</strong>. What starts as joy often turns to <strong>uncertainty when symptoms like yellowing leaves or drooping stems appear without explanation</strong>. Through <strong>surveys, interviews, and contextual inquiry with 8 plant owners living in small apartments</strong>, I explored this <strong>emotional journey and the knowledge gaps that prevent confident plant care</strong>.
+                    <div className="-mt-2">
+                      <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                        As indoor gardening surged in popularity —especially among urban dwellers seeking connection, calm, or cleaner air —many new plant owners found themselves frustrated by the <strong>complexity of plant care</strong>. What starts as joy often turns to <strong>uncertainty </strong>when symptoms like yellowing leaves or drooping stems appear without explanation. Through <strong>surveys, interviews, and contextual inquiry</strong> with 8 plant owners living in small apartments, I explored this emotional journey and the <strong>knowledge gaps</strong> that prevent confident plant care.
                       </p>
                       <br></br>
-                                                                    <p className="text-md font-extralight leading-relaxed text-gray-600">
-                        Many of these users shared a <strong>common experience</strong>: they <strong>cared deeply about their plants</strong>, but lacked the <strong>time, expertise, or guidance to nurture them effectively</strong>. They expressed a desire for <strong>reassurance, structure, and quick help</strong>—especially when <strong>noticing early signs of distress in their plants</strong>.
+                      <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                        Many of these users shared a <strong>common experience</strong>: they cared deeply about their plants, but <strong>lacked the time, expertise, or guidance</strong> to nurture them effectively. They expressed a desire for <strong>reassurance, structure, and quick help</strong>—especially when <strong>noticing early signs of distress in their plants</strong>.
                        </p>
                        
                        <div className="mt-6">
-                         <p className="text-md font-extralight leading-relaxed text-gray-600 mb-4">
+                         <p className="text-lg font-extralight leading-relaxed text-gray-600 mb-4">
                            Some notable user insights included:
                          </p>
-                         <ul className="text-md font-extralight leading-relaxed text-gray-600 space-y-2 mb-6">
+                         <ul className="text-lg font-extralight leading-relaxed text-gray-600 space-y-2 ">
                            <li>• "I can tell something's wrong, but I don't know what to search for."</li>
                            <li>• "I downloaded a plant app but forgot to open it again."</li>
                            <li>• "Sometimes I'm watering too much, sometimes not enough—I can't tell."</li>
                            <li>• "I wish someone could just look at my plant and tell me what to do."</li>
                            <li>• "I love my plants, but I feel guilty when they start dying."</li>
                          </ul>
-                         
-               
+
+                         <p className="text-lg font-extralight leading-relaxed text-gray-600 mt-4 ">
+                         Through <strong>bucketing and affinity mapping </strong>the insights, I formulated areas of the app that I could begin designing.
+                         </p>
+
                        </div>
                        
                        {/* Image after key opportunity areas */}
-                       <div className="flex justify-start my-8 -ml-8">
+                       <div className="flex justify-start -ml-8">
                          <div className="relative w-full max-w-7xl">
                            <Image
                              src="/images/plant-care8.png"
@@ -345,16 +350,14 @@ export default function CryptoDashboardPage() {
                              className="rounded-lg object-cover object-center"
                              style={{ objectPosition: 'center 45%' }}
                            />
-                           <p className="text-sm font-extralight leading-relaxed text-gray-600 mt-2 text-center">
-                             Research insights and user journey mapping from early interviews and surveys.
-                           </p>
+                         
                          </div>
                 
                        </div>
-                       <p className="text-md font-extralight leading-relaxed text-gray-600 mb-4">
+                       <p className="text-lg font-extralight leading-relaxed text-gray-600 mb-4">
                            Through thematic coding and affinity mapping, I identified several key opportunity areas:
                          </p>
-                         <ul className="text-md font-extralight leading-relaxed text-gray-600 space-y-2">
+                         <ul className="text-lg font-extralight leading-relaxed text-gray-600 space-y-1">
                            <li>• Users need real-time, image-based diagnostics they can trust.</li>
                            <li>• Care advice must be simple, personalized, and actionable—not generic.</li>
                            <li>• Motivation increases when users can track progress and see improvement.</li>
@@ -371,7 +374,7 @@ export default function CryptoDashboardPage() {
             {/* Competitive Analysis Section */}
             <div 
               id="competitive-analysis" 
-              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20 scroll-mt-24"
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
               onMouseEnter={() => {
                 const event = new CustomEvent('sectionHover', { detail: 'competitive-analysis' })
                 window.dispatchEvent(event)
@@ -383,14 +386,53 @@ export default function CryptoDashboardPage() {
             >
               <div className="md:col-span-12">
                 <SectionTitle>Competitive Analysis</SectionTitle>
-                <div className="mt-2">
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
-                    Competitive analysis content will go here. This section will contain detailed analysis of existing plant care apps and their features, identifying gaps and opportunities in the market.
+                <div className="-mt-2">
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  I examined PlantSnap, PictureThis, and Planta to see how existing successful apps focusing on AI-driven diagnostics, personalized care, and community support for indoor plant owner compared to PlantCare AI.
                   </p>
                   <br></br>
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
-                    Additional content to make this section more detectable for scroll navigation.
+                  <p className="ml-6 text-3xl font-semibold leading-relaxed text-orange-400">
+                  search
                   </p>
+                  
+                  {/* Image after Captures real-time */}
+                  <div className="flex justify-start ">
+                    <div className="relative w-full max-w-7xl">
+                      <Image
+                        src="/images/plant-care9.png"
+                        alt="Real-time Plant Monitoring"
+                        width={1600}
+                        height={1200}
+                        className="rounded-lg"
+                      />
+                      
+                    </div>
+                  </div>
+                  
+                  <br></br>
+                  <p className="-mt-6 ml-6 text-3xl font-semibold leading-relaxed text-orange-400">
+                  community engagement
+                  </p>
+                  
+                  {/* Image after Engagement and Motivation */}
+                  <div className="flex justify-start ">
+                    <div className="relative w-full max-w-7xl">
+                      <Image
+                        src="/images/plant-care10.png"
+                        alt="User Engagement Features"
+                        width={1600}
+                        height={1200}
+                        className="rounded-lg object-cover"
+                        style={{ objectPosition: 'center 45%' }}
+                      />
+                      
+                      <p className="text-lg font-extralight leading-relaxed text-gray-600 mt-6">
+                        With this comparison, I also began to form <strong>assumptions about what different users value </strong> and how that shapes each app's design choices. Users of apps like PlantSnap and PictureThis seem to prioritize accuracy, speed, and confidence in <strong>solving urgent problems</strong>—suggesting that these users may be <strong>beginners or busy individuals</strong> looking for quick answers rather than deep learning. In contrast, Planta and PlantCare AI cater to users who want a more <strong>holistic, long-term relationship with their plants</strong>. These users likely value progress tracking, personalized advice, and community connection, <strong>not just reactive</strong> care. This insight guided my own design decisions toward making PlantCare AI feel like a <strong>trustworthy, empathetic companion</strong>—one that not only solves problems but also <strong>celebrates progress and nurtures confidence</strong>.
+                      </p>
+                     
+                    </div>
+                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -398,7 +440,7 @@ export default function CryptoDashboardPage() {
             {/* Sketching Section */}
             <div 
               id="sketching" 
-              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20 scroll-mt-24"
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
               onMouseEnter={() => {
                 const event = new CustomEvent('sectionHover', { detail: 'sketching' })
                 window.dispatchEvent(event)
@@ -410,11 +452,13 @@ export default function CryptoDashboardPage() {
             >
               <div className="md:col-span-12">
                 <SectionTitle>Sketching</SectionTitle>
-                <div className="mt-2">
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
-                    Sketching content will go here. This section will showcase the initial ideation and sketching process, including early concepts and design explorations.
+                <div className="-mt-2">
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  With a clear understanding of users’ emotional pain points—uncertainty, guilt, and isolation—I began sketching out key interaction points where reassurance and simplicity could be built into the experience. I explored layouts that prioritized image-based diagnosis, streamlined care actions, and progress feedback. One of my primary goals during sketching was to reduce cognitive load while maintaining a sense of companionship. I iterated on ways to make AI recommendations feel like gentle nudges rather than commands, experimenting with visual metaphors like glowing indicators, chat-style prompts, and photo-first onboarding to make the app feel inviting from the first tap.
                   </p>
                   <br></br>
+
+                  
                   <p className="text-md font-extralight leading-relaxed text-gray-600">
                     Additional content to make this section more detectable for scroll navigation.
                   </p>
@@ -437,7 +481,7 @@ export default function CryptoDashboardPage() {
             >
               <div className="md:col-span-12">
                 <SectionTitle>LoFi Wireframing</SectionTitle>
-                <div className="mt-2">
+                <div className="mt-1">
                   <p className="text-md font-extralight leading-relaxed text-gray-600">
                     LoFi wireframing content will go here. This section will display low-fidelity wireframes and early interface designs, showing the evolution from sketches to digital mockups.
                   </p>
@@ -464,7 +508,7 @@ export default function CryptoDashboardPage() {
             >
               <div className="md:col-span-12">
                 <SectionTitle>Refining & Prototyping</SectionTitle>
-                <div className="mt-2">
+                <div className="mt-1">
                   <p className="text-md font-extralight leading-relaxed text-gray-600">
                     Refining & prototyping content will go here. This section will show the iterative refinement process and high-fidelity prototyping, including user testing insights and design iterations.
                   </p>
@@ -491,7 +535,7 @@ export default function CryptoDashboardPage() {
               <div className="md:col-span-12">
                 {/* Section Title Example */}
                 <SectionTitle>Solution</SectionTitle>
-                <div className="mt-2">
+                <div className="mt-1">
                 <p className="text-md font-extralight leading-relaxed text-gray-600">
                 The solution was PlantCare AI—a mobile app that leverages the power of AI to scan, diagnose, and recommend care strategies based on an actual photo of your plant. Users simply take a snapshot of a leaf or stem using their phone camera, and the AI instantly detects common problems such as overwatering, underwatering, pests, nutrient deficiencies, or fungal infections. Each diagnosis comes with clear, actionable treatment steps, making it easy to address issues before they spiral out of control.
                 </p>
@@ -627,7 +671,7 @@ export default function CryptoDashboardPage() {
                         </div>
                       </div>
                       <div className="lg:col-span-8 pt-32">
-                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Growth Tracking & Insights</h3>
+                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-600">Growth Tracking & Insights</h3>
                         <ul className="text-md font-extralight leading-relaxed text-gray-600">
                         <br></br>
                         <li>• By uploading weekly photos, users allow the AI to detect small shifts in the plant's appearance—like early leaf yellowing or hidden pest damage. </li>
@@ -642,7 +686,7 @@ export default function CryptoDashboardPage() {
                   <div className="my-8 max-w-4xl mx-auto">
                     <div className="grid lg:grid-cols-12 gap-4 items-start ">
                       <div className="lg:col-span-8 pt-32">
-                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">AI Plant Health Scanner</h3>
+                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-600">AI Plant Health Scanner</h3>
                       <br></br>
                         <ul className="text-md font-extralight leading-relaxed text-gray-600">
                           <li className="flex items-start">
@@ -687,7 +731,7 @@ export default function CryptoDashboardPage() {
                         </div>
                       </div>
                       <div className="lg:col-span-8 pt-32">
-                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-900">Community & Expert Chat</h3>
+                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-600">Community & Expert Chat</h3>
                         <ul className="text-md font-extralight leading-relaxed text-gray-600">
                         <br></br>
                         <li>• PlantCare AI compiles recent health data and translates it into suggested questions or topics for community discussion. </li>

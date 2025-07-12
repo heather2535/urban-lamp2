@@ -22,7 +22,7 @@ const navItems: NavItem[] = [
 ]
 
 export default function ProjectVerticalNavigation() {
-  const [activeSection, setActiveSection] = useState("project-overview")
+  const [activeSection, setActiveSection] = useState("")
   const [scrolled, setScrolled] = useState(false)
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -52,7 +52,7 @@ export default function ProjectVerticalNavigation() {
         const scrollPosition = window.scrollY + 250
         
         // Find the current section
-        let currentSection = navItems[0].id
+        let currentSection = ""
         
         for (let i = navItems.length - 1; i >= 0; i--) {
           const sectionId = navItems[i].id
@@ -62,7 +62,11 @@ export default function ProjectVerticalNavigation() {
             const rect = element.getBoundingClientRect()
             const elementTop = rect.top + window.scrollY
             
-            if (scrollPosition >= elementTop) {
+            // For the first section (Inspiration), add extra offset to only highlight when reaching the section title
+            const offset = sectionId === "project-overview" ? 100 : 0
+            const adjustedElementTop = elementTop + offset
+            
+            if (scrollPosition >= adjustedElementTop) {
               currentSection = sectionId
               break
             }
@@ -93,7 +97,7 @@ export default function ProjectVerticalNavigation() {
       transition={{ duration: 0.6, delay: 0.3 }}
       className="fixed left-8 top-32 z-30 hidden lg:block"
     >
-      <nav className="bg-white/80 backdrop-blur-md rounded-lg p-6 shadow-lg min-w-[200px]">
+      <nav className="bg-white/80 backdrop-blur-md rounded-lg p-6 min-w-[200px]">
         <ul className="space-y-4">
           {/* Return Home or Scroll to Top Button */}
           <li className="flex items-center gap-3 group">
@@ -103,8 +107,8 @@ export default function ProjectVerticalNavigation() {
                 className="flex items-center gap-3 group"
                 aria-label="Scroll to Top"
               >
-                <ArrowUp className="w-4 h-4 text-gray-600 group-hover:text-orange-300 transition-all duration-300" />
-                <span className="text-sm text-gray-600 opacity-60 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap font-mono">
+                <ArrowUp className="w-4 h-4 text-gray-600 group-hover:text-gray-900 transition-all duration-300" />
+                <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-all duration-300 whitespace-nowrap font-mono">
                   Scroll to Top
                 </span>
               </button>
@@ -113,8 +117,8 @@ export default function ProjectVerticalNavigation() {
                 href="/#projects"
                 className="flex items-center gap-3 group"
               >
-                <ArrowLeft className="w-3 h-3 text-gray-600 group-hover:text-orange-300 transition-all duration-300" />
-                <span className="text-sm text-gray-600 opacity-60 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap font-mono">
+                <ArrowLeft className="w-3 h-3 text-gray-600 group-hover:text-gray-900 transition-all duration-300" />
+                <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-all duration-300 whitespace-nowrap font-mono">
                   Return Home
                 </span>
               </Link>
@@ -136,12 +140,12 @@ export default function ProjectVerticalNavigation() {
                     className={`text-sm transition-all duration-300 whitespace-nowrap font-mono relative ${
                       isActive 
                         ? 'text-gray-900 font-bold' 
-                        : 'text-gray-600 opacity-60 group-hover:opacity-100 group-hover:text-orange-300'
+                        : 'text-gray-600 group-hover:text-gray-900'
                     }`}
                   >
                     {item.label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 w-full h-4 bg-orange-500 rounded opacity-20"></span>
+                      <span className="absolute bottom-0 left-0 w-full h-4 bg-orange-400 rounded opacity-40"></span>
                     )}
                   </span>
                 </button>
