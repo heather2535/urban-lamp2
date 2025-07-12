@@ -174,9 +174,9 @@ export default function Portfolio() {
       </div>
 
       {/* Featured Projects Section */}
-      <section id="projects" className="w-full px-4 sm:px-8 md:px-12 lg:px-12 pt-10 pb-20">
+      <section id="projects" className="w-full px-4 sm:px-8 md:px-12 lg:px-48 pt-10 pb-20">
         <div className="w-full mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-8 sm:gap-12">
             {projects.filter(p => 
               p.title !== "Hariri Institute Website" && 
               p.href !== "/work/healthcare-platform" &&
