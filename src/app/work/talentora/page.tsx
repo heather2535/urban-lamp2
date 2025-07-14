@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Playfair_Display } from 'next/font/google'
 import { ProjectNavigation } from "@/components/project-navigation"
-import ProjectVerticalNavigation from "@/components/project-vertical-navigation"
+import TalentoraVerticalNavigation from "@/components/talentora-vertical-navigation"
 import SectionTitle from "@/components/SectionTitle"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
@@ -213,7 +213,7 @@ export default function TalentoraPage() {
     <div className="min-h-screen bg-white">
 
       {/* Project Vertical Navigation */}
-      <ProjectVerticalNavigation />
+      <TalentoraVerticalNavigation />
 
       {/* Top Navigation for Sections */}
       {/* Removed Overview and Problem nav bar as requested */}
@@ -231,7 +231,7 @@ export default function TalentoraPage() {
           >
             {/* Text Content */}
             <motion.div
-              className="relative z-10 pt-10 pb-8"
+              className="relative z-10 pt-12 pb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -356,12 +356,12 @@ export default function TalentoraPage() {
           {/* Content Section */}
 
           <motion.div
-            id="project-overview"
+            id="hypothesis"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16 scroll-mt-24"
+            className=" px-16 scroll-mt-24"
             onMouseEnter={() => {
               const event = new CustomEvent('sectionHover', { detail: 'inspiration' })
               window.dispatchEvent(event)
@@ -374,26 +374,40 @@ export default function TalentoraPage() {
 
           </motion.div>
 
+          <p className="mt-10 px-16 text-lg font-extralight leading-relaxed text-gray-600">
+          The purpose of this app is to make it easier for recruiters to engage with candidates and experience a more streamlined, human-first interview process.
+
+
+</p>
+                  <br></br>
+
         {/* Section Title Example */}
          <div className="px-16">
-           <SectionTitle>Introduction</SectionTitle>
+           <SectionTitle>Hypothesis</SectionTitle>
          </div>
+         
 
          <div className="px-16 -mt-2">
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                  In today's fast-paced job market, small to medium-sized businesses often struggle with the early stages of hiring. Without the resources for dedicated HR teams or costly recruiting agencies, these companies are forced to manually screen applicants—an inefficient, time-consuming process.
-                  </p>
-                  <br></br>
+                  As hiring becomes increasingly fast-paced and competitive—especially for small to mid-sized companies—traditional recruiting methods are struggling to keep up. Overwhelmed teams often lack the resources to thoroughly screen every candidate, leading to rushed decisions and missed opportunities.
+
+                              At the same time, candidates are seeking more personalized, transparent, and engaging ways to showcase their skills beyond a résumé.
+</p>
+<br></br>
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                  Talentora is an AI-powered platform designed to automate first-round interviews, helping businesses identify top candidates quickly and effectively. By streamlining this critical step, Talentora enables teams to focus on what matters: building strong, high-performing teams.
-                  </p>
-        </div>
+                  I wanted to explore how conversational AI could reduce friction in early-stage interviews—making the process more efficient for employers while ensuring candidates feel seen, heard, and fairly evaluated.
+
+
+</p>
+
+
+</div>
 
         <div 
-              id="problem" 
+              id="project-overview" 
               className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-4 scroll-mt-24"
               onMouseEnter={() => {
-                const event = new CustomEvent('sectionHover', { detail: 'problem' })
+                const event = new CustomEvent('sectionHover', { detail: 'project-overview' })
                 window.dispatchEvent(event)
               }}
               onMouseLeave={() => {
@@ -404,69 +418,91 @@ export default function TalentoraPage() {
 
         <div className="px-16 md:col-span-12">      
         {/* Section Title Example */}
-        <SectionTitle>Problem</SectionTitle>
+        <SectionTitle>Empathize</SectionTitle>
         </div>
 
                  <div className="px-16 -mt-2">
                    <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                   The hiring process is broken—especially for <strong>small to mid-sized companies without dedicated HR teams</strong>. These organizations often rely on <strong>overworked founders or office managers</strong> to manually screen applicants, leading to rushed decisions, overlooked talent, and hours lost to repetitive, low-impact work.
-                   </p>
-                   
-                   <br></br>
-                   
-                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                   While existing platforms offer resume filters or video submissions, they fall short of replicating the <strong>nuance and adaptability of a real conversation</strong>. Static, one-size-fits-all assessments miss the context behind a candidate's answers and can't capture qualities like <strong>emotional intelligence, communication style, or cultural alignment</strong>.
-                   </p>
-                   
-                   <br></br>
-                   
-                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                   For companies juggling growth and operations, this <strong>early-stage hiring friction</strong> creates a bottleneck that slows down teams and costs them the best talent.
-                   </p>
-                   
-                   <br></br>
+                   The first stage of design thinking—empathy—was crucial in shaping the foundation of Talentora. To truly understand the problem, I conducted interviews with both small business employers and active job seekers to uncover the frustrations, habits, and emotional undercurrents driving their hiring experiences, as well as explored competitors in the market.
 
+</p>
+                   
                    <br></br>
-                   <p className="mt-6 text-lg font-extralight leading-tight text-gray-600">
-                  Thus I explored:
-            </p>
-            <h3 className="mt-4 font-sans text-3xl font-normal tracking-wide text-orange-500 border-l-4 border-orange-300 pl-6">
-                How might we help companies automate their first-round interviews?
+                   <p className=" text-3xl font-semibold leading-relaxed text-orange-400">
+                  primary research
+                  </p>
+                   
+                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                   The questions I asked included:
+                    </p>
+                  
+
+                    <ul className="mt-2 text-lg font-extralight leading-relaxed text-gray-600 space-y-1">
+                           <li>• How do you currently manage and organize incoming job applications?</li>
+                           <li>• What’s the most time-consuming part of your hiring process?</li>
+                           <li>• How do you typically conduct first-round interviews, and what challenges arise?</li>
+                           <li>• Have you used video interviews or AI tools before? What was your experience like?</li>
+                           <li>•How do you evaluate soft skills, communication style, or culture fit in early stages?</li>
+                           <li>• What frustrates you the most when screening large volumes of candidates?</li>
+                         </ul>
+
+
+                   
+                   <br></br>
+                   <h3 className="mt-4 font-sans text-3xl font-normal tracking-wide text-orange-500 border-l-4 border-orange-300 pl-6">
+                   "I need a faster way to identify strong candidates without sacrificing quality or candidate experience."
                 </h3>
+                <br></br>
+                   
+                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                   Recruiter responses revealed burnout, inefficiency, and limited visibility beyond résumés. The need for better pre-screening tools that balance fairness with a personal touch became clear. These insights informed the design approach, focusing on reducing recruiter workload while preserving a human-centered interview experience.
+                   </p>
+                   
+                   <br></br>
+                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                       Through <strong>bucketing and affinity mapping</strong> the insights, I formulated areas of the app that could use designing.
 
-                
-            </div>
 
-            <div 
-                  id="research" 
-                  className="px-16 grid grid-cols-1 md:grid-cols-12 gap-8 mt-12 scroll-mt-22"
-                  onMouseEnter={() => {
-                    const event = new CustomEvent('sectionHover', { detail: 'research' })
-                    window.dispatchEvent(event)
-                  }}
-                  onMouseLeave={() => {
-                    const event = new CustomEvent('sectionHover', { detail: null })
-                    window.dispatchEvent(event)
-                  }}
-                >
-                  <div className="md:col-span-12">
-                    <SectionTitle>Research</SectionTitle>
-                    <div className="-mt-2">
-                      <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                      As the UX designer on Talentora, an AI-powered platform for automating first-round interviews, I took the lead in shaping how product design and engineering aligned to create an experience that felt intelligent, intuitive, and trustworthy. With a small, fast-moving team, I knew that early collaboration would be essential—not just to define what we could build, but to uncover what we should build.
                       </p>
-                      <br></br>
-                      <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                      I kicked off the feature planning process by facilitating a series of design-engineering brainstorms. My goal was to surface all potential ideas—no matter how ambitious—before filtering based on feasibility. I encouraged the team to think broadly: What could an AI assistant do if we weren’t constrained by time or resources?
-                       </p>
-                       
-                    
-                       
+
+                                             
                        {/* Image after key opportunity areas */}
                        <div className="px-8 pt-4 flex justify-start -ml-8">
                          <div className="relative w-full max-w-7xl">
                            <Image
                              src="/images/talentora2.png"
+                             alt="Plant Care Research Insights"
+                             width={1200}
+                             height={900}
+                             className="rounded-lg object-cover object-center"
+                             style={{ objectPosition: 'center 45%' }}
+                             priority
+                             loading="eager"
+                           />
+                         
+                         </div>
+
+                      
+
+                   
+
+                
+            </div>
+            <br></br>
+            <p className=" text-3xl font-semibold leading-relaxed text-orange-400">
+                  empathy map
+                  </p>
+
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  An empathy map is a collaborative tool teams can use to gain a deeper insight into their customers, organized by consumer thinking/feeling, what they’re experiencing and pain points.
+
+                </p>
+                
+                         {/* Image after key opportunity areas */}
+                         <div className="px-8  flex justify-center -ml-8">
+                         <div className="relative w-full max-w-3xl">
+                           <Image
+                             src="/images/talentora4.png"
                              alt="Plant Care Research Insights"
                              width={1600}
                              height={1200}
@@ -475,21 +511,186 @@ export default function TalentoraPage() {
                            />
                          
                          </div>
+                         </div>
+                         <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                         The empathy map shows that recruiters and hiring managers feel overwhelmed by high applicant volumes and time-consuming screening, yet are wary of impersonal or biased AI tools. They seek deeper insights into candidates beyond résumés while facing pressure to hire quickly and maintain a strong employer brand. Their pains include inefficiency, burnout, and fear of bad hires, while their goals center on saving time, improving candidate fit, and ensuring a fair, human-centered hiring experience—highlighting the value of solutions like Talentora.
+
+                </p>
+                <p className=" pt-4 text-3xl font-semibold leading-relaxed text-orange-400">
+                  user personas
+                  </p>
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  I created a distinct user persona which helped me align on strategies for moving forward and identify goals that need to be met to provide a good user experience for specific user groups.
+
+
+                </p>
+
+                                                  
+                                                 {/* Image of user persona */}
+                         <div className="px-8 pt-4 flex justify-center -ml-8">
+                            <div className="relative w-full max-w-3xl">
+                            <Image
+                              src="/images/talentora5.png"
+                              alt="User Persona"
+                              width={1200}
+                              height={900}
+                              className="rounded-lg object-cover object-center"
+                              style={{ objectPosition: 'center 45%' }}
+                              priority
+                              loading="eager"
+                            />
+                         
+                         </div>
+                         </div>
+                         <br></br>
+
+                         <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                         The next stage, in which I started making design decisions and visualizing a solution based on what I learned from my research during the Discovery stage.
+
+
+
+                </p>
+
+
+            <div 
+                  id="problem" 
+                  className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-12 scroll-mt-22"
+                  onMouseEnter={() => {
+                    const event = new CustomEvent('sectionHover', { detail: 'problem' })
+                    window.dispatchEvent(event)
+                  }}
+                  onMouseLeave={() => {
+                    const event = new CustomEvent('sectionHover', { detail: null })
+                    window.dispatchEvent(event)
+                  }}
+                >
+                  <div className="md:col-span-12">
+                    <SectionTitle>Define</SectionTitle>
+                    <div className="-mt-2">
+                      <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                      Reframing the results from the research phase as “How might we..”(HMW) questions, to turn those into potential problem statements.
+
+
+                    </p>
+                    
+                
+                      <br></br>
+                      <ul className="text-lg font-extralight leading-relaxed text-gray-600 space-y-1">
+                           <li>• How might we help recruiters efficiently manage large volumes of applications without sacrificing quality?</li>
+                           <li>• How might we help recruiters quickly spot top talent to avoid missing strong candidates?</li>
+                           <li>• How might we help recruiters trust AI insights by ensuring transparency and explainability in candidate evaluations?</li>
+                           <li>•  How might we ensure the hiring process remains personal and human-centered, even when using AI tools?</li>
+                           
+                         </ul>
+                       
+                       <br></br>
+                       
+
+                    
                 
                        </div>
-                       <p className="text-lg font-extralight leading-relaxed text-gray-600 mb-4">
-                           Through thematic coding and affinity mapping, I identified several key opportunity areas:
-                         </p>
-                         <ul className="text-lg font-extralight leading-relaxed text-gray-600 space-y-1">
-                           <li>• Users need real-time, image-based diagnostics they can trust.</li>
-                           <li>• Care advice must be simple, personalized, and actionable—not generic.</li>
-                           <li>• Motivation increases when users can track progress and see improvement.</li>
-                           <li>• Many feel alone in their plant care struggles and seek community validation or support.</li>
-                         </ul>
+                       <br></br>
+                       <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                       An impact-effort matrix helped me to identify the areas that had the highest impact while requiring lower development effort. I valued higher impact as opposed to lower effort for this redesign. I realized that there was an opportunity to integrate these experiences to both increase the ability for users to find relevant groceries and introduce them to new community-driven items throughout their purchasing process.
+                       </p>
+
+                
+
+                {/* Image after key opportunity areas */}
+              <div className="px-8 flex -mt-10 justify-center">
+                          <div className="relative w-full max-w-4xl">
+                           <Image
+                             src="/images/talentora3.png"
+                             alt="Impact Effort Matrix"
+                             width={1600}
+                             height={1200}
+                             className="rounded-lg object-cover object-center"
+                             style={{ objectPosition: 'center 50%' }}
+                           />
+                         
+                </div>
+
+                
+                       
+
+                
+       
                         
                       </div>
                   </div>
                 </div>
+                <p className=" text-3xl font-semibold leading-relaxed text-orange-400">
+                  user flow
+                  </p>
+            </div>
+            
+
+            {/* Competitive Analysis Section */}
+            <div 
+              id="competitive-analysis" 
+              className="px-16 grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'competitive-analysis' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            >
+              <div className="md:col-span-12">
+                <SectionTitle>competitive analysis</SectionTitle>
+                <div className="-mt-2">
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  I examined PlantSnap, PictureThis, and Planta to see how existing successful apps focusing on AI-driven diagnostics, personalized care, and community support for indoor plant owner compared to PlantCare AI.
+                  </p>
+                  <br></br>
+                  <p className="ml-6 text-3xl font-semibold leading-relaxed text-orange-400">
+                  search
+                  </p>
+                  
+                  {/* Image after Captures real-time */}
+                  <div className="flex justify-start ">
+                    <div className="relative w-full max-w-7xl">
+                      <Image
+                        src="/images/plant-care9.png"
+                        alt="Real-time Plant Monitoring"
+                        width={1600}
+                        height={1200}
+                        className="rounded-lg"
+                      />
+                      
+                    </div>
+                  </div>
+                  
+                  <br></br>
+                  <p className="-mt-6 ml-6 text-3xl font-semibold leading-relaxed text-orange-400">
+                  community engagement
+                  </p>
+                  
+                  {/* Image after Engagement and Motivation */}
+                  <div className="flex justify-start ">
+                    <div className="relative w-full max-w-7xl">
+                      <Image
+                        src="/images/plant-care10.png"
+                        alt="User Engagement Features"
+                        width={1600}
+                        height={1200}
+                        className="rounded-lg object-cover"
+                        style={{ objectPosition: 'center 45%' }}
+                      />
+                      
+                      <p className="text-lg font-extralight leading-relaxed text-gray-600 mt-6">
+                        With this comparison, I also began to form <strong>assumptions about what different users value </strong> and how that shapes each app's design choices. Users of apps like PlantSnap and PictureThis seem to prioritize accuracy, speed, and confidence in <strong>solving urgent problems</strong>—suggesting that these users may be <strong>beginners or busy individuals</strong> looking for quick answers rather than deep learning. In contrast, Planta and PlantCare AI cater to users who want a more <strong>holistic, long-term relationship with their plants</strong>. These users likely value progress tracking, personalized advice, and community connection, <strong>not just reactive</strong> care. This insight guided my own design decisions toward making PlantCare AI feel like a <strong>trustworthy, empathetic companion</strong>—one that not only solves problems but also <strong>celebrates progress and nurtures confidence</strong>.
+                      </p>
+                     
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
             
            
                 

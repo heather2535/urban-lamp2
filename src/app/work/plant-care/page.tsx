@@ -268,6 +268,8 @@ export default function CryptoDashboardPage() {
               <div className="md:col-span-12">
                 {/* Section Title Example */}
                 <SectionTitle>Problem</SectionTitle>
+
+                
                 <div className="-mt-2">
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
                   The core problem I wanted to address was the feeling of helplessness many users experience when <strong>their plants start to decline</strong>. Most plant care apps offer either generic tips or static watering reminders, <strong>but they don't account for </strong>the actual condition of the plant in real time. Worse still, <strong>users often don't know what they're doing wrong</strong> until it's too late. This leads to discouragement and <strong>disengagement</strong>. Many of these users live in cities, often with unpredictable light conditions, busy schedules, and little access to expert guidance.
@@ -458,7 +460,7 @@ export default function CryptoDashboardPage() {
                   </p>
                   <br></br>
 
-                  
+
                   <p className="text-md font-extralight leading-relaxed text-gray-600">
                     Additional content to make this section more detectable for scroll navigation.
                   </p>

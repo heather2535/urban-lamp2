@@ -9,7 +9,8 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Playfair_Display } from 'next/font/google'
 import { ProjectNavigation } from "@/components/project-navigation"
-import ProjectVerticalNavigation from "@/components/project-vertical-navigation"
+import ProjectVerticalNavigation from "../../../components/project-vertical-navigation"
+import SectionTitle from "@/components/SectionTitle"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
@@ -32,7 +33,6 @@ const tagIcons: Record<string, React.ReactElement> = {
 const project = {
   title: "Enabling organizations to create more inclusive and equitable workplaces",
   description: "In collaboration with BCS & Associates",
-  date: "March 15, 2024",
   video: "/video4.mov?height=450&width=800",
   tags: ["All Projects", "Graphic Design", "Branding", "Strategy", "Research", "Data Analysis", "Inclusion"],
   role: "Design Strategist, UX Researcher, UI/UX",
@@ -152,7 +152,7 @@ export default function ProjectDetailPage() {
           >
             {/* Text Content */}
             <motion.div
-              className="relative z-10 pt-40 pb-8"
+              className="relative z-10 pt-12 pb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -185,7 +185,6 @@ export default function ProjectDetailPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                   >
-                    <span className="text-lg font-extralight">{project.date}</span>
                   </motion.div>
                 </div>
               </div>
@@ -262,6 +261,104 @@ export default function ProjectDetailPage() {
               </div>
             </div>
           </motion.div>
+
+
+            {/* Diagonal Line Divider */}
+            <div className="flex justify-center -py-4 -mt-10">
+            <div className="flex space-x-3">
+              {[...Array(10)].map((_, i) => (
+                <div
+                  key={i}
+                  className="w-1 h-8 bg-orange-300 transform rotate-45"
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Content Section */}
+
+          <motion.div
+            id="project-overview"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-20 px-16 scroll-mt-24"
+            onMouseEnter={() => {
+              const event = new CustomEvent('sectionHover', { detail: 'inspiration' })
+              window.dispatchEvent(event)
+            }}
+            onMouseLeave={() => {
+              const event = new CustomEvent('sectionHover', { detail: null })
+              window.dispatchEvent(event)
+            }}
+          >
+
+          </motion.div>
+
+        {/* Section Title Example */}
+         <div className="px-16">
+           <SectionTitle>Inspiration</SectionTitle>
+         </div>
+
+         <div className="px-16 -mt-2">
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  In college, I was part of a student group focused on equity and belonging. We organized workshops, led difficult conversations, and tried to make campus feel safer for everyone. But even with our passion, we often felt like we were starting from scratch—no structure, no tools, no guidance. Later, I realized this wasn’t unique to our group. Whether it’s grassroots activists, academics, or socially conscious businesses, so many people trying to make a difference in DEI work are under-supported by the platforms they use.
+                  </p>
+                  <br></br>
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  That’s why I wanted to design a product that meets people where they are—whether that’s hosting discussions, scheduling coaching sessions, or accessing educational resources—and helps turn intention into real, sustained impact.</p>
+        </div>
+
+        <div 
+              id="problem" 
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-4 scroll-mt-24"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'problem' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+        ></div>
+
+        <div className="px-16 md:col-span-12">      
+        {/* Section Title Example */}
+        <SectionTitle>Problem</SectionTitle>
+        </div>
+
+        <div className="px-16 -mt-2">
+                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                   Many DEI platforms focus heavily on compliance or surface-level metrics. While these are important, they often miss the human element—how people actually connect, learn, and grow together.
+                   </p>
+                   
+                   <br></br>
+                   
+                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                   In collaboration with BCS & Associates, we identified a gap in the DEI consulting space: consultants and organizations lacked a centralized, user-friendly hub to facilitate meaningful engagement. Through user interviews, it became clear that existing tools were either too corporate, too academic, or too fragmented to meet the needs of our diverse user archetypes—activists, intellectuals, and businesses.
+                   </p>
+                   
+                   <br></br>
+                   
+                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                   Our goal was to create an experience that feels personal, actionable, and community-driven—empowering anyone invested in equity to do the work more effectively.
+                  </p>
+                   
+                   <br></br>
+
+                   <br></br>
+                   <p className="mt-6 text-lg font-extralight leading-tight text-gray-600">
+                  Thus I explored:
+            </p>
+            <h3 className="mt-4 font-sans text-3xl font-normal tracking-wide text-orange-500 border-l-4 border-orange-300 pl-6">
+            How might we help companies automate their first-round interviews?
+                </h3>
+
+                
+            </div>
+
+
 
           {/* Problem & Goal Section */}
           <motion.div
