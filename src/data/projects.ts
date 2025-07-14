@@ -20,6 +20,15 @@ export const projects: Project[] = [
     tags: ["All Projects", "AI Diagnostics", "Plant Care", "Mobile App", "User Research", "UI/UX Design", "Accessibility"],
   },
   {
+    title: "Talentora",
+    description: "An AI Recruiting Tool for HR Managers",
+    date: "February 3, 2025",
+    image: "/image16.png",
+    videoUrl: "/video1.mov",
+    href: "/work/talentora",
+    tags: ["All Projects", "AI Integration", "UI/UX Design", "Product Design", "Web Development", "User Research"],
+  },
+  {
     title: "ALS App Design",
     description: "A web application with Boston Children's Hospital",
     date: "December 28, 2024",
@@ -72,16 +81,6 @@ export const projects: Project[] = [
     tags: ["All Projects", "Web Development", "Product Design", "Data Visualization", "Real-time", "UI/UX Design"],
   },
  
-
-  {
-    title: "Talentora",
-    description: "A Conversational AI Interview Platform",
-    date: "February 3, 2025",
-    image: "/image5.png",
-    videoUrl: "/video1.mov",
-    href: "/work/ai-task-manager",
-    tags: ["All Projects", "Web Development", "Branding", "UI/UX Design"],
-  },
 
   
   {

@@ -182,7 +182,6 @@ export default function Portfolio() {
               p.title !== "Hariri Institute Website" && 
               p.href !== "/work/healthcare-platform" &&
               p.href !== "/work/chaosthesis" &&
-              p.href !== "/work/ai-task-manager" &&
               p.href !== "/work/architectural-vis" &&
               p.href !== "/work/marketing-campaign"
             ).map((project, index) => (
@@ -204,7 +203,9 @@ export default function Portfolio() {
                             alt={project.title}
                             width={400}
                             height={300}
-                            className="w-full h-48 sm:h-64 object-cover transition-transform duration-500"
+                            className={`w-full h-48 sm:h-64 object-cover transition-transform duration-500 ${
+                              project.title === "Talentora" ? "object-top" : ""
+                            }`}
                           />
                         </div>
                       </div>
