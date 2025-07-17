@@ -11,6 +11,8 @@ import { Playfair_Display } from 'next/font/google'
 import { ProjectNavigation } from "@/components/project-navigation"
 import ProjectVerticalNavigation from "@/components/project-vertical-navigation"
 import SectionTitle from "@/components/SectionTitle"
+import { ProjectCard } from "@/components/project-card"
+import { projects } from "@/data/projects"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
@@ -88,7 +90,7 @@ export default function CryptoDashboardPage() {
       {/* Removed Overview and Problem nav bar as requested */}
 
       <main className="relative lg:ml-64">
-        <article className="prose lg:prose-xl">
+        <article className="prose lg:prose-xl pb-20">
           {/* Back Button */}
           
 
@@ -569,6 +571,19 @@ export default function CryptoDashboardPage() {
                  
                 </div>
               
+              {/* Image after Captures real-time */}
+             <div className="flex justify-start ">
+                    <div className="relative w-full -mt-6 max-w-full">
+                      <Image
+                        src="/images/plant-care14.png"
+                        alt="Sketching Wireframes"
+                        width={1600}
+                        height={1200}
+                        className="rounded-lg"
+                      />
+                      
+                    </div>
+                  </div>
             
             {/* Refining & Prototyping Section */}
             <div 
@@ -586,16 +601,55 @@ export default function CryptoDashboardPage() {
               <div className="md:col-span-12">
                 <SectionTitle>Refining & Prototyping</SectionTitle>
                 <div className="mt-1">
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
                     Refining & prototyping content will go here. This section will show the iterative refinement process and high-fidelity prototyping, including user testing insights and design iterations.
                   </p>
                   <br></br>
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
                     Additional content to make this section more detectable for scroll navigation.
                   </p>
                 </div>
               </div>
             </div>
+
+            <br></br>
+            <br></br>
+
+            <div className="flex justify-start ">
+                    <div className="relative w-full -mt-6 max-w-full">
+                      <Image
+                        src="/images/plant-care16.png"
+                        alt="Sketching Wireframes"
+                        width={1600}
+                        height={1200}
+                        className="rounded-lg"
+                      />
+                      
+                    </div>
+                  </div>
+
+          
+
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+
+              <div className="flex justify-start ">
+                    <div className="relative w-full -mt-6 max-w-full">
+                      <Image
+                        src="/images/plant-care15.png"
+                        alt="Sketching Wireframes"
+                        width={1600}
+                        height={1200}
+                        className="rounded-lg"
+                      />
+                      
+                    </div>
+                  </div>
+                 
+
+           
             
             <div 
               id="solution" 
@@ -619,118 +673,7 @@ export default function CryptoDashboardPage() {
                 <br></br>
                 <br></br>
 
-                <div className="flex justify-center">
-                  <div className="w-full max-w-[1400px] px-4">
-                    <div className="bg-gray-100 rounded-xl p-16 overflow-hidden relative">
-                      <p className="absolute top-6 left-6 text-sm text-gray-600 font-extralight tracking-wider uppercase">
-                        Preview of final mobile screens
-                      </p>
-                      <div className="flex gap-0 animate-scroll mt-8">
-                        <div className="flex gap-0">
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care1.png"
-                              alt="Plant Care Feature 1"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care2.png"
-                              alt="Plant Care Feature 2"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care3.png"
-                              alt="Plant Care Feature 3"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care4.png"
-                              alt="Plant Care Feature 4"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care5.png"
-                              alt="Plant Care Feature 5"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care6.png"
-                              alt="Plant Care Feature 6"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                        </div>
-                        {/* Duplicate the images for seamless scrolling */}
-                        <div className="flex gap-0">
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care1.png"
-                              alt="Plant Care Feature 1"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care2.png"
-                              alt="Plant Care Feature 2"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care3.png"
-                              alt="Plant Care Feature 3"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care4.png"
-                              alt="Plant Care Feature 4"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care5.png"
-                              alt="Plant Care Feature 5"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="relative w-[calc(100vw/5)] aspect-[16/9] min-h-[700px] rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src="/images/plant-care6.png"
-                              alt="Plant Care Feature 6"
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+           
 
                   {/* Video Section */}
                   <div id="features" className="my-8 max-w-4xl mx-auto">
@@ -794,7 +737,7 @@ export default function CryptoDashboardPage() {
 
                        {/* Video Section */}
                        <div className="my-8 max-w-4xl mx-auto">
-                    <div className="grid lg:grid-cols-12 gap-4 items-start pb-20">
+                    <div className="grid lg:grid-cols-12 gap-4 items-start -pb-20">
                       <div className="lg:col-span-4">
                         <div className="relative w-[280px] h-[500px]">
                           <video
@@ -828,22 +771,26 @@ export default function CryptoDashboardPage() {
             </div>
           </motion.div>
 
-          {/* Overview Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
-          >
-             
-           
-          </motion.div>
+        
         </article>
       </main>
 
-      {/* Project Navigation */}
-      <ProjectNavigation currentProjectHref="/work/plant-care" />
+      {/* Project Cards Navigation */}
+      <div className="flex items-center px-16 py-20">
+        <hr className="flex-grow border-gray-300" />
+        <span className="mx-6 text-2xl font-bold text-gray-900 whitespace-nowrap">More Projects</span>
+        <hr className="flex-grow border-gray-300" />
+      </div>
+      <div className="px-16 pt-0 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {projects
+            .filter(project => project.href !== "/work/plant-care")
+            .slice(0, 3)
+            .map((project) => (
+              <ProjectCard key={project.href} project={project} />
+            ))}
+        </div>
+      </div>
     </div>
   )
 }

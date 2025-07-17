@@ -504,7 +504,7 @@ export default function TalentoraPage() {
 
             <div 
                   id="problem" 
-                  className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-12 scroll-mt-22"
+                  className="grid grid-cols-1 md:grid-cols-12 gap-8 "
                   onMouseEnter={() => {
                     const event = new CustomEvent('sectionHover', { detail: 'problem' })
                     window.dispatchEvent(event)
@@ -593,6 +593,22 @@ export default function TalentoraPage() {
                 </div>
               </div>
             </div>
+
+            <div 
+              id="problem" 
+              className=" grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'research' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            ></div>
+
+
+
                     <SectionTitle>Define</SectionTitle>
                     <div className="-mt-2">
                       <p className="text-lg font-extralight leading-relaxed text-gray-600">
@@ -654,15 +670,15 @@ export default function TalentoraPage() {
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
                   User stories are used to identify the functional needs, but don’t explore how to actually design the product to meet those functional needs.
 
-</p>
-            </div>
+                </p>
+                    </div>
             
 
 
 
                            {/* Image after key opportunity areas */}
-                           <div className="px-8 flex mt-4 justify-center">
-                          <div className="relative w-full max-w-4xl">
+                            <div className="px-8 flex mt-4 justify-center">
+                          <div className="relative w-full max-w-3xl">
                            <Image
                              src="/images/talentora6.png"
                              alt="Impact Effort Matrix"
@@ -672,8 +688,24 @@ export default function TalentoraPage() {
                              style={{ objectPosition: 'center 50%' }}
                            />
                          
+                        </div>
+                        </div>
+
+            <div className="px-8 flex mt-4 justify-center">
+                          <div className="relative w-full max-w-3xl">
+                           <Image
+                             src="/images/talentora7.png"
+                             alt="Impact Effort Matrix"
+                             width={1600}
+                             height={1200}
+                             className="rounded-lg object-cover object-center"
+                             style={{ objectPosition: 'center 50%' }}
+                           />
+                         
                 </div>
-</div>
+                </div>
+            
+
             
 
  

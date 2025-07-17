@@ -24,6 +24,7 @@ const navItems: NavItem[] = [
 export default function ProjectVerticalNavigation() {
   const [activeSection, setActiveSection] = useState("")
   const [scrolled, setScrolled] = useState(false)
+  const [isAtBottom, setIsAtBottom] = useState(false)
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const scrollToSection = (sectionId: string) => {
@@ -41,6 +42,14 @@ export default function ProjectVerticalNavigation() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 100)
+      
+      // Check if we're at the bottom of the content
+      const documentHeight = document.documentElement.scrollHeight
+      const windowHeight = window.innerHeight
+      const scrollTop = window.scrollY
+      const navHeight = 400; // Approximate height of the navigation
+      const isBottom = scrollTop + windowHeight >= documentHeight - navHeight - 100; // Account for nav height
+      setIsAtBottom(isBottom)
       
       // Clear any existing timeout
       if (scrollTimeoutRef.current) {
@@ -95,7 +104,7 @@ export default function ProjectVerticalNavigation() {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="fixed left-8 top-32 z-30 hidden lg:block"
+      className={`${isAtBottom ? 'absolute' : 'fixed'} left-8 top-32 z-30 hidden lg:block`}
     >
       <nav className="bg-white/80 backdrop-blur-md rounded-lg p-6 min-w-[200px]">
         <ul className="space-y-4">
