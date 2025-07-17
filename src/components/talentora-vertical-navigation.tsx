@@ -13,8 +13,9 @@ interface NavItem {
 const navItems: NavItem[] = [
   { id: "hypothesis", label: "Hypothesis" },
   { id: "project-overview", label: "Empathise" },
-  { id: "problem", label: "Define" },
+  
   { id: "research", label: "Synthesizing Research" },
+  { id: "problem", label: "Define" },
   { id: "competitive-analysis", label: "Ideate" },
   { id: "sketching", label: "Prototype" },
   { id: "lofi-wireframing", label: "Test" },

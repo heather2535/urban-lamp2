@@ -449,6 +449,9 @@ export default function TalentoraPage() {
 
                    
                    <br></br>
+                   <p className=" text-3xl font-semibold leading-relaxed text-orange-400">
+                  secondary research
+                  </p>
                    <h3 className="mt-4 font-sans text-3xl font-normal tracking-wide text-orange-500 border-l-4 border-orange-300 pl-6">
                    "I need a faster way to identify strong candidates without sacrificing quality or candidate experience."
                 </h3>
@@ -457,7 +460,7 @@ export default function TalentoraPage() {
                    <p className="text-lg font-extralight leading-relaxed text-gray-600">
                    Recruiter responses revealed burnout, inefficiency, and limited visibility beyond résumés. The need for better pre-screening tools that balance fairness with a personal touch became clear. These insights informed the design approach, focusing on reducing recruiter workload while preserving a human-centered interview experience.
                    </p>
-                   
+
                    <br></br>
                    <p className="text-lg font-extralight leading-relaxed text-gray-600">
                        Through <strong>bucketing and affinity mapping</strong> the insights, I formulated areas of the app that could use designing.
@@ -489,7 +492,48 @@ export default function TalentoraPage() {
                 
             </div>
             <br></br>
-            <p className=" text-3xl font-semibold leading-relaxed text-orange-400">
+ 
+
+                         <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                         The next stage, in which I started making design decisions and visualizing a solution based on what I learned from my research during the Discovery stage.
+
+
+
+                </p>
+
+
+            <div 
+                  id="problem" 
+                  className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-12 scroll-mt-22"
+                  onMouseEnter={() => {
+                    const event = new CustomEvent('sectionHover', { detail: 'problem' })
+                    window.dispatchEvent(event)
+                  }}
+                  onMouseLeave={() => {
+                    const event = new CustomEvent('sectionHover', { detail: null })
+                    window.dispatchEvent(event)
+                  }}
+                >
+                  <div className="md:col-span-12">
+
+                               {/* Competitive Analysis Section */}
+            <div 
+              id="research" 
+              className=" grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'research' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            >
+              <div className=" md:col-span-12">
+                <SectionTitle>synthesizing research</SectionTitle>
+                <div className="-mt-10 -mt-2">
+
+                <p className=" text-3xl font-semibold leading-relaxed text-orange-400">
                   empathy map
                   </p>
 
@@ -543,28 +587,12 @@ export default function TalentoraPage() {
                          </div>
                          </div>
                          <br></br>
-
-                         <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                         The next stage, in which I started making design decisions and visualizing a solution based on what I learned from my research during the Discovery stage.
-
-
-
-                </p>
-
-
-            <div 
-                  id="problem" 
-                  className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-12 scroll-mt-22"
-                  onMouseEnter={() => {
-                    const event = new CustomEvent('sectionHover', { detail: 'problem' })
-                    window.dispatchEvent(event)
-                  }}
-                  onMouseLeave={() => {
-                    const event = new CustomEvent('sectionHover', { detail: null })
-                    window.dispatchEvent(event)
-                  }}
-                >
-                  <div className="md:col-span-12">
+                  
+                
+                  
+                </div>
+              </div>
+            </div>
                     <SectionTitle>Define</SectionTitle>
                     <div className="-mt-2">
                       <p className="text-lg font-extralight leading-relaxed text-gray-600">
@@ -622,74 +650,33 @@ export default function TalentoraPage() {
                 <p className=" text-3xl font-semibold leading-relaxed text-orange-400">
                   user flow
                   </p>
+
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  User stories are used to identify the functional needs, but don’t explore how to actually design the product to meet those functional needs.
+
+</p>
             </div>
             
 
-            {/* Competitive Analysis Section */}
-            <div 
-              id="competitive-analysis" 
-              className="px-16 grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
-              onMouseEnter={() => {
-                const event = new CustomEvent('sectionHover', { detail: 'competitive-analysis' })
-                window.dispatchEvent(event)
-              }}
-              onMouseLeave={() => {
-                const event = new CustomEvent('sectionHover', { detail: null })
-                window.dispatchEvent(event)
-              }}
-            >
-              <div className="md:col-span-12">
-                <SectionTitle>competitive analysis</SectionTitle>
-                <div className="-mt-2">
-                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                  I examined PlantSnap, PictureThis, and Planta to see how existing successful apps focusing on AI-driven diagnostics, personalized care, and community support for indoor plant owner compared to PlantCare AI.
-                  </p>
-                  <br></br>
-                  <p className="ml-6 text-3xl font-semibold leading-relaxed text-orange-400">
-                  search
-                  </p>
-                  
-                  {/* Image after Captures real-time */}
-                  <div className="flex justify-start ">
-                    <div className="relative w-full max-w-7xl">
-                      <Image
-                        src="/images/plant-care9.png"
-                        alt="Real-time Plant Monitoring"
-                        width={1600}
-                        height={1200}
-                        className="rounded-lg"
-                      />
-                      
-                    </div>
-                  </div>
-                  
-                  <br></br>
-                  <p className="-mt-6 ml-6 text-3xl font-semibold leading-relaxed text-orange-400">
-                  community engagement
-                  </p>
-                  
-                  {/* Image after Engagement and Motivation */}
-                  <div className="flex justify-start ">
-                    <div className="relative w-full max-w-7xl">
-                      <Image
-                        src="/images/plant-care10.png"
-                        alt="User Engagement Features"
-                        width={1600}
-                        height={1200}
-                        className="rounded-lg object-cover"
-                        style={{ objectPosition: 'center 45%' }}
-                      />
-                      
-                      <p className="text-lg font-extralight leading-relaxed text-gray-600 mt-6">
-                        With this comparison, I also began to form <strong>assumptions about what different users value </strong> and how that shapes each app's design choices. Users of apps like PlantSnap and PictureThis seem to prioritize accuracy, speed, and confidence in <strong>solving urgent problems</strong>—suggesting that these users may be <strong>beginners or busy individuals</strong> looking for quick answers rather than deep learning. In contrast, Planta and PlantCare AI cater to users who want a more <strong>holistic, long-term relationship with their plants</strong>. These users likely value progress tracking, personalized advice, and community connection, <strong>not just reactive</strong> care. This insight guided my own design decisions toward making PlantCare AI feel like a <strong>trustworthy, empathetic companion</strong>—one that not only solves problems but also <strong>celebrates progress and nurtures confidence</strong>.
-                      </p>
-                     
-                    </div>
-                  </div>
-                  
+
+
+                           {/* Image after key opportunity areas */}
+                           <div className="px-8 flex mt-4 justify-center">
+                          <div className="relative w-full max-w-4xl">
+                           <Image
+                             src="/images/talentora6.png"
+                             alt="Impact Effort Matrix"
+                             width={1600}
+                             height={1200}
+                             className="rounded-lg object-cover object-center"
+                             style={{ objectPosition: 'center 50%' }}
+                           />
+                         
                 </div>
-              </div>
-            </div>
+</div>
+            
+
+ 
             
             
            

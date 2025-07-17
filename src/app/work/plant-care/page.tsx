@@ -269,7 +269,7 @@ export default function CryptoDashboardPage() {
                 {/* Section Title Example */}
                 <SectionTitle>Problem</SectionTitle>
 
-                
+
                 <div className="-mt-2">
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
                   The core problem I wanted to address was the feeling of helplessness many users experience when <strong>their plants start to decline</strong>. Most plant care apps offer either generic tips or static watering reminders, <strong>but they don't account for </strong>the actual condition of the plant in real time. Worse still, <strong>users often don't know what they're doing wrong</strong> until it's too late. This leads to discouragement and <strong>disengagement</strong>. Many of these users live in cities, often with unpredictable light conditions, busy schedules, and little access to expert guidance.
@@ -302,7 +302,7 @@ export default function CryptoDashboardPage() {
                 
                 <div 
                   id="research" 
-                  className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-12 scroll-mt-22"
+                  className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-12 scroll-mt-4"
                   onMouseEnter={() => {
                     const event = new CustomEvent('sectionHover', { detail: 'research' })
                     window.dispatchEvent(event)
@@ -376,7 +376,7 @@ export default function CryptoDashboardPage() {
             {/* Competitive Analysis Section */}
             <div 
               id="competitive-analysis" 
-              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-4"
               onMouseEnter={() => {
                 const event = new CustomEvent('sectionHover', { detail: 'competitive-analysis' })
                 window.dispatchEvent(event)
@@ -442,7 +442,7 @@ export default function CryptoDashboardPage() {
             {/* Sketching Section */}
             <div 
               id="sketching" 
-              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-4"
               onMouseEnter={() => {
                 const event = new CustomEvent('sectionHover', { detail: 'sketching' })
                 window.dispatchEvent(event)
@@ -459,14 +459,40 @@ export default function CryptoDashboardPage() {
                   With a clear understanding of users’ emotional pain points—uncertainty, guilt, and isolation—I began sketching out key interaction points where reassurance and simplicity could be built into the experience. I explored layouts that prioritized image-based diagnosis, streamlined care actions, and progress feedback. One of my primary goals during sketching was to reduce cognitive load while maintaining a sense of companionship. I iterated on ways to make AI recommendations feel like gentle nudges rather than commands, experimenting with visual metaphors like glowing indicators, chat-style prompts, and photo-first onboarding to make the app feel inviting from the first tap.
                   </p>
                   <br></br>
+                 
 
 
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
-                    Additional content to make this section more detectable for scroll navigation.
-                  </p>
+    
                 </div>
               </div>
             </div>
+
+            {/* Image after Captures real-time */}
+            <div className="flex justify-start ">
+                    <div className="relative w-full -mt-6 max-w-7xl">
+                      <Image
+                        src="/images/plant-care11.png"
+                        alt="Sketching Wireframes"
+                        width={1600}
+                        height={1200}
+                        className="rounded-lg"
+                      />
+                      
+                    </div>
+                  </div>
+
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  My initial sketches focused on creating an experience that felt as simple and reassuring as texting a friend about your plant. For example:
+                  </p>
+
+                  <ul className="text-lg font-extralight leading-relaxed text-gray-600 space-y-1">
+                    <li>• <strong>Photo-first diagnosis </strong>— placing the camera and gallery upload as the primary action on the home screen so users could get instant feedback without digging through menus.</li>
+                    <li>• <strong>Conversational results</strong> — presenting diagnoses and care instructions in friendly, chat-style cards rather than dense text blocks.</li>
+                    <li>• <strong>Progress tracking</strong> — showing users how their plant is doing over time with a simple progress bar and emoji indicators.</li>
+                    <li>• <strong>Community support</strong> — featuring a chat feature where users can share their plant care journeys and get advice from other plant lovers.</li>
+                  </ul>
+                  <br></br>
+                  
             
             {/* LoFi Wireframing Section */}
             <div 
@@ -484,16 +510,65 @@ export default function CryptoDashboardPage() {
               <div className="md:col-span-12">
                 <SectionTitle>LoFi Wireframing</SectionTitle>
                 <div className="mt-1">
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
-                    LoFi wireframing content will go here. This section will display low-fidelity wireframes and early interface designs, showing the evolution from sketches to digital mockups.
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  I then iterated on the wireframes with a focus on how AI-driven insights, actionable fixes, and visual feedback loops could create a more anchored, habit-forming experience.
                   </p>
                   <br></br>
-                  <p className="text-md font-extralight leading-relaxed text-gray-600">
-                    Additional content to make this section more detectable for scroll navigation.
-                  </p>
+                  
                 </div>
               </div>
             </div>
+
+             {/* Image after Captures real-time */}
+             <div className="flex justify-start ">
+                    <div className="relative w-full -mt-6 max-w-full">
+                      <Image
+                        src="/images/plant-care12.png"
+                        alt="Sketching Wireframes"
+                        width={1600}
+                        height={1200}
+                        className="rounded-lg"
+                      />
+                      
+                    </div>
+                  </div>
+
+                  <div className="mt-1">
+                  <ul className="text-lg font-extralight leading-relaxed text-gray-600 space-y-1">
+                    <li>• Created a camera Viewfinder Interface with professional camera UI with grid lines, focus corners, and controls.</li>
+                    <li>• Incorporated large image display with overlay annotations and health indicators to accentruate photo-centric results. L</li>
+                    <li>• Each slide tells a different part of the plant care story</li>
+                    <li>• Added Interactive task list with completion buttons, shows overdue warnings</li>
+                  </ul>
+                  <br></br>
+                 
+                </div>
+                <br></br>
+                   
+    {/* Image after Captures real-time */}
+                <div className="flex justify-center ">
+                    <div className="relative w-full -mt-6 max-w-3xl">
+                      <Image
+                        src="/images/plant-care13.png"
+                        alt="Sketching Wireframes"
+                        width={1600}
+                        height={1200}
+                        className="rounded-lg"
+                      />
+                      
+                    </div>
+                  </div>
+
+                  <div className="mt-1">
+                  <ul className="text-lg font-extralight leading-relaxed text-gray-600 space-y-1">
+                    <li>• Introduced a processing animation, using progress indicators for visual feedback during AI analysis. </li>
+                    <li>• Included interactive controls such as flash, zoom, and focus controls for better user experience.</li>
+                   
+                  </ul>
+                  <br></br>
+                 
+                </div>
+              
             
             {/* Refining & Prototyping Section */}
             <div 
