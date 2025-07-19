@@ -616,7 +616,8 @@ Sam can choose to start working out right away without even creating an account.
                       playsInline
                       style={{ maxHeight: "400px" }}
                     >
-                      <source src="/videos/video13.mov" type="video/mp4" />
+                      <source src="/videos/video13.mp4" type="video/quicktime" />
+                      <source src="/videos/video13.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
 
@@ -628,7 +629,8 @@ Sam can choose to start working out right away without even creating an account.
                       playsInline
                       style={{ maxHeight: "400px" }}
                     >
-                      <source src="/videos/video5.mov" type="video/mp4" />
+                      <source src="/videos/video5.mp4" type="video/quicktime" />
+                      <source src="/videos/video5.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
