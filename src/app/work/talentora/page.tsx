@@ -582,13 +582,15 @@ Sam can choose to start working out right away without even creating an account.
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div className="relative">
                   <video
-                    className=" w-full h-auto"
+                    className="w-full h-auto"
                     autoPlay
                     muted
                     loop
                     playsInline
                     style={{ maxHeight: "400px" }}
+                    onError={(e) => console.log('Video loading error:', e)}
                   >
+                    <source src="/videos/video10.mov" type="video/quicktime" />
                     <source src="/videos/video10.mov" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -597,7 +599,9 @@ Sam can choose to start working out right away without even creating an account.
             className="mt-10 w-full h-auto"
             controls
             style={{ maxHeight: "400px" }}
+            onError={(e) => console.log('Video loading error:', e)}
           >
+            <source src="/videos/video4.mov" type="video/quicktime" />
             <source src="/videos/video4.mov" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
