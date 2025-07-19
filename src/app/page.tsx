@@ -182,7 +182,6 @@ export default function Portfolio() {
               p.title !== "Hariri Institute Website" && 
               p.href !== "/work/healthcare-platform" &&
               p.href !== "/work/chaosthesis" &&
-              p.href !== "/work/architectural-vis" &&
               p.href !== "/work/marketing-campaign"
             ).map((project, index) => (
               <motion.div

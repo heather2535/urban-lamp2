@@ -164,7 +164,7 @@ export default function AboutPage() {
             >
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-green-200 z-10"></div>
               <Image src="/images/image70.png" alt="CMU Graduation" width={240} height={360} className="object-cover w-full" />
-              <p className="text-xs text-gray-700 mt-2">grad day at CMU! 🎓</p>
+              <p className="text-xs text-gray-700 mt-2">grad day at BU! 🎓</p>
             </motion.div>
           </div>
 

@@ -37,7 +37,7 @@ export default function Navigation() {
   return (
     <header
       className={`w-full transition-all duration-300 ${
-        scrolled ? "bg-white/80 backdrop-blur-xl shadow-sm pt-6 pb-4" : "bg-transparent pt-8 pb-6"
+        scrolled ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-sm pt-6 pb-4" : "bg-transparent pt-8 pb-6"
       }`}
     >
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-4 flex items-center justify-between">
@@ -59,8 +59,8 @@ export default function Navigation() {
               className={`relative text-md tracking-wide transition-all duration-300 group font-thin font-mono
                 ${
                   (item.name === "Work" && (pathname === "/" || pathname === "/#projects")) || pathname === item.href
-                    ? "text-gray-900 font-medium"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "text-gray-900 dark:text-white font-medium"
+                    : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 }`}
             >
               <span className="relative z-10 px-2">
@@ -104,17 +104,17 @@ export default function Navigation() {
             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
             <div className="w-5 h-5 relative">
               <motion.span
-                className={`absolute top-0.5 left-0 w-5 h-0.5 bg-gray-900 origin-left`}
+                className={`absolute top-0.5 left-0 w-5 h-0.5 bg-gray-900 dark:bg-white origin-left`}
                 animate={mobileMenuOpen ? { rotate: 45, y: 2 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3 }}
               />
               <motion.span
-                className={`absolute top-2 left-0 w-5 h-0.5 bg-gray-900`}
+                className={`absolute top-2 left-0 w-5 h-0.5 bg-gray-900 dark:bg-white`}
                 animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
               <motion.span
-                className={`absolute top-3.5 left-0 w-5 h-0.5 bg-gray-900 origin-left`}
+                className={`absolute top-3.5 left-0 w-5 h-0.5 bg-gray-900 dark:bg-white origin-left`}
                 animate={mobileMenuOpen ? { rotate: -45, y: -2 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3 }}
               />

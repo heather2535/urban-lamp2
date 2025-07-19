@@ -43,32 +43,38 @@ export function ProjectCard({ project }: { project: Project }) {
         <div className="p-4">
           {/* Title */}
           <h3
-            className={`text-md font-bold transition-colors ${isHovered ? "text-blue-500" : "text-black dark:text-white"}`}
+            className={`text-xl font-mono font-semibold transition-colors ${isHovered ? "text-blue-500" : "text-gray-900"}`}
           >
             {project.title}
           </h3>
 
-          <div className="mt-2 flex flex-wrap gap-2">
+          <p className="font-mono text-sm mb-4 font-extralight leading-relaxed text-gray-600">
+            {project.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2">
             {project.tags
               .filter((tag) => tag !== "All Projects")
-              .map((tag) => (
-                <Link 
-                  key={tag} 
-                  href={`/projects?tag=${encodeURIComponent(tag)}`}
-                  className="no-underline"
-                >
+              .slice(0, 3)
+              .map((tag, index) => {
+                const colors = [
+                  "bg-blue-100 text-blue-800",
+                  "bg-green-100 text-green-800", 
+                  "bg-purple-100 text-purple-800",
+                  "bg-orange-100 text-orange-800",
+                  "bg-pink-100 text-pink-800",
+                  "bg-indigo-100 text-indigo-800"
+                ]
+                return (
                   <span 
                     key={tag} 
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border-pink-200 bg-pink-100 hover:border-pink-500 hover:bg-pink-200 dark:bg-pink-900/30 dark:border-pink-800/50 dark:hover:bg-pink-900/50 dark:hover:border-pink-700 text-pink-700 dark:text-pink-100 transition-colors cursor-pointer"
+                    className={`font-mono px-2 py-1 rounded-full text-xs ${colors[index % colors.length]}`}
                   >
-                    {tagIcons[tag]}
-                  {tag}
-                </span>
-                </Link>
-              ))}
+                    {tag}
+                  </span>
+                )
+              })}
           </div>
-
-          <h3 className="mt-2 text-sm text-muted-foreground">{project.description}</h3>
         </div>
       </Link>
 

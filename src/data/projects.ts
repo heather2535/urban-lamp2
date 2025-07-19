@@ -29,6 +29,24 @@ export const projects: Project[] = [
     tags: ["All Projects", "AI Integration", "UI/UX Design", "Product Design", "Web Development", "User Research"],
   },
   {
+    title: "Cervera Real Estate",
+    description: "Designed and managed social media ads for agency",
+    date: "June 10, 2023",
+    image: "/gallery/image1.jpg",
+    videoUrl: "/video7.mp4",
+    href: "/work/aventura-rendering",
+    tags: ["All Projects", "Graphic Design", "Web Design", "Branding"],
+  },
+  {
+    title: "Journalink",
+    description: "Library Database E-Learning Platform",
+    date: "January 10, 2024",
+    image: "/image14.png",
+    videoUrl: "/video1.mov",
+    href: "/work/virtual-gallery",
+    tags: ["All Projects", "Web Development", "UI/UX Design", "E-Learning", "User Research", "Product Design"],
+  },
+  {
     title: "ALS App Design",
     description: "A web application with Boston Children's Hospital",
     date: "December 28, 2024",
@@ -83,56 +101,7 @@ export const projects: Project[] = [
  
 
   
-  {
-    title: "Journalink",
-    description: "Library Database E-Learning Platform",
-    date: "January 10, 2024",
-    image: "/image14.png",
-    videoUrl: "/video1.mov",
-    href: "/work/virtual-gallery",
-    tags: ["All Projects", "Web Development", "UI/UX Design", "E-Learning", "User Research", "Product Design"],
-  },
-  {
-    title: "Healthcare Management Platform",
-    description: "Comprehensive healthcare management system for patients and providers.",
-    date: "April 22, 2024",
-    image: "/image3.png",
-    videoUrl: "/video1.mov",
-    href: "/work/healthcare-platform",
-    tags: ["All Projects", "Web Development", "Healthcare", "UI/UX Design", "User Research", "Product Design"],
-  },
 
-
-
-  {
-    title: "Chaos & Order: Graphic Design Thesis",
-    description: "A collection of my graphic design work from my thesis.",
-    date: "May 06, 2025",
-    image: "/gallery/image36.png",
-    videoUrl: "/video1.mov",
-    href: "/work/chaosthesis",
-    tags: ["All Projects", "Graphic Design", "Branding"],
-  },
-
-  {
-    title: "12/12 Aventura Rendering",
-    description: "Using AutoCAD, 3ds Max, and V-Ray to create a high-quality, photorealistic renderings.",
-    date: "June 10, 2023",
-    image: "/gallery/image1.jpg",
-    videoUrl: "/video7.mp4",
-    href: "/work/architectural-vis",
-    tags: ["All Projects", "Graphic Design", "3D Design"],
-  },
-
-  {
-    title: "Marketing Campaign for a New Product",
-    description: "Using Blender, I created this simple simulation of a car driving across a bridge.",
-    date: "June 10, 2023",
-    image: "/gallery/image5.png",
-    videoUrl: "/video7.mp4",
-    href: "/work/marketing-campaign",
-    tags: ["All Projects", "Graphic Design", "Branding"],
-  },
 ]
 
 

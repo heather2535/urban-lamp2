@@ -10,6 +10,8 @@ import { Playfair_Display } from 'next/font/google'
 import { ProjectNavigation } from "@/components/project-navigation"
 import TalentoraVerticalNavigation from "@/components/talentora-vertical-navigation"
 import SectionTitle from "@/components/SectionTitle"
+import { ProjectCard } from "@/components/project-card"
+import { projects } from "@/data/projects"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
@@ -19,178 +21,7 @@ const project = {
     date: "Less stress, better hires, smarter conversations.",
     image: "/image16.png",
     video: "/video1.mov?height=450&width=800", 
-    content: `
-      <br></br>
 
-    
-
-      <br></br>
-      <h2 style="font-size: 2em; font-weight: bold;">Goals</h2>
-      <br>
-      <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-       <h2>• Automate first-round candidate screening to reduce the time and cost of recruitment.</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2><strong>• Support small to mid-sized businesses</strong> (typically 10–50 employees) without full-scale HR teams.
-          </li>   
-          <li className="relative">
-            <h2><strong>• Deliver intelligent, human-like interview experiences</strong> using real-time AI interactions.
-          </li>
-          <li className="relative">
-            <h2><strong>• Ensure accurate candidate evaluation</strong> with semantic and emotional insight analysis.
-          </li>
-        </ul>
-      </li>
-    </ul>
-      <br></br>
-
-        <h2 style="font-size: 2em; font-weight: bold;">Process</h2>
-      <br>
-  
-      <h2 style="font-size: 1.5em; font-weight: bold;">1. Job Posting Trigger</h2>
-      <h2>
-      Companies post jobs via job boards and manage them through their existing Applicant Tracking System (ATS). This triggers Talentora's interview automation workflow.
-      </h2>
-      <br>
-      <div className="relative max-w-[640px] mx-auto my-8">
-        <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
-        <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
-          <img
-            src="/images/image14.png"
-            alt="Hariri Institute Design Process"
-            className="rounded-2xl w-full h-auto object-cover"
-            style={{ maxHeight: "200px" }}
-          />
-        </div>
-      </div>
-
-        <br></br>
-      <h2 style="font-size: 1.5em; font-weight: bold;">2. Role & Company Upload</h2>
-      <h2>
-      Employers upload detailed information about their company and the open role. This data allows Talentora to tailor the interview process to reflect the company's values and job-specific requirements.
-      </h2>
-      <br>
-      <div className="relative max-w-[640px] mx-auto my-8">
-        <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
-        <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
-          <video
-            className="rounded-2xl w-full h-auto"
-            controls
-            style={{ maxHeight: "200px" }}
-          >
-            <source src="/videos/video4.mov" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-      <br></br>
-
-      <h2 style="font-size: 1.5em; font-weight: bold;">3. AI-Driven Interview via Ora Scouts</h2>
-      <h2>
-      Talentora's AI agents, known as <strong>Ora Scouts</strong>, call applicants and conduct dynamic, conversational interviews using voice AI. These interactions mimic a real first-round interview.
-      </h2>
-      <br>
-      <div className="relative max-w-[640px] mx-auto my-8">
-        <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/40 via-pink-400/40 to-purple-400/40 rounded-2xl blur-xl"></div>
-        <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden border border-orange-200 shadow-2xl p-6">
-          <video
-            className="rounded-2xl w-full h-auto"
-            controls
-            style={{ maxHeight: "200px" }}
-          >
-            <source src="/videos/video5.mov" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-      <br></br>
-
-      <h2 style="font-size: 1.5em; font-weight: bold;">4. Interview Analysis & Scoring</h2>
-      <h2>
-      Interviews are analyzed for clarity, confidence, relevance, and emotional intelligence using semantic AI tools. Each candidate is scored based on their performance.
-      </h2>
-      <br></br>
-      <h2 style="font-size: 1.5em; font-weight: bold;">5. Candidate Summary Output</h2>
-      <h2>
-      Employers receive a curated shortlist of top candidates, along with key insights into each applicant's strengths, weaknesses, and cultural fit—making final selection faster and easier.
-      </h2>
-      <br></br>
-
-
-      <h2 style="font-size: 2em; font-weight: bold;">Results</h2> 
-      <h2>
-      Talentora delivers a <strong>streamlined hiring experience</strong> for companies and a modern, intuitive process for candidates. It reduces time-to-hire, improves the quality of shortlisted candidates, and removes the burden of early-stage interviewing for small teams.
-      </h2>
-
-      <br>
-      <h3 style="font-size: 1.5em; font-weight: bold;">Key Differentiators</h3>
-        <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-       <h2><strong>• Compared to HireVue:</strong> Talentora offers a more personalized and less "robotic" AI interaction, ideal for smaller companies.
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <span className="absolute -left-8">•</span>
-            <strong>Compared to HackerRank:</strong> Talentora enables real-time, voice-based interviews, providing deeper insight and better team alignment.
-          </li>  
-        </ul>
-      </li>
-    </ul>
-
-    <br></br>
-      <h2 style="font-size: 2em; font-weight: bold;">Tools Used</h2> 
-        <h3 style="font-size: 1.5em; font-weight: bold;">Front-End Web App</h3>
-
-        <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2><span className="absolute -left-4">•</span>
-       Frameworks: Next.js, React</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2><span className="absolute -left-8">•</span>
-            Purpose: Delivers a fast, modern interface for both employers and applicants.</h2>
-          </li>  
-        </ul>
-      </li>
-    </ul>
-
-  
-      <br>
-      <h2 style="font-size: 1.5em; font-weight: bold;">Applicant Analysis Repository</h2>
-      <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2><span className="absolute -left-4">•</span>
-       Technology: Hume AI (Semantic & Emotional Analysis)</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2><span className="absolute -left-8">•</span>
-            Purpose: Scores candidate responses and generates insightful summaries for decision-makers.</h2>
-          </li>  
-        </ul>
-      </li>
-    </ul>
-
-          <br>
-      <h2 style="font-size: 1.5em; font-weight: bold;"> Bot Repository</h2>
-      <ul className="list-disc pl-20 space-y-4 text-base">
-      <li className="relative">
-        <h2><span className="absolute -left-4">•</span>
-       Technology: Pipecat (Speech-to-Text, Text-to-Speech LLMs)</h2>
-        <ul className="list-disc pl-20 mt-2 space-y-2">
-          <li className="relative">
-            <h2><span className="absolute -left-8">•</span>
-            Purpose: Powers real-time, human-like interview conversations through Ora Scouts.</h2>
-          </li>  
-        </ul>
-      </li>
-    </ul>
-
-    <br></br>
-     <h2 style="font-size: 2em; font-weight: bold;">Reflection</h2> 
-      <h2>
-      Talentora is redefining hiring for small and medium-sized businesses. With a focus on <strong>efficiency</strong>, <strong>empathy</strong>, and <strong>intelligence</strong>, the platform helps teams hire smarter—without the high costs or time demands of traditional recruiting. Whether you're an overextended founder, a lean HR manager, or a job seeker looking for a modern interview experience, Talentora offers a powerful solution for building your dream team.
-      </h2>
-    `,
     tags: [ "Web Development", "Branding", "UI/UX Design"],
 }
 
@@ -503,10 +334,10 @@ export default function TalentoraPage() {
 
 
             <div 
-                  id="problem" 
+                  id="research" 
                   className="grid grid-cols-1 md:grid-cols-12 gap-8 "
                   onMouseEnter={() => {
-                    const event = new CustomEvent('sectionHover', { detail: 'problem' })
+                    const event = new CustomEvent('sectionHover', { detail: 'research' })
                     window.dispatchEvent(event)
                   }}
                   onMouseLeave={() => {
@@ -598,7 +429,7 @@ export default function TalentoraPage() {
               id="problem" 
               className=" grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
               onMouseEnter={() => {
-                const event = new CustomEvent('sectionHover', { detail: 'research' })
+                const event = new CustomEvent('sectionHover', { detail: 'problem' })
                 window.dispatchEvent(event)
               }}
               onMouseLeave={() => {
@@ -637,6 +468,8 @@ export default function TalentoraPage() {
                        <p className="text-lg font-extralight leading-relaxed text-gray-600">
                        An impact-effort matrix helped me to identify the areas that had the highest impact while requiring lower development effort. I valued higher impact as opposed to lower effort for this redesign. I realized that there was an opportunity to integrate these experiences to both increase the ability for users to find relevant groceries and introduce them to new community-driven items throughout their purchasing process.
                        </p>
+
+                
 
                 
 
@@ -701,12 +534,213 @@ export default function TalentoraPage() {
                              className="rounded-lg object-cover object-center"
                              style={{ objectPosition: 'center 50%' }}
                            />
-                         
-                </div>
-                </div>
+                         </div>
+                         </div>
+
+<div 
+              id="competitive-analysis" 
+              className="px-16 grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'competitive-analysis' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            ></div>
+
+
+
+            <div className="px-16">
+              <SectionTitle>Ideate</SectionTitle>
+            </div>
+            <p className="px-16 text-lg font-extralight leading-relaxed text-gray-600">
+            As we were working towards an MVP, I thought that first and foremost, the design strategy should start with acquiring customers. With no customers, no one will be seeing the product. Using the existing logo to work off of, I built a personalization onboarding experience for new users, starting from the Fitvio marketing page all the way to the authenticated home page. I started with Sam's—our casual health nut's—experience.
+
+Sam can choose to start working out right away without even creating an account. To track her progress and engage with instructors though, she can create an account, answer a couple questions, and get a personalized list of workout videos in just a few minutes.
+
+                </p>
             
+            
+            {/* Image after Ideate section title */}
+            <div className="px-8 flex mt-4 justify-center">
+              <div className="relative w-full max-w-6xl">
+                <Image
+                  src="/images/talentora8.png"
+                  alt="Ideate Process"
+                  width={1600}
+                  height={1200}
+                  className="rounded-lg object-cover object-center"
+                  style={{ objectPosition: 'center 50%' }}
+                />
+              </div>
+            </div>
+            
+            {/* Two videos in columns after ideate image */}
+            <div className="max-w-7xl mx-auto px-16 mt-20">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="relative">
+                  <video
+                    className=" w-full h-auto"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{ maxHeight: "400px" }}
+                  >
+                    <source src="/videos/video10.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+
+          <video
+            className="mt-10 w-full h-auto"
+            controls
+            style={{ maxHeight: "400px" }}
+          >
+            <source src="/videos/video4.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+    
+      
+                </div>
+                <div className="relative">
+                  <video
+                    className=" w-full h-auto"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{ maxHeight: "400px" }}
+                  >
+                    <source src="/videos/video13.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+
+          <img
+            src="/images/image14.png"
+            alt="Hariri Institute Design Process"
+            className="mt-10 w-full h-auto object-cover"
+            style={{ maxHeight: "400px" }}
+          />
+
+          <video
+            className="mt-10 w-full h-auto"
+            controls
+            style={{ maxHeight: "400px" }}
+          >
+            <source src="/videos/video5.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        
+      
+       
+    
+
+                </div>
+                
+              </div>
+              
+            </div>
+            <div className="mt-8 px-16">
+            <SectionTitle>Rebranding</SectionTitle>
+          </div>
+          <p className="px-16 text-lg font-extralight leading-relaxed text-gray-600">
+                  Talentora is redefining hiring for small and medium-sized businesses. With a focus on <strong>efficiency</strong>, <strong>empathy</strong>, and <strong>intelligence</strong>, the platform helps teams hire smarter—without the high costs or time demands of traditional recruiting. Whether you're an overextended founder, a lean HR manager, or a job seeker looking for a modern interview experience, Talentora offers a powerful solution for building your dream team.
+                </p>
+                <div className="px-8 max-w-6xl flex mt-4 justify-center">
+                <Image
+                  src="/images/talentora9.png"
+                  alt="Rebranding Process"
+                  width={1600}
+                  height={1200}
+                  className="rounded-lg object-cover object-center w-full h-auto"
+                  style={{ objectPosition: 'center 50%' }}
+                />
+                </div>
+          {/* Text and Image in columns */}
+          <div className="px-16 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              {/* Left Column - Text */}
+              <div className="space-y-6">
+               
+                
+                <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  In addition, I wanted to extend the brand to all parts of Talentora, including the team itself. As we were working completely virtually, it was hard to build a team culture of connection and engagement. I uploaded our new logo as a Slack emoji to socialize the new brand with the team and build excitement.
+                </p>
+              </div>
+              
+              {/* Right Column - Image */}
+              <div className="relative max-w-lg justify-startmx-auto">
+                <Image
+                  src="/images/talentora10.jpg"
+                  alt="Rebranding Process"
+                  width={1400}
+                  height={1200}
+                  className=" object-cover object-center w-full h-auto"
+                  style={{ objectPosition: 'center 50%' }}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="px-16 flex mt-10 max-w-7xl justify-center">
+          <Image
+                  src="/images/talentora11.png"
+                  alt="Rebranding Process"
+                  width={1400}
+                  height={1200}
+                  className=" object-cover object-center w-full h-auto"
+                  style={{ objectPosition: 'center 50%' }}
+                />
+                
+              </div>
+               <p className="max-w-7xl mx-auto text-sm font-extralight leading-relaxed text-gray-600 text-center mt-4 mb-10 mr-48">
+                 Logo Construction
+               </p>
+
+             <div className="px-16 flex mt-10 max-w-5xl justify-center mx-auto">
+            
+              <Image
+                src="/images/talentora12.png"
+                alt="Rebranding Process"
+                width={1400}
+                height={1200}
+                className="object-cover object-center w-full h-auto"
+                style={{ objectPosition: 'center 100%' }}
+              />
+            </div>
+            <p className="max-w-7xl mx-auto text-sm font-extralight leading-relaxed text-gray-600 text-center mt-4 mb-10 mr-48">
+            Minimum spacing guidelines
+
+               </p>
+
+               <div className="px-16 flex mt-10 max-w-7xl justify-center mx-auto">
+            
+            <Image
+              src="/images/talentora13.png"
+              alt="Rebranding Process"
+              width={1400}
+              height={1200}
+              className="object-cover object-center w-full h-auto"
+              style={{ objectPosition: 'center 100%' }}
+            />
+          </div>
+          <p className="max-w-7xl mx-auto text-sm font-extralight leading-relaxed text-gray-600 text-center mt-4 mb-10 mr-48">
+          Logo iterations and variations for light and dark mode
+             </p>
+          
 
             
+            
+                         
+                
+
+             
+                
+                
+            
+
+             
 
  
             
@@ -716,36 +750,27 @@ export default function TalentoraPage() {
 
 
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg mb-20"
-          >
-            <div dangerouslySetInnerHTML={{ __html: project.content }} />
-          </motion.div>
 
-          {/* Navigation */}
-          <div className="flex justify-between items-center">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Projects
-            </Link>
 
-            <Link
-              href="/work/virtual-gallery"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
-            >
-              Next Project
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
         </article>
       </main>
+
+      {/* Project Cards Navigation */}
+      <div className="flex items-center px-16 py-20">
+        <hr className="flex-grow border-gray-300" />
+        <span className="mx-6 text-2xl font-bold text-gray-900 whitespace-nowrap">More Projects</span>
+        <hr className="flex-grow border-gray-300" />
+      </div>
+      <div className="px-16 pt-0 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {projects
+            .filter(project => project.href !== "/work/talentora")
+            .slice(0, 3)
+            .map((project) => (
+              <ProjectCard key={project.href} project={project} />
+            ))}
+        </div>
+      </div>
     </div>
   )
 } 
