@@ -590,8 +590,8 @@ Sam can choose to start working out right away without even creating an account.
                     style={{ maxHeight: "400px" }}
                     onError={(e) => console.log('Video loading error:', e)}
                   >
-                    <source src="/videos/video10.mov" type="video/quicktime" />
-                    <source src="/videos/video10.mov" type="video/mp4" />
+                    <source src="/videos/video10.mp4" type="video/quicktime" />
+                    <source src="/videos/video10.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
 
@@ -599,9 +599,7 @@ Sam can choose to start working out right away without even creating an account.
             className="mt-10 w-full h-auto"
             controls
             style={{ maxHeight: "400px" }}
-            onError={(e) => console.log('Video loading error:', e)}
           >
-            <source src="/videos/video4.mov" type="video/quicktime" />
             <source src="/videos/video4.mov" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
