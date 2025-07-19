@@ -16,7 +16,7 @@ import { projects } from "@/data/projects"
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
 const project = {
-    title: "Designing A\nConversational AI Interviewing Interface",
+    title: "Designing a\nconversational AI interviewing interface.",
     description: "A platform that uses AI to conduct interviews and evaluate candidates.",
     date: "Less stress, better hires, smarter conversations.",
     image: "/image16.png",
@@ -62,12 +62,12 @@ export default function TalentoraPage() {
           >
             {/* Text Content */}
             <motion.div
-              className="relative z-10 pt-12 pb-8"
+              className="relative z-10 pt-12 max-w-7xl pb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="px-16 pr-32">
+              <div className="px-16">
                 <div className="max-w-7xl mx-auto space-y-4">
                   <motion.h1
                     className="font-mono text-3xl md:text-5xl font-normal tracking-wide leading-relaxed"
@@ -102,18 +102,19 @@ export default function TalentoraPage() {
 
             {/* Image */}
             <motion.div
-              className="relative w-full h-[400px] overflow-hidden -mt-2"
+              className="relative w-full h-[600px] overflow-hidden justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="flex justify-start">
+              <div className="flex justify-start -ml-8">
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={1920}
                   height={1080}
-                  className="w-full max-w-5xl h-full object-contain rounded-3xl"
+                  className="w-full max-w-7xl h-full object-contain rounded-3xl"
+                  style={{ objectPosition: 'center 30%' }}
                   priority
                 />
               </div>
@@ -205,11 +206,7 @@ export default function TalentoraPage() {
 
           </motion.div>
 
-          <p className="mt-10 px-16 text-lg font-extralight leading-relaxed text-gray-600">
-          The purpose of this app is to make it easier for recruiters to engage with candidates and experience a more streamlined, human-first interview process.
-
-
-</p>
+        
                   <br></br>
 
         {/* Section Title Example */}
@@ -220,13 +217,13 @@ export default function TalentoraPage() {
 
          <div className="px-16 -mt-2">
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                  As hiring becomes increasingly fast-paced and competitive—especially for small to mid-sized companies—traditional recruiting methods are struggling to keep up. Overwhelmed teams often lack the resources to thoroughly screen every candidate, leading to rushed decisions and missed opportunities.
+                  As hiring becomes increasingly <strong>fast-paced and competitive</strong>—especially for <strong>small to mid-sized companies</strong>—traditional recruiting methods are struggling to keep up. <strong>Overwhelmed teams</strong> often lack the resources to thoroughly screen every candidate, leading to <strong>rushed decisions and missed opportunities</strong>.
 
-                              At the same time, candidates are seeking more personalized, transparent, and engaging ways to showcase their skills beyond a résumé.
+                              At the same time, candidates are seeking more <strong>personalized, transparent, and engaging</strong> ways to showcase their skills beyond a résumé.
 </p>
 <br></br>
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                  I wanted to explore how conversational AI could reduce friction in early-stage interviews—making the process more efficient for employers while ensuring candidates feel seen, heard, and fairly evaluated.
+                  I wanted to explore how <strong>conversational AI</strong> could reduce friction in <strong>early-stage interviews</strong>—making the process more <strong>efficient for employers</strong> while ensuring candidates feel <strong>seen, heard, and fairly evaluated</strong>.
 
 
 </p>
@@ -254,7 +251,7 @@ export default function TalentoraPage() {
 
                  <div className="px-16 -mt-2">
                    <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                   The first stage of design thinking—empathy—was crucial in shaping the foundation of Talentora. To truly understand the problem, I conducted interviews with both small business employers and active job seekers to uncover the frustrations, habits, and emotional undercurrents driving their hiring experiences, as well as explored competitors in the market.
+                   The first stage of design thinking—<strong>empathy</strong>—was crucial in shaping the foundation of Talentora. To truly understand the problem, I conducted interviews with both <strong>small business employers</strong> and <strong>active job seekers</strong> to uncover the frustrations, habits, and emotional undercurrents driving their hiring experiences, as well as explored competitors in the market.
 
 </p>
                    
@@ -289,7 +286,7 @@ export default function TalentoraPage() {
                 <br></br>
                    
                    <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                   Recruiter responses revealed burnout, inefficiency, and limited visibility beyond résumés. The need for better pre-screening tools that balance fairness with a personal touch became clear. These insights informed the design approach, focusing on reducing recruiter workload while preserving a human-centered interview experience.
+                   Recruiter responses revealed <strong>burnout, inefficiency, and limited visibility</strong> beyond résumés. The need for better <strong>pre-screening tools</strong> that balance <strong>fairness with a personal touch</strong> became clear. These insights informed the design approach, focusing on <strong>reducing recruiter workload</strong> while preserving a <strong>human-centered interview experience</strong>.
                    </p>
 
                    <br></br>
@@ -564,8 +561,8 @@ Sam can choose to start working out right away without even creating an account.
             
             
             {/* Image after Ideate section title */}
-            <div className="px-8 flex mt-4 justify-center">
-              <div className="relative w-full max-w-6xl">
+            <div className="px-16 flex mt-4 justify-start">
+              <div className="relative w-full max-w-6xl ">
                 <Image
                   src="/images/talentora8.png"
                   alt="Ideate Process"
@@ -578,71 +575,65 @@ Sam can choose to start working out right away without even creating an account.
             </div>
             
             {/* Two videos in columns after ideate image */}
-            <div className="max-w-7xl mx-auto px-16 mt-20">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div className="relative">
-                  <video
-                    className="w-full h-auto"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    style={{ maxHeight: "400px" }}
-                    onError={(e) => console.log('Video loading error:', e)}
-                  >
-                    <source src="/videos/video10.mp4" type="video/quicktime" />
-                    <source src="/videos/video10.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+            <div className="px-16 mt-20">
+              <div className="max-w-6xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  <div className="relative">
+                    <video
+                      className="w-full h-auto"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      style={{ maxHeight: "400px" }}
+                      onError={(e) => console.log('Video loading error:', e)}
+                    >
+                      <source src="/videos/video10.mp4" type="video/quicktime" />
+                      <source src="/videos/video10.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
 
-          <video
-            className="mt-10 w-full h-auto"
-            controls
-            style={{ maxHeight: "400px" }}
-          >
-            <source src="/videos/video4.mov" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-    
-      
+                    <video
+                      className="mt-10 w-full h-auto"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      style={{ maxHeight: "400px" }}
+                    >
+                      <source src="/videos/video4.mp4" type="video/quicktime" />
+                      <source src="/videos/video4.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  
+                  <div className="relative">
+                    <video
+                      className="w-full h-auto"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      style={{ maxHeight: "400px" }}
+                    >
+                      <source src="/videos/video13.mov" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    <video
+                      className="mt-10 w-full h-auto"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      style={{ maxHeight: "400px" }}
+                    >
+                      <source src="/videos/video5.mov" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
                 </div>
-                <div className="relative">
-                  <video
-                    className=" w-full h-auto"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    style={{ maxHeight: "400px" }}
-                  >
-                    <source src="/videos/video13.mov" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-
-          <img
-            src="/images/image14.png"
-            alt="Hariri Institute Design Process"
-            className="mt-10 w-full h-auto object-cover"
-            style={{ maxHeight: "400px" }}
-          />
-
-          <video
-            className="mt-10 w-full h-auto"
-            controls
-            style={{ maxHeight: "400px" }}
-          >
-            <source src="/videos/video5.mov" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        
-      
-       
-    
-
-                </div>
-                
               </div>
-              
             </div>
             <div className="mt-8 px-16">
             <SectionTitle>Rebranding</SectionTitle>
@@ -650,7 +641,7 @@ Sam can choose to start working out right away without even creating an account.
           <p className="px-16 text-lg font-extralight leading-relaxed text-gray-600">
                   Talentora is redefining hiring for small and medium-sized businesses. With a focus on <strong>efficiency</strong>, <strong>empathy</strong>, and <strong>intelligence</strong>, the platform helps teams hire smarter—without the high costs or time demands of traditional recruiting. Whether you're an overextended founder, a lean HR manager, or a job seeker looking for a modern interview experience, Talentora offers a powerful solution for building your dream team.
                 </p>
-                <div className="px-8 max-w-6xl flex mt-4 justify-center">
+                <div className="px-16 max-w-6xl flex mt-4 justify-center">
                 <Image
                   src="/images/talentora9.png"
                   alt="Rebranding Process"
@@ -685,7 +676,7 @@ Sam can choose to start working out right away without even creating an account.
               </div>
             </div>
           </div>
-          <div className="px-16 flex mt-10 max-w-7xl justify-center">
+                     <div className="px-16 flex mt-10 max-w-7xl mx-auto justify-center">
           <Image
                   src="/images/talentora11.png"
                   alt="Rebranding Process"
@@ -696,7 +687,7 @@ Sam can choose to start working out right away without even creating an account.
                 />
                 
               </div>
-               <p className="max-w-7xl mx-auto text-sm font-extralight leading-relaxed text-gray-600 text-center mt-4 mb-10 mr-48">
+               <p className="max-w-7xl mx-auto text-sm font-extralight leading-relaxed text-gray-600 text-center mt-4 mb-10">
                  Logo Construction
                </p>
 
@@ -711,7 +702,7 @@ Sam can choose to start working out right away without even creating an account.
                 style={{ objectPosition: 'center 100%' }}
               />
             </div>
-            <p className="max-w-7xl mx-auto text-sm font-extralight leading-relaxed text-gray-600 text-center mt-4 mb-10 mr-48">
+            <p className="max-w-7xl mx-auto text-sm font-extralight leading-relaxed text-gray-600 text-center mt-4 mb-10">
             Minimum spacing guidelines
 
                </p>
@@ -727,9 +718,35 @@ Sam can choose to start working out right away without even creating an account.
               style={{ objectPosition: 'center 100%' }}
             />
           </div>
-          <p className="max-w-7xl mx-auto text-sm font-extralight leading-relaxed text-gray-600 text-center mt-4 mb-10 mr-48">
+          <p className="max-w-7xl mx-auto text-sm font-extralight leading-relaxed text-gray-600 text-center mt-4 mb-10 ">
           Logo iterations and variations for light and dark mode
              </p>
+
+             <div className="px-16 flex mt-10 max-w-7xl justify-center mx-auto">
+            
+            <Image
+              src="/images/talentora14.png"
+              alt="Rebranding Process"
+              width={1400}
+              height={1200}
+              className="object-cover object-center w-full h-auto"
+              style={{ objectPosition: 'center 100%' }}
+            />
+          </div>
+          <p className="max-w-7xl mx-auto text-sm font-extralight leading-relaxed text-gray-600 text-center mt-4 mb-10 ">
+          Talentora color palette
+             </p>
+
+
+             <p className="px-16 text-lg font-extralight leading-relaxed text-gray-600">
+                             After establishing our rebrand, I applied it to a couple of designs from our onboarding journey.
+
+             </p>
+
+
+
+
+
           
 
             
