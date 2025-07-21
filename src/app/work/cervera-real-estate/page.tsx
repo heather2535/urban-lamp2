@@ -11,6 +11,8 @@ import { Playfair_Display } from 'next/font/google'
 import { ProjectNavigation } from "@/components/project-navigation"
 import ProjectVerticalNavigation from "@/components/project-vertical-navigation"
 import SectionTitle from "@/components/SectionTitle"
+import { ProjectCard } from '@/components/project-card'
+import { projects } from '@/data/projects'
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
@@ -222,6 +224,7 @@ const tagIcons: Record<string, React.ReactElement> = {
 // Custom Vertical Navigation for Aventura Rendering
 function AventuraVerticalNavigation() {
   const [scrolled, setScrolled] = useState(false)
+  const [showNav, setShowNav] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -231,6 +234,21 @@ function AventuraVerticalNavigation() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    const updateShowNav = () => {
+      const gallery = document.getElementById("gallery");
+      if (gallery) {
+        const rect = gallery.getBoundingClientRect();
+        setShowNav(rect.bottom > 0);
+      }
+    };
+    updateShowNav();
+    window.addEventListener("scroll", updateShowNav);
+    return () => window.removeEventListener("scroll", updateShowNav);
+  }, []);
+
+  if (!showNav) return null;
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -436,7 +454,7 @@ export default function AventuraRenderingPage() {
               <SectionTitle>Introduction</SectionTitle>               
               <p className="text-lg font-extralight text-gray-600">I took on a hands-on marketing internship at Cervera Real Estate in Miami, where I designed and managed social media ads for multiple realtors and real estate agents. I was responsible for creating Instagram posts for each realtor's personal brand identity. </p>
             
-              <p className="mt-4 text-lg font-extralight text-gray-600">In addition to social media content, I led the creation of presentatino slide decks for onboarding new agents. I used Canva and Adobe Creative Cloud to craft clear, polished presentations that effectively communicated company policies and culture in a visually engaging way. Not only did this require graphic design skills, but also the ability to translate complex data into an accessible and attractive format. </p>
+              <p className="mt-4 text-lg font-extralight text-gray-600">In addition to social media content, I led the creation of presentation slide decks for onboarding new agents. I used Canva and Adobe Creative Cloud to craft clear, polished presentations that effectively communicated company policies and culture in a visually engaging way. Not only did this require graphic design skills, but also the ability to translate complex data into an accessible and attractive format. </p>
 
             <p className="mt-4 text-lg font-extralight text-gray-600">Through this internship, I deepened my understanding of how to build and maintain a cohesive brand identity across digital platforms. I also sharpened my collaboration skills by working closely with clients and internal teams to iterate on designs to meet specific needs and objectives. </p>
  
@@ -448,7 +466,7 @@ export default function AventuraRenderingPage() {
           {/* Social Media Ads Section */}
           <div className="px-16 mt-12">
           <SectionTitle>Social Media Ads</SectionTitle>               
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <AutoCarousel 
                 images={[
                   "/images/cervera1.png",
@@ -486,78 +504,84 @@ export default function AventuraRenderingPage() {
                 ]}
               />
             </div>
+              <div className="mt-12">
+            <SectionTitle>Presentation Design</SectionTitle>               
+            <p className="text-lg font-extralight text-gray-600">
+            To support Cervera Real Estate’s agent onboarding process, I designed a polished, easy-to-navigate slide presentation that walked new hires through the ActivePipe marketing platform—a key tool for email automation and client outreach.
+            </p>
+            </div>
+            <iframe src="https://player.flipsnack.com?hash=Q0ZERDhDQThCN0ErN2Npb21mOGNqbA==" width="100%" height="480" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write"></iframe>
+
+
+                <div className="mt-12">
+            <SectionTitle>July Events E-Flyer</SectionTitle>   
+            <p className="text-lg font-extralight text-gray-600">
+            I created an e-flyer for Cervera Real Estate’s July events, including a real estate seminar and a property tour. The flyer was designed to be visually appealing and easy to navigate, with a focus on highlighting the key features and benefits of the properties being showcased.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  <div className="p-4 bg-white rounded-lg shadow">
+                    <Image src="/images/cervera13.png" alt="July Events E-Flyer 1" width={1920} height={1080} className="w-full h-auto" />
+                  </div>
+                  <div className="p-4 bg-white rounded-lg shadow">
+                    <Image src="/images/cervera14.png" alt="July Events E-Flyer 2" width={1920} height={1080} className="w-full h-auto" />
+                  </div>
+                  <div className="p-4 bg-white rounded-lg shadow">
+                    <Image src="/images/cervera15.png" alt="July Events E-Flyer 3" width={1920} height={1080} className="w-full h-auto" />
+                  </div>
+                  <div className="p-4 bg-white rounded-lg shadow">
+                    <Image src="/images/cervera16.png" alt="July Events E-Flyer 4" width={1920} height={1080} className="w-full h-auto" />
+                  </div>
+                  
+                </div>
+                            </div> 
+<div className="mt-12">
+                            <SectionTitle>Gallery</SectionTitle> 
+                            </div>  
+                             {/* Gallery Section */}
+                             <p className="text-lg font-extralight text-gray-600">
+
+                Created a high-quality, photorealistic rendering for 12/12 Aventura Drive, a modern residential property, using AutoCAD, 3ds Max, and V-Ray.
+</p>
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  <Image src="/images/image27.jpg" alt="Architectural Visualization 1" width={1920} height={1080} />
+                  <Image src="/images/image28.jpg" alt="Architectural Visualization 2" width={1920} height={1080} />
+                  <Image src="/images/image26.jpg" alt="Architectural Visualization 3" width={1920} height={1080} />
+                  <Image src="/images/image27.jpg" alt="Architectural Visualization 4" width={1920} height={1080} />
+                  <Image src="/images/image28.jpg" alt="Architectural Visualization 5" width={1920} height={1080} />
+                  <Image src="/images/image26.jpg" alt="Architectural Visualization 6" width={1920} height={1080} />
+                </div>
+
+
+
           </div>
 
+
+
+
           <div className="w-full bg-white dark:bg-gray-900 mt-12">
-            <div className="container max-w-6xl mx-auto px-4 py-8">
+            <div className="container max-w-full mx-auto px-4 py-8">
               <div dangerouslySetInnerHTML={{ __html: project.content }} />
               
-              {/* Gallery Section */}
-              <div className="mt-16">
-                <h2 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Gallery</h2>
-                Created a high-quality, photorealistic rendering for 12/12 Aventura Drive, a modern residential property, using AutoCAD, 3ds Max, and V-Ray
+             
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="space-y-6">
-                    <img
-                      src="/images/image27.jpg"
-                      alt="Architectural Visualization 1"
-                      className="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-                    />
-                    <img
-                      src="/images/image28.jpg"
-                      alt="Architectural Visualization 2"
-                      className="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-                    />
-                  </div>
-                  <div className="space-y-6">
-                    <img
-                      src="/images/image26.jpg"
-                      alt="Architectural Visualization 3"
-                      className="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-                    />
-                    <img
-                      src="/images/image27.jpg"
-                      alt="Architectural Visualization 4"
-                      className="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-                    />
-                  </div>
-                  <div className="space-y-6">
-                    <img
-                      src="/images/image28.jpg"
-                      alt="Architectural Visualization 5"
-                      className="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-                    />
-                    <img
-                      src="/images/image26.jpg"
-                      alt="Architectural Visualization 6"
-                      className="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-                    />
+              {/* Replace the Return Home button at the bottom with More Projects section */}
+              {/* More Projects Section - full width */}
+              <div className="w-full">
+                <div className="flex items-center w-full py-20">
+                  <hr className="flex-grow border-gray-300" />
+                  <span className="mx-6 text-xl font-bold font-mono text-gray-900 whitespace-nowrap">more from my portfolio</span>
+                  <hr className="flex-grow border-gray-300" />
+                </div>
+                <div className="w-full pt-0 pb-8">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+                    {projects
+                      .filter(project => project.href !== "/work/cervera-real-estate")
+                      .slice(0, 3)
+                      .map((project) => (
+                        <ProjectCard key={project.href} project={project} />
+                      ))}
                   </div>
                 </div>
-              </div>
-
-              <div className="mt-16 flex justify-center">
-                <Link 
-                  href="/" 
-                  className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
-                >
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    width="16" 
-                    height="16" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                    <polyline points="9,22 9,12 15,12 15,22"/>
-                  </svg>
-                  Return Home
-                </Link>
               </div>
             </div>
           </div>

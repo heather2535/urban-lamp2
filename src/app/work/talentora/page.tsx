@@ -193,7 +193,7 @@ export default function TalentoraPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className=" px-16 scroll-mt-24"
+            className=" px-16 scroll-mt-4"
             onMouseEnter={() => {
               const event = new CustomEvent('sectionHover', { detail: 'inspiration' })
               window.dispatchEvent(event)
@@ -206,12 +206,12 @@ export default function TalentoraPage() {
 
           </motion.div>
 
-        
+
                   <br></br>
 
         {/* Section Title Example */}
          <div className="px-16">
-           <SectionTitle>Hypothesis</SectionTitle>
+           <SectionTitle>Motivation</SectionTitle>
          </div>
          
 
@@ -233,7 +233,7 @@ export default function TalentoraPage() {
 
         <div 
               id="project-overview" 
-              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-4 scroll-mt-24"
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-4 scroll-mt-4"
               onMouseEnter={() => {
                 const event = new CustomEvent('sectionHover', { detail: 'project-overview' })
                 window.dispatchEvent(event)
@@ -246,16 +246,84 @@ export default function TalentoraPage() {
 
         <div className="px-16 md:col-span-12">      
         {/* Section Title Example */}
-        <SectionTitle>Empathize</SectionTitle>
+        <SectionTitle>Problem</SectionTitle>
         </div>
+        
 
                  <div className="px-16 -mt-2">
                    <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                   Recruiter responses revealed <strong>burnout, inefficiency, and limited visibility</strong> beyond résumés. The need for better <strong>pre-screening tools</strong> that balance <strong>fairness with a personal touch</strong> became clear. These insights informed the design approach, focusing on <strong>reducing recruiter workload</strong> while preserving a <strong>human-centered interview experience</strong>.
+                   </p>
+                 <h3 className="mt-4 font-sans text-3xl font-normal tracking-wide text-orange-500 border-l-4 border-orange-300 pl-6">
+                   "I need a faster way to identify strong candidates without sacrificing quality or candidate experience."
+                </h3>
+                <br></br>
+                   
+           
+
+
+            <div 
+                  id="research" 
+                  className="grid grid-cols-1 md:grid-cols-12 gap-8 "
+                  onMouseEnter={() => {
+                    const event = new CustomEvent('sectionHover', { detail: 'research' })
+                    window.dispatchEvent(event)
+                  }}
+                  onMouseLeave={() => {
+                    const event = new CustomEvent('sectionHover', { detail: null })
+                    window.dispatchEvent(event)
+                  }}
+                >
+                  <div className="md:col-span-12">
+
+                               {/* Competitive Analysis Section */}
+            <div 
+              id="research" 
+              className=" grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'research' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            >
+              <div className=" md:col-span-12">
+                <SectionTitle>understanding our users</SectionTitle>
+                <div className="-mt-10 -mt-2">
+                <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                With only a product mission to guide us, I knew it was essential to first understand our users and their pain points before moving into design. Since our team came from diverse technical and business backgrounds—many unfamiliar with the role of design—I saw an opportunity to establish design not just as a visual layer, but as a strategic problem-solving tool.
+</p>
+<br></br>
+                          
+                <p className="text-lg font-extralight leading-relaxed text-gray-600">
                    The first stage of design thinking—<strong>empathy</strong>—was crucial in shaping the foundation of Talentora. To truly understand the problem, I conducted interviews with both <strong>small business employers</strong> and <strong>active job seekers</strong> to uncover the frustrations, habits, and emotional undercurrents driving their hiring experiences, as well as explored competitors in the market.
+
+</p>
+<br></br>
+              <p className="text-lg font-extralight leading-relaxed text-gray-600">
+              From this research, we developed personas like Bina, an HR manager at a growing tech startup who’s juggling multiple roles. Bina is efficient, analytical, and empathetic—but overwhelmed by repetitive screening tasks and wary of AI tools that feel impersonal or opaque. She wants a solution that helps her hire smarter and faster, while maintaining fairness and a human touch.
+
 
 </p>
                    
                    <br></br>
+                   {/* Image of user persona */}
+                     <div className="px-8 pt-4 pb-4flex justify-center -ml-8">
+                            <div className="relative w-full max-w-3xl">
+                            <Image
+                              src="/images/talentora5.png"
+                              alt="User Persona"
+                              width={1200}
+                              height={900}
+                              className="rounded-lg object-cover object-center"
+                              priority
+                              loading="eager"
+                            />
+                         
+                         </div>
+                         </div>
                    <p className=" text-3xl font-semibold leading-relaxed text-orange-400">
                   primary research
                   </p>
@@ -278,16 +346,35 @@ export default function TalentoraPage() {
                    
                    <br></br>
                    <p className=" text-3xl font-semibold leading-relaxed text-orange-400">
+                  empathy map
+                  </p>
+
+                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
+                  An empathy map is a collaborative tool teams can use to gain a deeper insight into their customers, organized by consumer thinking/feeling, what they’re experiencing and pain points.
+
+              
+                         The empathy map shows that recruiters and hiring managers feel overwhelmed by high applicant volumes and time-consuming screening, yet are wary of impersonal or biased AI tools. They seek deeper insights into candidates beyond résumés while facing pressure to hire quickly and maintain a strong employer brand. Their pains include inefficiency, burnout, and fear of bad hires, while their goals center on saving time, improving candidate fit, and ensuring a fair, human-centered hiring experience—highlighting the value of solutions like Talentora.
+
+                </p>
+                         {/* Image after key opportunity areas */}
+                         <div className="px-8  flex justify-center -ml-8">
+                         <div className="relative w-full max-w-3xl">
+                           <Image
+                             src="/images/talentora4.png"
+                             alt="Plant Care Research Insights"
+                             width={1600}
+                             height={1200}
+                             className="rounded-lg object-cover object-center"
+                             style={{ objectPosition: 'center 45%' }}
+                           />
+                         
+                         </div>
+                         </div>
+                     
+                   <p className=" text-3xl font-semibold leading-relaxed text-orange-400">
                   secondary research
                   </p>
-                   <h3 className="mt-4 font-sans text-3xl font-normal tracking-wide text-orange-500 border-l-4 border-orange-300 pl-6">
-                   "I need a faster way to identify strong candidates without sacrificing quality or candidate experience."
-                </h3>
-                <br></br>
                    
-                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                   Recruiter responses revealed <strong>burnout, inefficiency, and limited visibility</strong> beyond résumés. The need for better <strong>pre-screening tools</strong> that balance <strong>fairness with a personal touch</strong> became clear. These insights informed the design approach, focusing on <strong>reducing recruiter workload</strong> while preserving a <strong>human-centered interview experience</strong>.
-                   </p>
 
                    <br></br>
                    <p className="text-lg font-extralight leading-relaxed text-gray-600">
@@ -330,90 +417,12 @@ export default function TalentoraPage() {
                 </p>
 
 
-            <div 
-                  id="research" 
-                  className="grid grid-cols-1 md:grid-cols-12 gap-8 "
-                  onMouseEnter={() => {
-                    const event = new CustomEvent('sectionHover', { detail: 'research' })
-                    window.dispatchEvent(event)
-                  }}
-                  onMouseLeave={() => {
-                    const event = new CustomEvent('sectionHover', { detail: null })
-                    window.dispatchEvent(event)
-                  }}
-                >
-                  <div className="md:col-span-12">
-
-                               {/* Competitive Analysis Section */}
-            <div 
-              id="research" 
-              className=" grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
-              onMouseEnter={() => {
-                const event = new CustomEvent('sectionHover', { detail: 'research' })
-                window.dispatchEvent(event)
-              }}
-              onMouseLeave={() => {
-                const event = new CustomEvent('sectionHover', { detail: null })
-                window.dispatchEvent(event)
-              }}
-            >
-              <div className=" md:col-span-12">
-                <SectionTitle>synthesizing research</SectionTitle>
-                <div className="-mt-10 -mt-2">
-
-                <p className=" text-3xl font-semibold leading-relaxed text-orange-400">
-                  empathy map
-                  </p>
-
-                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                  An empathy map is a collaborative tool teams can use to gain a deeper insight into their customers, organized by consumer thinking/feeling, what they’re experiencing and pain points.
-
-                </p>
                 
-                         {/* Image after key opportunity areas */}
-                         <div className="px-8  flex justify-center -ml-8">
-                         <div className="relative w-full max-w-3xl">
-                           <Image
-                             src="/images/talentora4.png"
-                             alt="Plant Care Research Insights"
-                             width={1600}
-                             height={1200}
-                             className="rounded-lg object-cover object-center"
-                             style={{ objectPosition: 'center 45%' }}
-                           />
-                         
-                         </div>
-                         </div>
-                         <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                         The empathy map shows that recruiters and hiring managers feel overwhelmed by high applicant volumes and time-consuming screening, yet are wary of impersonal or biased AI tools. They seek deeper insights into candidates beyond résumés while facing pressure to hire quickly and maintain a strong employer brand. Their pains include inefficiency, burnout, and fear of bad hires, while their goals center on saving time, improving candidate fit, and ensuring a fair, human-centered hiring experience—highlighting the value of solutions like Talentora.
-
-                </p>
-                <p className=" pt-4 text-3xl font-semibold leading-relaxed text-orange-400">
-                  user personas
-                  </p>
-                  <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                  I created a distinct user persona which helped me align on strategies for moving forward and identify goals that need to be met to provide a good user experience for specific user groups.
-
-
-                </p>
+                   
+             
 
                                                   
-                                                 {/* Image of user persona */}
-                         <div className="px-8 pt-4 flex justify-center -ml-8">
-                            <div className="relative w-full max-w-3xl">
-                            <Image
-                              src="/images/talentora5.png"
-                              alt="User Persona"
-                              width={1200}
-                              height={900}
-                              className="rounded-lg object-cover object-center"
-                              style={{ objectPosition: 'center 45%' }}
-                              priority
-                              loading="eager"
-                            />
-                         
-                         </div>
-                         </div>
+                      
                          <br></br>
                   
                 
@@ -424,7 +433,7 @@ export default function TalentoraPage() {
 
             <div 
               id="problem" 
-              className=" grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
+              className=" grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-4"
               onMouseEnter={() => {
                 const event = new CustomEvent('sectionHover', { detail: 'problem' })
                 window.dispatchEvent(event)
@@ -498,7 +507,15 @@ export default function TalentoraPage() {
                   </p>
 
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                  User stories are used to identify the functional needs, but don’t explore how to actually design the product to meet those functional needs.
+                  This user flow diagram outlines the core experience of a conversational AI hiring platform for both candidates and recruiters. On the candidate side, users begin by selecting their role, then proceed through login or sign-up, followed by a guided setup process that includes mic configuration, chatbot preference selection, practice questions, and a permission page to prepare for AI-led interviews. On the recruiter side, users similarly begin by selecting their role and logging in or signing up, followed by onboarding into a central dashboard. From there, recruiters can post jobs, set up interviews, access a bot library, and review applicants using AI-powered tools. These tools provide emotion and sentiment analysis, technical qualification summaries, and evaluations of candidate goals and values. Together, these flows create an end-to-end system that streamlines recruitment through intelligent automation, allowing recruiters to make informed decisions while offering candidates a supportive, interactive experience.
+
+
+
+
+
+
+
+
 
                 </p>
                     </div>
@@ -532,11 +549,11 @@ export default function TalentoraPage() {
                              style={{ objectPosition: 'center 50%' }}
                            />
                          </div>
-                         </div>
-
-<div 
+                </div>
+                
+                <div 
               id="competitive-analysis" 
-              className="px-16 grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-24"
+              className="px-16 grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-4"
               onMouseEnter={() => {
                 const event = new CustomEvent('sectionHover', { detail: 'competitive-analysis' })
                 window.dispatchEvent(event)
@@ -550,12 +567,13 @@ export default function TalentoraPage() {
 
 
             <div className="px-16">
-              <SectionTitle>Ideate</SectionTitle>
+            <SectionTitle>Ideate</SectionTitle> 
             </div>
             <p className="px-16 text-lg font-extralight leading-relaxed text-gray-600">
-            As we were working towards an MVP, I thought that first and foremost, the design strategy should start with acquiring customers. With no customers, no one will be seeing the product. Using the existing logo to work off of, I built a personalization onboarding experience for new users, starting from the Fitvio marketing page all the way to the authenticated home page. I started with Sam's—our casual health nut's—experience.
+            As we moved toward launching the MVP for the conversational AI hiring platform, I focused our design strategy on acquiring and retaining recruiters—our primary users and the key to driving adoption. Starting from the marketing site, I crafted a streamlined onboarding flow that made it easy for recruiters to understand the platform’s value and get started quickly. I imagined a user like Sam—a busy founder or hiring manager at a growing startup—who needs to evaluate candidates efficiently but doesn’t have time for a traditional hiring process. Sam can sign up, create a job posting, and instantly access a library of customizable interview bots. Within minutes, she can start reviewing applicants with AI-generated insights—from sentiment analysis to qualification summaries—without having to manually screen each résumé. This personalized and efficient experience helps recruiters like Sam make smarter decisions, faster, while preserving the nuance of real human conversations.
 
-Sam can choose to start working out right away without even creating an account. To track her progress and engage with instructors though, she can create an account, answer a couple questions, and get a personalized list of workout videos in just a few minutes.
+
+
 
                 </p>
             
@@ -637,7 +655,22 @@ Sam can choose to start working out right away without even creating an account.
                 </div>
               </div>
             </div>
+
             <div className="mt-8 px-16">
+            <div 
+              id="rebranding" 
+              className=" grid grid-cols-1 md:grid-cols-12 gap-8 mt-6 scroll-mt-4"
+              onMouseEnter={() => {
+                const event = new CustomEvent('sectionHover', { detail: 'rebranding' })
+                window.dispatchEvent(event)
+              }}
+              onMouseLeave={() => {
+                const event = new CustomEvent('sectionHover', { detail: null })
+                window.dispatchEvent(event)
+              }}
+            ></div>
+
+            
             <SectionTitle>Rebranding</SectionTitle>
           </div>
           <p className="px-16 text-lg font-extralight leading-relaxed text-gray-600">
@@ -661,7 +694,7 @@ Sam can choose to start working out right away without even creating an account.
                
                 
                 <p className="text-lg font-extralight leading-relaxed text-gray-600">
-                  In addition, I wanted to extend the brand to all parts of Talentora, including the team itself. As we were working completely virtually, it was hard to build a team culture of connection and engagement. I uploaded our new logo as a Slack emoji to socialize the new brand with the team and build excitement.
+                  In addition, I wanted to <strong>extend the brand to all parts of Talentora</strong>, including the team itself. As we were working completely virtually, it was hard to build a team culture of connection and engagement. I uploaded our new logo as a Slack emoji to <strong>socialize the new brand with the team and build excitement.</strong>
                 </p>
               </div>
               
@@ -745,29 +778,66 @@ Sam can choose to start working out right away without even creating an account.
 
              </p>
 
+             {/* Two columns of images for onboarding designs */}
+             <div className="grid grid-cols-1 md:grid-cols-2 px-16 mt-8">
+               <div className="w-full flex justify-center">
+                 <Image
+                   src="/images/talentora15.png"
+                   alt="Onboarding Design 1"
+                   width={900}
+                   height={900}
+                   className=" object-cover object-center w-full h-auto max-w-xl"
+                 />
+               </div>
+               <div className="w-full flex justify-center">
+                 <Image
+                   src="/images/talentora16.png"
+                   alt="Onboarding Design 2"
+                   width={900}
+                   height={900}
+                   className=" object-cover object-center w-full h-auto max-w-lg"
+                 />
+               </div>
+             </div>
 
+          <motion.div
+            id="sketching"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className=" px-16 scroll-mt-24"
+            onMouseEnter={() => {
+              const event = new CustomEvent('sectionHover', { detail: 'sketching' })
+              window.dispatchEvent(event)
+            }}
+            onMouseLeave={() => {
+              const event = new CustomEvent('sectionHover', { detail: null })
+              window.dispatchEvent(event)
+            }}
+          >
 
+          </motion.div>
 
+             <div className="mt-8 px-16">
+             <SectionTitle>challenges & takeaways             </SectionTitle>
+             </div>
+             <p className="px-16 text-lg font-extralight leading-relaxed text-gray-600">
+             Building a product like Talentora meant navigating a constantly evolving space—where AI is both promising and polarizing. I learned to embrace ambiguity, iterate quickly, and stay grounded in user needs even as the technology shifted beneath us.
 
-          
-
+             </p>
+             <br></br>
+             <p className="px-16 text-lg font-extralight leading-relaxed text-gray-600">
+             I also learned the importance of <strong>building trust</strong> with users. As we launched the platform, I was <strong>transparent about the limitations of AI</strong> and how it could be used to <strong>support human judgment</strong>. This approach helped us build a community of users who felt comfortable using the platform and trusted the results.
+             </p>
+             <br></br>
+             <p className="px-16 text-lg font-extralight leading-relaxed text-gray-600">
+             Finally, I learned the importance of <strong>staying grounded in user needs</strong>. As we launched the platform, I was <strong>transparent about the limitations of AI</strong> and how it could be used to <strong>support human judgment</strong>. This approach helped us build a community of users who felt comfortable using the platform and trusted the results.
+             </p>
+             <br></br>
             
-            
-                         
-                
-
              
-                
-                
-            
 
-             
-
- 
-            
-            
-           
-                
 
 
 
@@ -777,9 +847,9 @@ Sam can choose to start working out right away without even creating an account.
       </main>
 
       {/* Project Cards Navigation */}
-      <div className="flex items-center px-16 py-20">
+      <div id="more-projects-divider" className="flex items-center px-16 py-20">
         <hr className="flex-grow border-gray-300" />
-        <span className="mx-6 text-2xl font-bold text-gray-900 whitespace-nowrap">More Projects</span>
+        <span className="mx-6 text-lg font-bold font-mono text-gray-900 whitespace-nowrap">more from my portfolio</span>
         <hr className="flex-grow border-gray-300" />
       </div>
       <div className="px-16 pt-0 pb-8">
@@ -788,7 +858,10 @@ Sam can choose to start working out right away without even creating an account.
             .filter(project => project.href !== "/work/talentora")
             .slice(0, 3)
             .map((project) => (
-              <ProjectCard key={project.href} project={project} />
+              <div key={project.href} className="relative">
+                <div className="absolute left-1/2 -translate-x-1/2 -top-5 w-60 h-8 bg-orange-300 rounded-none z-20 opacity-50 rotate-1"></div>
+                <ProjectCard project={project} />
+              </div>
             ))}
         </div>
       </div>

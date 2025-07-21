@@ -34,7 +34,7 @@ export const projects: Project[] = [
     date: "June 10, 2023",
     image: "/gallery/image1.jpg",
     videoUrl: "/video7.mp4",
-    href: "/work/aventura-rendering",
+    href: "/work/cervera-real-estate",
     tags: ["All Projects", "Graphic Design", "Web Design", "Branding"],
   },
   {

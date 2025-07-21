@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Navigation from "@/components/navigation"
 import { Badge } from "@/components/badge"
 import { SearchBar } from "@/components/search-bar"
@@ -15,6 +15,67 @@ import { ProjectCard } from "@/components/project-card"
 import { projects } from "@/data/projects"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
+
+function VideoCarousel({ videos, altTexts }: { videos: string[]; altTexts: string[] }) {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % videos.length);
+    }, 5000); // Change slide every 5 seconds
+    return () => clearInterval(interval);
+  }, [videos.length]);
+
+  return (
+    <div className="w-full flex flex-col items-center">
+      <div className="relative w-full max-w-3xl h-[800px] flex items-center justify-center">
+        {/* Left arrow */}
+        <button
+          className="absolute left-0 top-1/2 -translate-y-1/2 hover:bg-orange-100 transition"
+          onClick={() => setCurrent((current - 1 + videos.length) % videos.length)}
+          aria-label="Previous video"
+          type="button"
+        >
+          <svg className="w-12 h-12 text-orange-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        {/* Video */}
+        <video
+          key={videos[current]}
+          src={videos[current]}
+          className="w-full h-full rounded-lg"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        {/* Right arrow */}
+        <button
+          className="absolute right-0 top-1/2 -translate-y-1/2 transition"
+          onClick={() => setCurrent((current + 1) % videos.length)}
+          aria-label="Next video"
+          type="button"
+        >
+          <svg className="w-12 h-12 text-orange-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+      <div className="flex gap-2 mt-4">
+        {videos.map((_, idx) => (
+          <button
+            key={idx}
+            className={`w-3 h-3 rounded-full ${idx === current ? "bg-orange-400" : "bg-gray-300"}`}
+            onClick={() => setCurrent(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+      <div className="mt-2 text-sm text-gray-600 font-mono">{altTexts[current]}</div>
+    </div>
+  );
+}
 
 const project = {
   title: "Helping urban dwellers nurture healthy indoor plants effortlessly.",
@@ -667,101 +728,36 @@ export default function CryptoDashboardPage() {
                 {/* Section Title Example */}
                 <SectionTitle>Solution</SectionTitle>
                 <div className="mt-1">
-                <p className="text-md font-extralight leading-relaxed text-gray-600">
+                <p className="text-lg font-extralight leading-relaxed text-gray-600">
                 The solution was PlantCare AI—a mobile app that leverages the power of AI to scan, diagnose, and recommend care strategies based on an actual photo of your plant. Users simply take a snapshot of a leaf or stem using their phone camera, and the AI instantly detects common problems such as overwatering, underwatering, pests, nutrient deficiencies, or fungal infections. Each diagnosis comes with clear, actionable treatment steps, making it easy to address issues before they spiral out of control.
                 </p>
                 <br></br>
-                <br></br>
+
+
+                
+      
 
            
 
                   {/* Video Section */}
-                  <div id="features" className="my-8 max-w-4xl mx-auto">
-                    <div className="grid lg:grid-cols-12 gap-4 items-start">
-                      <div className="lg:col-span-4">
-                        <div className="relative w-[280px] h-[500px]">
-                          <video
-                            src="/video10.mov"
-                            className="absolute inset-0 w-full h-full rounded-lg mix-blend-multiply"
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                          />
-                        </div>
-                      </div>
-                      <div className="lg:col-span-8 pt-32">
-                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-600">Growth Tracking & Insights</h3>
-                        <ul className="text-md font-extralight leading-relaxed text-gray-600">
-                        <br></br>
-                        <li>• By uploading weekly photos, users allow the AI to detect small shifts in the plant's appearance—like early leaf yellowing or hidden pest damage. </li>
-                        <li>• These insights help users respond to problems before they escalate.</li>
-
-                          </ul>
-                      </div>
-                    </div>
+                  <div className="my-8 max-w-full mx-auto">
+                    <VideoCarousel
+                      videos={[
+                        "/video10.mov",
+                        "/video11.mov",
+                        "/video12.mov"
+                      ]}
+                      altTexts={[
+                        "Growth Tracking & Insights",
+                        "AI Plant Health Scanner",
+                        "Community & Expert Chat"
+                      ]}
+                    />
                   </div>
 
-                  {/* Video Section */}
-                  <div className="my-8 max-w-4xl mx-auto">
-                    <div className="grid lg:grid-cols-12 gap-4 items-start ">
-                      <div className="lg:col-span-8 pt-32">
-                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-600">AI Plant Health Scanner</h3>
-                      <br></br>
-                        <ul className="text-md font-extralight leading-relaxed text-gray-600">
-                          <li className="flex items-start">
-                            <span className="mr-2">•</span>
-                            <span>Users can take a photo of a leaf or stem, and the app immediately identifies issues such as overwatering, underwatering, pests, nutrient deficiencies, or diseases. </span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="mr-2">•</span>
-                            <span>The AI then delivers a categorized diagnosis along with clear, actionable treatment steps that even beginners can follow with confidence.</span>
-                          </li>
-                         
-                        </ul>
-                      </div>
-                      <div className="lg:col-span-4">
-                        <div className="relative w-[280px] h-[500px]">
-                          <video
-                            src="/video11.mov"
-                            className="absolute inset-0 w-full h-full rounded-lg mix-blend-multiply"
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                
 
-                       {/* Video Section */}
-                       <div className="my-8 max-w-4xl mx-auto">
-                    <div className="grid lg:grid-cols-12 gap-4 items-start -pb-20">
-                      <div className="lg:col-span-4">
-                        <div className="relative w-[280px] h-[500px]">
-                          <video
-                            src="/video12.mov"
-                            className="absolute inset-0 w-full h-full rounded-lg mix-blend-multiply"
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                          />
-                        </div>
-                      </div>
-                      <div className="lg:col-span-8 pt-32">
-                        <h3 className="font-mono text-3xl font-normal tracking-wide text-gray-600">Community & Expert Chat</h3>
-                        <ul className="text-md font-extralight leading-relaxed text-gray-600">
-                        <br></br>
-                        <li>• PlantCare AI compiles recent health data and translates it into suggested questions or topics for community discussion. </li>
-                        <li>• Users can engage with plant experts or share experiences with other plant lovers in an Instagram-style feed, making the experience social and supportive.</li>
-
-                          </ul>
-                      </div>
-                    </div>
-                  </div>
-
+                
                
                 
 
@@ -776,10 +772,10 @@ export default function CryptoDashboardPage() {
       </main>
 
       {/* Project Cards Navigation */}
-      <div className="flex items-center px-16 py-20">
-        <hr className="flex-grow border-gray-300" />
-        <span className="mx-6 text-2xl font-bold text-gray-900 whitespace-nowrap">More Projects</span>
-        <hr className="flex-grow border-gray-300" />
+      <div className="flex items-center px-16 pb-20">
+        <hr className="flex-grow border-orange-300" />
+        <span className="mx-6 text-lg font-bold font-mono text-gray-900 whitespace-nowrap">more from my portfolio</span>
+        <hr className="flex-grow border-orange-300" />
       </div>
       <div className="px-16 pt-0 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -787,7 +783,10 @@ export default function CryptoDashboardPage() {
             .filter(project => project.href !== "/work/plant-care")
             .slice(0, 3)
             .map((project) => (
-              <ProjectCard key={project.href} project={project} />
+              <div key={project.href} className="relative">
+                <div className="absolute left-1/2 -translate-x-1/2 -top-5 w-60 h-8 bg-orange-300 rounded-none z-20 opacity-50 rotate-1"></div>
+                <ProjectCard project={project} />
+              </div>
             ))}
         </div>
       </div>

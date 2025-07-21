@@ -11,20 +11,21 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { id: "hypothesis", label: "Hypothesis" },
-  { id: "project-overview", label: "Empathise" },
-  
-  { id: "research", label: "Synthesizing Research" },
+  { id: "hypothesis", label: "Motivation" },
+  { id: "project-overview", label: "Problem" },
+  { id: "research", label: "Understanding our users" },
   { id: "problem", label: "Define" },
   { id: "competitive-analysis", label: "Ideate" },
-  { id: "sketching", label: "Prototype" },
-  { id: "lofi-wireframing", label: "Test" },
+  { id: "rebranding", label: "Rebranding" },
+  { id: "sketching", label: "Challenges & Takeaways" },
 ]
 
 export default function TalentoraVerticalNavigation() {
   const [activeSection, setActiveSection] = useState("")
   const [scrolled, setScrolled] = useState(false)
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const [isFixed, setIsFixed] = useState(true)
+  const [showNav, setShowNav] = useState(true)
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -96,12 +97,42 @@ export default function TalentoraVerticalNavigation() {
     }
   }, [])
 
+  useEffect(() => {
+    const updateFixedState = () => {
+      const divider = document.getElementById("more-projects-divider");
+      if (divider) {
+        const dividerTop = divider.getBoundingClientRect().top;
+        setIsFixed(dividerTop > 0);
+      }
+    };
+
+    updateFixedState();
+    window.addEventListener("scroll", updateFixedState);
+    return () => window.removeEventListener("scroll", updateFixedState);
+  }, []);
+
+  useEffect(() => {
+    const updateShowNav = () => {
+      const sketchingElement = document.getElementById("sketching");
+      if (sketchingElement) {
+        const sketchingBottom = sketchingElement.getBoundingClientRect().bottom;
+        setShowNav(sketchingBottom > 0);
+      }
+    };
+
+    updateShowNav();
+    window.addEventListener("scroll", updateShowNav);
+    return () => window.removeEventListener("scroll", updateShowNav);
+  }, []);
+
+  if (!showNav) return null;
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="fixed left-8 top-32 z-30 hidden lg:block"
+      className="fixed left-8 top-32 z-30"
     >
       <nav className="bg-white/80 backdrop-blur-md rounded-lg p-6 min-w-[200px]">
         <ul className="space-y-4">

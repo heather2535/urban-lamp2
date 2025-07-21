@@ -23,17 +23,21 @@ export function ProjectCard({ project }: { project: Project }) {
 
   return (
     <div
-      className="relative block overflow-hidden bg-white dark:bg-gray-800 transition-colors rounded-xl mb-4 shadow-lg hover:shadow-xl"
+      className={
+        `relative block overflow-hidden bg-white dark:bg-gray-800 transition-colors rounded-md mb-4 shadow-2xl hover:shadow-xl transition-transform duration-300 ${isHovered ? 'rotate-2' : ''}`
+      }
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      {/* Orange tape on top */}
+      <div className="absolute left-1/2 -translate-x-1/2 -top-5 w-40 h-4 bg-orange-300 rounded-none z-20 opacity-70 rotate-3"></div>
       {/* Image Section */}
       <Link href={project.href} className="block">
-        <div className="border border-input rounded-t-lg overflow-hidden h-[200px] flex items-center justify-center">
+        <div className="rounded-t-lg overflow-hidden h-[200px] flex items-center justify-center p-6">
         <img
           src={project.image || "/placeholder.svg"}
           alt={project.title}
-            className={`object-cover w-full h-full transition-transform duration-300 ${isHovered ? "scale-110" : "scale-100"}`}
+          className="object-cover w-full h-full transition-transform duration-300"
         />
       </div>
       </Link>
@@ -43,7 +47,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <div className="p-4">
           {/* Title */}
           <h3
-            className={`text-xl font-mono font-semibold transition-colors ${isHovered ? "text-blue-500" : "text-gray-900"}`}
+            className={`text-xl font-mono font-bold transition-colors ${isHovered ? "text-gray-900" : "text-gray-900"}`}
           >
             {project.title}
           </h3>
@@ -68,7 +72,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 return (
                   <span 
                     key={tag} 
-                    className={`font-mono px-2 py-1 rounded-full text-xs ${colors[index % colors.length]}`}
+                    className={`font-mono px-2 py-1 rounded-sm text-xs ${colors[index % colors.length]}`}
                   >
                     {tag}
                   </span>
@@ -78,24 +82,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </Link>
 
-      {/* Share Button */}
-      <button
-        className="border border-input absolute top-4 right-4 p-2 rounded-full bg-white hover:bg-white text-black hover:bg-transparent"
-        onClick={(e) => {
-          e.stopPropagation()
-          if (navigator.share) {
-        navigator.share({
-          title: project.title,
-          text: project.description,
-          url: project.href,
-        }).catch((error) => console.error("Error sharing:", error))
-          } else {
-        console.log("Web Share API not supported in this browser.")
-          }
-        }}
-      >
-        <Share className="h-5 w-5" />
-      </button>
+      
     </div>
   )
 }

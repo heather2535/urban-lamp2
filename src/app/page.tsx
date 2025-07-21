@@ -183,7 +183,7 @@ export default function Portfolio() {
               p.href !== "/work/healthcare-platform" &&
               p.href !== "/work/chaosthesis" &&
               p.href !== "/work/marketing-campaign"
-            ).map((project, index) => (
+            ).slice(0, 4).map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 40 }}
