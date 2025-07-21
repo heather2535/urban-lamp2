@@ -128,9 +128,9 @@ export default function TalentoraPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="py-16 px-16"
+            className="-mt-48 pb-16 px-16"
           >
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1  md:grid-cols-4 gap-8">
               {/* Role */}
               <div>
                 <h3 className="text-lg font-bold tracking-wide text-black mb-4">role</h3>

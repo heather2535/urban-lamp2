@@ -206,7 +206,7 @@ export default function CryptoDashboardPage() {
 
             {/* Image */}
             <motion.div
-              className="relative w-full h-[600px] overflow-hidden -mt-40"
+              className="relative w-full h-[300px] md:h-[600px] overflow-hidden md:-mt-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}

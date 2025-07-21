@@ -395,7 +395,7 @@ export default function AventuraRenderingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="py-16 px-16"
+            className="-mt-48 -pt-16 pb-16 px-16"
           >
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {/* Role */}

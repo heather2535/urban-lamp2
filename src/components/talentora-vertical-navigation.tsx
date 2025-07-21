@@ -132,7 +132,7 @@ export default function TalentoraVerticalNavigation() {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="fixed left-8 top-32 z-30"
+      className="fixed left-8 top-32 z-30 hidden lg:block"
     >
       <nav className="bg-white/80 backdrop-blur-md rounded-lg p-6 min-w-[200px]">
         <ul className="space-y-4">
