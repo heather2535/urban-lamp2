@@ -11,13 +11,13 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { id: "hypothesis", label: "Motivation" },
-  { id: "project-overview", label: "Problem" },
-  { id: "research", label: "Understanding our users" },
-  { id: "problem", label: "Define" },
-  { id: "competitive-analysis", label: "Ideate" },
-  { id: "rebranding", label: "Rebranding" },
-  { id: "sketching", label: "Challenges & Takeaways" },
+  { id: "hypothesis", label: "motivation" },
+  { id: "project-overview", label: "problem" },
+  { id: "research", label: "understanding our users" },
+  { id: "problem", label: "define" },
+  { id: "competitive-analysis", label: "ideate" },
+  { id: "rebranding", label: "rebranding" },
+  { id: "sketching", label: "challenges & takeaways" },
 ]
 
 export default function TalentoraVerticalNavigation() {
@@ -142,11 +142,11 @@ export default function TalentoraVerticalNavigation() {
               <button
                 onClick={handleScrollToTop}
                 className="flex items-center gap-3 group"
-                aria-label="Scroll to Top"
+                aria-label="scroll to Top"
               >
                 <ArrowUp className="w-4 h-4 text-gray-600 group-hover:text-gray-900 transition-all duration-300" />
                 <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-all duration-300 whitespace-nowrap font-mono">
-                  Scroll to Top
+                  scroll to top
                 </span>
               </button>
             ) : (
@@ -156,7 +156,7 @@ export default function TalentoraVerticalNavigation() {
               >
                 <ArrowLeft className="w-3 h-3 text-gray-600 group-hover:text-gray-900 transition-all duration-300" />
                 <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-all duration-300 whitespace-nowrap font-mono">
-                  Return Home
+                  return home
                 </span>
               </Link>
             )}

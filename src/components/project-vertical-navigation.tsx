@@ -11,14 +11,14 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { id: "project-overview", label: "Inspiration" },
-  { id: "problem", label: "Problem" },
-  { id: "research", label: "Research" },
-  { id: "competitive-analysis", label: "Competitive Analysis" },
-  { id: "sketching", label: "Sketching" },
-  { id: "lofi-wireframing", label: "LoFi Wireframing" },
-  { id: "refining-prototyping", label: "Refining & Prototyping" },
-  { id: "solution", label: "Solution" },
+  { id: "project-overview", label: "inspiration" },
+  { id: "problem", label: "problem" },
+  { id: "research", label: "research" },
+  { id: "competitive-analysis", label: "competitive Analysis" },
+  { id: "sketching", label: "sketching" },
+  { id: "lofi-wireframing", label: "lofi wireframing" },
+  { id: "refining-prototyping", label: "refining & prototyping" },
+  { id: "solution", label: "solution" },
 ]
 
 export default function ProjectVerticalNavigation() {
@@ -118,7 +118,7 @@ export default function ProjectVerticalNavigation() {
               >
                 <ArrowUp className="w-4 h-4 text-gray-600 group-hover:text-gray-900 transition-all duration-300" />
                 <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-all duration-300 whitespace-nowrap font-mono">
-                  Scroll to Top
+                  scroll to top
                 </span>
               </button>
             ) : (
@@ -128,7 +128,7 @@ export default function ProjectVerticalNavigation() {
               >
                 <ArrowLeft className="w-3 h-3 text-gray-600 group-hover:text-gray-900 transition-all duration-300" />
                 <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-all duration-300 whitespace-nowrap font-mono">
-                  Return Home
+                  return home
                 </span>
               </Link>
             )}

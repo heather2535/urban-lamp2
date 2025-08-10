@@ -172,12 +172,12 @@ export default function TalentoraPage() {
           </motion.div>
 
            {/* Diagonal Line Divider */}
-           <div className="flex justify-center -py-4 -mt-10">
+           <div className="flex justify-center pt-10 -mt-10">
             <div className="flex space-x-3">
               {[...Array(10)].map((_, i) => (
                 <div
                   key={i}
-                  className="w-1 h-8 bg-orange-300 transform rotate-45"
+                  className=" w-1 h-8 bg-orange-300 transform rotate-45"
                 />
               ))}
             </div>
@@ -211,7 +211,7 @@ export default function TalentoraPage() {
 
         {/* Section Title Example */}
          <div className="px-16">
-           <SectionTitle>Motivation</SectionTitle>
+           <SectionTitle>motivation</SectionTitle>
          </div>
          
 
@@ -246,7 +246,7 @@ export default function TalentoraPage() {
 
         <div className="px-16 md:col-span-12">      
         {/* Section Title Example */}
-        <SectionTitle>Problem</SectionTitle>
+        <SectionTitle>problem</SectionTitle>
         </div>
         
 
@@ -446,7 +446,7 @@ export default function TalentoraPage() {
 
 
 
-                    <SectionTitle>Define</SectionTitle>
+                    <SectionTitle>define</SectionTitle>
                     <div className="-mt-2">
                       <p className="text-lg font-extralight leading-relaxed text-gray-600">
                       Reframing the results from the research phase as “How might we..”(HMW) questions, to turn those into potential problem statements.
@@ -567,7 +567,7 @@ export default function TalentoraPage() {
 
 
             <div className="px-16">
-            <SectionTitle>Ideate</SectionTitle> 
+            <SectionTitle>ideate</SectionTitle> 
             </div>
             <p className="px-16 text-lg font-extralight leading-relaxed text-gray-600">
             As we moved toward launching the MVP for the conversational AI hiring platform, I focused our design strategy on acquiring and retaining recruiters—our primary users and the key to driving adoption. Starting from the marketing site, I crafted a streamlined onboarding flow that made it easy for recruiters to understand the platform’s value and get started quickly. I imagined a user like Sam—a busy founder or hiring manager at a growing startup—who needs to evaluate candidates efficiently but doesn’t have time for a traditional hiring process. Sam can sign up, create a job posting, and instantly access a library of customizable interview bots. Within minutes, she can start reviewing applicants with AI-generated insights—from sentiment analysis to qualification summaries—without having to manually screen each résumé. This personalized and efficient experience helps recruiters like Sam make smarter decisions, faster, while preserving the nuance of real human conversations.
@@ -671,7 +671,7 @@ export default function TalentoraPage() {
             ></div>
 
             
-            <SectionTitle>Rebranding</SectionTitle>
+            <SectionTitle>rebranding</SectionTitle>
           </div>
           <p className="px-16 text-lg font-extralight leading-relaxed text-gray-600">
                   Talentora is redefining hiring for small and medium-sized businesses. With a focus on <strong>efficiency</strong>, <strong>empathy</strong>, and <strong>intelligence</strong>, the platform helps teams hire smarter—without the high costs or time demands of traditional recruiting. Whether you're an overextended founder, a lean HR manager, or a job seeker looking for a modern interview experience, Talentora offers a powerful solution for building your dream team.

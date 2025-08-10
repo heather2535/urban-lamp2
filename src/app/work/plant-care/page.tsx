@@ -302,7 +302,7 @@ export default function CryptoDashboardPage() {
             }}
           >
                 {/* Section Title Example */}
-                <SectionTitle>Inspiration</SectionTitle>
+                <SectionTitle>inspiration</SectionTitle>
 
           
                 <div className="-mt-2">
@@ -330,7 +330,7 @@ export default function CryptoDashboardPage() {
             >
               <div className="md:col-span-12">
                 {/* Section Title Example */}
-                <SectionTitle>Problem</SectionTitle>
+                <SectionTitle>problem</SectionTitle>
 
 
                 <div className="-mt-2">
@@ -376,7 +376,7 @@ export default function CryptoDashboardPage() {
                   }}
                 >
                   <div className="md:col-span-12">
-                    <SectionTitle>Research</SectionTitle>
+                    <SectionTitle>research</SectionTitle>
                     <div className="-mt-2">
                       <p className="text-lg font-extralight leading-relaxed text-gray-600">
                         As indoor gardening surged in popularity —especially among urban dwellers seeking connection, calm, or cleaner air —many new plant owners found themselves frustrated by the <strong>complexity of plant care</strong>. What starts as joy often turns to <strong>uncertainty </strong>when symptoms like yellowing leaves or drooping stems appear without explanation. Through <strong>surveys, interviews, and contextual inquiry</strong> with 8 plant owners living in small apartments, I explored this emotional journey and the <strong>knowledge gaps</strong> that prevent confident plant care.
@@ -450,7 +450,7 @@ export default function CryptoDashboardPage() {
               }}
             >
               <div className="md:col-span-12">
-                <SectionTitle>Competitive Analysis</SectionTitle>
+                <SectionTitle>competitive analysis</SectionTitle>
                 <div className="-mt-2">
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
                   I examined PlantSnap, PictureThis, and Planta to see how existing successful apps focusing on AI-driven diagnostics, personalized care, and community support for indoor plant owner compared to PlantCare AI.
@@ -516,7 +516,7 @@ export default function CryptoDashboardPage() {
               }}
             >
               <div className="md:col-span-12">
-                <SectionTitle>Sketching</SectionTitle>
+                <SectionTitle>sketching</SectionTitle>
                 <div className="-mt-2">
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
                   With a clear understanding of users’ emotional pain points—uncertainty, guilt, and isolation—I began sketching out key interaction points where reassurance and simplicity could be built into the experience. I explored layouts that prioritized image-based diagnosis, streamlined care actions, and progress feedback. One of my primary goals during sketching was to reduce cognitive load while maintaining a sense of companionship. I iterated on ways to make AI recommendations feel like gentle nudges rather than commands, experimenting with visual metaphors like glowing indicators, chat-style prompts, and photo-first onboarding to make the app feel inviting from the first tap.
@@ -571,7 +571,7 @@ export default function CryptoDashboardPage() {
               }}
             >
               <div className="md:col-span-12">
-                <SectionTitle>LoFi Wireframing</SectionTitle>
+                <SectionTitle>lofi wireframing</SectionTitle>
                 <div className="mt-1">
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
                   I then iterated on the wireframes with a focus on how AI-driven insights, actionable fixes, and visual feedback loops could create a more anchored, habit-forming experience.
@@ -660,7 +660,7 @@ export default function CryptoDashboardPage() {
               }}
             >
               <div className="md:col-span-12">
-                <SectionTitle>Refining & Prototyping</SectionTitle>
+                <SectionTitle>refining & prototyping</SectionTitle>
                 <div className="mt-1">
                   <p className="text-lg font-extralight leading-relaxed text-gray-600">
                     Refining & prototyping content will go here. This section will show the iterative refinement process and high-fidelity prototyping, including user testing insights and design iterations.
@@ -782,11 +782,17 @@ export default function CryptoDashboardPage() {
           {projects
             .filter(project => project.href !== "/work/plant-care")
             .slice(0, 3)
-            .map((project) => (
-              <div key={project.href} className="relative">
+            .map((project, idx) => (
+              <motion.div
+                key={project.href}
+                className="relative"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 + idx * 0.15 }}
+              >
                 <div className="absolute left-1/2 -translate-x-1/2 -top-5 w-60 h-8 bg-orange-300 rounded-none z-20 opacity-50 rotate-1"></div>
                 <ProjectCard project={project} />
-              </div>
+              </motion.div>
             ))}
         </div>
       </div>

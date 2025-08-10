@@ -155,24 +155,10 @@ export default function CryptoDashboardPage() {
         </motion.div>
       </div>
 
-      <Navigation />
+     
       <main className="container mx-auto px-6 lg:px-8 relative z-10">
         <article className="prose lg:prose-xl dark:prose-invert">
-          {/* Back Button */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="pt-8 mb-12"
-          >
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-800 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Projects
-            </Link>
-          </motion.div>
+         
 
           {/* Hero Section - Two Column Layout */}
           <motion.div
@@ -344,24 +330,6 @@ export default function CryptoDashboardPage() {
             <div dangerouslySetInnerHTML={{ __html: project.content }} />
           </motion.div>
 
-          {/* Navigation */}
-          <div className="flex justify-between items-center">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Projects
-            </Link>
-
-            <Link
-              href="/work/healthcare-platform"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
-            >
-              Next Project
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
         </article>
       </main>
     </div>
