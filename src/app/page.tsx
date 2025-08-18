@@ -179,11 +179,11 @@ export default function Portfolio() {
         <div className="w-full mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-8 sm:gap-12">
             {projects.filter(p => 
-              p.title !== "Hariri Institute Website" && 
-              p.href !== "/work/healthcare-platform" &&
-              p.href !== "/work/chaosthesis" &&
-              p.href !== "/work/marketing-campaign"
-            ).slice(0, 4).map((project, index) => (
+              p.title === "Plant Care AI" ||
+              p.title === "Taffy" ||
+              p.title === "AI Task Force Web App" ||
+              p.title === "Cervera Real Estate"
+            ).map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 40 }}

@@ -853,14 +853,31 @@ export default function TalentoraPage() {
         <hr className="flex-grow border-gray-300" />
       </div>
       <div className="px-16 pt-0 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Debug info - remove this later */}
+        <div className="text-center text-sm text-gray-500 mb-4 p-4 bg-gray-100 rounded">
+          <p>Total projects in data: {projects.length}</p>
+          <p>Projects after filtering: {projects.filter(project => project.href !== "/work/talentora").length}</p>
+          <p>Filtered projects:</p>
+          <ul className="text-left max-w-md mx-auto">
+            {projects
+              .filter(project => project.href !== "/work/talentora")
+              .map((project, index) => (
+                <li key={project.href} className="text-xs">
+                  {index + 1}. {project.title} - {project.href}
+                </li>
+              ))}
+          </ul>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {projects
             .filter(project => project.href !== "/work/talentora")
-            .slice(0, 3)
-            .map((project) => (
-              <div key={project.href} className="relative">
+            .map((project, index) => (
+              <div key={project.href} className="relative border-2 border-red-500">
                 <div className="absolute left-1/2 -translate-x-1/2 -top-5 w-60 h-8 bg-orange-300 rounded-none z-20 opacity-50 rotate-1"></div>
                 <ProjectCard project={project} />
+                {/* Debug info - remove this later */}
+                <div className="text-xs text-gray-400 mt-2 text-center bg-yellow-200 p-1">Project {index + 1}: {project.title}</div>
               </div>
             ))}
         </div>

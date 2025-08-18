@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react"
-import Navigation from "@/components/navigation"
 import { Badge } from "@/components/badge"
 import { SearchBar } from "@/components/search-bar"
 import Link from "next/link"
@@ -8,12 +7,17 @@ import { Folder, Grid, Cpu, Tag, BarChart, Palette, Layers, Code, Layout, Packag
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Playfair_Display } from 'next/font/google'
+import { ProjectNavigation } from "@/components/project-navigation"
+import VerticalNavigation from "@/components/vertical-navigation"
+import SectionTitle from "@/components/SectionTitle"
+import { ProjectCard } from "@/components/project-card"
+import { projects } from "@/data/projects"
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
 const project = {
-  title: "AI Task Force Policy Dashboard",
-  description: "A visual and interactive web app for student researchers and faculty conducting effective and responsible research using AI.",
+  title: "AI Task Force\nWeb App",
+  description: "that guides the university’s approach to generative AI by reviewing practices, recommending policies.",
   date: "December 3, 2024",
   image: "/images/image29.png",
   content: `
@@ -22,7 +26,7 @@ const project = {
         <div></div>
         <div className="mt-4">
           <img
-            src="/images/image30.png"
+            src="/images/image29.png"
             alt="ALS Clinical Decision Tool"
             className="rounded-lg shadow-md w-full max-w-sm mx-auto"
             style={{ height: "auto" }}
@@ -78,52 +82,18 @@ export default function CryptoDashboardPage() {
   })
 
   return (
-    <div className="min-h-screen bg-transparent">
-      {/* Floating geometric shapes */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <motion.div
-          className="absolute top-32 left-16 text-orange-300 opacity-15"
-          animate={{ rotate: 360, scale: [1, 1.2, 1] }}
-          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        >
-          <Circle size={80} />
-        </motion.div>
-        <motion.div
-          className="absolute top-1/2 right-24 text-purple-300 opacity-20"
-          animate={{ rotate: -360, y: [-20, 20, -20] }}
-          transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-        >
-          <Square size={60} />
-        </motion.div>
-        <motion.div
-          className="absolute bottom-32 left-1/3 text-pink-300 opacity-25"
-          animate={{ rotate: 180, x: [-10, 10, -10] }}
-          transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-        >
-          <Triangle size={45} />
-        </motion.div>
-      </div>
+    <div className="min-h-screen bg-white">
 
-      <main className="relative">
-        <article className="prose lg:prose-xl dark:prose-invert">
-          {/* Back Button */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="absolute top-32 left-8 z-20"
-          >
-            <Link
-              href="/#projects"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm text-gray-900 dark:text-white rounded-full text-sm font-medium hover:bg-gray-900/20 dark:hover:bg-white/20 transition-colors duration-300"
-            >
-              <ArrowLeft className="w-3 h-3" />
-              Back to Projects
-            </Link>
-          </motion.div>
+      {/* Project Vertical Navigation */}
+      <VerticalNavigation />
+
+      <main className="relative lg:ml-64">
+        <article className="prose lg:prose-xl">
+
 
           {/* Hero Section */}
           <motion.div
+            id="hero"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -132,26 +102,26 @@ export default function CryptoDashboardPage() {
           >
             {/* Text Content */}
             <motion.div
-              className="relative z-10 pt-60 pb-20 w-screen"
+              className="relative z-10 pt-12 max-w-7xl pb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="px-16">
-                <div className="max-w-7xl mx-auto space-y-8">
+                <div className="max-w-7xl mx-auto space-y-4">
                   <motion.h1
-                    className={`${playfair.className} text-3xl md:text-5xl font-normal tracking-wide`}
+                    className="font-mono text-3xl md:text-5xl font-normal tracking-wide leading-relaxed"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                   >
-                    <span className="text-gray-900 dark:text-white">
+                    <span className="text-gray-600">
                       {project.title}
                     </span>
                   </motion.h1>
 
                   <motion.p
-                    className={`${playfair.className} text-3xl md:text-5xl max-w-2xl font-normal leading-relaxed text-gray-800 dark:text-white/90`}
+                    className={`${playfair.className} text-3xl md:text-5xl max-w-2xl font-normal leading-relaxed text-gray-800`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
@@ -160,48 +130,32 @@ export default function CryptoDashboardPage() {
                   </motion.p>
 
                   <motion.div
-                    className="flex items-center gap-3 text-gray-800 dark:text-white/90"
+                    className="flex items-center gap-3 text-gray-600"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                   >
-                    <span className="text-sm font-medium">{project.date}</span>
-                  </motion.div>
-
-                  {/* Tags */}
-                  <motion.div
-                    className="flex flex-wrap justify-end gap-2 max-w-xl ml-auto"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.7 }}
-                  >
-                    {filteredProjects.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1.5 bg-gray-900/10 dark:bg-white/20 backdrop-blur-md text-gray-900 dark:text-white rounded-full text-xs font-extralight hover:bg-gray-900/20 dark:hover:bg-white/30 transition-colors duration-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <span className="text-xl font-extralight">{project.date}</span>
                   </motion.div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Hero Image */}
+            {/* Image */}
             <motion.div
-              className="relative w-full h-[600px]"
+              className="relative w-full h-[600px] overflow-hidden justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="relative w-full">
+              <div className="flex justify-start -ml-8">
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={1920}
                   height={1080}
-                  className="w-full h-full object-cover"
+                  className="w-full max-w-7xl h-full object-contain rounded-3xl"
+                  style={{ objectPosition: 'center 30%' }}
                   priority
                 />
               </div>
@@ -210,73 +164,80 @@ export default function CryptoDashboardPage() {
 
           {/* Project Details Section */}
           <motion.div
+            id="project-details"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16 pt-60"
+            className="mt-8 pb-16 px-16"
           >
-            {/* Scroll to Explore */}
-            <motion.div
-              className="flex flex-col items-center justify-center gap-2 text-gray-500 my-24 group"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <span className="text-sm">Scroll to explore</span>
-              <ChevronRight className="w-4 h-4 rotate-90 group-hover:translate-y-1 transition-transform duration-300" />
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-              {/* Title */}
-              <div className="md:col-span-4">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white`}>Project Details</h3>
+            <div className="grid grid-cols-1  md:grid-cols-4 gap-8">
+              {/* Role */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">role</h3>
+                <p className="text-sm font-extralight text-gray-600">Design Strategist, UX Researcher, UI/UX</p>
               </div>
 
-              {/* Labels */}
-              <div className="md:col-span-4 space-y-12">
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">DURATION</h3>
-                </div>
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">ROLE</h3>
-                </div>
-                <div>
-                  <h3 className="text-sm font-extralight uppercase tracking-wide text-gray-400">TEAM</h3>
-                </div>
+              {/* Team */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">team</h3>
+                <p className="text-sm font-extralight text-gray-600">Heather Davies</p>
+                <p className="text-sm font-extralight text-gray-600">Jason Huang</p>
+                <p className="text-sm font-extralight text-gray-600">Wesley Wildman</p>
               </div>
 
-              {/* Content */}
-              <div className="md:col-span-4 space-y-12">
-                <div>
-                  <p className="text-sm font-extralight text-gray-400">{project.duration}</p>
-                </div>
-                <div>
-                  <p className="text-sm font-extralight text-gray-400">{project.role}</p>
-                </div>
-                <div>
-                  {project.team.map((member) => (
-                    <p key={member} className="text-sm font-extralight text-gray-400">
-                      {member}
-                    </p>
-                  ))}
+              {/* Tools */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">tools</h3>
+                <p className="text-sm font-extralight text-gray-600">Figma</p>
+                <p className="text-sm font-extralight text-gray-600">Adobe XD</p>
+                <p className="text-sm font-extralight text-gray-600">Adobe Illustrator</p>
+                <p className="text-sm font-extralight text-gray-600">Adobe Photoshop</p>
+              </div>
+
+              {/* Skills */}
+              <div>
+                <h3 className="text-lg font-bold tracking-wide text-black mb-4">skills</h3>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                  <p className="text-sm font-extralight text-gray-600">AI/ML</p>
+                  <p className="text-sm font-extralight text-gray-600">UI/UX Design</p>
+                  <p className="text-sm font-extralight text-gray-600">Product Design</p>
+                  <p className="text-sm font-extralight text-gray-600">Data Visualization</p>
+                  <p className="text-sm font-extralight text-gray-600">User Research</p>
                 </div>
               </div>
             </div>
           </motion.div>
 
+           {/* Diagonal Line Divider */}
+           <div className="flex justify-center pt-10 -mt-10">
+            <div className="flex space-x-3">
+              {[...Array(10)].map((_, i) => (
+                <div
+                  key={i}
+                  className=" w-1 h-8 bg-orange-300 transform rotate-45"
+                />
+              ))}
+            </div>
+          </div>
+
           {/* Problem Statement Section */}
           <motion.div
+            id="problem"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="px-16 scroll-mt-4"
+            onMouseEnter={() => {
+              const event = new CustomEvent('sectionHover', { detail: 'problem' })
+              window.dispatchEvent(event)
+            }}
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
-                <h3 className={`${playfair.className} text-3xl font-normal tracking-wide text-gray-900 dark:text-white mb-8`}>Problem Statement</h3>
-                <p className="text-gray-400 font-extralight">
+                <SectionTitle>Problem Statement</SectionTitle>
+                <p className="text-gray-600 font-extralight leading-relaxed">
                   The AI Task Force at Boston University needed a way to track and manage research projects while ensuring compliance with ethical guidelines and institutional policies. The existing process was manual and time-consuming, leading to potential delays and inconsistencies in research oversight.
                 </p>
               </div>
@@ -285,16 +246,21 @@ export default function CryptoDashboardPage() {
 
           {/* Goals Section */}
           <motion.div
+            id="goals"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="px-16 scroll-mt-4"
+            onMouseEnter={() => {
+              const event = new CustomEvent('sectionHover', { detail: 'goals' })
+              window.dispatchEvent(event)
+            }}
           >
-            <h2 className={`text-3xl font-semibold mb-8 ${playfair.className}`}>Goals</h2>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
-                <p className="text-gray-400 font-extralight">
+                <SectionTitle>Goals</SectionTitle>
+                <p className="text-gray-600 font-extralight leading-relaxed">
                   The primary objectives of this project were to streamline research management, ensure compliance, and enhance collaboration. We aimed to create a centralized platform for tracking research progress and managing documentation, implement a system to track and verify compliance with ethical guidelines and institutional policies, and facilitate communication between researchers, faculty advisors, and institutional review boards.
                 </p>
               </div>
@@ -303,22 +269,27 @@ export default function CryptoDashboardPage() {
 
           {/* Research & Discovery Section */}
           <motion.div
+            id="research"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="px-16 scroll-mt-4"
+            onMouseEnter={() => {
+              const event = new CustomEvent('sectionHover', { detail: 'research' })
+              window.dispatchEvent(event)
+            }}
           >
-            <h2 className={`text-3xl font-semibold mb-8 ${playfair.className}`}>Research & Discovery</h2>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
-                <h3 className={`text-xl font-semibold mb-4 ${playfair.className}`}>User Interviews</h3>
-                <p className="text-gray-400 font-extralight mb-8">
+                <SectionTitle>Research & Discovery</SectionTitle>
+                <h3 className="text-xl font-semibold mb-4 font-mono">User Interviews</h3>
+                <p className="text-gray-600 font-extralight leading-relaxed mb-8">
                   Conducted interviews with student researchers, faculty advisors, and institutional review board members to understand their needs, pain points, and workflows. Student researchers needed a way to track their progress and ensure compliance, faculty advisors wanted to monitor multiple projects and provide feedback, and institutional review boards needed a streamlined process for reviewing and approving research.
                 </p>
 
-                <h3 className={`text-xl font-semibold mb-4 ${playfair.className}`}>Competitive Analysis</h3>
-                <p className="text-gray-400 font-extralight">
+                <h3 className="text-xl font-semibold mb-4 font-mono">Competitive Analysis</h3>
+                <p className="text-gray-600 font-extralight leading-relaxed">
                   Analyzed existing research management systems and identified opportunities for improvement in terms of usability, compliance tracking, and collaboration features. Existing systems were often complex and difficult to navigate, compliance tracking was typically manual and error-prone, and collaboration features were limited or non-existent.
                 </p>
               </div>
@@ -327,24 +298,29 @@ export default function CryptoDashboardPage() {
 
           {/* User Personas Section */}
           <motion.div
+            id="personas"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="px-16 scroll-mt-4"
+            onMouseEnter={() => {
+              const event = new CustomEvent('sectionHover', { detail: 'personas' })
+              window.dispatchEvent(event)
+            }}
           >
-            <h2 className={`text-3xl font-semibold mb-8 ${playfair.className}`}>User Personas</h2>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
+                <SectionTitle>User Personas</SectionTitle>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="relative group h-full">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-pink-500 rounded-lg opacity-30 group-hover:opacity-50 transition duration-300"></div>
-                    <div className="relative bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-lg border border-gray-200/50 dark:border-gray-800/50 group-hover:border-gray-300/50 dark:group-hover:border-gray-700/50 transition duration-300 h-full">
-                      <h3 className="text-xl font-semibold mb-4">Student Researcher</h3>
-                      <p className="text-gray-600 dark:text-gray-400 font-extralight mb-4">
+                    <div className="relative bg-white/50 backdrop-blur-sm p-6 rounded-lg border border-gray-200/50 group-hover:border-gray-300/50 transition duration-300 h-full">
+                      <h3 className="text-xl font-semibold mb-4 font-mono">Student Researcher</h3>
+                      <p className="text-gray-600 font-extralight mb-4">
                         Graduate student conducting AI research who needs to track progress and ensure compliance with ethical guidelines.
                       </p>
-                      <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 font-extralight space-y-2">
+                      <ul className="list-disc list-inside text-gray-600 font-extralight space-y-2">
                         <li>Needs to track research progress</li>
                         <li>Must ensure compliance with guidelines</li>
                         <li>Wants to collaborate with advisors</li>
@@ -353,12 +329,12 @@ export default function CryptoDashboardPage() {
                   </div>
                   <div className="relative group h-full">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-pink-500 rounded-lg opacity-30 group-hover:opacity-50 transition duration-300"></div>
-                    <div className="relative bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-lg border border-gray-200/50 dark:border-gray-800/50 group-hover:border-gray-300/50 dark:group-hover:border-gray-700/50 transition duration-300 h-full">
-                      <h3 className="text-xl font-semibold mb-4">Faculty Advisor</h3>
-                      <p className="text-gray-600 dark:text-gray-400 font-extralight mb-4">
+                    <div className="relative bg-white/50 backdrop-blur-sm p-6 rounded-lg border border-gray-200/50 group-hover:border-gray-300/50 transition duration-300 h-full">
+                      <h3 className="text-xl font-semibold mb-4 font-mono">Faculty Advisor</h3>
+                      <p className="text-gray-600 font-extralight mb-4">
                         Professor overseeing multiple research projects who needs to monitor progress and provide guidance.
                       </p>
-                      <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 font-extralight space-y-2">
+                      <ul className="list-disc list-inside text-gray-600 font-extralight space-y-2">
                         <li>Monitors multiple projects</li>
                         <li>Provides feedback and guidance</li>
                         <li>Ensures research quality</li>
@@ -367,12 +343,12 @@ export default function CryptoDashboardPage() {
                   </div>
                   <div className="relative group h-full">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-pink-500 rounded-lg opacity-30 group-hover:opacity-50 transition duration-300"></div>
-                    <div className="relative bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-lg border border-gray-200/50 dark:border-gray-800/50 group-hover:border-gray-300/50 dark:group-hover:border-gray-700/50 transition duration-300 h-full">
-                      <h3 className="text-xl font-semibold mb-4">Review Board Member</h3>
-                      <p className="text-gray-600 dark:text-gray-400 font-extralight mb-4">
+                    <div className="relative bg-white/50 backdrop-blur-sm p-6 rounded-lg border border-gray-200/50 group-hover:border-gray-300/50 transition duration-300 h-full">
+                      <h3 className="text-xl font-semibold mb-4 font-mono">Review Board Member</h3>
+                      <p className="text-gray-600 font-extralight mb-4">
                         Institutional review board member who needs to evaluate research proposals and ensure compliance.
                       </p>
-                      <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 font-extralight space-y-2">
+                      <ul className="list-disc list-inside text-gray-600 font-extralight space-y-2">
                         <li>Reviews research proposals</li>
                         <li>Ensures compliance with policies</li>
                         <li>Provides approvals and feedback</li>
@@ -386,33 +362,38 @@ export default function CryptoDashboardPage() {
 
           {/* Next Steps Section */}
           <motion.div
+            id="next-steps"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="px-16 scroll-mt-4"
+            onMouseEnter={() => {
+              const event = new CustomEvent('sectionHover', { detail: 'next-steps' })
+              window.dispatchEvent(event)
+            }}
           >
-            <h2 className={`text-3xl font-semibold mb-8 ${playfair.className}`}>Next Steps</h2>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
+                <SectionTitle>Next Steps</SectionTitle>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div>
-                    <h3 className={`text-xl font-semibold mb-4 ${playfair.className}`}>Implementation</h3>
-                    <p className="text-gray-400 font-extralight mb-6">
+                    <h3 className="text-xl font-semibold mb-4 font-mono">Implementation</h3>
+                    <p className="text-gray-600 font-extralight mb-6 leading-relaxed">
                       Work with developers to implement the dashboard, focusing on usability, compliance tracking, and collaboration features.
                     </p>
-                    <ul className="list-disc list-inside text-gray-400 font-extralight space-y-2">
+                    <ul className="list-disc list-inside text-gray-600 font-extralight space-y-2">
                       <li>Develop core functionality</li>
                       <li>Implement compliance tracking</li>
                       <li>Add collaboration features</li>
                     </ul>
                   </div>
                   <div>
-                    <h3 className={`text-xl font-semibold mb-4 ${playfair.className}`}>Testing & Iteration</h3>
-                    <p className="text-gray-400 font-extralight mb-6">
+                    <h3 className="text-xl font-semibold mb-4 font-mono">Testing & Iteration</h3>
+                    <p className="text-gray-600 font-extralight mb-6 leading-relaxed">
                       Conduct user testing with student researchers, faculty advisors, and review board members to gather feedback and make improvements.
                     </p>
-                    <ul className="list-disc list-inside text-gray-400 font-extralight space-y-2">
+                    <ul className="list-disc list-inside text-gray-600 font-extralight space-y-2">
                       <li>Test with real users</li>
                       <li>Gather feedback</li>
                       <li>Make improvements</li>
@@ -425,11 +406,16 @@ export default function CryptoDashboardPage() {
 
           {/* Dashboard View Section */}
           <motion.div
+            id="dashboard-view"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="px-16 scroll-mt-4"
+            onMouseEnter={() => {
+              const event = new CustomEvent('sectionHover', { detail: 'dashboard-view' })
+              window.dispatchEvent(event)
+            }}
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
@@ -450,8 +436,8 @@ export default function CryptoDashboardPage() {
                     </p>
                   </div>
                   <div className="flex flex-col justify-center">
-                    <h3 className={`${playfair.className} text-3xl font-semibold tracking-wide text-gray-900 dark:text-white mb-8`}>Dashboard View</h3>
-                    <p className="text-gray-400 font-extralight mb-8">
+                    <h3 className="text-3xl font-semibold tracking-wide text-gray-900 mb-8 font-mono">Dashboard View</h3>
+                    <p className="text-gray-600 font-extralight mb-8 leading-relaxed">
                       The dashboard view provides a comprehensive overview of the research landscape, allowing users to explore semantic network interconnections between various research papers. This view helps researchers understand the relationships and patterns within their field of study.
                     </p>
                   </div>
@@ -462,18 +448,23 @@ export default function CryptoDashboardPage() {
 
           {/* Adder View Section */}
           <motion.div
+            id="adder-view"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="px-16 scroll-mt-4"
+            onMouseEnter={() => {
+              const event = new CustomEvent('sectionHover', { detail: 'adder-view' })
+              window.dispatchEvent(event)
+            }}
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div className="flex flex-col justify-center">
-                    <h3 className={`${playfair.className} text-3xl font-semibold tracking-wide text-gray-900 dark:text-white mb-8`}>Adder View</h3>
-                    <p className="text-gray-400 font-extralight mb-8">
+                    <h3 className="text-3xl font-semibold tracking-wide text-gray-900 mb-8 font-mono">Adder View</h3>
+                    <p className="text-gray-600 font-extralight mb-8 leading-relaxed">
                       The adder view provides a streamlined interface for quickly accessing critical information about research papers and assessing their relevance to ongoing research. This view helps researchers efficiently evaluate and incorporate new sources into their work.
                     </p>
                   </div>
@@ -499,23 +490,28 @@ export default function CryptoDashboardPage() {
 
           {/* Motion and Animation Section */}
           <motion.div
+            id="motion-animation"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-20 px-16"
+            className="px-16 scroll-mt-4"
+            onMouseEnter={() => {
+              const event = new CustomEvent('sectionHover', { detail: 'motion-animation' })
+              window.dispatchEvent(event)
+            }}
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-8">
-                <h3 className={`${playfair.className} text-3xl font-semibold tracking-wide text-gray-900 dark:text-white mb-8`}>V3 — Motion and Animation</h3>
+                <SectionTitle>V3 — Motion and Animation</SectionTitle>
                 <div className="space-y-6">
-                  <p className="text-gray-400 font-extralight">
+                  <p className="text-gray-600 font-extralight leading-relaxed">
                     Learning about and utilizing animation was very compelling to me because although I had worked with visual design in the past, I'd never really had an opportunity to implement animation and motion in a design before. I knew I wanted my animations to supplement the welcoming nature of my dashboard, so it was crucial that my animations enhanced my UX, and didn't sabotage it.
                   </p>
-                  <p className="text-gray-400 font-extralight">
+                  <p className="text-gray-600 font-extralight leading-relaxed">
                     Upon assessing my dashboard, there were a few animations I immediately sought to implement, and a few others that occurred to me as I worked through my next iteration. I knew that I wanted to have the user be able to scroll down the Recommendaton bar ; however, I had to make sure that the way I animated in XD actually made it feel like a scroll bar, and not just a dissolving mess downward. This meant that all of the comment panels had to stay in place and not warp as the user scrolled.
                   </p>
-                  <p className="text-gray-400 font-extralight">
+                  <p className="text-gray-600 font-extralight leading-relaxed">
                     Another animation that proved successful was the ability to click on the Graph View toggle to select which graph was to be viewed: Semantic Network or Topic Analysis. For this animation, I used an easing-out dissolve of the darkened button to indicate that the button was essentially shifting to the next question.
                   </p>
                 </div>
@@ -526,7 +522,7 @@ export default function CryptoDashboardPage() {
           {/* Navigation */}
           <div className="flex justify-between items-center px-16 mb-20">
             <Link
-              href="/projects"
+              href="/#projects"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-gray-300 transition-colors duration-300"
             >
               <ArrowLeft className="w-4 h-4" />

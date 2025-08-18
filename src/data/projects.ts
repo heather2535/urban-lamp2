@@ -20,7 +20,7 @@ export const projects: Project[] = [
     tags: ["All Projects", "AI Diagnostics", "Plant Care", "Mobile App", "User Research", "UI/UX Design", "Accessibility"],
   },
   {
-    title: "Talentora",
+    title: "Taffy",
     description: "An AI Recruiting Tool for HR Managers",
     date: "February 3, 2025",
     image: "/image16.png",
@@ -66,7 +66,7 @@ export const projects: Project[] = [
   },
  
   {
-    title: "Generative AI Task Force Dashboard",
+    title: "AI Task Force Web App",
     description: "Provides advice to the Generative AI Task Force",
     date: "December 28, 2024",
     image: "/images/image29.png",
